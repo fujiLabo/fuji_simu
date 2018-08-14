@@ -1,1 +1,11 @@
 <h1>createページ</h1>
+
+<%#postで送信されてきた値を画面に表示する%>
+<p1><%= params %></p1>
+<h3><%= @temp %></h3>
+
+
+
+<%= form_tag('/home/top', method: :get) do %>
+  <input type = "submit" value = "topへ">
+<% end %>

@@ -1,1 +1,9 @@
 <h1>topページ</h1>
+
+<%= form_tag('/home/temp', method: :get) do %>
+<input type = "submit" value = "tempへ">
+<% end %>
+
+<%= form_tag('/home/create', method: :post) do %>
+<input type = "submit" value = "createへ">
+<% end %>
