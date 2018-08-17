@@ -11,6 +11,10 @@
 // about supported directives.
 //
 
+//jquery導入のため書き足し
+//= require jquery
+
+
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
