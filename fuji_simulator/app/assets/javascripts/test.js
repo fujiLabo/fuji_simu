@@ -7,6 +7,3 @@ $(document).on('turbolinks:load', function() {
 $(function(){
   $('p').css('color','orenge');
 });
-
-//var str = "JS Test in Rails";
-//console.log(str);
