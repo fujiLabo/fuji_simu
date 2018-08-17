@@ -1,16 +1,17 @@
 
 .PC{
-  height: 150px;
-  width: 150px;
+  //height: 200px;
+  //width: 100px;
 
 
 }
 
 #PC0{
   background-color: red;
-  top: 100px;
+  float: left;
 }
 
 #PC1{
   background-color: black;
+  float: right;
 }
