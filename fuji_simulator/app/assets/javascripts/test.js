@@ -4,7 +4,7 @@ $(document).on('turbolinks:load', function() {
   $('p').text("JQuery可動テスト(稼働中)");
 
 
-  $('.PC').dblclick(function(){
+  $('.PC').bind('contextmenu' , function(){
     $(this).fadeOut();
 
   })
