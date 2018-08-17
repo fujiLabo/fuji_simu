@@ -8,8 +8,14 @@ $(document).on('turbolinks:load', function() {
     $(this).fadeOut();
 
   })
+
+  $('.router').bind('contextmenu' , function(){
+    $(this).fadeOut();
+  })
 });
 
-$(function(){
-  $('p').css('color','orenge');
-});
+
+
+//$(function(){
+//  $('p').css('color','orenge');
+//});
