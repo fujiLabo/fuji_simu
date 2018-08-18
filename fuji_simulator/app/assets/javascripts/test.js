@@ -12,7 +12,12 @@ $(document).on('turbolinks:load', function() {
   $('.router').bind('contextmenu' , function(){
     $(this).fadeOut();
   })
+
+  $("#div1").draggable();
+
 });
+
+
 
 
 
