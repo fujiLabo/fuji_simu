@@ -1,0 +1,33 @@
+<%#= javascript_include_tag 'test' %>
+
+<% #ファイル読み込み %>
+<script src = "app/assets/javascripts/test.js"></script>
+
+<h1>mainページ</h1>
+<p>JQuery稼働テスト(未稼働)</p>
+
+<%= form_tag("/", method: :get) do %>
+<input type = "submit" value = "topへ">
+<% end %>
+
+<% #画像の表示(app/assets/imagesに保存された画像を表示する) %>
+<div class = "PC" id = "PC0">
+<%= image_tag('/assets/pc.png') %>
+</div>
+
+<div class = "PC" id = "PC1">
+  <%= image_tag('/assets/pc.png') %>
+</div>
+
+<div class = "router" id = "router1">
+  <%= image_tag('/assets/router.png') %>
+</div>
+
+<div id = "div1">
+  divdivdiv
+</div>
+
+
+<script type = "text/javascript">
+$('p').css("color", "red");
+</script>
