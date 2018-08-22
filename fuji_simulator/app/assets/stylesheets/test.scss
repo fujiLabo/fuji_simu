@@ -10,6 +10,27 @@
 
 }
 
+.btn-wrapper{
+  text-align: center;
+}
+
+.btn{
+  display: inline-block;
+  margin: 20px;
+  opacity: 0.8;
+  border-radius: 4px;
+  text-align: center;
+
+  color: white;
+  background-color: blue;
+}
+
+.btn:hover{
+  background-color: red;
+}
+
+
+
 #PC0{
   background-color: red;
   float: left;
@@ -22,5 +43,5 @@
 
 #router1{
   //background-color: blue;
-  margin-left: 500px; 
+  margin-left: 500px;
 }
