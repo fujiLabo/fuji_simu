@@ -13,6 +13,7 @@
 
 //jquery導入のため書き足し
 //= require jquery
+//= require jquery.contextMenu.js
 
 
 //= require rails-ujs
