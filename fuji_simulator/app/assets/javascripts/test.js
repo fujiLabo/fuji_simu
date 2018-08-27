@@ -13,7 +13,7 @@ $(document).on('turbolinks:load', function() {
     $(this).fadeOut();
   })
 
-  $("#div1").draggable();
+  //$("#div1").draggable();
 
 });
 
