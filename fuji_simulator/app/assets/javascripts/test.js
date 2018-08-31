@@ -6,11 +6,12 @@ $(document).on('turbolinks:load', function() {
 
   $('.PC').bind('contextmenu' , function(){
     $(this).fadeOut();
-
+    return false;
   })
 
   $('.router').bind('contextmenu' , function(){
     $(this).fadeOut();
+    return false;
   })
 
   $("#div1").draggable();
