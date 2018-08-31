@@ -5,6 +5,7 @@ $(document).on('turbolinks:load', function() {
 
 
   $('.PC').bind('contextmenu' , function(){
+
     $(this).fadeOut();
     return false;
   })
