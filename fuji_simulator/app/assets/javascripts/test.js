@@ -5,16 +5,22 @@ $(document).on('turbolinks:load', function() {
 
 
   $('.PC').bind('contextmenu' , function(){
-    $(this).fadeOut();
 
+    $(this).fadeOut();
+    return false;
   })
 
   $('.router').bind('contextmenu' , function(){
     $(this).fadeOut();
+    return false;
   })
+<<<<<<< HEAD
 
   $("#div1").draggable();
 
+=======
+  
+>>>>>>> f62839404bbc30684479f33ea542ba2d562b4066
 });
 
 
