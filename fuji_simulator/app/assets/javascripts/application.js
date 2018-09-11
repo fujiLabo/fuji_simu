@@ -15,6 +15,7 @@
 //= require jquery
 
 //= require jquery.contextMenu.js
+//= require jquery.contextmenu.r2.js
 
 
 //= require rails-ujs

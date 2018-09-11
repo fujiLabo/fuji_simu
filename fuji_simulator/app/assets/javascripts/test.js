@@ -4,7 +4,16 @@ $(document).on('turbolinks:load', function() {
   $('.page p').text("JQuery可動テスト(稼働中)");
 
 
-  $('.PC').bind('contextmenu' , function(){
+$('.PC').contextMenu('testMenu1',
+{
+  bindings: {
+    "open":function(t){
+      alert('Trigger was '+t.id+'/nAction was Open');
+    }
+  }
+
+
+  /*$('.PC').bind('contextmenu' , function(){
 
     $(this).fadeOut();
     return false;
@@ -14,7 +23,8 @@ $(document).on('turbolinks:load', function() {
     $(this).fadeOut();
     return false;
   })
-  
+  */
+
 });
 
 
