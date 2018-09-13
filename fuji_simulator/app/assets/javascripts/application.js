@@ -14,11 +14,11 @@
 //jquery導入のため書き足し
 //= require jquery
 
-//= require jquery.contextMenu.js
-//= require jquery.contextmenu.r2.js
+//= require animateClick
+//= require jquery.contextMenu
+//= require jquery.contextmenu.r2
 
 
-//= require rails-ujs
 //= require activestorage
 //= require turbolinks
 //= require_tree .

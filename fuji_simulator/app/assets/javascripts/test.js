@@ -1,7 +1,7 @@
 
 //この書き方だとリロードでもjqueryを読み込む
 $(document).on('turbolinks:load', function() {
-  $('.page p').text("JQuery可動テスト(稼働中)");
+  $('p').text("JQuery可動テスト(稼働中)");
 
 
 $('.PC').contextMenu('testMenu1',
@@ -12,14 +12,15 @@ $('.PC').contextMenu('testMenu1',
     }
   }
 
-  $('#btn').animateClick({
+  /*$('#btn').animateClick({
     "color": "blue",
-    "animation": "signal",
+    "animation": "cross",
     "size": 12
   });
+  */
 
 
-  /*$('.PC').bind('contextmenu' , function(){
+  $('.PC').bind('contextmenu' , function(){
 
     $(this).fadeOut();
     return false;
@@ -29,7 +30,7 @@ $('.PC').contextMenu('testMenu1',
     $(this).fadeOut();
     return false;
   })
-  */
+
 
 });
 
