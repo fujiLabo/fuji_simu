@@ -12,6 +12,12 @@ $('.PC').contextMenu('testMenu1',
     }
   }
 
+  $('#btn').animateClick({
+    "color": "blue",
+    "animation": "signal",
+    "size": 12
+  });
+
 
   /*$('.PC').bind('contextmenu' , function(){
 
