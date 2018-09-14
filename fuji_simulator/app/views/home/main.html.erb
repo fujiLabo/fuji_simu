@@ -2,18 +2,13 @@
 
 <% #ファイル読み込み %>
 
-
 <div class = "page">
 <% #アイコンを使う https://fontawesome.com %>
 <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 
-
-
-
   <h1>mainページ</h1>
   <p>JQuery稼働テスト(未稼働)</p>
 </div>
-
 
 <%#topへ移動するボタン%>
 <%= form_tag("/", method: :get) do %>
@@ -30,27 +25,6 @@
 <div class = "router" id = "router1">
   <%= image_tag('/assets/router.png') %>
 </div>
-
-<% #自作コンテキストメニューのテスト %>
-<!--<div id = "fd_display"></div>
-
-<div id = "jMenu" class = "hidden-area">
-  <ul>
-    <li><a href = '#' id = 'tag_edit' no = ''>編集</a></li>
-    <li><a href = '#' id = 'tag_del' no = ''>削除</a></li>
-  </ul>
-</div>
--->
-
-<div class = "contextMenu" id = "testMenu">
-  <ul>
-    <li id = "open">Open</li>
-    <li id = "close">Close</li>
-  </ul>
-</div>
-
-<a id = "btn" href = "#">Animation</a>
-
 
 <div id = "div1">
   divdivdiv

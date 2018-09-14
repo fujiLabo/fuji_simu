@@ -1,3 +1,4 @@
+
 // This is a manifest file that'll be compiled into application.js, which will include all the files
 // listed below.
 //
@@ -14,10 +15,10 @@
 //jquery導入のため書き足し
 //= require jquery
 
-//= require animateClick
-//= require jquery.contextMenu
-//= require jquery.contextmenu.r2
+//= require jquery.contextMenu.js
 
+
+//= require rails-ujs
 //= require activestorage
 //= require turbolinks
 //= require_tree .
