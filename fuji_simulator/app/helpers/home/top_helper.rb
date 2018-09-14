@@ -1,2 +1,0 @@
-module Home::TopHelper
-end
