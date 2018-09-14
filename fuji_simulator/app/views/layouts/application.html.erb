@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <title>Network Simulator</title>
+    <meta charset="utf-8">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <% #jqueryを使うための準備 %>
+    <%= javascript_include_tag "application" %>
+
+    <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+
+    <!--<script type = "text/javascript" src = "../../assets/javascripts/animateClick.js"></script>-->
+  </head>
+
+  <body>
+    <%= yield %>
+  </body>
+</html>
