@@ -18,7 +18,6 @@
 //= require jquery.contextMenu
 //= require jquery.contextmenu.r2
 
-
 //= require activestorage
 //= require turbolinks
 //= require_tree .
