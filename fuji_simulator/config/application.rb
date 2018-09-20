@@ -2,6 +2,12 @@ require_relative 'boot'
 
 require 'rails/all'
 
+
+#lib以下のスクリプトを読み込むための記述
+config.autoload_paths += %W(#{config.root}/lib)
+config.enable_dependency_loading = true
+
+
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
