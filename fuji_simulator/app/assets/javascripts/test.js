@@ -1,5 +1,20 @@
+function createContextMenu()
+{
+  $.contextMenu( 'destroy' );
+  $.contextMenu({
+    selector:"#contextMenuArea"
+    ,items: $.contextMenu.fromMenu($("#contextMenuTemplate"))
+  });
+}
+
+
+
 //この書き方だとリロードでもjqueryを読み込む
 $(document).on('turbolinks:load', function() {
+  //createContextMenu();
+
+$('.PC').animateClick();
+
   $('.page p').text("JQuery可動テスト(稼働中)");
 
 

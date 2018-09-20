@@ -12,10 +12,15 @@
 // about supported directives.
 //
 
+//= require_tree ../../../vendor/assets/javascripts/.
+
+
 //jquery導入のため書き足し
 //= require jquery
 
-//= require jquery.contextMenu.js
+//= require jquery.contextMenu
+
+
 
 
 
