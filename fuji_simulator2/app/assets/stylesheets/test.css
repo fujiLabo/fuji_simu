@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-
+/*********ツールの設定*************/
 div.tooltip span{
   display: none;
 }
@@ -44,3 +44,5 @@ div.tooltip span{
   background-color: #e67168;
   color: #fff;
 }
+
+/******************************/

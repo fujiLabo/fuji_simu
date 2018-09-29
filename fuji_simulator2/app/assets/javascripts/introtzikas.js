@@ -79,4 +79,4 @@ THE SOFTWARE.
 
 		  });
   };
-})( jQuery );
+});
