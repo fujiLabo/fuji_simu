@@ -10,7 +10,10 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
+  <%#読み込み時のアニメーション導入用%>
+  <%#<body style="visibility:hidden; background-color:white; background-image:none">%>
   <body>
+    <div id = intro></div>
     <%= yield %>
   </body>
 </html>

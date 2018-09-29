@@ -1,9 +1,30 @@
 <h1>mainのページ</h1>
-<dev id = "text">jquery未実装</dev>
-<%= form_tag('/', method: :get) do %>
+
+
+<div id = "ns-all">
+  <div id = "ns-container">
+    <div id = "ns-nav">
+      <!--先代がコメントアウト-->
+      <div class = "change_mode draw tooltip tooltip_mode">
+        <input type = "radio" name = "DorQ" id = "mode_draw" checked= "" autocomplete= "off">
+        <label for = "mode_draw" class = "mode_draw">自由描画</label>
+
+        <input type = "radio" name = "DorQ" id = "mode_question" autocomplete = "off">
+        <label for = "mode_question" class = "mode_question">問題演習</label>
+
+        <span>モードを選択します</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+<%= form_tag("/", method: :get) do %>
 <input type = "submit" value = "topへ">
 <% end %>
-
-<dev class = "PC">
-  <%= image_tag('/assets/pc.png') %>
-</dev>

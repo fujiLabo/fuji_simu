@@ -1,0 +1,46 @@
+@charset "UTF-8";
+
+
+div.tooltip span{
+  display: none;
+}
+
+.change_mode{
+  margin: 0px;
+}
+
+/*ラジオボタンを見えなくする*/
+.change_mode input{
+  display: none;
+}
+/*自由描画、問題演習のボタンの編集*/
+.change_mode label{
+  display: block;
+  float: left;
+  cursor: pointer;
+  width:65px;
+  padding: 10px;
+  background-color: #bdc3c7;
+  color: #869198;
+  font-size: 16px;
+  text-align: center;
+  line-height: 1;
+  transition: .2s;
+}
+
+.change_mode label:first-of-type{
+  border-radius: 5px 0 0 5px;
+}
+.change_mode label:last-of-type{
+  border-radius: 0 5px 5px 0;
+}
+
+.change_mode input[type = "radio"]:checked + .mode_draw{
+  background-color: #a1b91d;
+  color: #fff;
+}
+
+.change_mode input[type = "radio"]:checked + .mode_question{
+  background-color: #e67168;
+  color: #fff;
+}
