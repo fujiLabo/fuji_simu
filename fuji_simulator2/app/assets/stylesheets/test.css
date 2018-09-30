@@ -1,6 +1,26 @@
 @charset "UTF-8";
 
+#ns_all{
+float: left;
+width: 900px;
+}
+
 /*********ツールの設定*************/
+#ns_nav{
+  margin: 0 0 2px;
+  padding: 2px;
+  height: 42px;
+  width: 894px;
+  background-color: rgba(255, 0, 0, 0.3);
+}
+
+#ns_nav img{
+  padding: 1px 3px;
+  height: 40px;
+  width: 40px;
+  float: left;
+}
+
 div.tooltip span{
   display: none;
 }
@@ -44,5 +64,40 @@ div.tooltip span{
   background-color: #e67168;
   color: #fff;
 }
+/******************************/
+
+/**********左サイドの設定********/
+#ns_left{
+  margin-right: 3px;
+  padding: 5px 5px;
+  width: 82px;
+  height: 549px;
+  background-color: rgba(0, 255, 0, 0.3);
+}
 
 /******************************/
+
+/**********メインの設定**********/
+#ns_main{
+  height: 400px;
+  width: 600px;
+  background-color: rgba(0, 0, 255, 0.3);
+}
+/******************************/
+
+#ns_right{
+  height: 300px;
+  width: 150px;
+  background-color: rgba(100, 100, 0, 0.3);
+}
+
+#ns_console{
+  height: 150px;
+  width: 600px;
+  background-color: rgba(0, 255, 255, 0.3);
+}
+
+#ns_nav, #ns_left, #ns_main, #ns_right, #ns_console{
+  float: left;
+
+}
