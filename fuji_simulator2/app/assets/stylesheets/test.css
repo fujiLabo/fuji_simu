@@ -25,6 +25,13 @@ div.tooltip span{
   display: none;
 }
 
+div.tooltip_mode:hover span{
+  display: block;
+}
+div.tooltip:hover span{
+  display: block;
+}
+
 .change_mode{
   margin: 0px;
 }
