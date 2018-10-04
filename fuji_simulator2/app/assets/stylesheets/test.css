@@ -25,11 +25,9 @@ div.tooltip span{
   display: none;
 }
 
-div.tooltip_mode:hover span{
-  display: block;
-}
 div.tooltip:hover span{
   display: block;
+  background-color: rgba(0,255,0, 0.3);
 }
 
 .change_mode{
