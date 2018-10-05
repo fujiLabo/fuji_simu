@@ -1,9 +1,8 @@
 <h1>createページ</h1>
 
 <%#postで送信されてきた値を画面に表示する%>
-<p1><%= params %></p1>
-<h3><%= @temp %></h3>
-<h4><%= @oauth_consumer_key %></h4>
+<p1><%#= params %></p1>
+<h3><%= @sort %></h3>
 
 
 <%= form_tag('/home/top', method: :get) do %>
