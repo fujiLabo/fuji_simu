@@ -44,13 +44,13 @@ $(document).on('turbolinks:load', function(){
   });
   */
 
-
+//画像をmain部分にドロップする際の関数
 fnMainDrop = function(ui, obj)
 {
   $('#ns_main').append(
     $('<img>').attr({
       src: ui.draggable.attr('src'),
-      style: "position: absolute; top: "+ ui.offset.top +"px; left: "+ ui.offset.left +"px",
+      style: "position: absolute; top: "+ ui.offset.top + "px; left: "+ ui.offset.left +"px",
     })
   );
 }
