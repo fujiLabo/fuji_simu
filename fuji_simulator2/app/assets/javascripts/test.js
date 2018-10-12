@@ -1,6 +1,7 @@
 
 mainDropFlg = true;
 
+var test = 1;
 //この書き方ならリロード時もjqueryを読み込む
 $(document).on('turbolinks:load', function(){
   $('#text').text('jquery実装');
