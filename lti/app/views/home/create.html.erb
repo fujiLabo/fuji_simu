@@ -3,6 +3,7 @@
 <%#postで送信されてきた値を画面に表示する%>
 <p1><%#= params %></p1>
 <h3><%= @sort %></h3>
+<h4><%= @oauth_consumer_key %><h4>
 
 
 <%= form_tag('/home/top', method: :get) do %>
