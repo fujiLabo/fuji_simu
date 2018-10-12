@@ -24,6 +24,7 @@ $(document).on('turbolinks:load', function(){
 
     drop: function(e, ui){
       mainDropFlg = false;
+      fnMainDrop(ui, $(this));
     },
     deactivate: function(e, ui){
       ui.draggable.draggable({ revert: mainDropFlg});
@@ -32,6 +33,7 @@ $(document).on('turbolinks:load', function(){
       }
     }
   });
+
   /*
   //読み込み時のアニメーション ()
   $().introtzikas({
@@ -42,6 +44,16 @@ $(document).on('turbolinks:load', function(){
   });
   */
 
+//画像をmain部分にドロップする際の関数
+fnMainDrop = function(ui, obj)
+{
+  $('#ns_main').append(
+    $('<img>').attr({
+      src: ui.draggable.attr('src'),
+      style: "position: absolute; top: "+ ui.offset.top + "px; left: "+ ui.offset.left +"px",
+    })
+  );
+}
 
 
 
