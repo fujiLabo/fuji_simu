@@ -52,7 +52,11 @@ fnMainDrop = function(ui, obj)
       src: ui.draggable.attr('src'),
       style: "position: absolute; top: "+ ui.offset.top + "px; left: "+ ui.offset.left +"px",
     })
+
   );
+  //mainにドロップされたものをドラッグ可能に(オプションによってmain内でのみに移動を限定する必要あり)
+  $('#ns_main img:last-child').draggable({
+  });
 }
 
 
