@@ -1,11 +1,19 @@
 
 mainDropFlg = true;
 
+var test = 1;
 //この書き方ならリロード時もjqueryを読み込む
 $(document).on('turbolinks:load', function(){
-  $('#text').text('jquery実装');
 
-  $('.PC').draggable();
+  function fncontextmenu(element)
+  {
+    $.contextMenu( 'destroy' );
+    return false;
+
+    document.oncontextmenu = function () {
+       return false;
+    };
+  }
 
 
   //PCやルータのドラッグ設定
@@ -51,10 +59,19 @@ fnMainDrop = function(ui, obj)
     $('<img>').attr({
       src: ui.draggable.attr('src'),
       style: "position: absolute; top: "+ ui.offset.top + "px; left: "+ ui.offset.left +"px",
+
     })
+
   );
+  $("#ns_main img:last-child").attr('oncontextmenu', 'return fncontextmenu(this)');
+  //mainにドロップされたものをドラッグ可能に(オプションによってmain内でのみに移動を限定する必要あり)
+  $('#ns_main img:last-child').draggable({
+  });
 }
 
+document.oncontextmenu = function () {
+   return false;
+};
 
 
 });
