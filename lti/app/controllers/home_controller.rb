@@ -3,6 +3,8 @@ require 'uri'
 require "addressable/uri"
 require 'cgi'
 require 'digest/hmac'
+require 'digest/sha1'
+require 'date'
 
 class HomeController < ApplicationController
 
@@ -10,12 +12,9 @@ class HomeController < ApplicationController
 
   end
 
-  def temp
-  end
-
   def create
     @METHOD = "POST"
-    @KEY = "2e45c0e27fb80e8fbf3d8ad3000d91bf&"
+    @KEY = "46621daec7f6e7d3f030032dc3c571c5&"
     @REQUEST = CGI.escape("http://localhost:3000/home/create")
 
     #x-frameでの表示をすべてに許可する
@@ -28,6 +27,19 @@ class HomeController < ApplicationController
     @temp.delete(:action)
     @temp.delete(:controller)
     @temp.delete(:oauth_signature)
+
+    @timestamp = Time.now.to_i
+
+
+    #timestampcheck
+    if @timestamp == @temp[:oauth_timestamp].to_i then
+      puts "True"
+
+    elsif
+      puts "false"
+      exit 0;
+    end
+
     #ハッシュかする
     @temp = @temp.permit!.to_hash
 
@@ -72,11 +84,12 @@ class HomeController < ApplicationController
     @Signature_base_string += "&" + @REQUEST
     @Signature_base_string += "&" + CGI.escape(@string)
 
-    puts @Signature_base_string
+    @Digest =OpenSSL::Digest::SHA1.new
+    #puts @Signature_base_string
     #puts Base64.encode64(OpenSSL::HMAC::digest(OpenSSL::Digest::SHA1.new,@KEY,@Signature_base_string))
-    #@new = Addressable::URI.parse(@string)
-    #@new = URI.parse(@string)
-    #puts @new
+    puts Base64.encode64(OpenSSL::HMAC::digest(@Digest,@KEY,@Signature_base_string))
+    #puts OpenSSL::HMAC::digest(OpenSSL::Digest::SHA1.new,@KEY,@Signature_base_strin
+    #puts Time.now.to_i
 
 
 
