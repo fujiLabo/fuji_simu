@@ -12,6 +12,10 @@ class HomeController < ApplicationController
 
   end
 
+  def tstamp
+
+  end
+
   def create
     @METHOD = "POST"
     @KEY = "46621daec7f6e7d3f030032dc3c571c5&"
@@ -27,8 +31,10 @@ class HomeController < ApplicationController
     @temp.delete(:action)
     @temp.delete(:controller)
     @temp.delete(:oauth_signature)
-
+    #timestampを取得して格納
     @timestamp = Time.now.to_i
+    #Ruturn_urlをurlエンコードする前に格納
+    @Return_url = @temp[:launch_presentation_return_url]
 
 
     #timestampcheck
@@ -37,6 +43,7 @@ class HomeController < ApplicationController
 
     elsif
       puts "false"
+      redirect_to action:"tstamp"
       exit 0;
     end
 
@@ -89,7 +96,7 @@ class HomeController < ApplicationController
     #puts Base64.encode64(OpenSSL::HMAC::digest(OpenSSL::Digest::SHA1.new,@KEY,@Signature_base_string))
     puts Base64.encode64(OpenSSL::HMAC::digest(@Digest,@KEY,@Signature_base_string))
     #puts OpenSSL::HMAC::digest(OpenSSL::Digest::SHA1.new,@KEY,@Signature_base_strin
-    #puts Time.now.to_i
+    puts Time.now.to_i
 
 
 

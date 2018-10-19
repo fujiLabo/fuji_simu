@@ -8,4 +8,12 @@
 
 <%= form_tag('/home/top', method: :get) do %>
   <input type = "submit" value = "topへ">
+
+
+<% end %>
+
+<%= form_tag(@Return_url, method: :get) do %>
+  <input type = "submit" value = "urlへ">
+
+
 <% end %>
