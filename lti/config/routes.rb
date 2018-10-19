@@ -3,4 +3,5 @@ Rails.application.routes.draw do
   get "/home/top" => "home#top"
   post "/home/create" => "home#create"
   get "/home/temp" => "home#temp"
+  get "/home/tstamp" => "home#tstamp"
 end
