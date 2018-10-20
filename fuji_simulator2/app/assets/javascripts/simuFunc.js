@@ -24,6 +24,7 @@ function fncontextmenu(element) {
 
   $('#contextMenuTemplate form .context-IPSMIF tr').append('<th><label class="SM">SM</label></th>');
 
+
   $('#contextMenuTemplate').append(
     $('<input>').attr({
       name: "入力",
@@ -55,7 +56,7 @@ function fncontextmenu(element) {
 
 
 //この書き方ならリロード時もjqueryを読み込む
-$(document).on('turbolinks:load', function() {
+$(function() {
 
 
 
