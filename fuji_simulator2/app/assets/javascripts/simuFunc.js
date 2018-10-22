@@ -1,5 +1,5 @@
+//simuMainで使用する関数等のファイル
 
-var test = 1;
 
 //独自の右クリック作成
 function fncontextmenu(element) {

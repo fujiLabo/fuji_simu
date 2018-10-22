@@ -1,10 +1,13 @@
+//mainファイル
+//直接htmlを操作する
+
 
 $.when(
   $.ready,
   $.getScript("/assets/simuDec.js"),
   $.getScript("/assets/simuFunc.js"),
 ).then(function(){
-  console.log(test);
+  console.log("test");
   //console.log(don);
 
   //PCやルータのドラッグ設定
