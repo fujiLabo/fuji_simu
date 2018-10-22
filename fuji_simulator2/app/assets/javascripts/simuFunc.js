@@ -1,4 +1,3 @@
-mainDropFlg = true;
 
 var test = 1;
 
@@ -66,37 +65,7 @@ $(function() {
   });
 
 
-  //PCやルータのドラッグ設定
-  $('.machine').draggable({
-    helper: 'clone',
-    revert: true,
-    zIndex: 3,
 
-    start: function(e, ui) {
-      $(this).addClass('dragout')
-    },
-    stop: function(e, ui) {
-      $(this).removeClass('dragout')
-    },
-  });
-
-  $('#ns_main').droppable({
-    accept: '.machine',
-    tolerance: 'fit',
-
-    drop: function(e, ui) {
-      mainDropFlg = false;
-      fnMainDrop(ui, $(this));
-    },
-    deactivate: function(e, ui) {
-      ui.draggable.draggable({
-        revert: mainDropFlg
-      });
-      if (mainDropFlg == false) {
-        mainDropFlg = true;
-      }
-    }
-  });
 
   /*
   //読み込み時のアニメーション ()
