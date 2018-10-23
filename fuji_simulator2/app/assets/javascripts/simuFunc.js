@@ -44,58 +44,53 @@ function fncontextmenu(element) {
     })
   );
 
-
-
-
   $.contextMenu({
     selector: ".dropMachine",
     items: $.contextMenu.fromMenu($('#contextMenuTemplate'))
   });
 }
-
-
-//この書き方ならリロード時もjqueryを読み込む
-$(function() {
-
-
-
-  $(document).on('contextmenu', '.dropMachine', function() {
-    //fncontextmenu(this);
-
-  });
+//この書き方でも一応右クリックできた(ダブルクリックにするならこれ？)
+//$(document).on('contextmenu', '.dropMachine', function() { });
 
 
 
 
-  /*
-  //読み込み時のアニメーション ()
-  $().introtzikas({
-    line: '#fff', //ラインの色
-    speedwidth: 1000, //幅の移動完了スピード
-    speedheight: 1000, //高さの移動完了スピード
-    bg: '#333' //背景色
-  });
-  */
-
-  //画像をmain部分にドロップする際の関数
-  fnMainDrop = function(ui, obj) {
-    $('#ns_main').append(
-      $('<img>').attr({
-        src: ui.draggable.attr('src'),
-        class: 'dropMachine',
-        id: "test",
-        style: "position: absolute; top: " + ui.offset.top + "px; left: " + ui.offset.left + "px",
-
-
-      })
-    );
-    //先代はこのコードで属性を与え、関数を呼ぼ出している
-    $("#ns_main img:last-child").attr('oncontextmenu', 'return fncontextmenu(this)');
-
-    //mainにドロップされたものをドラッグ可能に(オプションによってmain内でのみに移動を限定する必要あり)
-    $('#ns_main img:last-child').draggable({});
-  }
-
-
-
+/*
+//読み込み時のアニメーション ()
+$().introtzikas({
+  line: '#fff', //ラインの色
+  speedwidth: 1000, //幅の移動完了スピード
+  speedheight: 1000, //高さの移動完了スピード
+  bg: '#333' //背景色
 });
+*/
+
+//画像をmain部分にドロップする際の関数
+fnMainDrop = function(ui, obj) {
+  $('#ns_main').append(
+    $('<img>').attr({
+      src: ui.draggable.attr('src'),
+      class: 'dropMachine',
+      id: "test",
+      style: "position: absolute; top: " + ui.offset.top + "px; left: " + ui.offset.left + "px",
+
+    })
+  );
+  //先代はこのコードで属性を与え、関数を呼ぼ出している
+  $("#ns_main img:last-child").attr('oncontextmenu', 'return fncontextmenu(this)');
+
+  //mainにドロップされたものをドラッグ可能に(オプションによってmain内でのみに移動を限定する必要あり)
+  $('#ns_main img:last-child').draggable({});
+}
+
+//lanボタンが押された場合
+changeLanMode = function()
+{
+  if (NS.lanFlag === false){
+    $('#lan').attr('src', '/assets/lanCableOn.png');
+    NS.lanFlag =  true;
+  }else {
+    $('#lan').attr('src', '/assets/lanCableOff.png');
+    NS.lanFlag = false;
+  }
+}

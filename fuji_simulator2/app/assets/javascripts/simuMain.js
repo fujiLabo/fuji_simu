@@ -42,5 +42,10 @@ $.when(
     }
   });
 
+  $('#lan').click(function(){
+    changeLanMode();
+    console.log("LAN押された");
+  });
+
 
 });
