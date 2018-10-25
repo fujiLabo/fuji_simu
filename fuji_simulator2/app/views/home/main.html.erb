@@ -1,76 +1,71 @@
 <h1>mainのページ</h1>
 
 <%#シミュレータ全体%>
-<div id = "ns_all">
-  <div id = "ns_container">
-    <%#シミュレータ上部のアイコンやボタン%>
-    <div id = "ns_nav">
-      <%#モード変更ボタン%>
-      <div class = "change_mode draw tooltip tooltip_mode">
-        <input type = "radio" name = "DorQ" id = "mode_draw" checked= "" autocomplete= "off">
-        <label for = "mode_draw" class = "mode_draw">自由描画</label>
+  <div id="ns_all">
+    <div id="ns_container">
+      <%#シミュレータ上部のアイコンやボタン%>
+        <div id="ns_nav">
+          <%#モード変更ボタン%>
+            <div class="change_mode draw tooltip tooltip_mode">
+              <input type="radio" name="DorQ" id="mode_draw" checked="" autocomplete="off">
+              <label for="mode_draw" class="mode_draw">自由描画</label>
 
-        <input type = "radio" name = "DorQ" id = "mode_question" autocomplete = "off">
-        <label for = "mode_question" class = "mode_question">問題演習</label>
-        <span>モードを選択します</span>
-      </div>
+              <input type="radio" name="DorQ" id="mode_question" autocomplete="off">
+              <label for="mode_question" class="mode_question">問題演習</label>
+              <span>モードを選択します</span>
+            </div>
 
-      <civ class = "height_line"></civ>
-      <div class = "tooltip tooltip_start">
-        <img src ="/assets/start.png" id = "start" title = "実行">
-        <span>ネットワークの判定をします</span>
-      </div>
+            <civ class="height_line"></civ>
+            <div class="tooltip tooltip_start">
+              <img src="/assets/start.png" id="start" title="実行">
+              <span>ネットワークの判定をします</span>
+            </div>
 
-      <div class = "height_line"></div>
-      <div class = "tooltip tooltip_check">
-        <img src = "/assets/check.png" id = "check" title = "情報を確認">
-        <span>ノードごとの情報を確認します</span>
-      </div>
+            <div class="height_line"></div>
+            <div class="tooltip tooltip_check">
+              <img src="/assets/check.png" id="check" title="情報を確認">
+              <span>ノードごとの情報を確認します</span>
+            </div>
 
-      <div class = "tooltip tooltip_dust">
-        <img src = "/assets/dust.png" id = "dust" title = "ノードの削除">
-        <span>すべてのノードを削除します</span>
-      </div>
-    </div>
+            <div class="tooltip tooltip_dust">
+              <img src="/assets/dust.png" id="dust" title="ノードの削除">
+              <span>すべてのノードを削除します</span>
+            </div>
+          </div>
 
-    <%#左側のあれこれ%>
-    <div id = "ns_left">
-      <img src = "/assets/pc.png" alt = "PC" class = "machine">
-      <img src = "/assets/router.png" alt = "Router" class = "machine">
-      <img src = "/assets/lanCableOff.png" title = "LANをつなげる" id = "lan">
-    </div>
-    <%#シミュレートする部分%>
-    <div id = "ns_main">
-    </div>
-    <%#右側のシミュレートの詳細上部%>
-    <div id = "ns_right-info">
-    </div>
-    <%#右側のシミュレートの詳細中身%>
-    <div id = "ns_right">
-    </div>
+          <%#左側のあれこれ%>
+            <div id="ns_left">
+              <img src="/assets/pc.png" alt="PC" class="machine">
+              <img src="/assets/router.png" alt="Router" class="machine">
+              <img src="/assets/lanCableOff.png" title="LANをつなげる" id="lan">
+            </div>
+            <%#シミュレートする部分%>
+              <div id="ns_main">
+                <canvas width="600" height="400" id="ns_main_canvas" class=""></canvas>
+                <div id="check_layer"></div>
+                <div id="question_layer"></div>
+              </div>
+              <%#右側のシミュレートの詳細上部%>
+                <div id="ns_right-info">
+                  <p>
+                    トポロジーの概要
+                  </p>
+                </div>
+                <%#右側のシミュレートの詳細中身%>
+                  <div id="ns_right"></div>
 
-    <%#コンソール上部%>
-    <div id = "ns_console-info">
-    </div>
-    <%#コンソール内部%>
-    <div id = "ns_console">
-    </div>
-    <%#グレー%>
-  </div>
-    <div id = "glay_layer">
-    </div>
-    <menu id="contextMenuTemplate" type="context" style="display:none;" >
-      <menuitem id = "temp"></menuitem>
-    </menu>
-</div>
+                  <%#コンソール上部%>
+                    <div id="ns_console-info"></div>
+                    <%#コンソール内部%>
+                      <div id="ns_console"></div>
+                      <%#グレー%>
+                      </div>
+                      <div id="glay_layer"></div>
+                      <menu id="contextMenuTemplate" type="context" style="display:none;">
+                        <menuitem id="temp"></menuitem>
+                      </menu>
+                    </div>
 
-
-
-
-
-
-
-
-<%= form_tag("/", method: :get) do %>
-<input type = "submit" value = "topへ">
-<% end %>
+                    <%= form_tag("/", method: :get) do %>
+                    <input type="submit" value="topへ">
+                  <% end %>
