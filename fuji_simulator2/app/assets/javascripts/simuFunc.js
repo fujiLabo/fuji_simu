@@ -173,14 +173,15 @@
     NS.points = [{x:e.pageX - this.offsetLeft, y:e.pageY - this.offsetTop}];
     console.log(NS.points);
 
-    NS.mainCtx.beginPath();
-    NS.mainCtx.moveTo(100, 100);
-    NS.mainCtx.lineTo(200, 200);
-    NS.mainCtx.stroke();
+
   }
 
   testUp = function(e) {
-
+    NS.mainCtx.beginPath();
+    NS.mainCtx.moveTo(NS.points[0].x, NS.points[0].y);
+    NS.mainCtx.lineTo(200, 200);
+    NS.mainCtx.lineTo(400, 10);
+    NS.mainCtx.stroke();
   }
 
   testOutUp = function(e) {
