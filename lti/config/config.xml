@@ -19,7 +19,18 @@
     <blti:extensions platform="canvas.instructure.com">
       <!-- これは、Canvasが同じアプリの複数のインストールを追跡するために使用する値 -->
       <lticm:property name="tool_id">i_am_the_last_one</lticm:property>
+      <!-- anonymousはNo name information, you won't get anything other than an opagque identifier. -->
+      <!-- Name Only ユーザー名は送信しますがメールは送信しない -->
+      <!-- Publi 名前、メール、キャンバスIDなどを送信します。 -->
       <lticm:property name="privacy_level">anonymous</lticm:property>
+      <!-- 1つのコースまたはアカウント内のすべてのコースのナビゲーションにアプリを追加する -->
+      <lticm:options name="course_navigation">
+      <lticm:property name="url">http://www.example.com/unforgivables/1</lticm:property>
+      <lticm:property name="text">Avada Kedavra</lticm:property>
+      <lticm:property name="visibility">public</lticm:property>
+      <lticm:property name="default">enabled</lticm:property>
+      <lticm:property name="enabled">true</lticm:property>
+      </lticm:options>
     </blti:extensions>
     <cartridge_bundle identifierref="BLTI001_Bundle"/>
     <cartridge_icon identifierref="BLTI001_Icon"/>
