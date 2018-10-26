@@ -6,14 +6,25 @@
 <h4><%= @oauth_consumer_key %><h4>
 
 
+
 <%= form_tag('/home/top', method: :get) do %>
   <input type = "submit" value = "topへ">
 
 
 <% end %>
 
-<%= form_tag(@Return_url, method: :get) do %>
-  <input type = "submit" value = "urlへ">
+<%= form_tag(@Return_url , method: :get) do %>
+<%#hidden_field_tagにパラメータを入れれば自動でエンコードしてくれるっぽい%>
+  <%= puts "aaaa" %>
+  <%= hidden_field_tag :lti_msg,"Most things in here don't react well to bullets."%>
+  <%= hidden_field_tag :lti_log,"One ping only." %>
+  <%= submit_tag 'url' %>
 
+<% end %>
+
+<%= form_tag(@Return_url , method: :get) do %>
+<%= hidden_field_tag :lti_errormsg,"Who's going to save you, Junior?!" %>
+<%= hidden_field_tag :lti_errorlog,"The floor's on fire... see... *&* the chair." %>
+<%= submit_tag 'error' %>
 
 <% end %>

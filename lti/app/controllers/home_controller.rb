@@ -16,6 +16,10 @@ class HomeController < ApplicationController
 
   end
 
+  def error
+
+  end
+
   def create
     @METHOD = "POST"
     @KEY = "46621daec7f6e7d3f030032dc3c571c5&"
@@ -35,6 +39,11 @@ class HomeController < ApplicationController
     @timestamp = Time.now.to_i
     #Ruturn_urlをurlエンコードする前に格納
     @Return_url = @temp[:launch_presentation_return_url]
+
+    unless @Return_url == params[:launch_presentation_return_url]
+      redirect_to  action:"error"
+
+    end
 
 
     #timestampcheck
@@ -97,6 +106,10 @@ class HomeController < ApplicationController
     puts Base64.encode64(OpenSSL::HMAC::digest(@Digest,@KEY,@Signature_base_string))
     #puts OpenSSL::HMAC::digest(OpenSSL::Digest::SHA1.new,@KEY,@Signature_base_strin
     puts Time.now.to_i
+
+    #@query = CGI.escape("Most things in here don't react well to bullets.")
+    #@query.gsub!('+','%20')
+    #@query.gsub!('.','%2e')
 
 
 
