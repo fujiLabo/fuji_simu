@@ -7,9 +7,11 @@ $.when(
   $.getScript("/assets/simuDec.js"),
   $.getScript("/assets/simuFunc.js"),
 ).then(function(){
-  console.log("test");
-  //console.log(don);
 
+
+  console.log("test");
+  console.log("NS.canvasHeight(main): " + NS.canvasHeight)
+  console.log("test: " + NS.mainCtx);
   //PCやルータのドラッグ設定
   $('.machine').draggable({
     helper: 'clone',
@@ -46,6 +48,7 @@ $.when(
     changeLanMode();
     console.log("LAN押された");
   });
+
 
 
 });
