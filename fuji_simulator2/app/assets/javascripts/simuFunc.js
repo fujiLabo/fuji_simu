@@ -166,15 +166,7 @@
 //
 //   }
 
-  //マウスが移動した際
-  testMove = function(e) {
-    console.log("testMove");
-    NS.mainCtx.clearRect(0, 0, NS.canvasWidth, NS.canvasHeight);
-    NS.mainCtx.beginPath();
-    NS.mainCtx.moveTo(NS.points[0].x, NS.points[0].y);
-    NS.mainCtx.lineTo(e.pageX - this.offsetLeft, e.pageY - this.offsetTop);
-    NS.mainCtx.stroke();
-  }
+
 
 
 
@@ -189,7 +181,7 @@
 
     NS.elLanMoveThis = $(this);
     console.log("elLanMoveThis: " + NS.elLanMoveThis);
-    $("#ns_main").on("mousemove", NS.testMove);
+    $("#ns_main").on("mousemove", testMove);
 
   }
 
@@ -200,10 +192,10 @@
     var nowX = e.pageX - this.offsetLeft;
     var nowY = e.pageY - this.offsetTop;
 
-    NS.mainCtx.beginPath();
-    NS.mainCtx.moveTo(NS.points[0].x, NS.points[0].y);
-    NS.mainCtx.lineTo(nowX, nowY);
-    NS.mainCtx.stroke();
+    // NS.mainCtx.beginPath();
+    // NS.mainCtx.moveTo(NS.points[0].x, NS.points[0].y);
+    // NS.mainCtx.lineTo(nowX, nowY);
+    // NS.mainCtx.stroke();
 
 
     $("#ns_main").off("mousemove", NS.testMove);
@@ -220,7 +212,7 @@
     NS.mainCtx.beginPath();
     NS.mainCtx.moveTo(NS.points[0].x, NS.points[0].y);
     NS.mainCtx.lineTo(e.pageX - this.offsetLeft, e.pageY - this.offsetTop);
-    Ns.mainCtx.stroke();
+    NS.mainCtx.stroke();
   }
 
   //lanボタンが押された場合
