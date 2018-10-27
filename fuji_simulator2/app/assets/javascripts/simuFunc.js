@@ -166,26 +166,61 @@
 //
 //   }
 
+  //マウスが移動した際
+  testMove = function(e) {
+    console.log("testMove");
+    NS.mainCtx.clearRect(0, 0, NS.canvasWidth, NS.canvasHeight);
+    NS.mainCtx.beginPath();
+    NS.mainCtx.moveTo(NS.points[0].x, NS.points[0].y);
+    NS.mainCtx.lineTo(e.pageX - this.offsetLeft, e.pageY - this.offsetTop);
+    NS.mainCtx.stroke();
+  }
+
+
+
+
+  //マウスが押された瞬間
   testDown = function(e) {
-    console.log("押された");
+    console.log("testDown");
 
     //マウスを押した場所の座標を取得
     NS.points = [{x:e.pageX - this.offsetLeft, y:e.pageY - this.offsetTop}];
     console.log(NS.points);
 
+    NS.elLanMoveThis = $(this);
+    console.log("elLanMoveThis: " + NS.elLanMoveThis);
+    $("#ns_main").on("mousemove", NS.testMove);
 
   }
 
+  //マウスが離れた瞬間
   testUp = function(e) {
+    console.log("testUp");
+
+    var nowX = e.pageX - this.offsetLeft;
+    var nowY = e.pageY - this.offsetTop;
+
     NS.mainCtx.beginPath();
     NS.mainCtx.moveTo(NS.points[0].x, NS.points[0].y);
-    NS.mainCtx.lineTo(200, 200);
-    NS.mainCtx.lineTo(400, 10);
+    NS.mainCtx.lineTo(nowX, nowY);
     NS.mainCtx.stroke();
+
+
+    $("#ns_main").off("mousemove", NS.testMove);
   }
 
   testOutUp = function(e) {
 
+  }
+
+  //マウスが移動した際
+  testMove = function(e) {
+    console.log("testMove");
+    NS.mainCtx.clearRect(0, 0, NS.canvasWidth, NS.canvasHeight);
+    NS.mainCtx.beginPath();
+    NS.mainCtx.moveTo(NS.points[0].x, NS.points[0].y);
+    NS.mainCtx.lineTo(e.pageX - this.offsetLeft, e.pageY - this.offsetTop);
+    Ns.mainCtx.stroke();
   }
 
   //lanボタンが押された場合
@@ -209,6 +244,7 @@
       elMain.on("mousedown", testDown);
       elMain.on("mouseup", testUp);
       elHtml.on("mouseup", testOutUp);
+
       //
       // //lanLinkがあるとき
       if (elMainDrag.hasClass("lanLink")) {
