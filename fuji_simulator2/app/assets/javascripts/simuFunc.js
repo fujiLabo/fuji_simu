@@ -179,9 +179,15 @@
     NS.points = [{x:e.pageX - this.offsetLeft, y:e.pageY - this.offsetTop}];
     console.log(NS.points);
 
+
+
     NS.elLanMoveThis = $(this);
     console.log("elLanMoveThis: " + NS.elLanMoveThis);
-    $("#ns_main").on("mousemove", testMove);
+
+
+
+      $('#ns_main').on("mousemove", testMove);
+
 
   }
 
@@ -231,7 +237,9 @@
       //elMain.on("mousedown", fnLanDown);  //マウスボタンが押されたとき
       //elMain.on("mouseup", fnLanUp);      //マウスボタンが離れたとき
       //elHtml.on("mouseup", fnLanOutUp);
-
+      $('.dropMachine').draggable("disable");
+      $('.dropMachine').mouseup(function(e) { e.preventDefault(); });
+      $('.dropMachine').mousedown(function(e) { e.preventDefault(); });
       //test
       elMain.on("mousedown", testDown);
       elMain.on("mouseup", testUp);

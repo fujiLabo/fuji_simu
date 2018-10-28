@@ -1,10 +1,14 @@
 //変数を宣言するファイル
 $(function() {
 
+
+
+
   //変数の定義
   //空のオブジェクトを作成
   if (typeof NS === "undefined") NS = {};
 
+  NS.testflag = false;
   //全体
   NS.pcNode = 0;
   NS.ruNode = 0;

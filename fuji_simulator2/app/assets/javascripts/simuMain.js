@@ -8,6 +8,14 @@ $.when(
   $.getScript("/assets/simuFunc.js"),
 ).then(function(){
 
+  $('#ns_main img').mouseover(function(){
+    console.log("testflag = true");
+    NS.testflag = true;
+  }).mouseout(function(){
+    console.log("testflag = false");
+    NS.testflag = false;
+  });
+
 
   console.log("test");
   console.log("NS.canvasHeight(main): " + NS.canvasHeight)
