@@ -4,6 +4,22 @@
 /**float: left;*/
 width: 900px;
 }
+/*********右クリック関連*************/
+.IPSMIF-item-middle {
+}
+
+.contextTable{
+  font-size: 13px;
+  display: table;
+  width: 100%;
+}
+
+
+
+/**********************************/
+
+
+
 
 /*********ツールの設定*************/
 #ns_nav{

@@ -265,3 +265,8 @@
       elMainDrag.css("cursor", "pointer");
     }
   }
+
+  //削除
+  function nodeDel(e){
+    console.log("nodeDel");
+  }

@@ -67,7 +67,7 @@
     <%#右クリックテスト%>
     <menu id = "contexttest" type = "context" style = "display:none">
     <form action = "#">
-      <table id = "contest" class = "context-IPSMIF" width = "200">
+      <table id = "contest" class = "context-IPSMIF contextTable" width = "200">
         <tr align = "center">
           <%#見出し%>
           <th><label class = "IF">IF</label></th>
@@ -76,10 +76,10 @@
         </tr>
         <li class = "context-menu-sepparator"></li>
 
-        <table class = "context-RoutingTable" width = "300">
+        <table class = "context-RoutingTable contextTable" width = "300">
           <tr align = "center">
             <%#ルーティングテーブル作成%>
-            <th><label>addRoutingTable</label></th>
+            <th><label>RoutingTable</label></th>
             <img src = "/assets/plus.jpg" class = "t0" />
           </tr>
           <tr align = "center">
@@ -88,10 +88,12 @@
             <th><label class = "routingtable-IF">IF</label></th>
           </tr>
         </table>
-        <li class = "context-menu-separator"></li>
-        <menuitem label = "削除" class = "nodeName"></menuitem>
       </table>
     </form>
+    <li class = "context-menu-separator"></li>
+    <%#各種ボタン%>
+    <menuitem label = "削除" class = "nodeName" onclick = "return nodeDel(this)"></menuitem>
+    <menuitem label = "閉じる"></menuitem>
   </menu>
 
 
