@@ -74,18 +74,33 @@
           <th><label class = "IP">IPアドレス</label></th>
           <th><label class = "SM">SM</label></th>
         </tr>
+        <%#IPアドレスとSMの入力欄(後ほど関数化)%>
+        <tr align = "center">
+          <td>if0 :</td>
+          <td/>
+          <%#IPアドレス入力欄%>
+          <input name = "IPアドレス" type = "text" size = "16" id = "IP0_0" class = "context-IP IPSMIF-item-middle" />
+          <%#SM入力欄%>
+          <input name = "SM" type = "text" size = "2" id = "SM0_0" class = "context-SM IPSMIF-item" />
+        </tr>
         <li class = "context-menu-sepparator"></li>
 
         <table class = "context-RoutingTable contextTable" width = "300">
           <tr align = "center">
             <%#ルーティングテーブル作成%>
             <th><label>RoutingTable</label></th>
-            <img src = "/assets/plus.jpg" class = "t0" />
+            <%#img src = "/assets/plus.jpg" class = "t0" %>
           </tr>
           <tr align = "center">
             <th><label class = "routingtable-IPSM">宛先ルート</label></th>
             <th><label class = "routingtable-NHA">NHA</label></th>
             <th><label class = "routingtable-IF">IF</label></th>
+          </tr>
+          <%#Routingtable入力欄(後ほど関数化)%>
+          <tr align = "center">
+            <td><input id = "routingtable-IP0_0" type = "text" size = "13" value = "DefaultGateway" onKeyUp = "" /></td>
+            <td><input id = "routingtable-NHA0_0" type = "text" size = "13" value = "" onKeyUp = "" /></td>
+            <td>if<input id = "routingtable-IF0_0" type = "text" size = "1" value = "" onKeyUp = ""/></td>
           </tr>
         </table>
       </table>
