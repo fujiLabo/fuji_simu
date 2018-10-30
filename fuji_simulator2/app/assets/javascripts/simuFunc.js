@@ -46,7 +46,7 @@
 
     $.contextMenu({
       selector: ".dropMachine",
-      items: $.contextMenu.fromMenu($('#contextMenuTemplate'))
+      items: $.contextMenu.fromMenu($('#memberTable'))
     });
   }
   //この書き方でも一応右クリックできた(ダブルクリックにするならこれ？)
@@ -185,8 +185,9 @@
     console.log("elLanMoveThis: " + NS.elLanMoveThis);
 
 
-
+    //if ($('#ns_main').hasClass('.dropMachine')){
       $('#ns_main').on("mousemove", testMove);
+    //}
 
 
   }
