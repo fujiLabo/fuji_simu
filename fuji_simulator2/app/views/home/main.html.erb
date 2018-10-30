@@ -64,48 +64,36 @@
     </menu>
 
 
-  <table class="memberTable" id="memberTable" style = "display:none;">
-  <tr><th>メンバーID</th><th>名前</th><th>年齢</th><th>性別</th></tr>
-  <!-- 1列目 -->
-  <tr>
-      <td><input type="text" size="5" maxlength="10" name="memberId" value="" class="memberList"></td>
-      <td><input type="text" size="30" maxlength="30" name="name" value="" class="memberList"></td>
-      <td><input type="text" size="5" maxlength="10" name="age" value="" class="memberList"></td>
-      <td>
-          <select>
-              <option>男</option>
-              <option>女</option>
-          </select>
-      </td>
-  </tr>
-  <!-- 2列目 -->
-  <tr>
-      <td><input type="text" size="5" maxlength="10" name="memberId" value="" class="memberList"></td>
-      <td><input type="text" size="30" maxlength="30" name="name" value="" class="memberList"></td>
-      <td><input type="text" size="5" maxlength="10" name="age" value="" class="memberList"></td>
-      <td>
-          <select>
-              <option>男</option>
-              <option>女</option>
-          </select>
-      </td>
-  </tr>
+    <%#右クリックテスト%>
+    <menu id = "contexttest" type = "context" style = "display:none">
+    <form action = "#">
+      <table id = "contest" class = "context-IPSMIF" width = "200">
+        <tr align = "center">
+          <%#見出し%>
+          <th><label class = "IF">IF</label></th>
+          <th><label class = "IP">IPアドレス</label></th>
+          <th><label class = "SM">SM</label></th>
+        </tr>
+        <li class = "context-menu-sepparator"></li>
 
-  <!-- 3列目 -->
-  <tr>
-      <td><input type="text" size="5" maxlength="10" name="memberId" value="" class="memberList"></td>
-      <td><input type="text" size="30" maxlength="30" name="name" value="" class="memberList"></td>
-      <td><input type="text" size="5" maxlength="10" name="age" value="" class="memberList"></td>
-      <td>
-          <select>
-              <option>男</option>
-              <option>女</option>
-          </select>
-      </td>
-  </tr>
-  </table>
-  <input type="button" id="testButton"  value="クリック！">
-  <div id="result"></div>
+        <table class = "context-RoutingTable" width = "300">
+          <tr align = "center">
+            <%#ルーティングテーブル作成%>
+            <th><label>addRoutingTable</label></th>
+            <img src = "/assets/plus.jpg" class = "t0" />
+          </tr>
+          <tr align = "center">
+            <th><label class = "routingtable-IPSM">宛先ルート</label></th>
+            <th><label class = "routingtable-NHA">NHA</label></th>
+            <th><label class = "routingtable-IF">IF</label></th>
+          </tr>
+        </table>
+        <li class = "context-menu-separator"></li>
+        <menuitem label = "削除" class = "nodeName"></menuitem>
+      </table>
+    </form>
+  </menu>
+
 
 </div>
 
