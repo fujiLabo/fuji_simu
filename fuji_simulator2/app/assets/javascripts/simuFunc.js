@@ -46,7 +46,7 @@
 
     $.contextMenu({
       selector: ".dropMachine",
-      items: $.contextMenu.fromMenu($('#contexttest'))
+      items: $.contextMenu.fromMenu($('#contextPC'))
     });
   }
   //この書き方でも一応右クリックできた(ダブルクリックにするならこれ？)

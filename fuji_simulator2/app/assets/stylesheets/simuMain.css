@@ -6,14 +6,60 @@ width: 900px;
 }
 /*********右クリック関連*************/
 .IPSMIF-item-middle {
+  display: table-cell;
+  vertical-align: middle;
 }
 
-.contextTable{
+.context-IPSMIF{
   font-size: 13px;
   display: table;
   width: 100%;
 }
+.IPSMIF-item {
+  display: table-cell;
+  vertical-align: middle;
+}
+.context-IPSMIF-item {
+  font-size: 13px;
+  display: table-cell;
+  vertical-align: middle;
+}
 
+
+.context-IP{
+  width: 100px;
+}
+.IP{
+  width: 100px;
+}
+.context-SM {
+  width: 20px;
+}
+.context-menu-item span {
+  font-size: 13px;
+}
+.context-RoutingTable{
+  font-size: 13px;
+}
+.context-RoutingTable-sub{
+  font-size: 13px;
+  display: table;
+  width: 100%;
+}
+.routingtable-item {
+  display: table-cell;
+  vertical-align: middle;
+}
+.routingtable-item-middle {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+}
+
+
+.contextMenuSeparator{
+  border: 0.5px black solid;
+}
 
 
 /**********************************/
@@ -36,6 +82,8 @@ width: 900px;
   width: 40px;
   float: left;
 }
+
+
 
 div.tooltip span{
   display: none;
