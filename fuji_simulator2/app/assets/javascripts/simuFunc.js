@@ -5,48 +5,20 @@
   function fncontextmenu(element) {
     console.log(element);
 
-    //document.oncontextmenu = function () {
-    //   return false;
-    //};
+    //後で変える(試し)
+    var menuName;
+    var selectorType = NS.dropContextName;
+    if (selectorType === "dropPC"){
+      menuName = "#contextPC";
+    }else{
+      menuName = "#contextRouter";
+    }
 
     $.contextMenu('destroy');
 
-    $('#contextMenuTemplate').html('');
-
-    $('#contextMenuTemplate').append('<form action = "#"/>');
-
-    $('#contextMenuTemplate form').append('<table class = "context_IPSMIF" width = "200"> <tr align = "center"> </tr> </table>');
-
-    $('#contextMenuTemplate form .context-IPSMIF tr').append('<th><label class="IF">IF</label></th>');
-
-    $('#contextMenuTemplate form .context-IPSMIF tr').append('<th><label class="IP">IPアドレス</label></th>');
-
-    $('#contextMenuTemplate form .context-IPSMIF tr').append('<th><label class="SM">SM</label></th>');
-
-
-    $('#contextMenuTemplate').append(
-      $('<input>').attr({
-        name: "入力",
-        type: "text",
-        size: "16",
-      })
-    );
-
-    $('#contextMenuTemplate').append(
-      $('<menuitem>').attr({
-        label: "削除",
-      })
-    );
-
-    $('#contextMenuTemplate').append(
-      $('<menuitem>').attr({
-        label: "閉じる",
-      })
-    );
-
     $.contextMenu({
-      selector: ".dropMachine",
-      items: $.contextMenu.fromMenu($('#contextRouter'))
+      selector: '.' + NS.dropContextName,
+      items: $.contextMenu.fromMenu($(menuName))
     });
   }
   //この書き方でも一応右クリックできた(ダブルクリックにするならこれ？)
@@ -67,15 +39,24 @@
 
   //画像をmain部分にドロップする際の関数
   fnMainDrop = function(ui, obj) {
+    //種類の判別
+    NS.dropContextName;//後に変える
+    if (ui.draggable.attr("src") === "/assets/pc.png"){
+      NS.dropContextName = "dropPC";
+    }else if (ui.draggable.attr("src") === "/assets/router.png"){
+      NS.dropContextName = "dropRouter";
+    }
+
     $('#ns_main').append(
       $('<img>').attr({
         src: ui.draggable.attr('src'),
-        class: 'dropMachine',
+        class: NS.dropContextName,
         id: "test",
         style: "position: absolute; top: " + ui.offset.top + "px; left: " + ui.offset.left + "px",
 
       })
     );
+    console.log("dropclass" + NS.dropContextName);
     //先代はこのコードで属性を与え、関数を呼ぼ出している
     $("#ns_main img:last-child").attr('oncontextmenu', 'return fncontextmenu(this)');
 
