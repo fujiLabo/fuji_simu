@@ -83,7 +83,7 @@
           <td><input name = "SM" type = "text" size = "2" value = "" id = "SM0_0" class = "inputSM inputIPSMIF-item" /></td>
         </tr>
       </table>
-        <li class = "contextMenuSeparator"></li>
+        <div class = "contextMenuSeparator"></div>
 
         <table class = "context-RoutingTable" width = "300">
           <tr align = "center">
@@ -105,14 +105,14 @@
         </table>
 
     </form>
-    <li class = "contextMenuSeparator"></li>
+    <div class = "contextMenuSeparator"></div>
     <%#各種ボタン%>
     <menuitem label = "削除" class = "nodeName" onclick = "return nodeDel(this)"></menuitem>
     <menuitem label = "閉じる"></menuitem>
   </menu>
 
   <%#右クリック(ルータ)%>
-  <menu id = "contextRouter" type = "context">
+  <menu id = "contextRouter" type = "context" width = "200">
     <form action = "#">
       <table id = "" class = "context-IPSMIF" width = "200">
         <%#見出し%>
@@ -123,15 +123,23 @@
         </tr>
         <%#IPアドレスSM入力欄(後ほど関数化)%>
         <tr align = "center">
-          <td></td>
+          <td>if0 :</td>
+          <td><input name = "IPアドレス" type = "text" size = "10" value = "" id = "id0_0" class = "inputIP inputIPSMIF-item" </td>
+          <td><input name = "SM" type = "text" size = "2" value = "" id = "sm0_0" class = "inputSM inputIPSMIF-item"</td>
+        </tr>
+      </table>
+      <div class = "contextMenuSeparator"></div>
+      <table class = "context-RoutingTable" width = "300">
+        <tr align = "center">
+          <th>RoutingTable</th>
         </tr>
 
       </table>
     </form>
   </menu>
-
-
 </div>
+
+
 
 <%= form_tag("/", method: :get) do %>
   <input type="submit" value="topへ">
