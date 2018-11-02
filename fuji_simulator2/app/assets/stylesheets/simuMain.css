@@ -15,7 +15,7 @@ width: 900px;
   display: table;
   width: 100%;
 }
-.IPSMIF-item {
+.inputIPSMIF-item {
   display: table-cell;
   vertical-align: middle;
 }
@@ -26,13 +26,11 @@ width: 900px;
 }
 
 
-.context-IP{
+.inputIP{
   width: 100px;
 }
-.IP{
-  width: 100px;
-}
-.context-SM {
+
+.inputSM{
   width: 20px;
 }
 .context-menu-item span {

@@ -78,9 +78,9 @@
         <tr align = "center">
           <td>if0 :</td>
           <%#IPアドレス入力欄%>
-          <td><input name = "IPアドレス" type = "text" size = "16" value = "" id = "IP0_0" class = "context-IP IPSMIF-item" /></td>
+          <td><input name = "IPアドレス" type = "text" size = "16" value = "" id = "IP0_0" class = "inputIP inputIPSMIF-item" /></td>
           <%#SM入力欄%>
-          <td><input name = "SM" type = "text" size = "2" value = "" id = "SM0_0" class = "context-SM IPSMIF-item" /></td>
+          <td><input name = "SM" type = "text" size = "2" value = "" id = "SM0_0" class = "inputSM inputIPSMIF-item" /></td>
         </tr>
       </table>
         <li class = "contextMenuSeparator"></li>
@@ -112,14 +112,20 @@
   </menu>
 
   <%#右クリック(ルータ)%>
-  <menu id = "contextRouter">
+  <menu id = "contextRouter" type = "context">
     <form action = "#">
       <table id = "" class = "context-IPSMIF" width = "200">
+        <%#見出し%>
         <tr align = "center">
           <th><label class = "IF">IF</label></th>
           <th><label class = "IP">IPアドレス</label></th>
           <th><label class = "SM">SM</label></th>
         </tr>
+        <%#IPアドレスSM入力欄(後ほど関数化)%>
+        <tr align = "center">
+          <td></td>
+        </tr>
+
       </table>
     </form>
   </menu>
