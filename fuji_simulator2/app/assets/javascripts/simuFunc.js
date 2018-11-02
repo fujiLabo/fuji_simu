@@ -266,6 +266,11 @@
     }
   }
 
+  //ルーティングテーブルを追加
+  function addRoutingTable(plus){
+
+  }
+
   //削除
   function nodeDel(e){
     console.log("nodeDel");

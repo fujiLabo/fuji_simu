@@ -112,7 +112,7 @@
   </menu>
 
   <%#右クリック(ルータ)%>
-  <menu id = "contextRouter" type = "context" width = "200">
+  <menu id = "contextRouter" type = "context" style = "display: none;">
     <form action = "#">
       <table id = "" class = "context-IPSMIF" width = "200">
         <%#見出し%>
@@ -131,11 +131,27 @@
       <div class = "contextMenuSeparator"></div>
       <table class = "context-RoutingTable" width = "300">
         <tr align = "center">
+          <%#ルーティングテーブル側%>
           <th>RoutingTable</th>
+          <th><img class = "0" onClick = "return addRoutingTable(this)" src = "/assets/plus.jpg" /></tr>
+        <tr align = "center">
+          <%#見出し%>
+          <th><label class = "routingtable-IPSM">宛先ルート</label></th>
+          <th><label class = "routingtable-NHA">NHA</label></th>
+          <th><label class = "routingtable-IF">IF</label></th>
+        </tr>
+        <%#ルーティングテーブルの入力欄(後ほど関数化)%>
+        <tr align = "center">
+          <td><input id = "routingtable-SM" type = "text" size = "13" value = "" /></td>
+          <td><input id = "routingtable-NHA" type = "text" size = "13" value = "" /></td>
+          <td><input id = "routingtable-IF" type = "text" size = "1" value = "" /></td>
         </tr>
 
       </table>
     </form>
+    <div class = "contextMenuSeparator"></div>
+    <menuitem label = "削除" class = "nodeDel" onClick = ""></menuitem>
+    <menuitem label = "閉じる"></menuitem>
   </menu>
 </div>
 
