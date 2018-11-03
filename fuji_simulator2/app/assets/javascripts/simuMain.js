@@ -2,6 +2,7 @@
 //直接htmlを操作する
 
 
+//他のファイルが読み込まれてからこのファイルを読み込む
 $.when(
   $.ready,
   $.getScript("/assets/simuDec.js"),
