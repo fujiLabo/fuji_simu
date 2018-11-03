@@ -151,6 +151,7 @@ div.tooltip:hover span{
   z-index: 100;
 } */
 
+
 .change_mode{
   margin: 0px;
 }
@@ -181,6 +182,7 @@ div.tooltip:hover span{
   border-radius: 0 5px 5px 0;
 }
 
+/*選択されたモードの色を指定*/
 .change_mode input[type = "radio"]:checked + .mode_draw{
   background-color: #a1b91d;
   color: #fff;
