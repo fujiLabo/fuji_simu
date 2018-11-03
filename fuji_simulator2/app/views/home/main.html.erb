@@ -46,22 +46,23 @@
         <div id="question_layer"></div>
       </div>
       <%#右側のシミュレートの詳細上部%>
-      <div id="ns_right-info">
-        <p>トポロジーの概要</p>
+      <div id="ns_rightInfo">
+        <p>
+          トポロジーの概要
+          <img src = "/assets/close.png" id = "r-close" title = "詳細を閉じる" />
+          <img src = "/assets/open.png" id = "r-open" title = "詳細を開く" />
+        </p>
       </div>
       <%#右側のシミュレートの詳細中身%>
-      <div id="ns_right"></div>
+      <div id="ns_right"><dl><%#main内の要素の表示欄%></dl></div>
 
       <%#コンソール上部%>
-      <div id="ns_console-info"></div>
+      <div id="ns_consoleInfo"><p>コンソール</p></div>
       <%#コンソール内部%>
       <div id="ns_console"></div>
       <%#グレー%>
     </div>
     <div id="glay_layer"></div>
-    <menu id="contextMenuTemplate" type="context" style="display:none;">
-      <menuitem id="temp"></menuitem>
-    </menu>
 
 
     <%#右クリック(PC)%>
