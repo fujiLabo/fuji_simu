@@ -62,6 +62,7 @@ width: 900px;
   overflow: scroll; /*ボックス内に入らない場合の処理*/
 }
 
+/*まだわからない*/
 #ns_console p{
   margin: 0;
   padding: 0;
@@ -88,7 +89,6 @@ width: 900px;
 
 #ns_rightInfo p img {
   float: right;
-  margin: 0;
   padding: 1px;
 }
 
@@ -185,9 +185,32 @@ div.tooltip:hover span{
   background-color: #a1b91d;
   color: #fff;
 }
-
 .change_mode input[type = "radio"]:checked + .mode_question{
   background-color: #e67168;
   color: #fff;
 }
+
+/*区切りに使う縦のライン*/
+.height_line{
+  float: left;
+  margin: 4px 8px;
+  border-left: 1px solid #a1a1a1;
+  height: 33px;
+}
+
+/*区切りに使う横のライン*/
+.width_line {
+  margin: 4px 3px;
+  border-top: 1px solid #a1a1a1;
+}
+
 /******************************/
+
+h4{
+  font-size: 20px;
+}
+
+/*いらない*/
+.movement{
+  clear: both;
+}
