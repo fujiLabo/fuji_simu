@@ -49,26 +49,35 @@ width: 900px;
   width: 197px;
 }
 
-/* #ns_rightInfo{
+#ns_rightInfo{
   margin-left: 2px;
   width: 199px;
-} */
+}
 
 
 #ns_console{
-  margin: 0;
   padding: 2px;
-  height: 150px;
-  width: 700px;
+  height: 130px;
+  width: 797px;
   overflow: scroll; /*ボックス内に入らない場合の処理*/
+}
+
+#ns_console p{
+  margin: 0;
+  padding: 0;
+  font-size: 12px;
+}
+
+#ns_consoleInfo{
+  margin-top: 2px;
+  width: 803px;
 }
 
 #ns_rightInfo, #ns_consoleInfo{
   float: left;
-  margin: 0;
 }
 
-#ns_rightInfo p, #ns_cosoleInfo p{
+#ns_rightInfo p, #ns_consoleInfo p{
   margin: 0;
   padding: 1px 1px 1px 4px;
   border: 1px solid #999;
@@ -78,7 +87,7 @@ width: 900px;
 }
 
 #ns_rightInfo p img {
-  float: right:left;
+  float: right;
   margin: 0;
   padding: 1px;
 }
