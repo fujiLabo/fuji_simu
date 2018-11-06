@@ -156,7 +156,6 @@
   //マウスが押された瞬間
   testDown = function(e) {
     //console.log("testDown.hasClass: " + e.target);
-    console.log("hasClass: " + $(e.target).attr("class"));
     //開始地点にPCかルータが存在する場合
     if( $(e.target).hasClass("dropMachine")){
 
@@ -189,6 +188,10 @@
     // NS.mainCtx.moveTo(NS.points[0].x, NS.points[0].y);
     // NS.mainCtx.lineTo(nowX, nowY);
     // NS.mainCtx.stroke();
+
+    if (!$(e.target).hasClass("dropMachine")){
+      NS.mainCtx.clearRect(0, 0, NS.canvasWidth, NS.canvasHeight);
+    }
 
 
     $("#ns_main").off("mousemove", NS.testMove);
