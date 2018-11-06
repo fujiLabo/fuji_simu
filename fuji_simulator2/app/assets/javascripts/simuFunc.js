@@ -154,12 +154,12 @@
 
 
   //マウスが押された瞬間
-  testDown = function(e) {
+  mouseDown = function(e) {
     //console.log("testDown.hasClass: " + e.target);
     //開始地点にPCかルータが存在する場合
     if( $(e.target).hasClass("dropMachine")){
 
-    console.log("testDown");
+    console.log("mouseDown");
     //マウスを押した場所の座標を取得
     NS.points = [{x:e.pageX - this.offsetLeft, y:e.pageY - this.offsetTop}];
     console.log("座標の取得: " + NS.points);
@@ -171,15 +171,15 @@
 
 
     //if ($('#ns_main').hasClass('.dropMachine')){
-      $('#ns_main').on("mousemove", testMove);
+      $('#ns_main').on("mousemove", mouseMove);
     //}
 
   }
   }
 
   //マウスが離れた瞬間
-  testUp = function(e) {
-    console.log("testUp");
+  mouseUp = function(e) {
+    console.log("mouseUp");
 
     var nowX = e.pageX - this.offsetLeft;
     var nowY = e.pageY - this.offsetTop;
@@ -194,16 +194,16 @@
     }
 
 
-    $("#ns_main").off("mousemove", NS.testMove);
+    $("#ns_main").off("mousemove", NS.mouseMove);
   }
 
-  testOutUp = function(e) {
+  mouseOutUp = function(e) {
 
   }
 
   //マウスが移動した際
-  testMove = function(e) {
-    console.log("testMove");
+  mouseMove = function(e) {
+    console.log("mouseMove");
     NS.mainCtx.clearRect(0, 0, NS.canvasWidth, NS.canvasHeight);
     NS.mainCtx.beginPath();
     NS.mainCtx.moveTo(NS.points[0].x, NS.points[0].y);
@@ -230,13 +230,13 @@
       $('.dropMachine').draggable("disable");
       $('.dropMachine').mouseup(function(e) { e.preventDefault(); });
       $('.dropMachine').mousedown(function(e) { e.preventDefault(); });
-      //イベントハンドラーをつける(test)
-      elMain.on("mousedown", testDown);
-      elMain.on("mouseup", testUp);
-      elHtml.on("mouseup", testOutUp);
+      //イベントハンドラーをつける
+      elMain.on("mousedown", mouseDown);
+      elMain.on("mouseup", mouseUp);
+      elHtml.on("mouseup", mouseOutUp);
 
       //
-      // //lanLinkがあるとき
+      //lanLinkがあるとき
       if (elMainDrag.hasClass("lanLink")) {
       //   elMain.off("mousedown", fnLanMoveDown);
       //   elMain.off("mouseup", fnLanMoveUp);
@@ -250,6 +250,14 @@
       $('#lan').attr('src', '/assets/lanCableOff.png');
       NS.lanFlag = false;
       //カーソルの変更
+
+      //イベントハンドラの削除
+      elMain.off("mousedown", mouseDown);
+      elMain.off("mouseup", mouseUp);
+      elMain.off("mouseup", mouseOutUp)
+
+      $(".dropMachine").draggable("enable");
+
       elMain.css("cursor", "auto");
       elMainDrag.css("cursor", "pointer");
     }
