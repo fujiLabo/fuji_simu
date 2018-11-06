@@ -20,8 +20,8 @@ $.when(
 
   console.log("NS.canvasHeight(main): " + NS.canvasHeight)
   console.log("test: " + NS.mainCtx);
+  
   //PCやルータのドラッグ設定
-
   $('.machine').draggable({
     helper: 'clone',
     revert: true,

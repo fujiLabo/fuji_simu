@@ -51,6 +51,7 @@
       $('<img>').attr({
         src: ui.draggable.attr('src'),
         class: NS.dropContextName,
+        class: "dropMachine",
         id: "test",
         style: "position: absolute; top: " + ui.offset.top + "px; left: " + ui.offset.left + "px",
 
@@ -154,11 +155,15 @@
 
   //マウスが押された瞬間
   testDown = function(e) {
-    console.log("testDown");
+    //console.log("testDown.hasClass: " + e.target);
+    console.log("hasClass: " + $(e.target).attr("class"));
+    //開始地点にPCかルータが存在する場合
+    if( $(e.target).hasClass("dropMachine")){
 
+    console.log("testDown");
     //マウスを押した場所の座標を取得
     NS.points = [{x:e.pageX - this.offsetLeft, y:e.pageY - this.offsetTop}];
-    console.log(NS.points);
+    console.log("座標の取得: " + NS.points);
 
 
 
@@ -170,7 +175,7 @@
       $('#ns_main').on("mousemove", testMove);
     //}
 
-
+  }
   }
 
   //マウスが離れた瞬間
@@ -222,7 +227,7 @@
       $('.dropMachine').draggable("disable");
       $('.dropMachine').mouseup(function(e) { e.preventDefault(); });
       $('.dropMachine').mousedown(function(e) { e.preventDefault(); });
-      //test
+      //イベントハンドラーをつける(test)
       elMain.on("mousedown", testDown);
       elMain.on("mouseup", testUp);
       elHtml.on("mouseup", testOutUp);
@@ -241,7 +246,7 @@
       //lanボタンをoffにする
       $('#lan').attr('src', '/assets/lanCableOff.png');
       NS.lanFlag = false;
-      //カースルの変更
+      //カーソルの変更
       elMain.css("cursor", "auto");
       elMainDrag.css("cursor", "pointer");
     }
@@ -249,7 +254,7 @@
 
   //ルーティングテーブルを追加
   function addRoutingTable(plus){
-
+    console.log("addRoutingTable");
   }
 
   //削除
