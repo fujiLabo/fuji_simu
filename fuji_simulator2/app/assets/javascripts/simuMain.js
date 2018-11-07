@@ -56,17 +56,23 @@ $.when(
   //LANボタンを押した際
   $('#lan').click(function(){
     changeLanMode();
-    console.log("LAN押された");
   });
 
-  //右側の詳細部分の画像をクリックした際
-  $('#ns_rightInfo img').click( function(){
+  //右側の中身の画像をクリックした際
+  $('ns_right img').click(function(){
+    console.log("右側やで");
+  });
+
+  //右側のトポロジーの概要部分の画像をクリックした際
+  $('#ns_rightInfo img').click(function(){
     if ($(this).attr("id") === "r-close"){
       console.log("-押された");
     }else{
       console.log("+押された");
     }
   });
+
+
 
 
 

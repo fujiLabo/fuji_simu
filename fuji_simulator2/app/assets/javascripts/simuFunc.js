@@ -215,7 +215,7 @@
   //マウスが移動した際
   mouseMove = function(e) {
     console.log("mouseMove");
-    //前回の線を消しマウスを押した場所から現在の場所までの線を描画する
+    //マウスを押した場所から現在の場所までの線を再描画
     NS.mainCtx.clearRect(0, 0, NS.canvasWidth, NS.canvasHeight);
     NS.mainCtx.beginPath();
     NS.mainCtx.moveTo(NS.points[0].x, NS.points[0].y);
