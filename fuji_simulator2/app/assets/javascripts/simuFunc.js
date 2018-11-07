@@ -17,8 +17,10 @@
     $.contextMenu('destroy');
 
     $.contextMenu({
-      selector: '.' + NS.dropContextName,
-      items: $.contextMenu.fromMenu($(menuName))
+      //selector: '.' + NS.dropContextName,
+      //items: $.contextMenu.fromMenu($(menuName)),
+      selector: ".dropMachine",
+      items: $.contextMenu.fromMenu($("#contextPC")),
     });
   }
   //この書き方でも一応右クリックできた(ダブルクリックにするならこれ？)
@@ -63,6 +65,8 @@
 
     //mainにドロップされたものをドラッグ可能に(オプションによってmain内でのみに移動を限定する必要あり)
     $('#ns_main img:last-child').draggable({});
+
+    //changeDrag();
   }
 
   //線の描画
@@ -227,9 +231,10 @@
       //elMain.on("mousedown", fnLanDown);  //マウスボタンが押されたとき
       //elMain.on("mouseup", fnLanUp);      //マウスボタンが離れたとき
       //elHtml.on("mouseup", fnLanOutUp);
-      $('.dropMachine').draggable("disable");
-      $('.dropMachine').mouseup(function(e) { e.preventDefault(); });
-      $('.dropMachine').mousedown(function(e) { e.preventDefault(); });
+
+      //$('.dropMachine').draggable("disable");
+      //$('.dropMachine').mouseup(function(e) { e.preventDefault(); });
+      //$('.dropMachine').mousedown(function(e) { e.preventDefault(); });
       //イベントハンドラーをつける
       elMain.on("mousedown", mouseDown);
       elMain.on("mouseup", mouseUp);
@@ -256,19 +261,34 @@
       elMain.off("mouseup", mouseUp);
       elMain.off("mouseup", mouseOutUp)
 
-      $(".dropMachine").draggable("enable");
+
 
       elMain.css("cursor", "auto");
       elMainDrag.css("cursor", "pointer");
     }
+
+    changeDrag();
   }
 
+  //
+  changeDrag = function(e){
+    if (NS.lanFlag){
+      $(".dropMachine").draggable("disable");
+      $('.dropMachine').mouseup(function(e) { e.preventDefault(); });
+      $('.dropMachine').mousedown(function(e) { e.preventDefault(); });
+
+  }else{
+    $(".dropMachine").draggable("enable");
+  }
+}
+
+
   //ルーティングテーブルを追加
-  function addRoutingTable(plus){
+  addRoutingTable = function(plus){
     console.log("addRoutingTable");
   }
 
   //削除
-  function nodeDel(e){
+  nodeDel = function(e){
     console.log("nodeDel");
   }
