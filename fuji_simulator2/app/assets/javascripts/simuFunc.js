@@ -234,6 +234,9 @@
       $('#lan').attr('src', '/assets/lanCableOn.png');
       NS.lanFlag = true;
 
+      $('.dropMachine').draggable('disable');
+      $('.dropMachine').mouseup(function(e){ e.preventDefault(); });
+      $('.dropMachine').mousedown(function(e){ e.preventDefault(); });
       //イベントハンドラーをつける
       //elMain.on("mousedown", fnLanDown);  //マウスボタンが押されたとき
       //elMain.on("mouseup", fnLanUp);      //マウスボタンが離れたとき
@@ -261,7 +264,8 @@
       //lanボタンをoffにする
       $('#lan').attr('src', '/assets/lanCableOff.png');
       NS.lanFlag = false;
-      //カーソルの変更
+
+      $('.dropMachine').draggable('enable');
 
       //イベントハンドラの削除
       elMain.off("mousedown", mouseDown);
@@ -269,25 +273,26 @@
       elMain.off("mouseup", mouseOutUp)
 
 
-
+      //カーソルの変更
       elMain.css("cursor", "auto");
       elMainDrag.css("cursor", "pointer");
     }
 
-    changeDrag();
+    //changeDrag();
   }
 
-  //
-  changeDrag = function(){
-    if (NS.lanFlag){
-      $(".dropMachine").draggable("disable");
-      $('.dropMachine').mouseup(function(e) { e.preventDefault(); });
-      $('.dropMachine').mousedown(function(e) { e.preventDefault(); });
-
-  }else{
-    $(".dropMachine").draggable("enable");
-  }
-}
+//   //LANモードのon、offに応じて画像のドラッグの可否を決める関数
+//   //LANモードを切り替えてからドロップした画像に適用するために関数化したが、この関数は毎回場にある全ての画像の可否を変更しているため無駄が多いので不使用
+//   changeDrag = function(){
+//     if (NS.lanFlag){
+//       $(".dropMachine").draggable("disable");
+//       $('.dropMachine').mouseup(function(e) { e.preventDefault(); });
+//       $('.dropMachine').mousedown(function(e) { e.preventDefault(); });
+//
+//   }else{
+//     $(".dropMachine").draggable("enable");
+//   }
+// }
 
 
   //ルーティングテーブルを追加
