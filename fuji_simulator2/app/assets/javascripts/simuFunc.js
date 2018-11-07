@@ -66,7 +66,7 @@
     //mainにドロップされたものをドラッグ可能に(オプションによってmain内でのみに移動を限定する必要あり)
     $('#ns_main img:last-child').draggable({});
 
-    //changeDrag();
+    changeDrag();
   }
 
   //線の描画
@@ -271,7 +271,7 @@
   }
 
   //
-  changeDrag = function(e){
+  changeDrag = function(){
     if (NS.lanFlag){
       $(".dropMachine").draggable("disable");
       $('.dropMachine').mouseup(function(e) { e.preventDefault(); });
