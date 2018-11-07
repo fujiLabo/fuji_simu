@@ -63,14 +63,16 @@
     //先代はこのコードで属性を与え、関数を呼ぼ出している
     $("#ns_main img:last-child").attr('oncontextmenu', 'return fncontextmenu(this)');
 
+
     //mainにドロップされたものをドラッグ可能に(オプションによってmain内でのみに移動を限定する必要あり)
+    $('#ns_main img:last-child').draggable({});
+
+    //ドロップした際にLANモードがonならば、ドラッグを不可にする
     if (NS.lanFlag){
+      $('#ns_main img:last-child').draggable('disable');
       $('#ns_main img:last-child').mouseup(function(e) {e.preventDefault(e); });
       $('#ns_main img:last-child').mousedown(function(e) {e.preventDefault(e); });
-    }else{
-      $('#ns_main img:last-child').draggable({});
     }
-
     //changeDrag();
   }
 
