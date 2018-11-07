@@ -5,7 +5,7 @@
   function fncontextmenu(element) {
     console.log(element);
 
-    //後で変える(試し)
+    //後で変える(試し)(現在未使用)
     var menuName;
     var selectorType = NS.dropContextName;
     if (selectorType === "dropPC"){
@@ -215,6 +215,7 @@
   //マウスが移動した際
   mouseMove = function(e) {
     console.log("mouseMove");
+    //前回の線を消しマウスを押した場所から現在の場所までの線を描画する
     NS.mainCtx.clearRect(0, 0, NS.canvasWidth, NS.canvasHeight);
     NS.mainCtx.beginPath();
     NS.mainCtx.moveTo(NS.points[0].x, NS.points[0].y);
@@ -234,6 +235,7 @@
       $('#lan').attr('src', '/assets/lanCableOn.png');
       NS.lanFlag = true;
 
+      //画像のドラッグを禁止
       $('.dropMachine').draggable('disable');
       $('.dropMachine').mouseup(function(e){ e.preventDefault(); });
       $('.dropMachine').mousedown(function(e){ e.preventDefault(); });
@@ -246,8 +248,8 @@
       //$('.dropMachine').mouseup(function(e) { e.preventDefault(); });
       //$('.dropMachine').mousedown(function(e) { e.preventDefault(); });
       //イベントハンドラーをつける
-      elMain.on("mousedown", mouseDown);
-      elMain.on("mouseup", mouseUp);
+      elMain.on("mousedown", mouseDown);  //マウスを押した瞬間
+      elMain.on("mouseup", mouseUp);      //マウスを離した瞬間
       elHtml.on("mouseup", mouseOutUp);
 
       //
@@ -265,6 +267,7 @@
       $('#lan').attr('src', '/assets/lanCableOff.png');
       NS.lanFlag = false;
 
+      //画像のドラッグを可能に
       $('.dropMachine').draggable('enable');
 
       //イベントハンドラの削除
