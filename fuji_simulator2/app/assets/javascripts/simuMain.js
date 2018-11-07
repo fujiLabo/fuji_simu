@@ -20,7 +20,7 @@ $.when(
 
   console.log("NS.canvasHeight(main): " + NS.canvasHeight)
   console.log("test: " + NS.mainCtx);
-  
+
   //PCやルータのドラッグ設定
   $('.machine').draggable({
     helper: 'clone',
@@ -53,9 +53,19 @@ $.when(
     }
   });
 
+  //LANボタンを押した際
   $('#lan').click(function(){
     changeLanMode();
     console.log("LAN押された");
+  });
+
+  //右側の詳細部分の画像をクリックした際
+  $('#ns_rightInfo img').click( function(){
+    if ($(this).attr("id") === "r-close"){
+      console.log("-押された");
+    }else{
+      console.log("+押された");
+    }
   });
 
 
