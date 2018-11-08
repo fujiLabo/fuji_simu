@@ -74,6 +74,14 @@
       $('#ns_main img:last-child').mousedown(function(e) {e.preventDefault(e); });
     }
     //changeDrag();
+
+    //ns_rightにトポロジを追加
+    $("#ns_right dl").append("<dt><img src = /assets/plus.jpg><span>" + ui.draggable.attr("alt") + "</span></dt>");
+    if (ui.draggable.attr("id") === "PC"){
+      console.log("draggable: " + ui.draggable.attr("class"));
+    }else if (ui.draggable.attr("id") === "Router"){
+
+    }
   }
 
   //線の描画
