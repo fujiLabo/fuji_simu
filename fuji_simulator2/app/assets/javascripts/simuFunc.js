@@ -168,10 +168,6 @@
 //   }
 
 
-
-
-
-
   //マウスが押された瞬間
   mouseDown = function(e) {
     //console.log("testDown.hasClass: " + e.target);
@@ -188,10 +184,10 @@
     NS.elLanMoveThis = $(this);
     console.log("elLanMoveThis: " + NS.elLanMoveThis);
 
+    console.log("mousedown.children: " + $(this).children(".lanOn"));
 
-    //if ($('#ns_main').hasClass('.dropMachine')){
-      $('#ns_main').on("mousemove", mouseMove);
-    //}
+    //マウスが移動するときの処理
+    $('#ns_main').on("mousemove", mouseMove);
 
   }
   }
@@ -314,4 +310,27 @@
   //削除
   nodeDel = function(e){
     console.log("nodeDel");
+  }
+
+  //全要素の削除
+  fnAllReset = function() {
+    //変数のリセット
+    NS.pcNode  = 0;
+    NS.swNode  = 0;
+    NS.svNode  = 0;
+    NS.ruNode  = 0;
+    NS.lanNode = 0;
+    //コンソールとトポロジーの文字を削除
+    $('#ns_right dl').html("");
+    $('#ns_console').html("");
+
+    //lanLinkがあるとき
+
+    //画像と線の削除
+    $('#ns_main img').remove();
+    //$('.bus').remove();
+    $('#ns_main_canvas').removeClass();
+    $('#ns_main_canvas').attr('data-buslan', '');
+    NSF.mainCtx.clearRect(0, 0, NS.canvasWidth, NS.canvasHeight);
+
   }
