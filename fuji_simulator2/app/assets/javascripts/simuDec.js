@@ -9,6 +9,9 @@ $(function() {
   if (typeof NS === "undefined") NS = {};
 
   NS.testflag = false;
+
+  NS.dropContextName;
+
   //全体
   NS.pcNode = 0;
   NS.ruNode = 0;

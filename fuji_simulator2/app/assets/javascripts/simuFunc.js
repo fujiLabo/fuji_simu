@@ -5,48 +5,22 @@
   function fncontextmenu(element) {
     console.log(element);
 
-    //document.oncontextmenu = function () {
-    //   return false;
-    //};
+    //後で変える(試し)(現在未使用)
+    var menuName;
+    var selectorType = NS.dropContextName;
+    if (selectorType === "dropPC"){
+      menuName = "#contextPC";
+    }else{
+      menuName = "#contextRouter";
+    }
 
     $.contextMenu('destroy');
 
-    $('#contextMenuTemplate').html('');
-
-    $('#contextMenuTemplate').append('<form action = "#"/>');
-
-    $('#contextMenuTemplate form').append('<table class = "context_IPSMIF" width = "200"> <tr align = "center"> </tr> </table>');
-
-    $('#contextMenuTemplate form .context-IPSMIF tr').append('<th><label class="IF">IF</label></th>');
-
-    $('#contextMenuTemplate form .context-IPSMIF tr').append('<th><label class="IP">IPアドレス</label></th>');
-
-    $('#contextMenuTemplate form .context-IPSMIF tr').append('<th><label class="SM">SM</label></th>');
-
-
-    $('#contextMenuTemplate').append(
-      $('<input>').attr({
-        name: "入力",
-        type: "text",
-        size: "16",
-      })
-    );
-
-    $('#contextMenuTemplate').append(
-      $('<menuitem>').attr({
-        label: "削除",
-      })
-    );
-
-    $('#contextMenuTemplate').append(
-      $('<menuitem>').attr({
-        label: "閉じる",
-      })
-    );
-
     $.contextMenu({
+      //selector: '.' + NS.dropContextName,
+      //items: $.contextMenu.fromMenu($(menuName)),
       selector: ".dropMachine",
-      items: $.contextMenu.fromMenu($('#contextMenuTemplate'))
+      items: $.contextMenu.fromMenu($("#contextPC")),
     });
   }
   //この書き方でも一応右クリックできた(ダブルクリックにするならこれ？)
@@ -67,20 +41,39 @@
 
   //画像をmain部分にドロップする際の関数
   fnMainDrop = function(ui, obj) {
+    //種類の判別
+    NS.dropContextName;//後に変える
+    if (ui.draggable.attr("src") === "/assets/pc.png"){
+      NS.dropContextName = "dropPC";
+    }else if (ui.draggable.attr("src") === "/assets/router.png"){
+      NS.dropContextName = "dropRouter";
+    }
+
     $('#ns_main').append(
       $('<img>').attr({
         src: ui.draggable.attr('src'),
-        class: 'dropMachine',
+        class: NS.dropContextName,
+        class: "dropMachine",
         id: "test",
         style: "position: absolute; top: " + ui.offset.top + "px; left: " + ui.offset.left + "px",
 
       })
     );
+    console.log("dropclass" + NS.dropContextName);
     //先代はこのコードで属性を与え、関数を呼ぼ出している
     $("#ns_main img:last-child").attr('oncontextmenu', 'return fncontextmenu(this)');
 
+
     //mainにドロップされたものをドラッグ可能に(オプションによってmain内でのみに移動を限定する必要あり)
     $('#ns_main img:last-child').draggable({});
+
+    //ドロップした際にLANモードがonならば、ドラッグを不可にする
+    if (NS.lanFlag){
+      $('#ns_main img:last-child').draggable('disable');
+      $('#ns_main img:last-child').mouseup(function(e) {e.preventDefault(e); });
+      $('#ns_main img:last-child').mousedown(function(e) {e.preventDefault(e); });
+    }
+    //changeDrag();
   }
 
   //線の描画
@@ -172,12 +165,15 @@
 
 
   //マウスが押された瞬間
-  testDown = function(e) {
-    console.log("testDown");
+  mouseDown = function(e) {
+    //console.log("testDown.hasClass: " + e.target);
+    //開始地点にPCかルータが存在する場合
+    if( $(e.target).hasClass("dropMachine")){
 
+    console.log("mouseDown");
     //マウスを押した場所の座標を取得
     NS.points = [{x:e.pageX - this.offsetLeft, y:e.pageY - this.offsetTop}];
-    console.log(NS.points);
+    console.log("座標の取得: " + NS.points);
 
 
 
@@ -185,15 +181,16 @@
     console.log("elLanMoveThis: " + NS.elLanMoveThis);
 
 
+    //if ($('#ns_main').hasClass('.dropMachine')){
+      $('#ns_main').on("mousemove", mouseMove);
+    //}
 
-      $('#ns_main').on("mousemove", testMove);
-
-
+  }
   }
 
   //マウスが離れた瞬間
-  testUp = function(e) {
-    console.log("testUp");
+  mouseUp = function(e) {
+    console.log("mouseUp");
 
     var nowX = e.pageX - this.offsetLeft;
     var nowY = e.pageY - this.offsetTop;
@@ -203,17 +200,22 @@
     // NS.mainCtx.lineTo(nowX, nowY);
     // NS.mainCtx.stroke();
 
+    if (!$(e.target).hasClass("dropMachine")){
+      NS.mainCtx.clearRect(0, 0, NS.canvasWidth, NS.canvasHeight);
+    }
 
-    $("#ns_main").off("mousemove", NS.testMove);
+
+    $("#ns_main").off("mousemove", NS.mouseMove);
   }
 
-  testOutUp = function(e) {
+  mouseOutUp = function(e) {
 
   }
 
   //マウスが移動した際
-  testMove = function(e) {
-    console.log("testMove");
+  mouseMove = function(e) {
+    console.log("mouseMove");
+    //マウスを押した場所から現在の場所までの線を再描画
     NS.mainCtx.clearRect(0, 0, NS.canvasWidth, NS.canvasHeight);
     NS.mainCtx.beginPath();
     NS.mainCtx.moveTo(NS.points[0].x, NS.points[0].y);
@@ -233,20 +235,25 @@
       $('#lan').attr('src', '/assets/lanCableOn.png');
       NS.lanFlag = true;
 
+      //画像のドラッグを禁止
+      $('.dropMachine').draggable('disable');
+      $('.dropMachine').mouseup(function(e){ e.preventDefault(); });
+      $('.dropMachine').mousedown(function(e){ e.preventDefault(); });
       //イベントハンドラーをつける
       //elMain.on("mousedown", fnLanDown);  //マウスボタンが押されたとき
       //elMain.on("mouseup", fnLanUp);      //マウスボタンが離れたとき
       //elHtml.on("mouseup", fnLanOutUp);
-      $('.dropMachine').draggable("disable");
-      $('.dropMachine').mouseup(function(e) { e.preventDefault(); });
-      $('.dropMachine').mousedown(function(e) { e.preventDefault(); });
-      //test
-      elMain.on("mousedown", testDown);
-      elMain.on("mouseup", testUp);
-      elHtml.on("mouseup", testOutUp);
+
+      //$('.dropMachine').draggable("disable");
+      //$('.dropMachine').mouseup(function(e) { e.preventDefault(); });
+      //$('.dropMachine').mousedown(function(e) { e.preventDefault(); });
+      //イベントハンドラーをつける
+      elMain.on("mousedown", mouseDown);  //マウスを押した瞬間
+      elMain.on("mouseup", mouseUp);      //マウスを離した瞬間
+      elHtml.on("mouseup", mouseOutUp);
 
       //
-      // //lanLinkがあるとき
+      //lanLinkがあるとき
       if (elMainDrag.hasClass("lanLink")) {
       //   elMain.off("mousedown", fnLanMoveDown);
       //   elMain.off("mouseup", fnLanMoveUp);
@@ -259,8 +266,44 @@
       //lanボタンをoffにする
       $('#lan').attr('src', '/assets/lanCableOff.png');
       NS.lanFlag = false;
-      //カースルの変更
+
+      //画像のドラッグを可能に
+      $('.dropMachine').draggable('enable');
+
+      //イベントハンドラの削除
+      elMain.off("mousedown", mouseDown);
+      elMain.off("mouseup", mouseUp);
+      elMain.off("mouseup", mouseOutUp)
+
+
+      //カーソルの変更
       elMain.css("cursor", "auto");
       elMainDrag.css("cursor", "pointer");
     }
+
+    //changeDrag();
+  }
+
+//   //LANモードのon、offに応じて画像のドラッグの可否を決める関数
+//   //LANモードを切り替えてからドロップした画像に適用するために関数化したが、この関数は毎回場にある全ての画像の可否を変更しているため無駄が多いので不使用
+//   changeDrag = function(){
+//     if (NS.lanFlag){
+//       $(".dropMachine").draggable("disable");
+//       $('.dropMachine').mouseup(function(e) { e.preventDefault(); });
+//       $('.dropMachine').mousedown(function(e) { e.preventDefault(); });
+//
+//   }else{
+//     $(".dropMachine").draggable("enable");
+//   }
+// }
+
+
+  //ルーティングテーブルを追加
+  addRoutingTable = function(plus){
+    console.log("addRoutingTable");
+  }
+
+  //削除
+  nodeDel = function(e){
+    console.log("nodeDel");
   }

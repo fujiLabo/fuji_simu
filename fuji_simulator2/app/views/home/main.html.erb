@@ -1,71 +1,164 @@
 <h1>mainのページ</h1>
 
 <%#シミュレータ全体%>
-  <div id="ns_all">
-    <div id="ns_container">
-      <%#シミュレータ上部のアイコンやボタン%>
-        <div id="ns_nav">
-          <%#モード変更ボタン%>
-            <div class="change_mode draw tooltip tooltip_mode">
-              <input type="radio" name="DorQ" id="mode_draw" checked="" autocomplete="off">
-              <label for="mode_draw" class="mode_draw">自由描画</label>
+<div id="ns_all">
+  <div id="ns_container">
+    <%#シミュレータ上部のアイコンやボタン%>
+    <div id="ns_nav">
+      <%#モード変更ボタン%>
+      <div class="change_mode draw tooltip tooltip_mode">
+        <input type="radio" name="DorQ" id="mode_draw" checked="" autocomplete="off">
+        <label for="mode_draw" class="mode_draw">自由描画</label>
+        <input type="radio" name="DorQ" id="mode_question" autocomplete="off">
+        <label for="mode_question" class="mode_question">問題演習</label>
+        <span class = "output">モードを選択します</span>
+      </div>
+      <%#各アイコン, height_line = アイコンを区切る縦のライン(本当はhr使いたかった)%>
+      <div class="height_line"></div>
+      <div class="tooltip tooltip_start">
+          <img src="/assets/start.png" id="start" title="実行">
+          <span>ネットワークの判定をします</span>
+        </div>
+        <div class="height_line"></div>
+        <div class="tooltip tooltip_check">
+          <img src="/assets/check.png" id="check" title="情報を確認">
+          <span>ノードごとの情報を確認します</span>
+        </div>
+        <div class = "height_line"></div>
+        <div class="tooltip tooltip_dust">
+          <img src="/assets/dust.png" id="dust" title="ノードの削除">
+          <span>すべてのノードを削除します</span>
+        </div>
+      </div>
 
-              <input type="radio" name="DorQ" id="mode_question" autocomplete="off">
-              <label for="mode_question" class="mode_question">問題演習</label>
-              <span>モードを選択します</span>
-            </div>
+      <%#左側のあれこれ, width_line = それぞれの要素を区切る横の線%>
+      <div id="ns_left">
+        <img src="/assets/pc.png" alt="PC" class="machine">
+        <hr class = "width_line" />
+        <img src="/assets/router.png" alt="Router" class="machine">
+        <hr class = "width_line" />
+        <h4>Bus</h4>
+        <hr class = "width_line" />
+        <img src="/assets/lanCableOff.png" title="LANをつなげる" id="lan">
+      </div>
+      <%#シミュレートする部分%>
+      <div id="ns_main">
+        <canvas width="600" height="400" id="ns_main_canvas" class=""></canvas>
+        <div id="check_layer"></div>
+        <div id="question_layer"></div>
+      </div>
+      <%#右側のシミュレートの詳細上部%>
+      <div id="ns_rightInfo">
+        <p>
+          トポロジーの概要
+          <img src = "/assets/close.png" id = "r-close" title = "詳細を閉じる" />
+          <img src = "/assets/open.png" id = "r-open" title = "詳細を開く" />
+        </p>
+      </div>
+      <%#右側のシミュレートの詳細中身%>
+      <div id="ns_right"><dl><%#main内の要素の表示欄%></dl></div>
 
-            <civ class="height_line"></civ>
-            <div class="tooltip tooltip_start">
-              <img src="/assets/start.png" id="start" title="実行">
-              <span>ネットワークの判定をします</span>
-            </div>
+      <%#コンソール上部%>
+      <div id="ns_consoleInfo"><p>コンソール</p></div>
+      <%#コンソール内部%>
+      <div id="ns_console"></div>
+      <%#グレー%>
+    </div>
+    <div id="glay_layer"></div>
 
-            <div class="height_line"></div>
-            <div class="tooltip tooltip_check">
-              <img src="/assets/check.png" id="check" title="情報を確認">
-              <span>ノードごとの情報を確認します</span>
-            </div>
+    <%#PCやルータが右クリックされた場合に呼び出される(普段は表示しない)%>
+    <%#右クリック(PC)%>
+    <menu id = "contextPC" type = "context" style = "display:none">
+    <form action = "#">
+      <table id = "" class = "context-IPSMIF" width = "200">
+        <tr align = "center">
+          <%#見出し%>
+          <th><label class = "IF">IF</label></th>
+          <th><label class = "IP">IPアドレス</label></th>
+          <th><label class = "SM">SM</label></th>
+        </tr>
+        <%#IPアドレスとSMの入力欄(後ほど関数化)%>
+        <tr align = "center">
+          <td>if0 :</td>
+          <%#IPアドレス入力欄%>
+          <td><input name = "IPアドレス" type = "text" size = "16" value = "" id = "IP0_0" class = "inputIP inputIPSMIF-item" /></td>
+          <%#SM入力欄%>
+          <td><input name = "SM" type = "text" size = "2" value = "" id = "SM0_0" class = "inputSM inputIPSMIF-item" /></td>
+        </tr>
+      </table>
+      <hr />
 
-            <div class="tooltip tooltip_dust">
-              <img src="/assets/dust.png" id="dust" title="ノードの削除">
-              <span>すべてのノードを削除します</span>
-            </div>
-          </div>
+        <table class = "context-RoutingTable" width = "300">
+          <tr align = "center">
+            <%#ルーティングテーブル作成%>
+            <th><label>RoutingTable</label></th>
+            <%#img src = "/assets/plus.jpg" class = "t0" %>
+          </tr>
+          <tr align = "center">
+            <th><label class = "routingtable-IPSM">宛先ルート</label></th>
+            <th><label class = "routingtable-NHA">NHA</label></th>
+            <th><label class = "routingtable-IF">IF</label></th>
+          </tr>
+          <%#Routingtable入力欄(後ほど関数化)%>
+          <tr align = "center">
+            <td><input id = "routingtable-IP0_0" type = "text" size = "13" value = "DefaultGateway" onKeyUp = "" /></td>
+            <td><input id = "routingtable-NHA0_0" type = "text" size = "13" value = "" onKeyUp = "" /></td>
+            <td>if<input id = "routingtable-IF0_0" type = "text" size = "1" value = "" onKeyUp = ""/></td>
+          </tr>
+        </table>
+        <hr />
+    </form>
+    <%#各種ボタン%>
+    <menuitem label = "削除" class = "nodeName" onclick = "return nodeDel(this)"></menuitem>
+    <menuitem label = "閉じる"></menuitem>
+  </menu>
 
-          <%#左側のあれこれ%>
-            <div id="ns_left">
-              <img src="/assets/pc.png" alt="PC" class="machine">
-              <img src="/assets/router.png" alt="Router" class="machine">
-              <img src="/assets/lanCableOff.png" title="LANをつなげる" id="lan">
-            </div>
-            <%#シミュレートする部分%>
-              <div id="ns_main">
-                <canvas width="600" height="400" id="ns_main_canvas" class=""></canvas>
-                <div id="check_layer"></div>
-                <div id="question_layer"></div>
-              </div>
-              <%#右側のシミュレートの詳細上部%>
-                <div id="ns_right-info">
-                  <p>
-                    トポロジーの概要
-                  </p>
-                </div>
-                <%#右側のシミュレートの詳細中身%>
-                  <div id="ns_right"></div>
+  <%#右クリック(ルータ)%>
+  <menu id = "contextRouter" type = "context" style = "display: none;">
+    <form action = "#">
+      <table id = "" class = "context-IPSMIF" width = "200">
+        <%#見出し%>
+        <tr align = "center">
+          <th><label class = "IF">IF</label></th>
+          <th><label class = "IP">IPアドレス</label></th>
+          <th><label class = "SM">SM</label></th>
+        </tr>
+        <%#IPアドレスSM入力欄(後ほど関数化)%>
+        <tr align = "center">
+          <td>if0 :</td>
+          <td><input name = "IPアドレス" type = "text" size = "10" value = "" id = "id0_0" class = "inputIP inputIPSMIF-item" </td>
+          <td><input name = "SM" type = "text" size = "2" value = "" id = "sm0_0" class = "inputSM inputIPSMIF-item"</td>
+        </tr>
+      </table>
+      <hr />
+      <table class = "context-RoutingTable" width = "300">
+        <tr align = "center">
+          <%#ルーティングテーブル側%>
+          <th>RoutingTable</th>
+          <th><img class = "0" onClick = "return addRoutingTable(this)" src = "/assets/plus.jpg" /></tr>
+        <tr align = "center">
+          <%#見出し%>
+          <th><label class = "routingtable-IPSM">宛先ルート</label></th>
+          <th><label class = "routingtable-NHA">NHA</label></th>
+          <th><label class = "routingtable-IF">IF</label></th>
+        </tr>
+        <%#ルーティングテーブルの入力欄(後ほど関数化)%>
+        <tr align = "center">
+          <td><input id = "routingtable-SM" type = "text" size = "13" value = "" /></td>
+          <td><input id = "routingtable-NHA" type = "text" size = "13" value = "" /></td>
+          <td><input id = "routingtable-IF" type = "text" size = "1" value = "" /></td>
+        </tr>
 
-                  <%#コンソール上部%>
-                    <div id="ns_console-info"></div>
-                    <%#コンソール内部%>
-                      <div id="ns_console"></div>
-                      <%#グレー%>
-                      </div>
-                      <div id="glay_layer"></div>
-                      <menu id="contextMenuTemplate" type="context" style="display:none;">
-                        <menuitem id="temp"></menuitem>
-                      </menu>
-                    </div>
+      </table>
+      <hr />
+    </form>
+    <menuitem label = "削除" class = "nodeDel" onClick = ""></menuitem>
+    <menuitem label = "閉じる"></menuitem>
+  </menu>
+</div>
 
-                    <%= form_tag("/", method: :get) do %>
-                    <input type="submit" value="topへ">
-                  <% end %>
+
+
+<%= form_tag("/", method: :get) do %>
+  <input class = "movement" type="submit" value="topへ">
+  <% end %>

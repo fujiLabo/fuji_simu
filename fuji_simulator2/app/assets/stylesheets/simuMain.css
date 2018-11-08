@@ -5,13 +5,112 @@
 width: 900px;
 }
 
+/*フォントの設定*/
+#ns_container, #glayLayer {
+  font-family: "Hiragino Kaku Gothic ProN", "メイリオ", sans-serif;
+}
+
+/*枠の描画*/
+#ns_nav, #ns_left, #ns_main, #ns_right, #ns_console{
+  float: left;
+  border: 1px solid #999;
+  background: #FFF;
+}
+
+
+/**********メインの設定**********/
+#ns_main{
+  height: 400px;
+  width: 600px;
+}
+/******************************/
+
+#ns_main .lanOn{
+  opacity: 0.6;
+}
+
+/**********左サイドの設定********/
+#ns_left{
+  margin-right: 3px;
+  padding: 5px 5px;
+  width: 82px;
+  height: 549px;
+}
+
+#ns_left .machine{
+  margin: 0 6px;
+}
+/******************************/
+
+
+#ns_right{
+  margin-left: 2px;
+  height: 379px;
+  width: 197px;
+}
+
+#ns_rightInfo{
+  margin-left: 2px;
+  width: 199px;
+}
+
+
+#ns_console{
+  padding: 2px;
+  height: 130px;
+  width: 797px;
+  overflow: scroll; /*ボックス内に入らない場合の処理*/
+}
+
+/*まだわからない*/
+#ns_console p{
+  margin: 0;
+  padding: 0;
+  font-size: 12px;
+}
+
+#ns_consoleInfo{
+  margin-top: 2px;
+  width: 803px;
+}
+
+#ns_rightInfo, #ns_consoleInfo{
+  float: left;
+}
+
+#ns_rightInfo p, #ns_consoleInfo p{
+  margin: 0;
+  padding: 1px 1px 1px 4px;
+  border: 1px solid #999;
+  background: #ddd;
+  height: 17px;
+  font-size: 12px;
+}
+
+#ns_rightInfo p img {
+  float: right;
+  padding: 1px;
+}
+
+/* #ns_consoleInfo{
+  margin-top: 2px;
+  width: 803px;
+} */
+
+
+/* clearfixらしい
+#ns_container:after, #studymenuForm:after {
+  content: "";
+  display: block;
+  clear: both;
+} */
+
 /*********ツールの設定*************/
 #ns_nav{
-  margin: 0 0 2px;
+  margin-bottom: 2px;
   padding: 2px;
   height: 42px;
   width: 894px;
-  background-color: rgba(255, 0, 0, 0.3);
 }
 
 #ns_nav img{
@@ -21,14 +120,37 @@ width: 900px;
   float: left;
 }
 
+
+
 div.tooltip span{
   display: none;
 }
 
 div.tooltip:hover span{
-  display: block;
-  background-color: rgba(0,255,0, 0.3);
+  display: inline-block;
+  position: absolute;
+  top: 50px;
+  background-color: rgba(0, 255, 0, 0.3);
+  z-index: 100;
 }
+
+/* div.tooltip:hover span{
+  display: block;
+  position: absolute;
+  height: 0;
+  width: 0;
+  top: -13px;
+  left: 15px;
+  border: 13px transparent solid;
+  border-right-width: 0;
+  border-left-color: #51A2C1;
+  transform:rotate(270deg);
+  -webkit-transform: rotate(270deg);
+  -o-transform: rotate(270deg);
+  background-color: rgba(0,255,0, 0.3);
+  z-index: 100;
+} */
+
 
 .change_mode{
   margin: 0px;
@@ -60,305 +182,37 @@ div.tooltip:hover span{
   border-radius: 0 5px 5px 0;
 }
 
+/*選択されたモードの色を指定*/
 .change_mode input[type = "radio"]:checked + .mode_draw{
   background-color: #a1b91d;
   color: #fff;
 }
-
 .change_mode input[type = "radio"]:checked + .mode_question{
   background-color: #e67168;
   color: #fff;
 }
-/******************************/
 
-/**********左サイドの設定********/
-#ns_left{
-  margin-right: 3px;
-  padding: 5px 5px;
-  width: 82px;
-  height: 549px;
-  background-color: rgba(0, 255, 0, 0.3);
-}
-
-/******************************/
-
-/**********メインの設定**********/
-#ns_main{
-  height: 400px;
-  width: 600px;
-}
-/******************************/
-
-#ns_right{
-  height: 400px;
-  width: 150px;
-  background-color: rgba(100, 100, 0, 0.3);
-}
-
-#ns_console{
-  height: 150px;
-  width: 700px;
-  background-color: rgba(0, 255, 255, 0.3);
-}
-
-#ns_nav, #ns_left, #ns_main, #ns_right, #ns_console{
+/*区切りに使う縦のライン*/
+.height_line{
   float: left;
-
+  margin: 4px 8px;
+  border-left: 1px solid #a1a1a1;
+  height: 33px;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-/*!
- * jQuery contextMenu - Plugin for simple contextMenu handling
- *
- * Version: v2.1.1
- *
- * Authors: Björn Brala (SWIS.nl), Rodney Rehm, Addy Osmani (patches for FF)
- * Web: http://swisnl.github.io/jQuery-contextMenu/
- *
- * Copyright (c) 2011-2016 SWIS BV and contributors
- *
- * Licensed under
- *   MIT License http://www.opensource.org/licenses/mit-license
- *
- * Date: 2016-05-24T13:08:41.760Z
- */
-@font-face {
-  font-family: "context-menu-icons";
-  font-style: normal;
-  font-weight: normal;
-
-  src: url("font/context-menu-icons.eot?1rzc4");
-  src: url("font/context-menu-icons.eot?1rzc4#iefix") format("embedded-opentype"), url("font/context-menu-icons.woff2?1rzc4") format("woff2"), url("font/context-menu-icons.woff?1rzc4") format("woff"), url("font/context-menu-icons.ttf?1rzc4") format("truetype");
+/*区切りに使う横のライン*/
+.width_line {
+  margin: 4px 3px;
+  border-top: 1px solid #a1a1a1;
 }
 
-.context-menu-icon-add:before {
-  content: "\EA01";
+/******************************/
+
+h4{
+  font-size: 20px;
 }
 
-.context-menu-icon-copy:before {
-  content: "\EA02";
-}
-
-.context-menu-icon-cut:before {
-  content: "\EA03";
-}
-
-.context-menu-icon-delete:before {
-  content: "\EA04";
-}
-
-.context-menu-icon-edit:before {
-  content: "\EA05";
-}
-
-.context-menu-icon-paste:before {
-  content: "\EA06";
-}
-
-.context-menu-icon-quit:before {
-  content: "\EA07";
-}
-
-.context-menu-icon::before {
-  position: absolute;
-  top: 50%;
-  left: 0;
-  width: 2em;
-  font-family: "context-menu-icons";
-  font-size: 1em;
-  font-style: normal;
-  font-weight: normal;
-  line-height: 1;
-  color: #2980b9;
-  text-align: center;
-  -webkit-transform: translateY(-50%);
-      -ms-transform: translateY(-50%);
-       -o-transform: translateY(-50%);
-          transform: translateY(-50%);
-
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-.context-menu-icon.context-menu-hover:before {
-  color: #fff;
-}
-
-.context-menu-icon.context-menu-disabled::before {
-  color: #bbb;
-}
-
-.context-menu-icon.context-menu-icon--fa {
-  display: list-item;
-}
-.context-menu-icon.context-menu-icon--fa::before {
-  position: absolute;
-  top: 50%;
-  left: 0;
-  width: 2em;
-  font-family: FontAwesome;
-  font-size: 1em;
-  font-style: normal;
-  font-weight: normal;
-  line-height: 1;
-  color: #2980b9;
-  text-align: center;
-  -webkit-transform: translateY(-50%);
-      -ms-transform: translateY(-50%);
-       -o-transform: translateY(-50%);
-          transform: translateY(-50%);
-
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-.context-menu-icon.context-menu-icon--fa.context-menu-hover:before {
-  color: #fff;
-}
-.context-menu-icon.context-menu-icon--fa.context-menu-disabled::before {
-  color: #bbb;
-}
-
-.context-menu-icon.context-menu-icon--fa span {
-  font-family: sans-serif;
-}
-
-.context-menu-list {
-  position: absolute;
-  display: inline-block;
-  min-width: 13em;
-  max-width: 26em;
-  padding: .25em 0;
-  margin: .3em;
-  font-family: inherit;
-  font-size: inherit;
-  list-style-type: none;
-  background: #fff;
-  border: 1px solid #bebebe;
-  border-radius: .2em;
-  -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, .5);
-          box-shadow: 0 2px 5px rgba(0, 0, 0, .5);
-}
-
-.context-menu-item {
-  position: relative;
-  padding: .1em 1em;
-  color: #2f2f2f;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
-  background-color: #fff;
-}
-
-.context-menu-separator {
-  padding: 0;
-  margin: .35em 0;
-  border-bottom: 1px solid #e6e6e6;
-}
-
-.context-menu-item > label > input,
-.context-menu-item > label > textarea {
-  -webkit-user-select: text;
-     -moz-user-select: text;
-      -ms-user-select: text;
-          user-select: text;
-}
-
-.context-menu-item.context-menu-hover {
-  color: #fff;
-  cursor: pointer;
-  background-color: #2980b9;
-}
-
-.context-menu-item.context-menu-disabled {
-  color: #bbb;
-  cursor: default;
-  background-color: #fff;
-}
-
-.context-menu-input.context-menu-hover {
-  cursor: default;
-  background-color: #eee;
-}
-
-.context-menu-submenu:after {
-  position: absolute;
-  top: 50%;
-  right: .5em;
-  z-index: 1;
-  width: 0;
-  height: 0;
-  content: '';
-  border-color: transparent transparent transparent #2f2f2f;
-  border-style: solid;
-  border-width: .25em 0 .25em .25em;
-  -webkit-transform: translateY(-50%);
-      -ms-transform: translateY(-50%);
-       -o-transform: translateY(-50%);
-          transform: translateY(-50%);
-}
-
-/**
- * Inputs
- */
-.context-menu-item.context-menu-input {
-  padding: .3em .6em;
-}
-
-/* vertically align inside labels */
-.context-menu-input > label > * {
-  vertical-align: top;
-}
-
-/* position checkboxes and radios as icons */
-.context-menu-input > label > input[type="checkbox"],
-.context-menu-input > label > input[type="radio"] {
-  position: relative;
-  top: .12em;
-  margin-right: .4em;
-}
-
-.context-menu-input > label {
-  margin: 0;
-}
-
-.context-menu-input > label,
-.context-menu-input > label > input[type="text"],
-.context-menu-input > label > textarea,
-.context-menu-input > label > select {
-  display: block;
-  width: 100%;
-  -webkit-box-sizing: border-box;
-     -moz-box-sizing: border-box;
-          box-sizing: border-box;
-}
-
-.context-menu-input > label > textarea {
-  height: 7em;
-}
-
-.context-menu-item > .context-menu-list {
-  top: .3em;
-  /* re-positioned by js */
-  right: -.3em;
-  display: none;
-}
-
-.context-menu-item.context-menu-visible > .context-menu-list {
-  display: block;
-}
-
-.context-menu-accesskey {
-  text-decoration: underline;
+/*いらない*/
+.movement{
+  clear: both;
 }
