@@ -111,7 +111,9 @@ class HomeController < ApplicationController
     @Digest = OpenSSL::Digest::SHA1.new
     #puts @Signature_base_string
     #puts Base64.encode64(OpenSSL::HMAC::digest(OpenSSL::Digest::SHA1.new,@KEY,@Signature_base_string))
-    @oauth_signature = Base64.encode64(OpenSSL::HMAC::digest(@Digest,@KEY,@Signature_base_string))
+
+    #signatureの作成および最後の入る\nをchopで消している
+    @oauth_signature = Base64.encode64(OpenSSL::HMAC::digest(@Digest,@KEY,@Signature_base_string)).chop
     puts Base64.encode64(OpenSSL::HMAC::digest(@Digest,@KEY,@Signature_base_string))
     #puts OpenSSL::HMAC::digest(OpenSSL::Digest::SHA1.new,@KEY,@Signature_base_strin
     #puts @KEY
@@ -123,7 +125,7 @@ class HomeController < ApplicationController
 
 
 
-=begin
+#=begin
 #####POST送信関係の処理
 @Oauth_strings = "OAuth realm" + "=" + "\"http://sp.example.com/\"" + "," +
                  "oauth_consumer_key" + "=" + "\"" + @KEY + "\"" + "," +
@@ -134,19 +136,21 @@ class HomeController < ApplicationController
                  "oauth_signature" + "=" + "\"" + @oauth_signature + "\""
 
   @uri = URI.parse(@Return_grade)
-  puts @Oauth_strings
 
   header = {'Content-Type': 'application/xml',
     'Authorization': @Oauth_strings
   }
   user = {user: {
-            name:'bob'
+        f = File.open('aa.xml')
+        s = f.read
+        f.close
           }
   }
 
 
   #create the http object
   http = Net::HTTP.new(@uri.host, @uri.port)
+  http.use_ssl = true
   request = Net::HTTP::Post.new(@uri.request_uri, header)
   request.body = user.to_xml
 
@@ -155,7 +159,7 @@ class HomeController < ApplicationController
 
   puts @Oauth_strings
 
-=end
+#=end
 
   end
 

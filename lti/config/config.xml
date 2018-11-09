@@ -23,7 +23,7 @@
       <!-- Name Only ユーザー名は送信しますがメールは送信しない -->
       <!-- Publi 名前、メール、キャンバスIDなどを送信します。 -->
       <lticm:property name="privacy_level">anonymous</lticm:property>
-      <!-- 1つのコースまたはアカウント内のすべてのコースのナビゲーションにアプリを追加する -->
+      <!-- 1つのコースまたはアカウント内のすべてのコースのナビゲーションにアプリを追加する-->
       <lticm:options name="course_navigation">
       <lticm:property name="url">http://www.example.com/unforgivables/1</lticm:property>
       <lticm:property name="text">Avada Kedavra</lticm:property>
