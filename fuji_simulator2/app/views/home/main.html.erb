@@ -16,20 +16,45 @@
       <%#各アイコン, height_line = アイコンを区切る縦のライン(本当はhr使いたかった)%>
       <div class="height_line"></div>
       <div class="tooltip tooltip_start">
-          <img src="/assets/start.png" id="start" title="実行">
+        <img src="/assets/start.png" id="start" title="実行">
           <span>ネットワークの判定をします</span>
-        </div>
-        <div class="height_line"></div>
-        <div class="tooltip tooltip_check">
-          <img src="/assets/check.png" id="check" title="情報を確認">
-          <span>ノードごとの情報を確認します</span>
+      </div>
+      <div class="height_line"></div>
+      <div class="tooltip tooltip_check">
+        <img src="/assets/check.png" id="check" title="情報を確認">
+        <span>ノードごとの情報を確認します</span>
+      </div>
+      <div class = "height_line"></div>
+      <div class="tooltip tooltip_dust">
+        <img src="/assets/dust.png" id="dust" title="ノードの削除">
+        <span>すべてのノードを削除します</span>
+      </div>
+      <div class = "height_line"></div>
+
+      <%#問題演習時にのみ表示するツール%>
+      <div id = "question"　style = "display:none">
+        <div class = "tooltip tooltip_study add_nav">
+          <img src = "/assets/study.png" id = "study" title = "練習問題" />
+          <span>問題を表示します</span>
         </div>
         <div class = "height_line"></div>
-        <div class="tooltip tooltip_dust">
-          <img src="/assets/dust.png" id="dust" title="ノードの削除">
-          <span>すべてのノードを削除します</span>
+        <div class = "tooltip tooltip_save add_nav">
+          <img src = "/assets/save.png" id = "save" title = "セーブ" />
+          <span>現在のネットワーク構成を保存します</span>
         </div>
+        <div class = "height_line"></div>
+        <div class = "tooltip tooltip_load add_nav">
+          <img src = "/assets/load.png" id = "load" title = "ロード" />
+          <span>セーブした問題のネットワーク構成を復元します</span>
+        </div>
+        <div class = "height_line"></div>
+        <div class = "tooltip tooltip_quit add_nav">
+          <img src = "/assets/quit.png" id = "quit" title = "終了" />
+          <span>問題演習を終了します</span>
+        </div>
+        <div class = "height_line"></div>
       </div>
+    </div>
 
       <%#左側のあれこれ, width_line = それぞれの要素を区切る横の線%>
       <div id="ns_left">

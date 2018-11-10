@@ -46,25 +46,18 @@ $(function() {
   NS.mainCtx = $('#ns_main_canvas')[0].getContext('2d'); //ns_main_canvasをAPIにアクセスできるオブジェクト
   NS.mainCtx.strokeStyle = 'red';
   //canvasに関するフラグ
-  NS.lanFlag = false;
+  NS.imgFlag = false;       //マウスが画像の上にあるかどうか
+  NS.lanFlag = false;       //LANモードのonとoff
   NS.busFlag = false;
   NS.busDrawFrag = false;
-  NS.lanFlaglink;
-  NS.lanFlagPoint;
-  NS.lanFlagDelete;
-  NS.lanFlagMove;
+  NS.lanLinkFlag;
+  NS.lanPointFlag;
+  NS.lanDeleteFlag;
+  NS.lanMoveFlag;
 
 
   //ns_mainのxy
   $('#ns_main_canvas').attr('data-x', NS.mainCanvasWidth);
   $('#ns-main-canvas').attr('data-y', NS.mainCanvasHeight);
-
-
-
-  NS.lanFlag = false; //LAN画像のonとoffに関するフラグ
-  NS.lanLinkFlag; //
-  NS.lanPointFlag;
-  NS.lanDeleteFlag;
-  NS.lanMoveFlag;
 
 });
