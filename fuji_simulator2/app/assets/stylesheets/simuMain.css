@@ -120,6 +120,10 @@ width: 900px;
   float: left;
 }
 
+#question{
+  display:none;
+}
+
 
 
 div.tooltip span{
