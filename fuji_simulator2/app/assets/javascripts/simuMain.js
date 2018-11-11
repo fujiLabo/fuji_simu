@@ -9,6 +9,8 @@ $.when(
   $.getScript("/assets/simuFunc.js"),
 ).then(function(){
 
+  var test = "ttttt"
+
   $('#ns_main img').mouseover(function(){
     console.log("testflag = true");
     NS.testflag = true;
