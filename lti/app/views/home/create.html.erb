@@ -4,6 +4,8 @@
 <p1><%#= params %></p1>
 <h3><%= @sort %></h3>
 <h4><%= @oauth_consumer_key %><h4>
+<h5><%= params[:ext_content_return_types] %></h5>
+<h5><%= params[:selection_directive] %></h5>
 
 
 
@@ -23,8 +25,74 @@
 <% end %>
 
 <%= form_tag(@Return_url , method: :get) do %>
-<%= hidden_field_tag :lti_errormsg,"Who's going to save you, Junior?!" %>
+<%#= hidden_field_tag :lti_errormsg,"Who's going to save you, Junior?!" %>
 <%= hidden_field_tag :lti_errorlog,"The floor's on fire... see... *&* the chair." %>
 <%= submit_tag 'error' %>
+
+<% end%>
+
+<%#LTI5 Section2用%>
+<%= form_tag(@Return_url , method: :get) do %>
+<%= hidden_field_tag :embed_type,"link" %>
+<%= hidden_field_tag :url,"http://www.bacon.com" %>
+<%= hidden_field_tag :text,"bacon" %>
+<%= submit_tag 'test' %>
+
+<% end %>
+
+<%#LTI5 Section3用 画像を乗っける場合の処理について書かれている　全て必須のパラメータ%>
+<%= form_tag(@Return_url , method: :get) do %>
+<%= hidden_field_tag :embed_type,"image" %>
+<%= hidden_field_tag :url,"http://www.bacon.com/bacon.png" %>
+<%= hidden_field_tag :alt,"bacon" %>
+<%= hidden_field_tag :width,"200" %>
+<%= hidden_field_tag :height,"100" %>
+<%= submit_tag 'test2' %>
+
+<% end %>
+
+<%#LTI5 Section4用 iframeの話%>
+<%= form_tag(@Return_url , method: :get) do %>
+<%= hidden_field_tag :embed_type,"iframe" %>
+<%= hidden_field_tag :url,"http://www.bacon.com" %>
+<%= hidden_field_tag :width,"200" %>
+<%= hidden_field_tag :height,"100" %>
+<%= submit_tag 'test3' %>
+
+<% end %>
+
+<%#LTI5 Section5用 ファイルの送信など%>
+<%= form_tag(@Return_url , method: :get) do %>
+<%= hidden_field_tag :embed_type,"file" %>
+<%= hidden_field_tag :url,"http://www.bacon.com/bacon.docx" %>
+<%= hidden_field_tag :text,"bacon.docx" %>
+<%= hidden_field_tag :content_type,"application/vnd.openxmlformats-officedocument.wordprocessingml.document"%>
+<%= submit_tag 'test4' %>
+
+<% end %>
+
+<%#LTI5 Section6用 LTI準拠のアプリの起動urlを渡す場合 %>
+<%= form_tag(@Return_url , method: :get) do %>
+<%= hidden_field_tag :embed_type,"basic_lti" %>
+<%= hidden_field_tag :url,"http://www.bacon.com/bacon_launch" %>
+<%= submit_tag 'test5' %>
+
+<% end %>
+
+<%#LTI5 Section7用 %>
+<%= form_tag(@Return_url , method: :get) do %>
+<%= hidden_field_tag :embed_type,"oembed" %>
+<%= hidden_field_tag :url,"http://www.flickr.com/photos/bees/2341623661/" %>
+<%= hidden_field_tag :endpoint, "http://www.flickr.com/services/oembed/" %>
+<%= submit_tag 'test5' %>
+
+<% end %>
+
+<%#LTI6 Section1用 %>
+<%= form_tag(@Return_grade , method: :POST) do %>
+<%= hidden_field_tag :lis_outcome_service_url,"esultScore > textString" %>
+<%= hidden_field_tag :lis_result_sourcedid,"esultScore > textString" %>
+
+<%= submit_tag 'grade' %>
 
 <% end %>

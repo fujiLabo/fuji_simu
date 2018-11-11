@@ -5,6 +5,8 @@ require 'cgi'
 require 'digest/hmac'
 require 'digest/sha1'
 require 'date'
+#POSTリクエスト
+require 'net/http'
 
 class HomeController < ApplicationController
 
@@ -21,8 +23,13 @@ class HomeController < ApplicationController
   end
 
   def create
+    #timestampを取得して格納
+    @timestamp = Time.now.to_i.to_s
+
     @METHOD = "POST"
-    @KEY = "46621daec7f6e7d3f030032dc3c571c5&"
+    #@KEY = params[:oauth_consumer_key] + "&"
+    @Nonce = params[:oauth_nonce]
+    @KEY = "849bbc901a95ccadda68279d41b08085&"
     @REQUEST = CGI.escape("http://localhost:3000/home/create")
 
     #x-frameでの表示をすべてに許可する
@@ -35,10 +42,11 @@ class HomeController < ApplicationController
     @temp.delete(:action)
     @temp.delete(:controller)
     @temp.delete(:oauth_signature)
-    #timestampを取得して格納
-    @timestamp = Time.now.to_i
+
     #Ruturn_urlをurlエンコードする前に格納
     @Return_url = @temp[:launch_presentation_return_url]
+    #成績を返すurlを格納
+    @Return_grade = @temp[:lis_outcome_service_url]
 
     unless @Return_url == params[:launch_presentation_return_url]
       redirect_to  action:"error"
@@ -100,12 +108,14 @@ class HomeController < ApplicationController
     @Signature_base_string += "&" + @REQUEST
     @Signature_base_string += "&" + CGI.escape(@string)
 
-    @Digest =OpenSSL::Digest::SHA1.new
+    @Digest = OpenSSL::Digest::SHA1.new
     #puts @Signature_base_string
     #puts Base64.encode64(OpenSSL::HMAC::digest(OpenSSL::Digest::SHA1.new,@KEY,@Signature_base_string))
+    @oauth_signature = Base64.encode64(OpenSSL::HMAC::digest(@Digest,@KEY,@Signature_base_string))
     puts Base64.encode64(OpenSSL::HMAC::digest(@Digest,@KEY,@Signature_base_string))
     #puts OpenSSL::HMAC::digest(OpenSSL::Digest::SHA1.new,@KEY,@Signature_base_strin
-    puts Time.now.to_i
+    #puts @KEY
+    #puts @timestamp
 
     #@query = CGI.escape("Most things in here don't react well to bullets.")
     #@query.gsub!('+','%20')
@@ -113,7 +123,40 @@ class HomeController < ApplicationController
 
 
 
-  end
+=begin
+#####POST送信関係の処理
+@Oauth_strings = "OAuth realm" + "=" + "\"http://sp.example.com/\"" + "," +
+                 "oauth_consumer_key" + "=" + "\"" + @KEY + "\"" + "," +
+                 "oauth_signature_method" + "=" + "\"HMAC-SHA1\"" + "," +
+                 "oauth_timestamp" + "=" + "\"" + @timestamp + "\"" + "," +
+                 "oauth_nonce" + "=" + "\"" + @Nonce + "\"" + "," +
+                 "oauth_version" + "=" + "\"" + "1.0" + "\"" "," +
+                 "oauth_signature" + "=" + "\"" + @oauth_signature + "\""
 
+  @uri = URI.parse(@Return_grade)
+  puts @Oauth_strings
+
+  header = {'Content-Type': 'application/xml',
+    'Authorization': @Oauth_strings
+  }
+  user = {user: {
+            name:'bob'
+          }
+  }
+
+
+  #create the http object
+  http = Net::HTTP.new(@uri.host, @uri.port)
+  request = Net::HTTP::Post.new(@uri.request_uri, header)
+  request.body = user.to_xml
+
+  #send the request
+  response = http.request(request)
+
+  puts @Oauth_strings
+
+=end
+
+  end
 
 end
