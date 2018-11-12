@@ -47,6 +47,7 @@ width: 900px;
   margin-left: 2px;
   height: 379px;
   width: 197px;
+  overflow: scroll;
 }
 
 #ns_rightInfo{
