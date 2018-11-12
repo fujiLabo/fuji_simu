@@ -41,31 +41,48 @@
 
   //画像をmain部分にドロップする際の関数
   fnMainDrop = function(ui, obj) {
-    //種類の判別
-    NS.dropContextName;//後に変える
-    if (ui.draggable.attr("src") === "/assets/pc.png"){
-      NS.dropContextName = "dropPC";
-    }else if (ui.draggable.attr("src") === "/assets/router.png"){
-      NS.dropContextName = "dropRouter";
+    //ドロップした種類の判別
+    console.log("contextname: " + ui.draggable.attr("id"));
+    if (ui.draggable.attr("id") === "PC"){
+      console.log("PC");
+      NS.dropNodeInt = NS.pcNode;
+      NS.dropNodeName = "PC" + NS.pcNode;
+      NS.dropContextName = "contextmenuPC";
+      NS.pcNode++;
+      console.log("nodename: " + NS.dropNodeName);
+    }else if (ui.draggable.attr("id") === "Router"){
+      console.log("Router");
+      NS.dropNodeInt = NS.ruNode;
+      NS.dropNodeName = "Router" + NS.ruNode;
+      NS.dropContextName = "contextmenuRouter";
+      NS.ruNode++;
     }
 
+    //ドロップした画像を追加
     $('#ns_main').append(
       $('<img>').attr({
         src: ui.draggable.attr('src'),
-        class: NS.dropContextName,
+        alt: NS.dropNodeName,
         class: "dropMachine",
-        id: "test",
+        'data_ifnum': 0,
+        'data_lan_if': '',
+        'data_routingtable_num': 0,
+        'data_link_num': 0,
+        id: NS.dropNodeName,
         style: "position: absolute; top: " + ui.offset.top + "px; left: " + ui.offset.left + "px",
 
       })
     );
-    console.log("dropclass" + NS.dropContextName);
-    //先代はこのコードで属性を与え、関数を呼ぼ出している
+    console.log("alt(before): " + NS.dropNodeName);
+    console.log("alt: " + ui.draggable.attr("alt"));
+    //ドロップした画像に右クリックの属性をつける
     $("#ns_main img:last-child").attr('oncontextmenu', 'return fncontextmenu(this)');
 
 
     //mainにドロップされたものをドラッグ可能に(オプションによってmain内でのみに移動を限定する必要あり)
-    $('#ns_main img:last-child').draggable({});
+    $('#ns_main img:last-child').draggable({
+
+    });
 
     //ドロップした際にLANモードがonならば、ドラッグを不可にする
     if (NS.lanFlag){
@@ -76,7 +93,7 @@
     //changeDrag();
 
     //ns_rightにトポロジを追加
-    $("#ns_right dl").append("<dt><img src = /assets/plus.jpg><span>" + ui.draggable.attr("alt") + "</span></dt>");
+    $("#ns_right dl").append("<dt><img src = /assets/plus.jpg><span>" + $("#ns_main img:last-child").attr("alt") + "</span></dt>");
     if (ui.draggable.attr("id") === "PC"){
       console.log("draggable: " + ui.draggable.attr("class"));
     }else if (ui.draggable.attr("id") === "Router"){

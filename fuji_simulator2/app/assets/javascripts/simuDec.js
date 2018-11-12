@@ -21,7 +21,7 @@ $(function() {
   NS.lanNode = 0; //LanNodeの数
 
   //main部分の変数
-  NS.mainDropFlg = true;    //draggableのフラグ
+  NS.mainDropFlag = true;    //draggableのフラグ
   NS.dropNodeInt = 0;       //DropNodeの価数
   NS.dropNodeName = "";     //DropNodeの名前
   NS.dropContextName = "";  //DropNodeのContextMenuの名前

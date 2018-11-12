@@ -41,15 +41,15 @@ $.when(
     tolerance: 'fit',
 
     drop: function(e, ui) {
-      NS.mainDropFlg = false;
+      NS.mainDropFlag = false;
       fnMainDrop(ui, $(this));
     },
     deactivate: function(e, ui) {
       ui.draggable.draggable({
-        revert: NS.mainDropFlg
+        revert: NS.mainDropFlag
       });
-      if (NS.mainDropFlg == false) {
-        NS.mainDropFlg = true;
+      if (NS.mainDropFlag == false) {
+        NS.mainDropFlag = true;
       }
     }
   });
