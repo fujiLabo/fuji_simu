@@ -94,7 +94,34 @@ $.when(
     }
   });
 
-  
+  //それぞれのツールのクリック処理
+  $('#start').click(function() {
+    console.log("start");
+  });
+
+  $('#check').click(function() {
+
+  });
+
+  $('#dust').click(function() {
+
+  });
+
+  $('#study').click(function() {
+
+  });
+
+  $('#save').click(function() {
+
+  });
+
+  $('#load').click(function() {
+
+  });
+
+  $('#quit').click(function() {
+    console.log("quit");
+  })
 
 
 
