@@ -125,7 +125,7 @@ class HomeController < ApplicationController
 
 
 
-#=begin
+=begin
 #####POST送信関係の処理
 @Oauth_strings = "OAuth realm" + "=" + "\"http://sp.example.com/\"" + "," +
                  "oauth_consumer_key" + "=" + "\"" + @KEY + "\"" + "," +
@@ -140,8 +140,9 @@ class HomeController < ApplicationController
   header = {'Content-Type': 'application/xml',
     'Authorization': @Oauth_strings
   }
-  user = {user: {
-        f = File.open('aa.xml')
+  user = {user:
+    {
+        f = File.open("aa.xml")
         s = f.read
         f.close
           }
@@ -152,14 +153,14 @@ class HomeController < ApplicationController
   http = Net::HTTP.new(@uri.host, @uri.port)
   http.use_ssl = true
   request = Net::HTTP::Post.new(@uri.request_uri, header)
-  request.body = user.to_xml
+  request.body = s.to_xml
 
   #send the request
   response = http.request(request)
 
   puts @Oauth_strings
 
-#=end
+=end
 
   end
 
