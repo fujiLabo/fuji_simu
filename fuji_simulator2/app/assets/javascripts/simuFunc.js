@@ -74,6 +74,14 @@
       $('#ns_main img:last-child').mousedown(function(e) {e.preventDefault(e); });
     }
     //changeDrag();
+
+    //ns_rightにトポロジを追加
+    $("#ns_right dl").append("<dt><img src = /assets/plus.jpg><span>" + ui.draggable.attr("alt") + "</span></dt>");
+    if (ui.draggable.attr("id") === "PC"){
+      console.log("draggable: " + ui.draggable.attr("class"));
+    }else if (ui.draggable.attr("id") === "Router"){
+
+    }
   }
 
   //線の描画
@@ -160,50 +168,45 @@
 //   }
 
 
-
-
-
-
   //マウスが押された瞬間
-  mouseDown = function(e) {
+  mouseDown = function(e){
     //console.log("testDown.hasClass: " + e.target);
+
     //開始地点にPCかルータが存在する場合
     if( $(e.target).hasClass("dropMachine")){
 
-    console.log("mouseDown");
-    //マウスを押した場所の座標を取得
-    NS.points = [{x:e.pageX - this.offsetLeft, y:e.pageY - this.offsetTop}];
-    console.log("座標の取得: " + NS.points);
+      console.log("mouseDown");
+      if ($(e.target).hasClass("dropMachine")) {
+        $("#ns_console").append("<p>> PCにLANは１本しか引けません。 </p>");
+      }
+      //マウスを押した場所の座標を取得
+      NS.points = [{x:e.pageX - this.offsetLeft, y:e.pageY - this.offsetTop}];
+      console.log("座標の取得: " + NS.points);
 
 
 
-    NS.elLanMoveThis = $(this);
-    console.log("elLanMoveThis: " + NS.elLanMoveThis);
+      NS.elLanMoveThis = $(this);
+      console.log("elLanMoveThis: " + NS.elLanMoveThis);
 
+      console.log("mousedown.children: " + $(this).children(".lanOn").attr("class"));
 
-    //if ($('#ns_main').hasClass('.dropMachine')){
+      //マウスが移動するときの処理
       $('#ns_main').on("mousemove", mouseMove);
-    //}
-
-  }
+    }
   }
 
   //マウスが離れた瞬間
   mouseUp = function(e) {
     console.log("mouseUp");
 
-    var nowX = e.pageX - this.offsetLeft;
-    var nowY = e.pageY - this.offsetTop;
-
-    // NS.mainCtx.beginPath();
-    // NS.mainCtx.moveTo(NS.points[0].x, NS.points[0].y);
-    // NS.mainCtx.lineTo(nowX, nowY);
-    // NS.mainCtx.stroke();
-
-    if (!$(e.target).hasClass("dropMachine")){
+    //離した瞬間画像の上でないとき線を削除
+    if (!$(e.target).hasClass("dropMachine") || ($(e.target).hasClass("lanFirst"))){
       NS.mainCtx.clearRect(0, 0, NS.canvasWidth, NS.canvasHeight);
     }
 
+    if (NS.points.length === 1){
+      console.log("いえええええええええい");
+    }
 
     $("#ns_main").off("mousemove", NS.mouseMove);
   }
@@ -236,17 +239,18 @@
       NS.lanFlag = true;
 
       //画像のドラッグを禁止
-      $('.dropMachine').draggable('disable');
-      $('.dropMachine').mouseup(function(e){ e.preventDefault(); });
-      $('.dropMachine').mousedown(function(e){ e.preventDefault(); });
-      //イベントハンドラーをつける
-      //elMain.on("mousedown", fnLanDown);  //マウスボタンが押されたとき
-      //elMain.on("mouseup", fnLanUp);      //マウスボタンが離れたとき
-      //elHtml.on("mouseup", fnLanOutUp);
+      elMainDrag.draggable('disable');
+      elMainDrag.mouseup(function(e){ e.preventDefault(); });
+      elMainDrag.mousedown(function(e){ e.preventDefault(); });
+      //画像にマウスが乗ったときの動作
+      elMainDrag.mouseenter(function(){
+        NS.imgFlag = true;
+        $(this).addClass("lanOn");
+      }).mouseleave(function(){
+        NS.imgFlag = false;
+        $(this).removeClass("lanOn");
+      })
 
-      //$('.dropMachine').draggable("disable");
-      //$('.dropMachine').mouseup(function(e) { e.preventDefault(); });
-      //$('.dropMachine').mousedown(function(e) { e.preventDefault(); });
       //イベントハンドラーをつける
       elMain.on("mousedown", mouseDown);  //マウスを押した瞬間
       elMain.on("mouseup", mouseUp);      //マウスを離した瞬間
@@ -306,4 +310,27 @@
   //削除
   nodeDel = function(e){
     console.log("nodeDel");
+  }
+
+  //全要素の削除
+  fnAllReset = function() {
+    //変数のリセット
+    NS.pcNode  = 0;
+    NS.swNode  = 0;
+    NS.svNode  = 0;
+    NS.ruNode  = 0;
+    NS.lanNode = 0;
+    //コンソールとトポロジーの文字を削除
+    $('#ns_right dl').html("");
+    $('#ns_console').html("");
+
+    //lanLinkがあるとき
+
+    //画像と線の削除
+    $('#ns_main img').remove();
+    //$('.bus').remove();
+    $('#ns_main_canvas').removeClass();
+    $('#ns_main_canvas').attr('data-buslan', '');
+    NSF.mainCtx.clearRect(0, 0, NS.canvasWidth, NS.canvasHeight);
+
   }
