@@ -1,4 +1,5 @@
 //変数を宣言するファイル
+//(?) ← これいる？
 $(function() {
 
 
@@ -22,9 +23,9 @@ $(function() {
 
   //main部分の変数
   NS.mainDropFlag = true;    //draggableのフラグ
-  NS.dropNodeInt = 0;       //DropNodeの価数
+  NS.dropNodeInt = 0;       //DropNodeの個数
   NS.dropNodeName = "";     //DropNodeの名前
-  NS.dropContextName = "";  //DropNodeのContextMenuの名前
+  NS.dropContextName = "";  //DropNodeのContextMenuの名前(?)
 
 
   //canvas(描画)に関する

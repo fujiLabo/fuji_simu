@@ -3,7 +3,7 @@
 
   //独自の右クリック作成
   function fncontextmenu(element) {
-    console.log(element);
+    console.log("fncontextmenuの引数: " + element);
 
     //後で変える(試し)(現在未使用)
     var menuName;
@@ -78,18 +78,22 @@
     $("#ns_main img:last-child").attr('oncontextmenu', 'return fncontextmenu(this)');
 
 
-    //mainにドロップされたものをドラッグ可能に(オプションによってmain内でのみに移動を限定する必要あり)
+    //mainにドロップされたものをドラッグ可能に(まだ？)
     $('#ns_main img:last-child').draggable({
-      containment: 'parent',
+      containment: 'parent',  //親要素でのみドラッグを可能にする
       zIndex: 2,
       //ドラッグ中
       drag: function(){
-        if ($(this).prev().hasClass("get-node2") || $(this).prev().hasClass("send-node2")){
+        $(this).prev().css('zIndex', 3);
+      },
 
-        }
-      }
+      //ドラッグ終了
+      stop: function(){
+        $(this).prev().css('zIndex', 1);
+      },
+
     });
-    console.log("prevの中身: " + $(this).prev().attr("class"));
+    console.log("prevの中身: " + $(this).prev());
 
     //ドロップした際にLANモードがonならば、ドラッグを不可にする
     if (NS.lanFlag){
