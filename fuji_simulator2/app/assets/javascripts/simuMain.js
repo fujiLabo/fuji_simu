@@ -9,7 +9,7 @@ $.when(
   $.getScript("/assets/simuFunc.js"),
 ).then(function(){
 
-
+  //テスト
   $('#ns_main img').mouseover(function(){
     console.log("testflag = true");
     NS.testflag = true;
@@ -17,10 +17,6 @@ $.when(
     console.log("testflag = false");
     NS.testflag = false;
   });
-
-
-  console.log("NS.canvasHeight(main): " + NS.canvasHeight)
-  console.log("test: " + NS.mainCtx);
 
   //PCやルータのドラッグ設定
   $('.machine').draggable({

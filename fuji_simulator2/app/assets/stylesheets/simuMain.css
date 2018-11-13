@@ -47,7 +47,16 @@ width: 900px;
   margin-left: 2px;
   height: 379px;
   width: 197px;
+  font-size: 13px;
   overflow: scroll;
+}
+
+#ns_right dl{
+  margin: 0;
+}
+
+#ns_right dt{
+  height: 15px;
 }
 
 #ns_rightInfo{
