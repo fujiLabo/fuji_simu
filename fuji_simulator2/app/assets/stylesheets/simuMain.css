@@ -216,6 +216,7 @@ div.tooltip:hover span{
 
 
 
+/*画像に触れているときのカーソルを指定*/
 .ui-draggable{
   cursor: pointer;
 }

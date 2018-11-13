@@ -84,6 +84,11 @@
       zIndex: 2,
       //ドラッグ中
       drag: function(){
+        //何してるかわからないし、なくても問題なかった
+        // $(this).prev().offset({
+        //   top:  this.offsetTop - 15,
+        //   left: this.offsetLeft + 42,
+        // });
         $(this).prev().css('zIndex', 3);
       },
 
@@ -93,7 +98,6 @@
       },
 
     });
-    console.log("prevの中身: " + $(this).prev());
 
     //ドロップした際にLANモードがonならば、ドラッグを不可にする
     if (NS.lanFlag){
