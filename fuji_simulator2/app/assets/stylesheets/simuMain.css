@@ -214,11 +214,7 @@ div.tooltip:hover span{
   height: 33px;
 }
 
-/*区切りに使う横のライン*/
-.width_line {
-  margin: 4px 3px;
-  border-top: 1px solid #a1a1a1;
-}
+
 
 .ui-draggable{
   cursor: pointer;
