@@ -9,7 +9,6 @@ $.when(
   $.getScript("/assets/simuFunc.js"),
 ).then(function(){
 
-  var test = "ttttt"
 
   $('#ns_main img').mouseover(function(){
     console.log("testflag = true");
@@ -74,6 +73,55 @@ $.when(
     }
   });
 
+  //モードをdrawに変更
+  $('.mode_draw').click(function () {
+    if ($('.change_mode').hasClass('question')) {
+      console.log('モードをdrawに変更');
+      fnChangeMode();
+      $('#questionTip').css('display', 'none');
+      $('.change_mode').removeClass('question');
+      $('.change_mode').addClass('draw');
+    }
+  });
+  //モードをquestionに変更
+  $('.mode_question').click(function () {
+    if ($('.change_mode').hasClass('draw')) {
+      console.log('モードをquestionに変更');
+      fnChangeMode();
+      $('#questionTip').css('display', 'block');
+      $('.change_mode').removeClass('draw');
+      $('.change_mode').addClass('question');
+    }
+  });
+
+  //それぞれのツールのクリック処理
+  $('#start').click(function() {
+    console.log("start");
+  });
+
+  $('#check').click(function() {
+
+  });
+
+  $('#dust').click(function() {
+
+  });
+
+  $('#study').click(function() {
+
+  });
+
+  $('#save').click(function() {
+
+  });
+
+  $('#load').click(function() {
+
+  });
+
+  $('#quit').click(function() {
+    console.log("quit");
+  })
 
 
 

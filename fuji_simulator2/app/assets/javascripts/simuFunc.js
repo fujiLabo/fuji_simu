@@ -301,6 +301,9 @@
 //   }
 // }
 
+  fnChangeMode = function(){
+    console.log("func:changemode");
+  }
 
   //ルーティングテーブルを追加
   addRoutingTable = function(plus){
