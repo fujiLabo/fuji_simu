@@ -100,7 +100,7 @@ $.when(
   });
 
   $('#dust').click(function() {
-
+    fnAllReset();
   });
 
   $('#study').click(function() {

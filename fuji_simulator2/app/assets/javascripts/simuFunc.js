@@ -41,7 +41,7 @@
 
   //画像をmain部分にドロップする際の関数
   fnMainDrop = function(ui, obj) {
-    //ドロップした種類の判別
+    //ドロップした種類を判別し、情報を追加
     console.log("contextname: " + ui.draggable.attr("id"));
     if (ui.draggable.attr("id") === "PC"){
       console.log("PC");
@@ -73,16 +73,23 @@
 
       })
     );
-    console.log("alt(before): " + NS.dropNodeName);
-    console.log("alt: " + ui.draggable.attr("alt"));
+
     //ドロップした画像に右クリックの属性をつける
     $("#ns_main img:last-child").attr('oncontextmenu', 'return fncontextmenu(this)');
 
 
     //mainにドロップされたものをドラッグ可能に(オプションによってmain内でのみに移動を限定する必要あり)
     $('#ns_main img:last-child').draggable({
+      containment: 'parent',
+      zIndex: 2,
+      //ドラッグ中
+      drag: function(){
+        if ($(this).prev().hasClass("get-node2") || $(this).prev().hasClass("send-node2")){
 
+        }
+      }
     });
+    console.log("prevの中身: " + $(this).prev().attr("class"));
 
     //ドロップした際にLANモードがonならば、ドラッグを不可にする
     if (NS.lanFlag){
@@ -111,78 +118,6 @@
     console.log("lanNum: " + lanNum);
     console.log("lanNum.length: " + lanNum.length);
   }
-
-//   //マウスが移動した際の処理
-//   fnLanDrag = function(e) {
-//     NS.addCtx = NS.addCanvas.get(0).getContext('2d');
-//     NS.points.push({x:e.pageX - this.offsetLeft, y:e.pageY - this.offsetTop});
-//     NS.addCtx.clearRect(0, 0, NS.canvasWidth, NS.canvasHeight);
-//     NS.addCtx.beginPath();
-//
-//     //線の色の変更()
-//     NS.addCtx.strokeStyle = '#2fb9fe';
-//
-//     NS.addCtx.lineWidth = NS.lanWidth;
-//     NS.addCtx.moveTo(NS.points[0].x, NS.points[0].y);
-//     NS.addCtx.lineTo(NS.points[NS.points.length - 1].x, NS.points[NS.points.length - 1].y);
-//     NS.addCtx.stroke();
-//   }
-//   //描画セット
-//   fnDraw = function() {
-//     //NS.fnIfDraw();
-//     NS.fnLanDraw();
-//     //NS.fnNameDraw();
-//   }
-//
-//
-//   //マウスのボタンが押されたときの処理
-//   fnLanDown = function(e)
-//   {
-//     if ($(e.target).attr('src') === '/assets/pc.png' && $(e.target).hasClass("lanLink"))
-//     {
-//       $("#ns_console").append("<p>> PCにLANは1本しか引けません。</p>");
-//     }
-//     else
-//     {
-//       //canvasの追加
-//       NS.addCanvas = $('<canvas width ="' + NS.canvasWidth + '" height="' + NS.canvasHeight + '"></canvas>').prependTo('#ns_main');
-//       NS.lanFlagPoint = true;
-//
-//       //Classの追加
-//       $(this).children(".lanOn").addClass("lanFirst lanLink sP_"+ NS.lanNode);
-//
-//       $("#ns_main").on("mousemove", NS.fnLanDrag);
-//     }
-//   }
-//
-// //マウスのボタンが離されたときの処理
-//   fnLanUp = function(e) {
-//
-//   }
-//
-//   //線を引いてる途中ns_main以外でマウスを放したとき
-//   fnLanOutUp = function(e) {
-//
-//   }
-//
-//   //マウスを押したとき (線を動かす動作)
-//   fnLanMoveDown = function(e) {
-//     NS.elLanMoveThis = $(this);
-//     NS.lanFlagmove = true;
-//     NS.lanArrClass = $("#ns_main_canvas").attr("class").split(/\s?L_/);
-//     NS.elLanMoveThis.on("mousemove", NS.fnLanMoveDrag);
-//   }
-//
-//   //ドラッグしているとき (線を動かす動作)
-//   fnLanMoveDrag = function(e) {
-//     NS.mainCtx.clearRect(0, 0, NS.canvasWidth, NS.canvasHeight);
-//     NS.fnDraw();
-//   }
-//
-//   //マウスを離したとき (線を動かす動作)
-//   fnLanMoveUp = function(e) {
-//
-//   }
 
 
   //マウスが押された瞬間
@@ -351,6 +286,6 @@
     //$('.bus').remove();
     $('#ns_main_canvas').removeClass();
     $('#ns_main_canvas').attr('data-buslan', '');
-    NSF.mainCtx.clearRect(0, 0, NS.canvasWidth, NS.canvasHeight);
+    NS.mainCtx.clearRect(0, 0, NS.canvasWidth, NS.canvasHeight);
 
   }
