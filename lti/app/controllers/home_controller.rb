@@ -7,6 +7,7 @@ require 'digest/sha1'
 require 'date'
 #POSTリクエスト
 require 'net/http'
+require "rexml/document"
 
 class HomeController < ApplicationController
 
@@ -25,13 +26,12 @@ class HomeController < ApplicationController
   def create
     #timestampを取得して格納
     @timestamp = Time.now.to_i.to_s
-
     @METHOD = "POST"
     #@KEY = params[:oauth_consumer_key] + "&"
     @Nonce = params[:oauth_nonce]
     @KEY = "849bbc901a95ccadda68279d41b08085&"
     @REQUEST = CGI.escape("http://localhost:3000/home/create")
-
+    @SourcedId = params[:lis_result_sourcedid]
     #x-frameでの表示をすべてに許可する
     response.headers['X-Frame-Options'] = 'ALLOWALL'
 
@@ -125,8 +125,16 @@ class HomeController < ApplicationController
 
 
 
-=begin
+#=begin
 #####POST送信関係の処理
+
+#test
+t = File.open('aa.txt','r')
+s = t.read
+@Oauth_strings = s
+t.close
+
+=begin
 @Oauth_strings = "OAuth realm" + "=" + "\"http://sp.example.com/\"" + "," +
                  "oauth_consumer_key" + "=" + "\"" + @KEY + "\"" + "," +
                  "oauth_signature_method" + "=" + "\"HMAC-SHA1\"" + "," +
@@ -134,33 +142,44 @@ class HomeController < ApplicationController
                  "oauth_nonce" + "=" + "\"" + @Nonce + "\"" + "," +
                  "oauth_version" + "=" + "\"" + "1.0" + "\"" "," +
                  "oauth_signature" + "=" + "\"" + @oauth_signature + "\""
+=end
+
 
   @uri = URI.parse(@Return_grade)
 
   header = {'Content-Type': 'application/xml',
     'Authorization': @Oauth_strings
   }
-  user = {user:
-    {
-        f = File.open("aa.xml")
-        s = f.read
-        f.close
-          }
-  }
+  f = File.open("aa.xml", "r")
 
-
+  doc = REXML::Document.new(f)
+  element = doc.elements['imsx_POXEnvelopeRequest/imsx_POXBody/replaceResultRequest/resultRecord/sourcedGUID/sourcedId']
+  element.text = nil
+  element.add_text(@SourcedId)
+  puts doc.to_s
+#=begin
   #create the http object
   http = Net::HTTP.new(@uri.host, @uri.port)
   http.use_ssl = true
   request = Net::HTTP::Post.new(@uri.request_uri, header)
-  request.body = s.to_xml
+  request.body = doc.to_s
+#=end
+
+=begin
+#test
+http = Net::HTTP.new("133.14.14.232", 80)
+http.use_ssl = false
+request = Net::HTTP::Post.new("http://133.14.14.232" ,header)
+request.body = f.read
+
+=end
 
   #send the request
   response = http.request(request)
 
   puts @Oauth_strings
 
-=end
+#=end
 
   end
 
