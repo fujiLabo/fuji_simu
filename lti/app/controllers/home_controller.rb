@@ -131,7 +131,7 @@ class HomeController < ApplicationController
 #test
 t = File.open('aa.txt','r')
 s = t.read
-@Oauth_strings = s
+@Oauth_strings = s.chomp
 t.close
 
 =begin
@@ -147,9 +147,12 @@ t.close
 
   @uri = URI.parse(@Return_grade)
 
+=begin
   header = {'Content-Type': 'application/xml',
     'Authorization': @Oauth_strings
   }
+=end
+
   f = File.open("aa.xml", "r")
 
   doc = REXML::Document.new(f)
@@ -157,27 +160,29 @@ t.close
   element.text = nil
   element.add_text(@SourcedId)
   puts doc.to_s
-#=begin
+=begin
   #create the http object
   http = Net::HTTP.new(@uri.host, @uri.port)
   http.use_ssl = true
   request = Net::HTTP::Post.new(@uri.request_uri, header)
   request.body = doc.to_s
-#=end
+=end
 
-=begin
+#=begin
 #test
 http = Net::HTTP.new("133.14.14.232", 80)
 http.use_ssl = false
-request = Net::HTTP::Post.new("http://133.14.14.232" ,header)
+request = Net::HTTP::Post.new("http://133.14.14.232")
+request["Content-Type"] = "application/xml"
+request["Authorization"] = @Oauth_strings
 request.body = f.read
 
-=end
+#=end
 
   #send the request
   response = http.request(request)
 
-  puts @Oauth_strings
+  #puts @Oauth_strings
 
 #=end
 
