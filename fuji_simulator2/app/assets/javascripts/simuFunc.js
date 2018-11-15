@@ -143,6 +143,7 @@
         $("#ns_console").append("<p>> PCにLANは１本しか引けません。 </p>");
       }
       //canvasの追加
+      NS.addCanvas = $('<canvas width = ' + NS.canvasWidth + ' height = ' + NS.canvasHeight + '></canvas>').prependTo('#ns_main');
       console.log("addCanvasの中身: " + NS.addCanvas);
 
 
@@ -171,7 +172,7 @@
     console.log("mouseUp");
 
     //離した瞬間画像の上でないとき線を削除
-    if (!$(e.target).hasClass("dropMachine") || ($(e.target).hasClass("lanFirst"))){
+    if (!$(e.target).hasClass("dropMachine") /*|| ($(e.target).hasClass("lanFirst"))*/){
       NS.addCtx.clearRect(0, 0, NS.canvasWidth, NS.canvasHeight);
     }
 
