@@ -24,6 +24,7 @@ $(function() {
   //main部分の変数
   NS.mainDropFlag = true;    //draggableのフラグ
   NS.dropNodeInt = 0;       //DropNodeの個数
+  NS.dropName = "";         //dropした画像のクラスの名前
   NS.dropNodeName = "";     //DropNodeの名前
   NS.dropContextName = "";  //DropNodeのContextMenuの名前(?)
 
@@ -51,10 +52,10 @@ $(function() {
   NS.lanFlag = false;       //LANモードのonとoff
   NS.busFlag = false;
   NS.busDrawFrag = false;
-  NS.lanLinkFlag;
-  NS.lanPointFlag;
-  NS.lanDeleteFlag;
-  NS.lanMoveFlag;
+  NS.lanLinkFlag;           //lanLinkがあるとき
+  NS.lanPointFlag;          //lanDownが実行されたとき
+  NS.lanDeleteFlag;         //lanDownを削除するとき
+  NS.lanMoveFlag;           //lanMoveDownが実行されたとき
 
 
   //ns_mainのxy

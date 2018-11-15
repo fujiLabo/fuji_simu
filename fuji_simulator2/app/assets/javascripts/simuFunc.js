@@ -48,6 +48,7 @@
       NS.dropNodeInt = NS.pcNode;
       NS.dropNodeName = "PC" + NS.pcNode;
       NS.dropContextName = "contextmenuPC";
+      NS.dropName = "dropPC";
       NS.pcNode++;
       console.log("nodename: " + NS.dropNodeName);
     }else if (ui.draggable.attr("id") === "Router"){
@@ -55,6 +56,7 @@
       NS.dropNodeInt = NS.ruNode;
       NS.dropNodeName = "Router" + NS.ruNode;
       NS.dropContextName = "contextmenuRouter";
+      NS.dropName = "dropRouter";
       NS.ruNode++;
     }
 
@@ -63,7 +65,7 @@
       $('<img>').attr({
         src: ui.draggable.attr('src'),
         alt: NS.dropNodeName,
-        class: "dropMachine",
+        class: NS.dropName,
         'data_ifnum': 0,
         'data_lan_if': '',
         'data_routingtable_num': 0,
@@ -73,6 +75,8 @@
 
       })
     );
+    //画像への属性の追加の際にクラスを複数指定できなかったためここで追加(だっせぇ)
+    $('#ns_main img:last-child').addClass('dropMachine');
 
     //ドロップした画像に右クリックの属性をつける
     $("#ns_main img:last-child").attr('oncontextmenu', 'return fncontextmenu(this)');
@@ -130,8 +134,7 @@
 
   //マウスが押された瞬間
   mouseDown = function(e){
-    //console.log("testDown.hasClass: " + e.target);
-
+    console.log("mousedownのclass: " + $(e.target).attr("class"));
     //開始地点にPCかルータが存在する場合
     if( $(e.target).hasClass("dropMachine")){
 
@@ -168,6 +171,16 @@
       console.log("いえええええええええい");
     }
 
+    //画像の真ん中に線を持ってくる(わかめ)
+    NS.lanArrWidth[NS.lanNode] = NS.lanWidth;
+    $(".lanOn").addClass("lanLink eP_" + NS.lanNode);
+
+    $("#ns_main_canvas").addClass("L_"+ NS.lanNode);
+    spifnum = parseInt($('.sP_' + NS.lanNode).attr("data-ifnum"));
+    spifnum += 1;
+    epifnum = parseInt($(".eP_" + NS.lanNode).attr("data-ifnum"));
+    epifnum += 1;
+
     $("#ns_main").off("mousemove", NS.mouseMove);
   }
 
@@ -181,8 +194,8 @@
     //マウスを押した場所から現在の場所までの線を再描画
     NS.mainCtx.clearRect(0, 0, NS.canvasWidth, NS.canvasHeight);
     NS.mainCtx.beginPath();
-    NS.mainCtx.moveTo(NS.points[0].x, NS.points[0].y);
-    NS.mainCtx.lineTo(e.pageX - this.offsetLeft, e.pageY - this.offsetTop);
+    NS.mainCtx.moveTo(NS.points[0].x, NS.points[0].y);  //マウスを押した座標
+    NS.mainCtx.lineTo(e.pageX - this.offsetLeft, e.pageY - this.offsetTop); //現在のマウスの座標
     NS.mainCtx.stroke();
   }
 
