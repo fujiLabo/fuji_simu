@@ -137,11 +137,20 @@
     console.log("mousedownのclass: " + $(e.target).attr("class"));
     //開始地点にPCかルータが存在する場合
     if( $(e.target).hasClass("dropMachine")){
-
       console.log("mouseDown");
-      if ($(e.target).hasClass("dropMachine")) {
+      //PCすでにLANが繋がれているとき
+      if ($(e.target).hasClass("dropPC") && $(e.target).hasClass("lanLink")) {
         $("#ns_console").append("<p>> PCにLANは１本しか引けません。 </p>");
       }
+      //canvasの追加
+      NS.addCanvas = $('<canvas width = ' + NS.canvasWidth + ' height = ' + NS.canvasHeight + '></canvas>').prependTo('#ns_main');
+      console.log("addCanvasの中身: " + NS.addCanvas);
+
+
+      //classの追加()
+      $(this).children(".lanOn").addClass("lanFirst lanLink sP_"+ NS.lanNode);
+      console.log("追加したクラス: " + $(this).children(".lanOn").attr("class"));
+
       //マウスを押した場所の座標を取得
       NS.points = [{x:e.pageX - this.offsetLeft, y:e.pageY - this.offsetTop}];
       console.log("座標の取得: " + NS.points);
@@ -164,7 +173,7 @@
 
     //離した瞬間画像の上でないとき線を削除
     if (!$(e.target).hasClass("dropMachine") || ($(e.target).hasClass("lanFirst"))){
-      NS.mainCtx.clearRect(0, 0, NS.canvasWidth, NS.canvasHeight);
+      NS.addCtx.clearRect(0, 0, NS.canvasWidth, NS.canvasHeight);
     }
 
     if (NS.points.length === 1){
@@ -192,11 +201,24 @@
   mouseMove = function(e) {
     console.log("mouseMove");
     //マウスを押した場所から現在の場所までの線を再描画
-    NS.mainCtx.clearRect(0, 0, NS.canvasWidth, NS.canvasHeight);
-    NS.mainCtx.beginPath();
-    NS.mainCtx.moveTo(NS.points[0].x, NS.points[0].y);  //マウスを押した座標
-    NS.mainCtx.lineTo(e.pageX - this.offsetLeft, e.pageY - this.offsetTop); //現在のマウスの座標
-    NS.mainCtx.stroke();
+    NS.addCtx = NS.addCanvas.get(0).getContext('2d');
+    NS.points.push({x: e.pageX - this.offsetLeft, y: e.pageY - this.offsetTop});
+    NS.addCtx.clearRect(0, 0, NS.canvasWidth, NS.canvasHeight);
+    NS.addCtx.beginPath();
+
+    NS.addCtx.strokeStyle = "2fb9fe";
+
+    NS.addCtx.lineWidth = NS.lanWidth;
+    NS.addCtx.moveTo(NS.points[0].x, NS.points[0].y);
+    NS.addCtx.lineTo(NS.points[NS.points.length - 1].x, NS.points[NS.points.length - 1].y);
+    NS.addCtx.stroke();
+
+    //マウスを押した場所から現在の場所までの線を再描画
+    // NS.mainCtx.clearRect(0, 0, NS.canvasWidth, NS.canvasHeight);
+    // NS.mainCtx.beginPath();
+    // NS.mainCtx.moveTo(NS.points[0].x, NS.points[0].y);  //マウスを押した座標
+    // NS.mainCtx.lineTo(e.pageX - this.offsetLeft, e.pageY - this.offsetTop); //現在のマウスの座標
+    // NS.mainCtx.stroke();
   }
 
   //lanボタンが押された場合
@@ -217,9 +239,11 @@
       elMainDrag.mousedown(function(e){ e.preventDefault(); });
       //画像にマウスが乗ったときの動作
       elMainDrag.mouseenter(function(){
+        console.log("マウスが画像に乗った");
         NS.imgFlag = true;
         $(this).addClass("lanOn");
       }).mouseleave(function(){
+        console.log("マウスが画像から離れた");
         NS.imgFlag = false;
         $(this).removeClass("lanOn");
       })
