@@ -94,15 +94,6 @@ class HomeController < ApplicationController
       @string += "&" + keyvalue[0] + "=" + keyvalue[1]
     }
 
-=begin
-    @string.gsub!(' ','+')
-    @string.gsub!('+','%20')
-    @string.gsub!('&','%26')
-    @string.gsub!(':','%3A')
-    @string.gsub!('/','%2F')
-    @string.gsub!('=','%3D')
-=end
-
     #puts @string
     @Signature_base_string = @METHOD
     @Signature_base_string += "&" + @REQUEST
@@ -131,7 +122,7 @@ class HomeController < ApplicationController
 #test
 t = File.open('aa.txt','r')
 s = t.read
-@Oauth_strings = s
+@Oauth_strings = s.chomp
 t.close
 
 =begin
@@ -147,21 +138,30 @@ t.close
 
   @uri = URI.parse(@Return_grade)
 
+=begin
   header = {'Content-Type': 'application/xml',
     'Authorization': @Oauth_strings
   }
-  f = File.open("aa.xml", "r")
+=end
 
-  doc = REXML::Document.new(f)
+  @File_read_Xml = File.open("aa.xml", "r")
+
+
+#OAuth_hashを作るぞ〜〜〜〜
+  
+
+  doc = REXML::Document.new(@File_read_Xml)
   element = doc.elements['imsx_POXEnvelopeRequest/imsx_POXBody/replaceResultRequest/resultRecord/sourcedGUID/sourcedId']
   element.text = nil
   element.add_text(@SourcedId)
-  puts doc.to_s
+  #puts doc.to_s
 #=begin
   #create the http object
   http = Net::HTTP.new(@uri.host, @uri.port)
   http.use_ssl = true
-  request = Net::HTTP::Post.new(@uri.request_uri, header)
+  request = Net::HTTP::Post.new(@uri.request_uri)
+  request["Content-Type"] = "application/xml"
+  request["Authorization"] = @Oauth_strings
   request.body = doc.to_s
 #=end
 
@@ -169,15 +169,17 @@ t.close
 #test
 http = Net::HTTP.new("133.14.14.232", 80)
 http.use_ssl = false
-request = Net::HTTP::Post.new("http://133.14.14.232" ,header)
-request.body = f.read
+request = Net::HTTP::Post.new("http://133.14.14.232")
+request["Content-Type"] = "application/xml"
+request["Authorization"] = @Oauth_strings
+request.body = doc.to_s
 
 =end
 
   #send the request
   response = http.request(request)
 
-  puts @Oauth_strings
+  #puts @Oauth_strings
 
 #=end
 
