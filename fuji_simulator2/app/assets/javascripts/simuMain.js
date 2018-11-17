@@ -50,6 +50,14 @@ $.when(
     }
   });
 
+  //マウスを動かしている間再描画
+  $('#ns_main').mousemove(function(e) {
+    if ($('#ns_main_canvas').attr('class') === '' && $('#ns_main img').length > 0){
+      NS.mainCtx.clearRect(0, 0, NS.canvasWidth, NS.canvasHeight);
+
+    }
+  });
+
   //LANボタンを押した際
   $('#lan').click(function(){
     changeLanMode();

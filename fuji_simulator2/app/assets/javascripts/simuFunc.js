@@ -131,15 +131,17 @@
 
   //すべての線の描画
   fnLanDraw = function() {
+    console.log("fnLanDrawだよー");
     console.log("ns_main_canvasのクラス: " + $('#ns_main_canvas').attr('class'));
     if ($('#ns_main_canvas').attr('class') != '') {
-      NS.mainCtx.beginPath();
+      //NS.mainCtx.beginPath();
       lanNum = $('#ns_main_canvas').attr('class').split(' ');
       for(i = 0; i < lanNum.length; i++){
         lanNum[i] = lanNum[i].slice(2);
         console.log("lanNum"+[i]+": " + lanNum[i]);
       }
       console.log("lanNum:" + lanNum);
+      NS.mainCtx.clearRect(0, 0, NS.canvasWidth, NS.canvasHeight);
 
     for(i = 0; i < lanNum.length; i++){
       NS.mainCtx.beginPath();
@@ -155,7 +157,7 @@
   //マウスが押された瞬間
   mouseDown = function(e){
     console.log("mousedownのclass: " + $(e.target).attr("class"));
-    //開始地点にPCかルータが存在し、LANモードがONの場合
+    //開始地点にPCかルータが存在し、かつLANモードがONの場合
     if( $(e.target).hasClass("dropMachine") && NS.lanFlag){
       console.log("mouseDown");
       //PCがすでにLANが繋がれているとき
@@ -166,6 +168,10 @@
       NS.addCanvas = NS.addCanvasRange.prependTo('#ns_main');
       console.log("addCanvasの中身: " + NS.addCanvas);
 
+      //lanLinkがある場合
+      if ($(this).children(".lanOn").hasClass("lanLink")) {
+        NS.lanLinkFlag = true;
+      }
 
       //classの追加()
       $(this).children(".lanOn").addClass("lanFirst lanLink sP_"+ NS.lanNode);
@@ -175,7 +181,10 @@
       NS.points = [{x:e.pageX - this.offsetLeft, y:e.pageY - this.offsetTop}];
       console.log("座標の取得: " + NS.points);
 
-
+      if ($('#ns_main .uidraggable').hasClass("lanLink")){
+        NS.elLanMoveThis = $(this);
+        NS.lanArrClass = $('#ns_main_canvas').attr("class").split(/\s?L_/);
+      }
 
       NS.elLanMoveThis = $(this);
       console.log("elLanMoveThis: " + NS.elLanMoveThis);
@@ -192,7 +201,8 @@
     console.log("mouseUp");
 
     //離した瞬間画像の上でないとき線を削除
-    if (!$(e.target).hasClass("dropMachine") /*|| ($(e.target).hasClass("lanFirst"))*/){
+    if (!$(e.target).hasClass("dropMachine") || ($(e.target).hasClass("lanFirst"))){
+      //画像以外をクリックした際エラー(別に関数を用意)
       NS.addCtx.clearRect(0, 0, NS.canvasWidth, NS.canvasHeight);
     }
 
@@ -201,6 +211,8 @@
     }
 
     //画像の真ん中に線を持ってくる(わかめ)
+    if( !($(e.target).hasClass("lanFirst")) && $(e.target).hasClass("lanOn"))
+    {
     NS.lanArrWidth[NS.lanNode] = NS.lanWidth;//いらないっぽい
     $(".lanOn").addClass("lanLink eP_" + NS.lanNode);
 
@@ -210,12 +222,17 @@
     epifnum = parseInt($(".eP_" + NS.lanNode).attr("data-ifnum"));
     epifnum += 1;
 
-
+    //描画
     fnLanDraw();
 
+    //変数とフラグを更新
+    NS.lanNode++;
+    NS.points = [];
     NS.addCanvas.remove();
+  }
 
     $("#ns_main").off("mousemove", NS.mouseMove);
+    $("#ns_main .ui-draggable").removeClass("lanFirst");
   }
 
   mouseOutUp = function(e) {
@@ -229,6 +246,7 @@
     NS.addCtx = NS.addCanvas.get(0).getContext('2d');
     NS.points.push({x: e.pageX - this.offsetLeft, y: e.pageY - this.offsetTop});
     NS.addCtx.clearRect(0, 0, NS.canvasWidth, NS.canvasHeight);
+    //NS.mainCtx.clearRect(0, 0, NS.canvasWidth, NS.canvasHeight);
     NS.addCtx.beginPath();
     //色の変更(まだ)
     if (!($(e.target).hasClass("lanFirst")) && $(e.target).hasClass("lanOn")) {
@@ -236,7 +254,10 @@
     }else{
       NS.addCtx.strokeStyle = "#fb9003";
     }
-    NS.addCtx.strokeStyle = "#2fb9fe";
+
+    //if ($('#ns_main .uidraggable').hasClass("lanLink")){
+      fnLanDraw();
+    //}
 
     NS.addCtx.lineWidth = NS.lanWidth;
     NS.addCtx.moveTo(NS.points[0].x, NS.points[0].y);
@@ -249,6 +270,8 @@
     // NS.mainCtx.moveTo(NS.points[0].x, NS.points[0].y);  //マウスを押した座標
     // NS.mainCtx.lineTo(e.pageX - this.offsetLeft, e.pageY - this.offsetTop); //現在のマウスの座標
     // NS.mainCtx.stroke();
+
+    //fnLanDraw();
   }
 
   //lanボタンが押された場合
