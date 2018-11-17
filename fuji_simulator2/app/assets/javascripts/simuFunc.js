@@ -129,7 +129,7 @@
     }
   }
 
-  //線の描画
+  //すべての線の描画
   fnLanDraw = function() {
     console.log("ns_main_canvasのクラス: " + $('#ns_main_canvas').attr('class'));
     if ($('#ns_main_canvas').attr('class') != '') {
