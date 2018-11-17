@@ -110,6 +110,7 @@
       elMainImgLast.mouseup(function(e) {e.preventDefault(e); });
       elMainImgLast.mousedown(function(e) {e.preventDefault(e); });
       //あったほうがいいんだろうがもっと他にやり方ありそう
+      //応急処置感
       elMainImgLast.mouseenter(function(){
         $(this).addClass("lanOn");
       }).mouseleave(function(){
@@ -143,10 +144,10 @@
   //マウスが押された瞬間
   mouseDown = function(e){
     console.log("mousedownのclass: " + $(e.target).attr("class"));
-    //開始地点にPCかルータが存在する場合
-    if( $(e.target).hasClass("dropMachine")){
+    //開始地点にPCかルータが存在し、LANモードがONの場合
+    if( $(e.target).hasClass("dropMachine") && NS.lanFlag){
       console.log("mouseDown");
-      //PCすでにLANが繋がれているとき
+      //PCにすでにLANが繋がれているとき
       if ($(e.target).hasClass("dropPC") && $(e.target).hasClass("lanLink")) {
         $("#ns_console").append("<p>> PCにLANは１本しか引けません。 </p>");
       }
@@ -219,7 +220,6 @@
     }else{
       NS.addCtx.strokeStyle = "#fb9003";
     }
-    NS.addCtx.strokeStyle = "#2fb9fe";
 
     NS.addCtx.lineWidth = NS.lanWidth;
     NS.addCtx.moveTo(NS.points[0].x, NS.points[0].y);
