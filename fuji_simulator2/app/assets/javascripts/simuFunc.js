@@ -214,7 +214,7 @@
     NS.points.push({x: e.pageX - this.offsetLeft, y: e.pageY - this.offsetTop});
     NS.addCtx.clearRect(0, 0, NS.canvasWidth, NS.canvasHeight);
     NS.addCtx.beginPath();
-    //色の変更(まだ)
+    //色の変更
     if (!($(e.target).hasClass("lanFirst")) && $(e.target).hasClass("lanOn")) {
       NS.addCtx.strokeStyle = "#2fb9fe";
     }else{

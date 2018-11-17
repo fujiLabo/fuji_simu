@@ -53,9 +53,9 @@ $(function() {
   NS.busFlag = false;
   NS.busDrawFrag = false;
   NS.lanLinkFlag;           //lanLinkがあるとき
-  NS.lanPointFlag;          //lanDownが実行されたとき
-  NS.lanDeleteFlag;         //lanDownを削除するとき
-  NS.lanMoveFlag;           //lanMoveDownが実行されたとき
+  NS.lanPointFlag;          //mouseDownが実行されたとき
+  NS.lanDeleteFlag;         //mouseDownを削除するとき
+  NS.lanMoveFlag;           //mouseMoveDownが実行されたとき
 
 
   //ns_mainのxy

@@ -18,6 +18,8 @@ width: 900px;
 }
 
 
+
+
 /**********メインの設定**********/
 #ns_main{
   height: 400px;
@@ -219,6 +221,12 @@ div.tooltip:hover span{
 /*画像に触れているときのカーソルを指定*/
 .ui-draggable{
   cursor: pointer;
+}
+
+#ns_nav img:hover, #lan:hover, #ns_rightInfo img:hover{
+  margin: -1px;
+  border: 1px solid #666;
+  border-radius: 5px;
 }
 
 /******************************/
