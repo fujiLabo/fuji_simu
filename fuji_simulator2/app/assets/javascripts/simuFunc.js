@@ -105,9 +105,17 @@
 
     //ドロップした際にLANモードがonならば、ドラッグを不可にする
     if (NS.lanFlag){
-      $('#ns_main img:last-child').draggable('disable');
-      $('#ns_main img:last-child').mouseup(function(e) {e.preventDefault(e); });
-      $('#ns_main img:last-child').mousedown(function(e) {e.preventDefault(e); });
+      var elMainImgLast = $('#ns_main img:last-child');
+      elMainImgLast.draggable('disable');
+      elMainImgLast.mouseup(function(e) {e.preventDefault(e); });
+      elMainImgLast.mousedown(function(e) {e.preventDefault(e); });
+      //あったほうがいいんだろうがもっと他にやり方ありそう
+      elMainImgLast.mouseenter(function(){
+        $(this).addClass("lanOn");
+      }).mouseleave(function(){
+        $(this).removeClass("lanOn");
+      });
+
     }
     //changeDrag();
 
@@ -143,7 +151,7 @@
         $("#ns_console").append("<p>> PCにLANは１本しか引けません。 </p>");
       }
       //canvasの追加
-      NS.addCanvas = $('<canvas width = ' + NS.canvasWidth + ' height = ' + NS.canvasHeight + '></canvas>').prependTo('#ns_main');
+      NS.addCanvas = NS.addCanvasRange.prependTo('#ns_main');
       console.log("addCanvasの中身: " + NS.addCanvas);
 
 

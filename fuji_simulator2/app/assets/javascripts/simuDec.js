@@ -1,10 +1,7 @@
 //変数を宣言するファイル
 //(?) ← これいる？
+
 $(function() {
-
-
-
-
   //変数の定義
   //空のオブジェクトを作成
   if (typeof NS === "undefined") NS = {};
@@ -47,8 +44,9 @@ $(function() {
   NS.questionCanvasY  = $('#ns_main_canvas')[0].getBoundingClientRect().top + 60;
   NS.mainCtx = $('#ns_main_canvas')[0].getContext('2d'); //ns_main_canvasをAPIにアクセスできるオブジェクト
   NS.mainCtx.strokeStyle = 'red';
-  NS.addCanvas = $('<canvas width = ' + NS.canvasWidth + ' height = ' + NS.canvasHeight + '></canvas>').prependTo('#ns_main'); //追加したCanvasを格納
-  NS.addCtx;  //追加したCanvasのAPIにアクセスできるオブジェクト  
+  NS.addCanvasRange = $('<canvas width = ' + NS.canvasWidth + ' height = ' + NS.canvasHeight + '></canvas>');
+  NS.addCanvas; //追加したCanvasを格納
+  NS.addCtx;  //追加したCanvasのAPIにアクセスできるオブジェクト
   //canvasに関するフラグ
   NS.imgFlag = false;       //マウスが画像の上にあるかどうか
   NS.lanFlag = false;       //LANモードのonとoff
