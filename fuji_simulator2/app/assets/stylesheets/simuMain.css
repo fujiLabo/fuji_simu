@@ -216,6 +216,9 @@ div.tooltip:hover span{
   height: 33px;
 }
 
+/*ルータにコネクタを接続しようとしたが画像の空白部分が邪魔*/
+.dropRouter{
+}
 
 
 /*画像に触れているときのカーソルを指定*/
@@ -223,6 +226,7 @@ div.tooltip:hover span{
   cursor: pointer;
 }
 
+/*特定の画像に触れているときの処理*/
 #ns_nav img:hover, #lan:hover, #ns_rightInfo img:hover{
   margin: -1px;
   border: 1px solid #666;

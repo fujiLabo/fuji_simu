@@ -131,13 +131,23 @@
 
   //線の描画
   fnLanDraw = function() {
+    console.log("ns_main_canvasのクラス: " + $('#ns_main_canvas').attr('class'));
     if ($('#ns_main_canvas').attr('class') != '') {
+      NS.mainCtx.beginPath();
+      lanNum = $('#ns_main_canvas').attr('class').split(' ');
+      for(i = 0; i < lanNum.length; i++){
+        lanNum[i] = lanNum[i].slice(2);
+      }
+      console.log("lanNum:" + lanNum);
 
+    for(i = 0; i < lanNum.length; i++){
+      NS.mainCtx.beginPath();
+      NS.mainCtx.moveTo($(".sP_"+ lanNum[i])[0].offsetLeft - NS.mainCanvasWidth, $(".sP_" + lanNum[i])[0].offsetTop - NS.mainCanvasHeight);
+      NS.mainCtx.lineTo($(".eP_"+ lanNum[i])[0].offsetLeft - NS.mainCanvasWidth, $(".eP_" + lanNum[i])[0].offsetTop - NS.mainCanvasHeight);
+      NS.mainCtx.stroke();
     }
 
-    lanNum = $('#ns_main_canvas').attr('class').split(' ');
-    console.log("lanNum: " + lanNum);
-    console.log("lanNum.length: " + lanNum.length);
+    }
   }
 
 
@@ -147,7 +157,7 @@
     //開始地点にPCかルータが存在し、LANモードがONの場合
     if( $(e.target).hasClass("dropMachine") && NS.lanFlag){
       console.log("mouseDown");
-      //PCにすでにLANが繋がれているとき
+      //PCがすでにLANが繋がれているとき
       if ($(e.target).hasClass("dropPC") && $(e.target).hasClass("lanLink")) {
         $("#ns_console").append("<p>> PCにLANは１本しか引けません。 </p>");
       }
@@ -190,7 +200,7 @@
     }
 
     //画像の真ん中に線を持ってくる(わかめ)
-    NS.lanArrWidth[NS.lanNode] = NS.lanWidth;
+    NS.lanArrWidth[NS.lanNode] = NS.lanWidth;//いらないっぽい
     $(".lanOn").addClass("lanLink eP_" + NS.lanNode);
 
     $("#ns_main_canvas").addClass("L_"+ NS.lanNode);
@@ -198,6 +208,11 @@
     spifnum += 1;
     epifnum = parseInt($(".eP_" + NS.lanNode).attr("data-ifnum"));
     epifnum += 1;
+
+
+    fnLanDraw();
+
+    NS.addCanvas.remove();
 
     $("#ns_main").off("mousemove", NS.mouseMove);
   }
@@ -214,12 +229,13 @@
     NS.points.push({x: e.pageX - this.offsetLeft, y: e.pageY - this.offsetTop});
     NS.addCtx.clearRect(0, 0, NS.canvasWidth, NS.canvasHeight);
     NS.addCtx.beginPath();
-    //色の変更
+    //色の変更(まだ)
     if (!($(e.target).hasClass("lanFirst")) && $(e.target).hasClass("lanOn")) {
       NS.addCtx.strokeStyle = "#2fb9fe";
     }else{
       NS.addCtx.strokeStyle = "#fb9003";
     }
+    NS.addCtx.strokeStyle = "#2fb9fe";
 
     NS.addCtx.lineWidth = NS.lanWidth;
     NS.addCtx.moveTo(NS.points[0].x, NS.points[0].y);
