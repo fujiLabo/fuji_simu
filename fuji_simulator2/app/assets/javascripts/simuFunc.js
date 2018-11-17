@@ -137,6 +137,7 @@
       lanNum = $('#ns_main_canvas').attr('class').split(' ');
       for(i = 0; i < lanNum.length; i++){
         lanNum[i] = lanNum[i].slice(2);
+        console.log("lanNum"+[i]+": " + lanNum[i]);
       }
       console.log("lanNum:" + lanNum);
 

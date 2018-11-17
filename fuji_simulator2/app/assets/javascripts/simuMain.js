@@ -119,6 +119,35 @@ $.when(
     console.log("quit");
   })
 
+  //ブラウザをリサイズ
+  $(window).resize(function(){
+    $('html').scrollTop(0);
+    $('html').scrollLeft(0);
+    var loadWidth         = $('#ns_main_canvas')[0].getBoundingClientRect().left -35;
+    var loadHeight        = $('#ns_main_canvas')[0].getBoundingClientRect().top -35;
+    var calCanvasWidth    = loadWidth - NS.mainCanvasWidth;
+    var calCanvasHeight   = loadHeight - NS.mainCanvasHeight;
+    NS.mainCanvasWidth    = loadWidth;
+    NS.mainCanvasHeight   = loadHeight;
+    $('#ns_main img').each(function(i, val){
+      $(val).offset({
+        left: $(val).offset().left += calCanvasWidth,
+        top: $(val).offset().top += calCanvasHeight,
+      });
+    });
+    $('#glayLayer').css({
+      'top':  $('#ns_container').offset().top,
+      'left': $('#ns_container').offset().left,
+    });
+
+    //bGlayFlag
+    if (NS.bGlayFladg) {
+      $('#glayLayer').css({
+        'top': $('#ns_container').offset().top,
+        'left': $('#ns_container').offset().left,
+      })
+    }
+  });
 
 
 
