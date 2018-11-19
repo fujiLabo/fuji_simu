@@ -32,8 +32,6 @@ $(function() {
   NS.lanArrWidth      = [];   //LANの帯域幅の配列
   NS.lanWidth         = 2;    //LANの幅
   NS.elLanMoveThis;
-  NS.addCtx;  //追加したCanvasのAPIにアクセスできるオブジェクト
-  NS.addCanvas; //追加したCanvasを格納
   NS.canvasWidth      = $('#ns_main').width();  //ns_mainの幅
   NS.canvasHeight     = $('#ns_main').height();  //ns_mainの高さ
   NS.mainCanvasWidth  = $('#ns_main_canvas')[0].getBoundingClientRect().left -35;

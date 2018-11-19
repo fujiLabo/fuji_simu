@@ -7,4 +7,7 @@ class HomeController < ApplicationController
 
   def temp
   end
+
+  def post
+  end
 end

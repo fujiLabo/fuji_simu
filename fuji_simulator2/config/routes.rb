@@ -3,4 +3,5 @@ Rails.application.routes.draw do
   get '/' => "home#top"
   get '/main' => 'home#main'
   get '/temp' => 'home#temp'
+  post '/post' => 'home#post'
 end
