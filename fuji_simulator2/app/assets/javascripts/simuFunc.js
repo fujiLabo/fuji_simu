@@ -203,7 +203,7 @@
     //離した瞬間画像の上でないとき線を削除
     if (!$(e.target).hasClass("dropMachine") || ($(e.target).hasClass("lanFirst"))){
       //画像以外をクリックした際エラー(別に関数を用意)
-      NS.addCtx.clearRect(0, 0, NS.canvasWidth, NS.canvasHeight);
+      //NS.addCtx.clearRect(0, 0, NS.canvasWidth, NS.canvasHeight);
     }
 
     if (NS.points.length === 1){
@@ -223,6 +223,7 @@
     epifnum += 1;
 
     //描画
+    //NS.mainCtx.clearRect(0, 0, NS.canvasWidth, NS.canvasHeight);
     fnLanDraw();
 
     //変数とフラグを更新
@@ -245,7 +246,7 @@
     //マウスを押した場所から現在の場所までの線を再描画
     NS.addCtx = NS.addCanvas.get(0).getContext('2d');
     NS.points.push({x: e.pageX - this.offsetLeft, y: e.pageY - this.offsetTop});
-    NS.addCtx.clearRect(0, 0, NS.canvasWidth, NS.canvasHeight);
+    //NS.addCtx.clearRect(0, 0, NS.canvasWidth, NS.canvasHeight);
     //NS.mainCtx.clearRect(0, 0, NS.canvasWidth, NS.canvasHeight);
     NS.addCtx.beginPath();
     //色の変更(まだ)
@@ -271,7 +272,7 @@
     // NS.mainCtx.lineTo(e.pageX - this.offsetLeft, e.pageY - this.offsetTop); //現在のマウスの座標
     // NS.mainCtx.stroke();
 
-    //fnLanDraw();
+    fnLanDraw();
   }
 
   //lanボタンが押された場合
