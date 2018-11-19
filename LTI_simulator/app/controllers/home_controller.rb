@@ -24,12 +24,22 @@ class HomeController < ApplicationController
   end
 
   def create
+##XMLを読み込むよ
+
+f = File.open("aa.xml", "r")
+@File_read_Xml = f.read
+
+#OAuth_hashを作るぞ〜〜〜〜
+@Body_hash = CGI.escape(Base64.encode64(Digest::SHA1.digest(@File_read_Xml)).chomp)
+
+
     #timestampを取得して格納
     @timestamp = Time.now.to_i.to_s
     @METHOD = "POST"
     #@KEY = params[:oauth_consumer_key] + "&"
     @Nonce = params[:oauth_nonce]
-    @KEY = "849bbc901a95ccadda68279d41b08085&"
+    @OAuth_secret = "49d04d9b8c3dbebab5b12de3aa48581"
+    @KEY = @OAuth_secret + "&"
     @REQUEST = CGI.escape("http://localhost:3000/home/create")
     @SourcedId = params[:lis_result_sourcedid]
     #x-frameでの表示をすべてに許可する
@@ -38,6 +48,11 @@ class HomeController < ApplicationController
     #postで送られてきた値のシンボルを指定し@tempに代入
     #@temp = params.permit!.to_hash
     @temp = params
+
+    #oauth_consumer_key
+    @oauth_consumer_key = params[:oauth_consumer_key]
+    #oauth_body_hashを追加
+    @temp[:oauth_body_hash] = @Body_hash
     #戻り値が文字列だった
     @temp.delete(:action)
     @temp.delete(:controller)
@@ -75,6 +90,7 @@ class HomeController < ApplicationController
     #ソートする このとき配列になる
     @sort = @temp.sort
 
+
 =begin
     @sort.each  { |keyvalue|
       @string += keyvalue
@@ -106,6 +122,7 @@ class HomeController < ApplicationController
     #signatureの作成および最後の入る\nをchopで消している
     @oauth_signature = Base64.encode64(OpenSSL::HMAC::digest(@Digest,@KEY,@Signature_base_string)).chop
     puts Base64.encode64(OpenSSL::HMAC::digest(@Digest,@KEY,@Signature_base_string))
+    @oauth_signature_urlencode = CGI.escape(@oauth_signature)
     #puts OpenSSL::HMAC::digest(OpenSSL::Digest::SHA1.new,@KEY,@Signature_base_strin
     #puts @KEY
     #puts @timestamp
@@ -114,27 +131,28 @@ class HomeController < ApplicationController
     #@query.gsub!('+','%20')
     #@query.gsub!('.','%2e')
 
-
-
-#=begin
+=begin
 #####POST送信関係の処理
 
+=begin
 #test
 t = File.open('aa.txt','r')
 s = t.read
 @Oauth_strings = s.chomp
 t.close
 
+=end
+
 =begin
-@Oauth_strings = "OAuth realm" + "=" + "\"http://sp.example.com/\"" + "," +
-                 "oauth_consumer_key" + "=" + "\"" + @KEY + "\"" + "," +
+@Oauth_strings = "OAuth realm" + "=" + "\"\"" + "," +
+                 "oauth_consumer_key" + "=" + "\"" + @oauth_consumer_key + "\"" + "," +
                  "oauth_signature_method" + "=" + "\"HMAC-SHA1\"" + "," +
                  "oauth_timestamp" + "=" + "\"" + @timestamp + "\"" + "," +
                  "oauth_nonce" + "=" + "\"" + @Nonce + "\"" + "," +
                  "oauth_version" + "=" + "\"" + "1.0" + "\"" "," +
-                 "oauth_signature" + "=" + "\"" + @oauth_signature + "\""
-=end
-
+                 "oauth_signature" + "=" + "\"" + @oauth_signature_urlencode + "\"" + "," +
+                 "oauth_body_hash" + "=" + "\"" + @Body_hash + "\""
+#=end
 
   @uri = URI.parse(@Return_grade)
 
@@ -142,12 +160,7 @@ t.close
   header = {'Content-Type': 'application/xml',
     'Authorization': @Oauth_strings
   }
-=end
-
-  @File_read_Xml = File.open("aa.xml", "r")
-
-
-#OAuth_hashを作るぞ〜〜〜〜
+#=end
 
 
   doc = REXML::Document.new(@File_read_Xml)
@@ -164,7 +177,7 @@ t.close
   request["Authorization"] = @Oauth_strings
   request.body = doc.to_s
 #=end
-
+  puts @Oauth_strings
 =begin
 #test
 http = Net::HTTP.new("133.14.14.232", 80)
@@ -174,14 +187,14 @@ request["Content-Type"] = "application/xml"
 request["Authorization"] = @Oauth_strings
 request.body = doc.to_s
 
-=end
+#=end
 
   #send the request
   response = http.request(request)
 
   #puts @Oauth_strings
 
-#=end
+=end
 
   end
 
