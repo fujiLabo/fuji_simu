@@ -165,7 +165,8 @@
         $("#ns_console").append("<p>> PCにLANは１本しか引けません。 </p>");
       }
       //canvasの追加
-      NS.addCanvas = NS.addCanvasRange.prependTo('#ns_main');
+      NS.addCanvas = $('<canvas width="' + NS.canvasWidth + '" height="' + NS.canvasHeight + '"></canvas>').prependTo('#ns_main');
+      //NS.addCanvas = NS.addCanvasRange.prependTo('#ns_main');
       console.log("addCanvasの中身: " + NS.addCanvas);
 
       //lanLinkがある場合
@@ -203,7 +204,7 @@
     //離した瞬間画像の上でないとき線を削除
     if (!$(e.target).hasClass("dropMachine") || ($(e.target).hasClass("lanFirst"))){
       //画像以外をクリックした際エラー(別に関数を用意)
-      //NS.addCtx.clearRect(0, 0, NS.canvasWidth, NS.canvasHeight);
+      NS.addCtx.clearRect(0, 0, NS.canvasWidth, NS.canvasHeight);
     }
 
     if (NS.points.length === 1){
@@ -231,7 +232,7 @@
     NS.points = [];
     NS.addCanvas.remove();
   }
-
+    //イベントハンドラの削除
     $("#ns_main").off("mousemove", NS.mouseMove);
     $("#ns_main .ui-draggable").removeClass("lanFirst");
   }
@@ -246,7 +247,7 @@
     //マウスを押した場所から現在の場所までの線を再描画
     NS.addCtx = NS.addCanvas.get(0).getContext('2d');
     NS.points.push({x: e.pageX - this.offsetLeft, y: e.pageY - this.offsetTop});
-    //NS.addCtx.clearRect(0, 0, NS.canvasWidth, NS.canvasHeight);
+    NS.addCtx.clearRect(0, 0, NS.canvasWidth, NS.canvasHeight);
     //NS.mainCtx.clearRect(0, 0, NS.canvasWidth, NS.canvasHeight);
     NS.addCtx.beginPath();
     //色の変更(まだ)
@@ -272,6 +273,27 @@
     // NS.mainCtx.lineTo(e.pageX - this.offsetLeft, e.pageY - this.offsetTop); //現在のマウスの座標
     // NS.mainCtx.stroke();
 
+    fnLanDraw();
+  }
+
+  fnLanMoveDown = function(e) {
+    NS.elLanMoveThis = $(this);
+    console.log("elLanMoveThis: " + NS.elLanMoveThis);
+    NS.lanFlagMove = true;
+    NS.lanArrClass = $("#ns_main_canvas").attr("class").split(/\s?L_/);
+    NS.elLanMoveThis.on("mousemove", fnLanMoveDrag);
+  }
+
+  fnLanMoveUp = function(e) {
+    NS.elLanMoveThis.off("mousemove", fnLanMoveDrag);
+  }
+
+  fnLanMoveOutUp = function(e) {
+    
+  }
+
+  fnLanMoveDrag = function(e) {
+    NS.mainCtx.clearRect(0, 0, NS.canvasWidth, NS.canvasHeight);
     fnLanDraw();
   }
 
@@ -306,13 +328,11 @@
       elMain.on("mousedown", mouseDown);  //マウスを押した瞬間
       elMain.on("mouseup", mouseUp);      //マウスを離した瞬間
       elHtml.on("mouseup", mouseOutUp);
-
-      //
       //lanLinkがあるとき
       if (elMainDrag.hasClass("lanLink")) {
-      //   elMain.off("mousedown", fnLanMoveDown);
-      //   elMain.off("mouseup", fnLanMoveUp);
-      //   elHtml.off("mouseup", fnLanMoveOutUp);
+        elMain.off("muusedown", fnLanMoveDown);
+        elMain.off("mouseup", fnLanMoveUp);
+        elHtml.off("mouseup", fnLanMoveOutUp);
       }
       //カーソルの変更
       elMain.css("cursor", "crosshair");
@@ -329,11 +349,15 @@
       elMain.off("mousedown", mouseDown);
       elMain.off("mouseup", mouseUp);
       elMain.off("mouseup", mouseOutUp)
-
-
+      elMainDrag.off("mouseenter").off("mouseleave");
       //カーソルの変更
       elMain.css("cursor", "auto");
       elMainDrag.css("cursor", "pointer");
+      if (elMainDrag.hasClass("lanLink")) {
+        elMain.on("mousedown", fnLanMoveDown);
+        elMain.on("mouseup", fnLanMoveUp);
+        elHtml.on("mouseup", fnLanMoveOutUp);
+      }
     }
 
     //changeDrag();
