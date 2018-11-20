@@ -5,6 +5,8 @@
   function fncontextmenu(element) {
     console.log("fncontextmenuの引数: " + element);
 
+
+
     //後で変える(試し)(現在未使用)
     var menuName;
     var selectorType = NS.dropContextName;
@@ -23,8 +25,16 @@
       items: $.contextMenu.fromMenu($("#contextPC")),
     });
   }
-  //この書き方でも一応右クリックできた(ダブルクリックにするならこれ？)
-  //$(document).on('contextmenu', '.dropMachine', function() { });
+
+  //IPアドレスとSM入力欄を作成
+  function fnCreateIP_SM(nodenum, ifNum, kind) {
+
+  }
+
+  //RoutingTable入力欄を作成
+  function fnCreateRoutingTable(nodeNum, iNum) {
+
+  }
 
 
 
