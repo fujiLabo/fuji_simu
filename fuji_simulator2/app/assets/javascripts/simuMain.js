@@ -126,9 +126,18 @@ $.when(
 
   $('#quit').click(function() {
     console.log("quit");
+
+    $.ajax({
+      type: 'POST',
+      dataType: 'text',
+      url: '/assets/quit.json',
+      //data: {id : urlparameter}
+    }).done(function(Qdata) {
+      console.log(Qdata);
+    })
   })
 
-  //ブラウザをリサイズ
+  //ブラウザをリサイズ(ブラウザのサイズを変更した際に呼び出される)
   $(window).resize(function(){
     console.log("リサイズされました");
     $('html').scrollTop(0);
