@@ -156,11 +156,11 @@
 
 
   //マウスが押された瞬間
-  fnMouseDown = function(e){
+  fnLanOnDown = function(e){
     console.log("mousedownのclass: " + $(e.target).attr("class"));
     //開始地点にPCかルータが存在し、かつLANモードがONの場合
     if( $(e.target).hasClass("dropMachine") && NS.lanFlag){
-      console.log("fnMouseDown");
+      console.log("fnLanOnDown");
       //PCがすでにLANが繋がれているとき
       if ($(e.target).hasClass("dropPC") && $(e.target).hasClass("lanLink")) {
         $("#ns_console").append("<p>> PCにLANは１本しか引けません。 </p>");
@@ -199,8 +199,8 @@
   }
 
   //マウスが離れた瞬間
-  fnMouseUp = function(e) {
-    console.log("fnMouseUp");
+  fnLanOnUp = function(e) {
+    console.log("fnLanOnUp");
 
     //離した瞬間画像の上でないとき線を削除
     if (!$(e.target).hasClass("dropMachine") || ($(e.target).hasClass("lanFirst"))){
@@ -212,7 +212,7 @@
       console.log("いえええええええええい");
     }
 
-    //画像の真ん中に線を持ってくる(わかめ)
+    //画像の真ん中に線を持ってくる
     if( !($(e.target).hasClass("lanFirst")) && $(e.target).hasClass("lanOn"))
     {
     NS.lanArrWidth[NS.lanNode] = NS.lanWidth;//いらないっぽい
@@ -238,7 +238,7 @@
     $("#ns_main .ui-draggable").removeClass("lanFirst");
   }
 
-  fnMouseOutUp = function(e) {
+  fnLanOnOutUp = function(e) {
 
   }
 
@@ -274,23 +274,27 @@
     //fnMainLanDraw();
   }
 
-  fnLanMoveDown = function(e) {
+  //LANモードがoffかつ、線が描画されているときにマウスを押した際の関数
+  fnLanOffDown = function(e) {
     NS.elLanMoveThis = $(this);
     console.log("elLanMoveThis: " + NS.elLanMoveThis);
     NS.lanFlagMove = true;
     NS.lanArrClass = $("#ns_main_canvas").attr("class").split(/\s?L_/);
-    NS.elLanMoveThis.on("mousemove", fnLanMoveDrag);
+    NS.elLanMoveThis.on("mousemove", fnLanOffDrag);
   }
 
-  fnLanMoveUp = function(e) {
-    NS.elLanMoveThis.off("mousemove", fnLanMoveDrag);
+  //LANモードがoffかつ、線が描画されているときにマウスを離した際の関数
+  fnLanOffUp = function(e) {
+    console.log("fnLanOffUp");
+    NS.elLanMoveThis.off("mousemove", fnLanOffDrag);
   }
 
-  fnLanMoveOutUp = function(e) {
+  fnLanOffOutUp = function(e) {
 
   }
 
-  fnLanMoveDrag = function(e) {
+  //画像のドラッグに応じて関連された線を移動し、描画する関数
+  fnLanOffDrag = function(e) {
     NS.mainCtx.clearRect(0, 0, NS.canvasWidth, NS.canvasHeight);
     fnMainLanDraw();
   }
@@ -323,14 +327,14 @@
       })
 
       //イベントハンドラーをつける
-      elMain.on("mousedown", fnMouseDown);  //マウスを押した瞬間
-      elMain.on("mouseup", fnMouseUp);      //マウスを離した瞬間
-      elHtml.on("mouseup", fnMouseOutUp);
+      elMain.on("mousedown", fnLanOnDown);  //マウスを押した瞬間
+      elMain.on("mouseup", fnLanOnUp);      //マウスを離した瞬間
+      elHtml.on("mouseup", fnLanOnOutUp);
       //lanLinkがあるとき
       if (elMainDrag.hasClass("lanLink")) {
-        elMain.off("muusedown", fnLanMoveDown);
-        elMain.off("mouseup", fnLanMoveUp);
-        elHtml.off("mouseup", fnLanMoveOutUp);
+        elMain.off("muusedown", fnLanOffDown);
+        elMain.off("mouseup", fnLanOffUp);
+        elHtml.off("mouseup", fnLanOffOutUp);
       }
       //カーソルの変更
       elMain.css("cursor", "crosshair");
@@ -344,17 +348,18 @@
       $('.dropMachine').draggable('enable');
 
       //イベントハンドラの削除
-      elMain.off("mousedown", fnMouseDown);
-      elMain.off("mouseup", fnMouseUp);
-      elMain.off("mouseup", fnMouseOutUp);
+      elMain.off("mousedown", fnLanOnDown);
+      elMain.off("mouseup", fnLanOnUp);
+      elMain.off("mouseup", fnLanOnOutUp);
       elMainDrag.off("mouseenter").off("mouseleave");
       //カーソルの変更
       elMain.css("cursor", "auto");
       elMainDrag.css("cursor", "pointer");
+      //LanLinkがあるとき
       if (elMainDrag.hasClass("lanLink")) {
-        elMain.on("mousedown", fnLanMoveDown);
-        elMain.on("mouseup", fnLanMoveUp);
-        elHtml.on("mouseup", fnLanMoveOutUp);
+        elMain.on("mousedown", fnLanOffDown);
+        elMain.on("mouseup", fnLanOffUp);
+        elHtml.on("mouseup", fnLanOffOutUp);
       }
     }
 
