@@ -129,9 +129,10 @@
     }
   }
 
-  //すべての線の描画
-  fnLanDraw = function() {
-    console.log("fnLanDrawだよー");
+  //メインの線の描画
+  //関連付けされたsPとePの画像の中心から中心への描画
+  fnMainLanDraw = function() {
+    console.log("fnMainLanDrawだよー");
     console.log("ns_main_canvasのクラス: " + $('#ns_main_canvas').attr('class'));
     if ($('#ns_main_canvas').attr('class') != '') {
       //NS.mainCtx.beginPath();
@@ -193,7 +194,7 @@
       console.log("mousedown.children: " + $(this).children(".lanOn").attr("class"));
 
       //マウスが移動するときの処理
-      $('#ns_main').on("mousemove", mouseMove);
+      $('#ns_main').on("mousemove", fnMouseMove);
     }
   }
 
@@ -225,7 +226,7 @@
 
     //描画
     //NS.mainCtx.clearRect(0, 0, NS.canvasWidth, NS.canvasHeight);
-    fnLanDraw();
+    fnMainLanDraw();
 
     //変数とフラグを更新
     NS.lanNode++;
@@ -233,7 +234,7 @@
     NS.addCanvas.remove();
   }
     //イベントハンドラの削除
-    $("#ns_main").off("mousemove", NS.mouseMove);
+    $("#ns_main").off("mousemove", NS.fnMouseMove);
     $("#ns_main .ui-draggable").removeClass("lanFirst");
   }
 
@@ -242,24 +243,21 @@
   }
 
   //マウスが移動した際
-  mouseMove = function(e) {
-    console.log("mouseMove");
+  fnMouseMove = function(e) {
+    console.log("fnMouseMove");
     //マウスを押した場所から現在の場所までの線を再描画
     NS.addCtx = NS.addCanvas.get(0).getContext('2d');
     NS.points.push({x: e.pageX - this.offsetLeft, y: e.pageY - this.offsetTop});
     NS.addCtx.clearRect(0, 0, NS.canvasWidth, NS.canvasHeight);
     //NS.mainCtx.clearRect(0, 0, NS.canvasWidth, NS.canvasHeight);
     NS.addCtx.beginPath();
-    //色の変更(まだ)
+    //色の変更
     if (!($(e.target).hasClass("lanFirst")) && $(e.target).hasClass("lanOn")) {
+      //線が自分以外の画像に触れているとき
       NS.addCtx.strokeStyle = "#2fb9fe";
     }else{
       NS.addCtx.strokeStyle = "#fb9003";
     }
-
-    //if ($('#ns_main .uidraggable').hasClass("lanLink")){
-      fnLanDraw();
-    //}
 
     NS.addCtx.lineWidth = NS.lanWidth;
     NS.addCtx.moveTo(NS.points[0].x, NS.points[0].y);
@@ -273,7 +271,7 @@
     // NS.mainCtx.lineTo(e.pageX - this.offsetLeft, e.pageY - this.offsetTop); //現在のマウスの座標
     // NS.mainCtx.stroke();
 
-    fnLanDraw();
+    //fnMainLanDraw();
   }
 
   fnLanMoveDown = function(e) {
@@ -294,7 +292,7 @@
 
   fnLanMoveDrag = function(e) {
     NS.mainCtx.clearRect(0, 0, NS.canvasWidth, NS.canvasHeight);
-    fnLanDraw();
+    fnMainLanDraw();
   }
 
   //lanボタンが押された場合
