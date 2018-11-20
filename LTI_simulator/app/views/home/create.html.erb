@@ -2,11 +2,10 @@
 
 <%#postで送信されてきた値を画面に表示する%>
 <p1><%#= params %></p1>
-<h3><%#= @sort %></h3>
-<h4><%= @Return_url %><h4>
-<h5><%= @Return_grade %></h5>
-<h5><%#= params[:ext_content_return_types] %></h5>
-<h5><%#= params[:selection_directive] %></h5>
+<h3><%= @sort %></h3>
+<h4><%= @oauth_consumer_key %><h4>
+<h5><%= params[:ext_content_return_types] %></h5>
+<h5><%= params[:selection_directive] %></h5>
 
 
 
@@ -18,16 +17,16 @@
 
 <%= form_tag(@Return_url , method: :get) do %>
 <%#hidden_field_tagにパラメータを入れれば自動でエンコードしてくれるっぽい%>
- <%#ユーザーに見せる　メッセージを表示するパラメーター　%>
-  <%= hidden_field_tag :lti_msg,"無事に送信されました。"%>
-  <%= hidden_field_tag :lti_log,"正常に完了" %>
+  <%= puts "aaaa" %>
+  <%= hidden_field_tag :lti_msg,"Most things in here don't react well to bullets."%>
+  <%= hidden_field_tag :lti_log,"One ping only." %>
   <%= submit_tag 'url' %>
 
 <% end %>
 
 <%= form_tag(@Return_url , method: :get) do %>
-<%= hidden_field_tag :lti_errormsg,"間違ってますよ" %>
-<%= hidden_field_tag :lti_errorlog,"エラーが発生しました" %>
+<%#= hidden_field_tag :lti_errormsg,"Who's going to save you, Junior?!" %>
+<%= hidden_field_tag :lti_errorlog,"The floor's on fire... see... *&* the chair." %>
 <%= submit_tag 'error' %>
 
 <% end%>

@@ -1,0 +1,1032 @@
+Started GET "/" for 127.0.0.1 at 2018-08-14 10:44:24 +0900
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/chachamaru/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/railties-5.2.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/chachamaru/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/railties-5.2.1/lib/rails/templates/rails/welcome/index.html.erb (3.2ms)
+Completed 200 OK in 33ms (Views: 19.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/home/top" for 127.0.0.1 at 2018-08-14 10:44:32 +0900
+  
+ActionController::RoutingError (No route matches [GET] "/home/top"):
+  
+actionpack (5.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.6.2) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.6.2) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/home/top" for 127.0.0.1 at 2018-08-14 10:50:37 +0900
+Processing by HomeController#top as HTML
+  Rendering home/top.html.erb within layouts/application
+  Rendered home/top.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 392ms (Views: 388.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/home/temp" for 127.0.0.1 at 2018-08-14 10:54:48 +0900
+Processing by HomeController#temp as HTML
+  Rendering home/temp.html.erb within layouts/application
+  Rendered home/temp.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 28ms (Views: 25.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/home/temp" for 127.0.0.1 at 2018-08-14 10:56:05 +0900
+Processing by HomeController#temp as HTML
+  Rendering home/temp.html.erb within layouts/application
+  Rendered home/temp.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 34ms (Views: 31.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-08-14 15:35:44 +0900
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/chachamaru/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/railties-5.2.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/chachamaru/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/railties-5.2.1/lib/rails/templates/rails/welcome/index.html.erb (4.6ms)
+Completed 200 OK in 23ms (Views: 11.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/home/top" for 127.0.0.1 at 2018-08-14 15:35:51 +0900
+Processing by HomeController#top as HTML
+  Rendering home/top.html.erb within layouts/application
+  Rendered home/top.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 180ms (Views: 177.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/home/top" for 127.0.0.1 at 2018-08-14 15:41:49 +0900
+Processing by HomeController#top as HTML
+  Rendering home/top.html.erb within layouts/application
+  Rendered home/top.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 24ms (Views: 22.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/home/temp?utf8=%E2%9C%93" for 127.0.0.1 at 2018-08-14 15:41:50 +0900
+Processing by HomeController#temp as HTML
+  Parameters: {"utf8"=>"✓"}
+  Rendering home/temp.html.erb within layouts/application
+  Rendered home/temp.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 26ms (Views: 22.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/home/temp?utf8=%E2%9C%93" for 127.0.0.1 at 2018-08-14 15:43:08 +0900
+Processing by HomeController#temp as HTML
+  Parameters: {"utf8"=>"✓"}
+  Rendering home/temp.html.erb within layouts/application
+  Rendered home/temp.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 18ms (Views: 16.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/home/top?utf8=%E2%9C%93" for 127.0.0.1 at 2018-08-14 15:43:10 +0900
+Processing by HomeController#top as HTML
+  Parameters: {"utf8"=>"✓"}
+  Rendering home/top.html.erb within layouts/application
+  Rendered home/top.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 19ms (Views: 17.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/home/temp?utf8=%E2%9C%93" for 127.0.0.1 at 2018-08-14 15:43:10 +0900
+Processing by HomeController#temp as HTML
+  Parameters: {"utf8"=>"✓"}
+  Rendering home/temp.html.erb within layouts/application
+  Rendered home/temp.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 20ms (Views: 18.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/home/temp?utf8=%E2%9C%93" for 127.0.0.1 at 2018-08-14 15:44:19 +0900
+Processing by HomeController#temp as HTML
+  Parameters: {"utf8"=>"✓"}
+  Rendering home/temp.html.erb within layouts/application
+  Rendered home/temp.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 18ms (Views: 16.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/home/top?utf8=%E2%9C%93" for 127.0.0.1 at 2018-08-14 15:44:20 +0900
+Processing by HomeController#top as HTML
+  Parameters: {"utf8"=>"✓"}
+  Rendering home/top.html.erb within layouts/application
+  Rendered home/top.html.erb within layouts/application (205.8ms)
+Completed 500 Internal Server Error in 216ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `post' for #<#<Class:0x007fd934166c40>:0x007fd93a051340>):
+    4: <input type = "submit" value = "tempへ">
+    5: <% end %>
+    6: 
+    7: <%= form_tag('/home/create', method: post) do %>
+    8: <input type = "submit" value = "createへ">
+    9: <% end %>
+  
+app/views/home/top.html.erb:7:in `_app_views_home_top_html_erb__1856668400559230790_70285479022180'
+Started GET "/home/top?utf8=%E2%9C%93" for 127.0.0.1 at 2018-08-14 15:44:29 +0900
+Processing by HomeController#top as HTML
+  Parameters: {"utf8"=>"✓"}
+  Rendering home/top.html.erb within layouts/application
+  Rendered home/top.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 29ms (Views: 27.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/home/create" for 127.0.0.1 at 2018-08-14 15:44:31 +0900
+Processing by HomeController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"gDuNx34BJZ0h4viRtAvuaoUXhRM+4UTxyGhMsH9xmlsLZzYjME9woR+4x+mVo0hCNdIeu2MQ6JlAFPgWxvE7yQ=="}
+  Rendering home/create.html.erb within layouts/application
+  Rendered home/create.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 22ms (Views: 17.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/home/create" for 127.0.0.1 at 2018-08-14 15:45:37 +0900
+  
+ActionController::RoutingError (No route matches [GET] "/home/create"):
+  
+actionpack (5.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.6.2) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.6.2) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/home/top" for 127.0.0.1 at 2018-08-14 15:45:42 +0900
+Processing by HomeController#top as HTML
+  Rendering home/top.html.erb within layouts/application
+  Rendered home/top.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 37ms (Views: 32.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/home/create" for 127.0.0.1 at 2018-08-14 15:45:44 +0900
+Processing by HomeController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"QSnu1vPJnFEF2owWWbnlDfADt3QM7y/iO3+7tvxp8TbKdVUyvYfJbTuAs254EUMlQMYs3FEeg4qzAw8QRelQpA=="}
+  Rendering home/create.html.erb within layouts/application
+  Rendered home/create.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 27ms (Views: 24.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/home/top?utf8=%E2%9C%93" for 127.0.0.1 at 2018-08-14 15:45:44 +0900
+Processing by HomeController#top as HTML
+  Parameters: {"utf8"=>"✓"}
+  Rendering home/top.html.erb within layouts/application
+  Rendered home/top.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 27ms (Views: 24.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/home/temp?utf8=%E2%9C%93" for 127.0.0.1 at 2018-08-14 15:45:45 +0900
+Processing by HomeController#temp as HTML
+  Parameters: {"utf8"=>"✓"}
+  Rendering home/temp.html.erb within layouts/application
+  Rendered home/temp.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 32ms (Views: 29.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/home/top?utf8=%E2%9C%93" for 127.0.0.1 at 2018-08-14 15:45:46 +0900
+Processing by HomeController#top as HTML
+  Parameters: {"utf8"=>"✓"}
+  Rendering home/top.html.erb within layouts/application
+  Rendered home/top.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 24ms (Views: 21.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/home/create" for 127.0.0.1 at 2018-08-14 15:45:48 +0900
+Processing by HomeController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"AlgYg0TAnSHl01b5gpavF8CzVwVrxoSTOokw0HJXyKeJBKNnCo7IHduJaYGjPgk/cHbMrTY3KPuy9YR2y9dpNQ=="}
+  Rendering home/create.html.erb within layouts/application
+  Rendered home/create.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 24ms (Views: 20.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/home/top?utf8=%E2%9C%93" for 127.0.0.1 at 2018-08-14 15:46:42 +0900
+Processing by HomeController#top as HTML
+  Parameters: {"utf8"=>"✓"}
+  Rendering home/top.html.erb within layouts/application
+  Rendered home/top.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 24ms (Views: 21.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/home/create" for 127.0.0.1 at 2018-08-14 15:46:43 +0900
+Processing by HomeController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"CelkrBURGR3lfaDwtd4qG7EG8Yyl/SYi7cSOm6vifwmCtd9IW19MIdsnn4iUdowzAcNqJPgMikpluDo9EmLemw=="}
+  Rendering home/create.html.erb within layouts/application
+  Rendered home/create.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 25ms (Views: 20.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/home/create" for 127.0.0.1 at 2018-08-14 15:48:05 +0900
+Processing by HomeController#create as HTML
+  Parameters: {"oauth_consumer_key"=>"de86b1984c8f2bc95aa18977a8b40971", "oauth_signature_method"=>"HMAC-SHA1", "oauth_timestamp"=>"1534229285", "oauth_nonce"=>"m11oBx74q3ibYo44FR3Pega6irVIqhh2p9LprRnQMg", "oauth_version"=>"1.0", "context_id"=>"412a7d0d08", "context_title"=>"Hippo 965", "launch_presentation_return_url"=>"https://learn-lti.herokuapp.com/tool_return/post_launch/0/3557", "lis_person_name_full"=>"Dan Rands", "lti_message_type"=>"basic-lti-launch-request", "lti_version"=>"LTI-1p0", "resource_link_id"=>"ccb33a6946", "roles"=>"urn:lti:instrole:ims/lis/administrator", "tool_consumer_instance_name"=>"Course 514", "user_id"=>"67f965b648", "oauth_signature"=>"+AacofFZe0N8iW5hUvS9yakKmvc="}
+Completed 422 Unprocessable Entity in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionController::InvalidAuthenticityToken (The browser returned a 'null' origin for a request with origin-based forgery protection turned on. This usually
+means you have the 'no-referrer' Referrer-Policy header enabled, or that the request came from a site that
+refused to give its origin. This makes it impossible for Rails to verify the source of the requests. Likely the
+best solution is to change your referrer policy to something less strict like same-origin or strict-same-origin.
+If you cannot change the referrer policy, you can disable origin checking with the
+Rails.application.config.action_controller.forgery_protection_origin_check setting.
+):
+  
+actionpack (5.2.1) lib/action_controller/metal/request_forgery_protection.rb:433:in `valid_request_origin?'
+actionpack (5.2.1) lib/action_controller/metal/request_forgery_protection.rb:291:in `verified_request?'
+actionpack (5.2.1) lib/action_controller/metal/request_forgery_protection.rb:230:in `verify_authenticity_token'
+activesupport (5.2.1) lib/active_support/callbacks.rb:426:in `block in make_lambda'
+activesupport (5.2.1) lib/active_support/callbacks.rb:198:in `block (2 levels) in halting'
+actionpack (5.2.1) lib/abstract_controller/callbacks.rb:34:in `block (2 levels) in <module:Callbacks>'
+activesupport (5.2.1) lib/active_support/callbacks.rb:199:in `block in halting'
+activesupport (5.2.1) lib/active_support/callbacks.rb:513:in `block in invoke_before'
+activesupport (5.2.1) lib/active_support/callbacks.rb:513:in `each'
+activesupport (5.2.1) lib/active_support/callbacks.rb:513:in `invoke_before'
+activesupport (5.2.1) lib/active_support/callbacks.rb:131:in `run_callbacks'
+actionpack (5.2.1) lib/abstract_controller/callbacks.rb:41:in `process_action'
+actionpack (5.2.1) lib/action_controller/metal/rescue.rb:22:in `process_action'
+actionpack (5.2.1) lib/action_controller/metal/instrumentation.rb:34:in `block in process_action'
+activesupport (5.2.1) lib/active_support/notifications.rb:168:in `block in instrument'
+activesupport (5.2.1) lib/active_support/notifications/instrumenter.rb:23:in `instrument'
+activesupport (5.2.1) lib/active_support/notifications.rb:168:in `instrument'
+actionpack (5.2.1) lib/action_controller/metal/instrumentation.rb:32:in `process_action'
+actionpack (5.2.1) lib/action_controller/metal/params_wrapper.rb:256:in `process_action'
+activerecord (5.2.1) lib/active_record/railties/controller_runtime.rb:24:in `process_action'
+actionpack (5.2.1) lib/abstract_controller/base.rb:134:in `process'
+actionview (5.2.1) lib/action_view/rendering.rb:32:in `process'
+actionpack (5.2.1) lib/action_controller/metal.rb:191:in `dispatch'
+actionpack (5.2.1) lib/action_controller/metal.rb:252:in `dispatch'
+actionpack (5.2.1) lib/action_dispatch/routing/route_set.rb:52:in `dispatch'
+actionpack (5.2.1) lib/action_dispatch/routing/route_set.rb:34:in `serve'
+actionpack (5.2.1) lib/action_dispatch/journey/router.rb:52:in `block in serve'
+actionpack (5.2.1) lib/action_dispatch/journey/router.rb:35:in `each'
+actionpack (5.2.1) lib/action_dispatch/journey/router.rb:35:in `serve'
+actionpack (5.2.1) lib/action_dispatch/routing/route_set.rb:840:in `call'
+rack (2.0.5) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.0.5) lib/rack/etag.rb:25:in `call'
+rack (2.0.5) lib/rack/conditional_get.rb:38:in `call'
+rack (2.0.5) lib/rack/head.rb:12:in `call'
+actionpack (5.2.1) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.0.5) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.5) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/cookies.rb:670:in `call'
+activerecord (5.2.1) lib/active_record/migration.rb:559:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.1) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.1) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+web-console (3.6.2) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.6.2) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started POST "/home/create" for 127.0.0.1 at 2018-08-14 15:52:17 +0900
+Processing by HomeController#create as HTML
+  Parameters: {"oauth_consumer_key"=>"de86b1984c8f2bc95aa18977a8b40971", "oauth_signature_method"=>"HMAC-SHA1", "oauth_timestamp"=>"1534229537", "oauth_nonce"=>"DauriaUr2vbLuMyGikmvBRt8bAiKzivFfazMlIGJUI", "oauth_version"=>"1.0", "context_id"=>"97125cd3d0", "context_title"=>"Club 560", "launch_presentation_return_url"=>"https://learn-lti.herokuapp.com/tool_return/post_launch/0/9135", "lis_person_name_full"=>"Juan Johnson", "lti_message_type"=>"basic-lti-launch-request", "lti_version"=>"LTI-1p0", "resource_link_id"=>"593f79b90d", "roles"=>"urn:lti:instrole:ims/lis/administrator", "tool_consumer_instance_name"=>"Organization 382", "user_id"=>"dfc617befc", "oauth_signature"=>"4T8Rp486wFL2oH9N1YBPJrahD2o="}
+  Rendering home/create.html.erb within layouts/application
+  Rendered home/create.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 18ms (Views: 16.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/home/create" for 127.0.0.1 at 2018-08-14 15:55:39 +0900
+Processing by HomeController#create as HTML
+  Parameters: {"oauth_consumer_key"=>"de86b1984c8f2bc95aa18977a8b40971", "oauth_signature_method"=>"HMAC-SHA1", "oauth_timestamp"=>"1534229738", "oauth_nonce"=>"ZkiLzkpKS3klkz1IyhEYE54ZWf08aFFPXHlg5dUsTc", "oauth_version"=>"1.0", "context_id"=>"40028146d5", "context_title"=>"Account 382", "launch_presentation_return_url"=>"https://learn-lti.herokuapp.com/tool_return/post_launch/0/6214", "lis_person_name_full"=>"An Johnson", "lti_message_type"=>"basic-lti-launch-request", "lti_version"=>"LTI-1p0", "resource_link_id"=>"79bdcf1606", "roles"=>"contentdeveloper,urn:lti:instrole:ims/lis/observer", "tool_consumer_instance_name"=>"Org 161", "user_id"=>"13e1bba059", "oauth_signature"=>"85/wU8tKoSp8cGu54Bmtsv6VU9U="}
+  Rendering home/create.html.erb within layouts/application
+  Rendered home/create.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 23ms (Views: 20.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/home/create" for 127.0.0.1 at 2018-08-14 15:56:37 +0900
+Processing by HomeController#create as HTML
+  Parameters: {"oauth_consumer_key"=>"de86b1984c8f2bc95aa18977a8b40971", "oauth_signature_method"=>"HMAC-SHA1", "oauth_timestamp"=>"1534229797", "oauth_nonce"=>"U5YBxz1MXJQYFWgYdKVG4TwWgJJRTU0hOCpg39xw", "oauth_version"=>"1.0", "context_id"=>"052835c5ac", "context_title"=>"Account 235", "launch_presentation_return_url"=>"https://learn-lti.herokuapp.com/tool_return/post_launch/0/1565", "lis_person_name_full"=>"An Rands", "lti_message_type"=>"basic-lti-launch-request", "lti_version"=>"LTI-1p0", "resource_link_id"=>"083c6be806", "roles"=>"urn:lti:instrole:ims/lis/observer,instructor,contentdeveloper", "tool_consumer_instance_name"=>"Class 69", "user_id"=>"a0ab433aaf", "oauth_signature"=>"M0qh/A7tucUSNxWybnZYnClCl6s="}
+  Rendering home/create.html.erb within layouts/application
+  Rendered home/create.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 29ms (Views: 26.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/home/top?utf8=%E2%9C%93" for 127.0.0.1 at 2018-08-14 19:22:09 +0900
+Processing by HomeController#top as HTML
+  Parameters: {"utf8"=>"✓"}
+  Rendering home/top.html.erb within layouts/application
+  Rendered home/top.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 20ms (Views: 17.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/home/create" for 127.0.0.1 at 2018-08-14 19:22:10 +0900
+Processing by HomeController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"0zVXybHDffgM1TvcBW3ko7/H3GjPg56pLFDhPp1zyiVYaewt/40oxDKPBKQkxUKLDwJHwJJyMsGkLFWYJPNrtw=="}
+  Rendering home/create.html.erb within layouts/application
+  Rendered home/create.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 22ms (Views: 19.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/home/top?utf8=%E2%9C%93" for 127.0.0.1 at 2018-08-16 16:04:54 +0900
+Processing by HomeController#top as HTML
+  Parameters: {"utf8"=>"✓"}
+  Rendering home/top.html.erb within layouts/application
+  Rendered home/top.html.erb within layouts/application (15.3ms)
+Completed 200 OK in 116ms (Views: 102.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/home/create" for 127.0.0.1 at 2018-08-16 16:04:56 +0900
+Processing by HomeController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"x5AV6iyA2cHfJUEol7GA/H1y9qWZZ/vyIPgQC86LJq1MzK4OYs6M/eF/flC2GSbUzbdtDcSWV5qohKStdwuHPw=="}
+  Rendering home/create.html.erb within layouts/application
+  Rendered home/create.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 34ms (Views: 30.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/home/top?utf8=%E2%9C%93" for 127.0.0.1 at 2018-08-16 16:04:59 +0900
+Processing by HomeController#top as HTML
+  Parameters: {"utf8"=>"✓"}
+  Rendering home/top.html.erb within layouts/application
+  Rendered home/top.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 33ms (Views: 31.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/home/temp?utf8=%E2%9C%93" for 127.0.0.1 at 2018-08-16 16:05:01 +0900
+Processing by HomeController#temp as HTML
+  Parameters: {"utf8"=>"✓"}
+  Rendering home/temp.html.erb within layouts/application
+  Rendered home/temp.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 28ms (Views: 24.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/home/top?utf8=%E2%9C%93" for 127.0.0.1 at 2018-08-16 16:05:02 +0900
+Processing by HomeController#top as HTML
+  Parameters: {"utf8"=>"✓"}
+  Rendering home/top.html.erb within layouts/application
+  Rendered home/top.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 24ms (Views: 22.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/home/create" for 127.0.0.1 at 2018-08-16 16:05:03 +0900
+Processing by HomeController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"G5vU1vUWbHVBsf1ICZ4qHz+hGqUvQbgRoGq/1iU5hDOQx28yu1g5SX/rwjAoNow3j2SBDXKwFHkoFgtwnLkloQ=="}
+  Rendering home/create.html.erb within layouts/application
+  Rendered home/create.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 28ms (Views: 24.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/home/top?utf8=%E2%9C%93" for 127.0.0.1 at 2018-08-16 16:05:10 +0900
+Processing by HomeController#top as HTML
+  Parameters: {"utf8"=>"✓"}
+  Rendering home/top.html.erb within layouts/application
+  Rendered home/top.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 26ms (Views: 21.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-08-20 19:03:52 +0900
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/chachamaru/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/railties-5.2.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/chachamaru/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/railties-5.2.1/lib/rails/templates/rails/welcome/index.html.erb (4.0ms)
+Completed 200 OK in 24ms (Views: 10.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/get/top" for 127.0.0.1 at 2018-08-20 19:04:00 +0900
+  
+ActionController::RoutingError (No route matches [GET] "/get/top"):
+  
+actionpack (5.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.6.2) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.6.2) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/get/top" for 127.0.0.1 at 2018-08-20 19:05:14 +0900
+  
+ActionController::RoutingError (No route matches [GET] "/get/top"):
+  
+actionpack (5.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.6.2) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.6.2) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/home/top" for 127.0.0.1 at 2018-08-20 19:05:24 +0900
+Processing by HomeController#top as HTML
+  Rendering home/top.html.erb within layouts/application
+  Rendered home/top.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 247ms (Views: 243.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/home/temp?utf8=%E2%9C%93" for 127.0.0.1 at 2018-08-20 19:05:28 +0900
+Processing by HomeController#temp as HTML
+  Parameters: {"utf8"=>"✓"}
+  Rendering home/temp.html.erb within layouts/application
+  Rendered home/temp.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 32ms (Views: 29.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/home/top?utf8=%E2%9C%93" for 127.0.0.1 at 2018-08-20 19:05:29 +0900
+Processing by HomeController#top as HTML
+  Parameters: {"utf8"=>"✓"}
+  Rendering home/top.html.erb within layouts/application
+  Rendered home/top.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 37ms (Views: 34.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/home/create" for 127.0.0.1 at 2018-08-20 19:05:30 +0900
+Processing by HomeController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"mBs7xAL1lb4byB19DN9wbVciWAek3nOprtF2LLnX6ZYhOq3YuqPGKVATTKEPRknWGnMFXRwl8g5y5kQH59q5Eg=="}
+  Rendering home/create.html.erb within layouts/application
+  Rendered home/create.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 50ms (Views: 46.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/home/top?utf8=%E2%9C%93" for 127.0.0.1 at 2018-08-20 19:05:31 +0900
+Processing by HomeController#top as HTML
+  Parameters: {"utf8"=>"✓"}
+  Rendering home/top.html.erb within layouts/application
+  Rendered home/top.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 21ms (Views: 18.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/home/temp?utf8=%E2%9C%93" for 127.0.0.1 at 2018-08-20 19:08:17 +0900
+Processing by HomeController#temp as HTML
+  Parameters: {"utf8"=>"✓"}
+  Rendering home/temp.html.erb within layouts/application
+  Rendered home/temp.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 19ms (Views: 16.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/home/top?utf8=%E2%9C%93" for 127.0.0.1 at 2018-08-20 19:08:18 +0900
+Processing by HomeController#top as HTML
+  Parameters: {"utf8"=>"✓"}
+  Rendering home/top.html.erb within layouts/application
+  Rendered home/top.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 20ms (Views: 17.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/home/create" for 127.0.0.1 at 2018-08-20 19:08:19 +0900
+Processing by HomeController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Qz9+6YDJGf136ExtvqcbdtfuvQ0ujplDy9QHO02D0E76Huj1OJ9KajwzHbG9PiLNmr/gV5Z1GOQX4zUQE46Ayg=="}
+  Rendering home/create.html.erb within layouts/application
+  Rendered home/create.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 19ms (Views: 17.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/home/top?utf8=%E2%9C%93" for 127.0.0.1 at 2018-08-20 19:08:20 +0900
+Processing by HomeController#top as HTML
+  Parameters: {"utf8"=>"✓"}
+  Rendering home/top.html.erb within layouts/application
+  Rendered home/top.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 22ms (Views: 18.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/home/temp?utf8=%E2%9C%93" for 127.0.0.1 at 2018-08-20 19:08:21 +0900
+Processing by HomeController#temp as HTML
+  Parameters: {"utf8"=>"✓"}
+  Rendering home/temp.html.erb within layouts/application
+  Rendered home/temp.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 22ms (Views: 17.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/home/top?utf8=%E2%9C%93" for 127.0.0.1 at 2018-08-20 19:08:21 +0900
+Processing by HomeController#top as HTML
+  Parameters: {"utf8"=>"✓"}
+  Rendering home/top.html.erb within layouts/application
+  Rendered home/top.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 20ms (Views: 17.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/home/temp?utf8=%E2%9C%93" for 127.0.0.1 at 2018-08-20 19:11:35 +0900
+Processing by HomeController#temp as HTML
+  Parameters: {"utf8"=>"✓"}
+  Rendering home/temp.html.erb within layouts/application
+  Rendered home/temp.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 22ms (Views: 19.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/home/top?utf8=%E2%9C%93" for 127.0.0.1 at 2018-08-20 19:11:36 +0900
+Processing by HomeController#top as HTML
+  Parameters: {"utf8"=>"✓"}
+  Rendering home/top.html.erb within layouts/application
+  Rendered home/top.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 19ms (Views: 17.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/home/temp?utf8=%E2%9C%93" for 127.0.0.1 at 2018-08-20 19:11:37 +0900
+Processing by HomeController#temp as HTML
+  Parameters: {"utf8"=>"✓"}
+  Rendering home/temp.html.erb within layouts/application
+  Rendered home/temp.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 22ms (Views: 19.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/home/top?utf8=%E2%9C%93" for 127.0.0.1 at 2018-08-20 19:11:39 +0900
+Processing by HomeController#top as HTML
+  Parameters: {"utf8"=>"✓"}
+  Rendering home/top.html.erb within layouts/application
+  Rendered home/top.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 21ms (Views: 17.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/home/temp?utf8=%E2%9C%93" for 127.0.0.1 at 2018-08-20 19:11:39 +0900
+Processing by HomeController#temp as HTML
+  Parameters: {"utf8"=>"✓"}
+  Rendering home/temp.html.erb within layouts/application
+  Rendered home/temp.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 19ms (Views: 16.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/home/top?utf8=%E2%9C%93" for 127.0.0.1 at 2018-08-20 19:11:40 +0900
+Processing by HomeController#top as HTML
+  Parameters: {"utf8"=>"✓"}
+  Rendering home/top.html.erb within layouts/application
+  Rendered home/top.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 22ms (Views: 19.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/home/temp?utf8=%E2%9C%93" for 127.0.0.1 at 2018-08-20 19:11:40 +0900
+Processing by HomeController#temp as HTML
+  Parameters: {"utf8"=>"✓"}
+  Rendering home/temp.html.erb within layouts/application
+  Rendered home/temp.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 19ms (Views: 16.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/home/top?utf8=%E2%9C%93" for 127.0.0.1 at 2018-08-20 19:11:41 +0900
+Processing by HomeController#top as HTML
+  Parameters: {"utf8"=>"✓"}
+  Rendering home/top.html.erb within layouts/application
+  Rendered home/top.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 27ms (Views: 24.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/home/create" for 127.0.0.1 at 2018-08-20 19:11:42 +0900
+Processing by HomeController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"5wZXlt6pHmX5skgqvsJ/nmJ7t3k9YuyPZeY2TWcLNiFeJ8GKZv9N8rJpGfa9W0YlLyrqI4WZbSi50QRmOQZmpQ=="}
+  Rendering home/create.html.erb within layouts/application
+  Rendered home/create.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 19ms (Views: 17.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/home/top?utf8=%E2%9C%93" for 127.0.0.1 at 2018-08-20 19:30:19 +0900
+Processing by HomeController#top as HTML
+  Parameters: {"utf8"=>"✓"}
+  Rendering home/top.html.erb within layouts/application
+  Rendered home/top.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 21ms (Views: 17.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/home/temp?utf8=%E2%9C%93" for 127.0.0.1 at 2018-08-20 19:30:21 +0900
+Processing by HomeController#temp as HTML
+  Parameters: {"utf8"=>"✓"}
+  Rendering home/temp.html.erb within layouts/application
+  Rendered home/temp.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 20ms (Views: 16.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/home/top?utf8=%E2%9C%93" for 127.0.0.1 at 2018-08-20 19:30:22 +0900
+Processing by HomeController#top as HTML
+  Parameters: {"utf8"=>"✓"}
+  Rendering home/top.html.erb within layouts/application
+  Rendered home/top.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 19ms (Views: 17.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/home/create" for 127.0.0.1 at 2018-08-20 19:30:22 +0900
+Processing by HomeController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"FjKYD5pFZadTiRIkQ550eKR/UAtPWnyP2xOHm79lmK+vEw4TIhM2MBhSQ/hAB03D6S4NUfeh/SgHJLWw4WjIKw=="}
+  Rendering home/create.html.erb within layouts/application
+  Rendered home/create.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 21ms (Views: 18.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/home/top?utf8=%E2%9C%93" for 127.0.0.1 at 2018-08-20 19:30:24 +0900
+Processing by HomeController#top as HTML
+  Parameters: {"utf8"=>"✓"}
+  Rendering home/top.html.erb within layouts/application
+  Rendered home/top.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 19ms (Views: 16.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/home/create" for 127.0.0.1 at 2018-08-20 19:30:25 +0900
+Processing by HomeController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"h401llH2b06Ik4yHE1ffNahqJM9M4eXGqlnf2+okeNQ+rKOK6aA82cNI3VsQzuaO5Tt5lfQaZGF2bu3wtCkoUA=="}
+  Rendering home/create.html.erb within layouts/application
+  Rendered home/create.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 19ms (Views: 17.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-08-23 13:21:53 +0900
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/chachamaru/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/railties-5.2.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/chachamaru/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/railties-5.2.1/lib/rails/templates/rails/welcome/index.html.erb (3.6ms)
+Completed 200 OK in 24ms (Views: 10.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/home/top" for 127.0.0.1 at 2018-08-23 13:21:58 +0900
+Processing by HomeController#top as HTML
+  Rendering home/top.html.erb within layouts/application
+  Rendered home/top.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 193ms (Views: 187.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/home/create" for 127.0.0.1 at 2018-08-23 13:22:03 +0900
+Processing by HomeController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"X0PtNeuiytaVkBCW4EWECa1C08644TrGKxED9zs7tl7mYnspU/SZQd5LQUrj3L2y4BOOlAAau2H3JjHcZTbm2g=="}
+  Rendering home/create.html.erb within layouts/application
+  Rendered home/create.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 25ms (Views: 18.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/home/create" for 127.0.0.1 at 2018-08-23 13:24:14 +0900
+Processing by HomeController#create as HTML
+  Parameters: {"oauth_consumer_key"=>"605f70e70b35cbc9fcef060a0c379205", "oauth_signature_method"=>"HMAC-SHA1", "oauth_timestamp"=>"1534998254", "oauth_nonce"=>"eRw3mygbAjLrnIfACWqkI2bE7859I2DgJZZIUrcKk0", "oauth_version"=>"1.0", "context_id"=>"c62d2dfb1e", "context_title"=>"Lesson 971", "launch_presentation_return_url"=>"https://learn-lti.herokuapp.com/tool_return/signature_check/0/2981", "lis_person_name_full"=>"Dan Washington", "lti_message_type"=>"basic-lti-launch-request", "lti_version"=>"LTI-1p0", "resource_link_id"=>"4f60d008c3", "roles"=>"urn:lti:instrole:ims/lis/administrator,urn:lti:instrole:ims/lis/observer", "tool_consumer_instance_name"=>"Club 75", "user_id"=>"2e9d444940", "oauth_signature"=>"qDz95Ik1/yYm/TH0f52z4kuh0sI="}
+  Rendering home/create.html.erb within layouts/application
+  Rendered home/create.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 37ms (Views: 34.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/home/create" for 127.0.0.1 at 2018-08-23 13:25:38 +0900
+Processing by HomeController#create as HTML
+  Parameters: {"oauth_consumer_key"=>"605f70e70b35cbc9fcef060a0c379205", "oauth_signature_method"=>"HMAC-SHA1", "oauth_timestamp"=>"1534998338", "oauth_nonce"=>"1uGTdrik8ZXdQDoTsYC6qKzx1A22hxMqs68iJ9qwYA", "oauth_version"=>"1.0", "context_id"=>"3cf26c19e0", "context_title"=>"Lesson 840", "launch_presentation_return_url"=>"https://learn-lti.herokuapp.com/tool_return/signature_check/0/6203", "lis_person_name_full"=>"Dong Lippman", "lti_message_type"=>"basic-lti-launch-request", "lti_version"=>"LTI-1p0", "resource_link_id"=>"95e1f4c477", "roles"=>"", "tool_consumer_instance_name"=>"Hippo 21", "user_id"=>"692056b913", "oauth_signature"=>"VhHG5ZlUDNB0iBWsrX1tqIXCTVw="}
+  Rendering home/create.html.erb within layouts/application
+  Rendered home/create.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 36ms (Views: 30.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/home/create" for 127.0.0.1 at 2018-08-23 13:25:49 +0900
+Processing by HomeController#create as HTML
+  Parameters: {"oauth_consumer_key"=>"605f70e70b35cbc9fcef060a0c379205", "oauth_signature_method"=>"HMAC-SHA1", "oauth_timestamp"=>"1534998349", "oauth_nonce"=>"eRw3mygbAjLrnIfACWqkI2bE7859I2DgJZZIUrcKk0", "oauth_version"=>"1.0", "context_id"=>"31e67da083", "context_title"=>"Section 534", "launch_presentation_return_url"=>"https://learn-lti.herokuapp.com/tool_return/signature_check/0/3138", "lis_person_name_full"=>"Dong Hansen", "lti_message_type"=>"basic-lti-launch-request", "lti_version"=>"LTI-1p0", "resource_link_id"=>"9fe4a6a5f3", "roles"=>"contentdeveloper", "tool_consumer_instance_name"=>"Organization 257", "user_id"=>"cc63563ec8", "oauth_signature"=>"Oe4cSvVf2R7yF0IXDUO85i3U90Y="}
+  Rendering home/create.html.erb within layouts/application
+  Rendered home/create.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 36ms (Views: 32.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/home/top" for 127.0.0.1 at 2018-08-23 16:36:21 +0900
+  
+ActionController::RoutingError (No route matches [GET] "/home/top"):
+  
+actionpack (5.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.6.2) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.6.2) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/home/create" for 127.0.0.1 at 2018-08-23 16:36:29 +0900
+  
+ActionController::RoutingError (No route matches [GET] "/home/create"):
+  
+actionpack (5.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.6.2) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.6.2) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/home/top" for 127.0.0.1 at 2018-08-23 16:37:25 +0900
+Processing by HomeController#top as HTML
+  Rendering home/top.html.erb within layouts/application
+  Rendered home/top.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 271ms (Views: 267.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/home/create" for 127.0.0.1 at 2018-08-23 16:38:58 +0900
+Processing by HomeController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"v2U+Fl8oENiMbew8AinW9y1V8g55cJr1z24FF/KsCa7UleUw2DioFCkcPLQiN9PdV3MW4Mf3V7hnHQfnxg5pGA=="}
+  Rendering home/create.html.erb within layouts/application
+  Rendered home/create.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 42ms (Views: 38.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/home/top?utf8=%E2%9C%93" for 127.0.0.1 at 2018-08-23 16:39:00 +0900
+Processing by HomeController#top as HTML
+  Parameters: {"utf8"=>"✓"}
+  Rendering home/top.html.erb within layouts/application
+  Rendered home/top.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 22ms (Views: 18.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/home/temp?utf8=%E2%9C%93" for 127.0.0.1 at 2018-08-23 16:39:00 +0900
+Processing by HomeController#temp as HTML
+  Parameters: {"utf8"=>"✓"}
+  Rendering home/temp.html.erb within layouts/application
+  Rendered home/temp.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 23ms (Views: 20.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/home/top?utf8=%E2%9C%93" for 127.0.0.1 at 2018-08-23 16:39:01 +0900
+Processing by HomeController#top as HTML
+  Parameters: {"utf8"=>"✓"}
+  Rendering home/top.html.erb within layouts/application
+  Rendered home/top.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 22ms (Views: 19.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-08-23 16:56:43 +0900
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/chachamaru/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/railties-5.2.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/chachamaru/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/railties-5.2.1/lib/rails/templates/rails/welcome/index.html.erb (2.7ms)
+Completed 200 OK in 11ms (Views: 6.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/main?utf8=%E2%9C%93" for 127.0.0.1 at 2018-09-03 10:55:00 +0900
+  
+ActionController::RoutingError (No route matches [GET] "/main"):
+  
+actionpack (5.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.6.2) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.6.2) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/" for 127.0.0.1 at 2018-09-03 10:55:06 +0900
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/chachamaru/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/railties-5.2.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/chachamaru/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/railties-5.2.1/lib/rails/templates/rails/welcome/index.html.erb (3.1ms)
+Completed 200 OK in 17ms (Views: 9.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/home/create" for 127.0.0.1 at 2018-09-03 10:56:00 +0900
+Processing by HomeController#create as HTML
+  Parameters: {"oauth_consumer_key"=>"3722e4457bd9480e738740716cee6817", "oauth_signature_method"=>"HMAC-SHA1", "oauth_timestamp"=>"1535939760", "oauth_nonce"=>"EHcKwg3GB5LmwtBvqINq80zI4DRGxtc1XkBmeUIPX8", "oauth_version"=>"1.0", "context_id"=>"fb35efd028", "context_title"=>"Org 695", "launch_presentation_return_url"=>"https://learn-lti.herokuapp.com/tool_return/signature_check/0/5763", "lis_person_name_full"=>"Wei Washington", "lti_message_type"=>"basic-lti-launch-request", "lti_version"=>"LTI-1p0", "resource_link_id"=>"32549bf57e", "roles"=>"", "tool_consumer_instance_name"=>"Hippo 156", "user_id"=>"c35c065f79", "oauth_signature"=>"bo4s6HpycNmweo/OsoVBHZEj4qc="}
+Completed 422 Unprocessable Entity in 0ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionController::InvalidAuthenticityToken (The browser returned a 'null' origin for a request with origin-based forgery protection turned on. This usually
+means you have the 'no-referrer' Referrer-Policy header enabled, or that the request came from a site that
+refused to give its origin. This makes it impossible for Rails to verify the source of the requests. Likely the
+best solution is to change your referrer policy to something less strict like same-origin or strict-same-origin.
+If you cannot change the referrer policy, you can disable origin checking with the
+Rails.application.config.action_controller.forgery_protection_origin_check setting.
+):
+  
+actionpack (5.2.1) lib/action_controller/metal/request_forgery_protection.rb:433:in `valid_request_origin?'
+actionpack (5.2.1) lib/action_controller/metal/request_forgery_protection.rb:291:in `verified_request?'
+actionpack (5.2.1) lib/action_controller/metal/request_forgery_protection.rb:230:in `verify_authenticity_token'
+activesupport (5.2.1) lib/active_support/callbacks.rb:426:in `block in make_lambda'
+activesupport (5.2.1) lib/active_support/callbacks.rb:198:in `block (2 levels) in halting'
+actionpack (5.2.1) lib/abstract_controller/callbacks.rb:34:in `block (2 levels) in <module:Callbacks>'
+activesupport (5.2.1) lib/active_support/callbacks.rb:199:in `block in halting'
+activesupport (5.2.1) lib/active_support/callbacks.rb:513:in `block in invoke_before'
+activesupport (5.2.1) lib/active_support/callbacks.rb:513:in `each'
+activesupport (5.2.1) lib/active_support/callbacks.rb:513:in `invoke_before'
+activesupport (5.2.1) lib/active_support/callbacks.rb:131:in `run_callbacks'
+actionpack (5.2.1) lib/abstract_controller/callbacks.rb:41:in `process_action'
+actionpack (5.2.1) lib/action_controller/metal/rescue.rb:22:in `process_action'
+actionpack (5.2.1) lib/action_controller/metal/instrumentation.rb:34:in `block in process_action'
+activesupport (5.2.1) lib/active_support/notifications.rb:168:in `block in instrument'
+activesupport (5.2.1) lib/active_support/notifications/instrumenter.rb:23:in `instrument'
+activesupport (5.2.1) lib/active_support/notifications.rb:168:in `instrument'
+actionpack (5.2.1) lib/action_controller/metal/instrumentation.rb:32:in `process_action'
+actionpack (5.2.1) lib/action_controller/metal/params_wrapper.rb:256:in `process_action'
+activerecord (5.2.1) lib/active_record/railties/controller_runtime.rb:24:in `process_action'
+actionpack (5.2.1) lib/abstract_controller/base.rb:134:in `process'
+actionview (5.2.1) lib/action_view/rendering.rb:32:in `process'
+actionpack (5.2.1) lib/action_controller/metal.rb:191:in `dispatch'
+actionpack (5.2.1) lib/action_controller/metal.rb:252:in `dispatch'
+actionpack (5.2.1) lib/action_dispatch/routing/route_set.rb:52:in `dispatch'
+actionpack (5.2.1) lib/action_dispatch/routing/route_set.rb:34:in `serve'
+actionpack (5.2.1) lib/action_dispatch/journey/router.rb:52:in `block in serve'
+actionpack (5.2.1) lib/action_dispatch/journey/router.rb:35:in `each'
+actionpack (5.2.1) lib/action_dispatch/journey/router.rb:35:in `serve'
+actionpack (5.2.1) lib/action_dispatch/routing/route_set.rb:840:in `call'
+rack (2.0.5) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.0.5) lib/rack/etag.rb:25:in `call'
+rack (2.0.5) lib/rack/conditional_get.rb:38:in `call'
+rack (2.0.5) lib/rack/head.rb:12:in `call'
+actionpack (5.2.1) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.0.5) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.5) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/cookies.rb:670:in `call'
+activerecord (5.2.1) lib/active_record/migration.rb:559:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.1) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.1) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+web-console (3.6.2) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.6.2) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started POST "/home/create" for 127.0.0.1 at 2018-11-16 17:23:46 +0900
+Processing by HomeController#create as HTML
+  Parameters: {"oauth_consumer_key"=>"bc740cbb4ce96d5f1a55095739285488", "oauth_signature_method"=>"HMAC-SHA1", "oauth_timestamp"=>"1542356626", "oauth_nonce"=>"P2Fm1SIbye1AqUmtpR7tNVytal1uncHsxlZPn02hDro", "oauth_version"=>"1.0", "context_id"=>"e1d09dc303", "context_title"=>"Org 344", "launch_presentation_return_url"=>"https://learn-lti.herokuapp.com/tool_return/grade_passback/1/1777", "lis_outcome_service_url"=>"https://learn-lti.herokuapp.com/grade_passback/11440", "lis_person_name_full"=>"Abdel-Rahman Miller", "lis_result_sourcedid"=>"fd2b16a021", "lti_message_type"=>"basic-lti-launch-request", "lti_version"=>"LTI-1p0", "resource_link_id"=>"b0474f6553", "roles"=>"urn:lti:instrole:ims/lis/administrator,contentdeveloper", "tool_consumer_instance_name"=>"Lesson 422", "user_id"=>"1cbb56cc45", "oauth_signature"=>"U6wZ+LTLeIGvsKQzn3iJzw+aZCI="}
+  Rendering home/create.html.erb within layouts/application
+  Rendered home/create.html.erb within layouts/application (9.6ms)
+Completed 200 OK in 373ms (Views: 358.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/home/create" for 127.0.0.1 at 2018-11-19 05:18:52 +0900
+Processing by HomeController#create as HTML
+  Parameters: {"oauth_consumer_key"=>"adadadadd", "oauth_signature_method"=>"HMAC-SHA1", "oauth_timestamp"=>"1542572331", "oauth_nonce"=>"CHsNNr1WZMyq8kDwxQg1NAVzulo8v6pAxcUdVd9Q", "oauth_version"=>"1.0", "context_id"=>"2535ebed7aa5fb9bbe76b7d39a912009bdc195a4", "context_label"=>"菅原くんの実験室", "context_title"=>"菅原くんの実験室", "custom___xml_version"=>"\"1.0\" encoding=\"UTF-8\"?>", "custom__blti_extensions_platform"=>"\"canvas.instructure.com\">", "custom__cartridge_basiclti_link_xmlns"=>"\"http://www.imsglobal.org/xsd/imslticc_v1p0\"", "custom__cartridge_bundle_identifierref"=>"\"BLTI001_Bundle\"/>", "custom__cartridge_icon_identifierref"=>"\"BLTI001_Icon\"/>", "custom__lticm_options_name"=>"\"course_navigation\">", "custom__lticm_property_name"=>"\"enabled\">true</lticm:property>", "custom_canvas_enrollment_state"=>"active", "custom_xmlns_blti_"=>" \"http://www.imsglobal.org/xsd/imsbasiclti_v1p0\"", "custom_xmlns_lticm_"=>"\"http://www.imsglobal.org/xsd/imslticm_v1p0\"", "custom_xmlns_lticp_"=>"\"http://www.imsglobal.org/xsd/imslticp_v1p0\"", "custom_xmlns_xsi_"=>" \"http://www.w3.org/2001/XMLSchema-instance\"", "custom_xsi_schemalocation_"=>" \"http://www.imsglobal.org/xsd/imslticc_v1p0 http://www.imsglobal.org/xsd/lti/ltiv1p0/imslticc_v1p0.xsd", "ext_roles"=>"urn:lti:instrole:ims/lis/Administrator,urn:lti:instrole:ims/lis/Instructor,urn:lti:role:ims/lis/Instructor,urn:lti:sysrole:ims/lis/SysAdmin,urn:lti:sysrole:ims/lis/User", "launch_presentation_document_target"=>"iframe", "launch_presentation_locale"=>"en", "launch_presentation_return_url"=>"http://133.14.14.248/courses/6/external_content/success/external_tool_redirect", "lti_message_type"=>"basic-lti-launch-request", "lti_version"=>"LTI-1p0", "oauth_callback"=>"about:blank", "resource_link_id"=>"50938db85faa6c293558012f403af8af1b4b5729", "resource_link_title"=>"test", "roles"=>"Instructor,urn:lti:instrole:ims/lis/Administrator", "tool_consumer_info_product_family_code"=>"canvas", "tool_consumer_info_version"=>"cloud", "tool_consumer_instance_contact_email"=>"notifications@rd.dendai.ac.jp", "tool_consumer_instance_guid"=>"30fdeaa4c691efaa28915246d224d0e681406822.localhost", "tool_consumer_instance_name"=>"sugacanvas", "user_id"=>"e44372e488644d8a185e04a4a5a6090b30e9862c", "oauth_signature"=>"LBqjdXuoR2AM6Kcr3JpIM9QtBoE="}
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.0ms)
+
+
+  
+URI::InvalidURIError (bad URI(is not URI?): ):
+  
+app/controllers/home_controller.rb:139:in `create'
+Started POST "/home/create" for 127.0.0.1 at 2018-11-19 05:23:54 +0900
+Processing by HomeController#create as HTML
+Started POST "/home/create" for 127.0.0.1 at 2018-11-19 05:24:05 +0900
+  Parameters: {"oauth_consumer_key"=>"f66daf1d4f96964e93ad46b212e5fcf2", "oauth_signature_method"=>"HMAC-SHA1", "oauth_timestamp"=>"1542572634", "oauth_nonce"=>"VkJdWdGAFrDgqqO1rHjGc1AG4iMPEJEnSd6LF3cD1Q", "oauth_version"=>"1.0", "context_id"=>"738986d5e5", "context_title"=>"Semester 24", "launch_presentation_return_url"=>"https://learn-lti.herokuapp.com/tool_return/grade_passback/0/6840", "lis_outcome_service_url"=>"https://learn-lti.herokuapp.com/grade_passback/11443", "lis_person_name_full"=>"Sahar Johnson", "lis_result_sourcedid"=>"e0bba28ce7", "lti_message_type"=>"basic-lti-launch-request", "lti_version"=>"LTI-1p0", "resource_link_id"=>"f74004798f", "roles"=>"urn:lti:instrole:ims/lis/observer,instructor", "tool_consumer_instance_name"=>"Org 167", "user_id"=>"e0c453f1cd", "oauth_signature"=>"GzZz/b8zmOgL5yZlSgQVV+jmd48="}
+  Rendering home/create.html.erb within layouts/application
+  Rendered home/create.html.erb within layouts/application (5.2ms)
+Completed 200 OK in 1146ms (Views: 214.8ms | ActiveRecord: 0.0ms)
+
+
+Processing by HomeController#create as HTML
+  Parameters: {"oauth_consumer_key"=>"f66daf1d4f96964e93ad46b212e5fcf2", "oauth_signature_method"=>"HMAC-SHA1", "oauth_timestamp"=>"1542572634", "oauth_nonce"=>"VkJdWdGAFrDgqqO1rHjGc1AG4iMPEJEnSd6LF3cD1Q", "oauth_version"=>"1.0", "context_id"=>"738986d5e5", "context_title"=>"Semester 24", "launch_presentation_return_url"=>"https://learn-lti.herokuapp.com/tool_return/grade_passback/0/6840", "lis_outcome_service_url"=>"https://learn-lti.herokuapp.com/grade_passback/11443", "lis_person_name_full"=>"Sahar Johnson", "lis_result_sourcedid"=>"e0bba28ce7", "lti_message_type"=>"basic-lti-launch-request", "lti_version"=>"LTI-1p0", "resource_link_id"=>"f74004798f", "roles"=>"urn:lti:instrole:ims/lis/observer,instructor", "tool_consumer_instance_name"=>"Org 167", "user_id"=>"e0c453f1cd", "oauth_signature"=>"GzZz/b8zmOgL5yZlSgQVV+jmd48="}
+  Rendering home/create.html.erb within layouts/application
+  Rendered home/create.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 868ms (Views: 19.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/home/create" for 127.0.0.1 at 2018-11-19 05:24:17 +0900
+Processing by HomeController#create as HTML
+  Parameters: {"oauth_consumer_key"=>"f66daf1d4f96964e93ad46b212e5fcf2", "oauth_signature_method"=>"HMAC-SHA1", "oauth_timestamp"=>"1542572656", "oauth_nonce"=>"yzlbjSd5NNuM9kbERwQyVdOwFCOVKtlPBtj4PDMoTw4", "oauth_version"=>"1.0", "context_id"=>"3e57363200", "context_title"=>"Org 94", "launch_presentation_return_url"=>"https://learn-lti.herokuapp.com/tool_return/grade_passback/1/1109", "lis_outcome_service_url"=>"https://learn-lti.herokuapp.com/grade_passback/11444", "lis_person_name_full"=>"Abdel-Rahman Abel", "lis_result_sourcedid"=>"c2f9a8bf0d", "lti_message_type"=>"basic-lti-launch-request", "lti_version"=>"LTI-1p0", "resource_link_id"=>"39ec7da95d", "roles"=>"", "tool_consumer_instance_name"=>"Organization 356", "user_id"=>"c79ac18d1d", "oauth_signature"=>"MTG7Dw0vaEaZgrK9W9APM6axI3k="}
+  Rendering home/create.html.erb within layouts/application
+  Rendered home/create.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 870ms (Views: 21.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/home/create" for 127.0.0.1 at 2018-11-19 05:25:35 +0900
+Processing by HomeController#create as HTML
+  Parameters: {"oauth_consumer_key"=>"f66daf1d4f96964e93ad46b212e5fcf2", "oauth_signature_method"=>"HMAC-SHA1", "oauth_timestamp"=>"1542572735", "oauth_nonce"=>"X9UV8HjyYW0pxMR29uuKtdWbOAkO7352GuJgMMAiy0", "oauth_version"=>"1.0", "context_id"=>"b25aa72e5a", "context_title"=>"Course 893", "launch_presentation_return_url"=>"https://learn-lti.herokuapp.com/tool_return/grade_passback/1/8067", "lis_outcome_service_url"=>"https://learn-lti.herokuapp.com/grade_passback/11445", "lis_person_name_full"=>"Suha Jones", "lis_result_sourcedid"=>"3b6ae8dffe", "lti_message_type"=>"basic-lti-launch-request", "lti_version"=>"LTI-1p0", "resource_link_id"=>"80cd17ab1a", "roles"=>"instructor,urn:lti:instrole:ims/lis/administrator", "tool_consumer_instance_name"=>"Hippo 634", "user_id"=>"07c0e732ae", "oauth_signature"=>"HGlxyn26p4zPOC/Xgklg92jfq2M="}
+  Rendering home/create.html.erb within layouts/application
+  Rendered home/create.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 884ms (Views: 20.9ms | ActiveRecord: 0.0ms)
+
+
