@@ -1,13 +1,14 @@
 //mainファイル
 //直接htmlを操作する
 
-
 //他のファイルが読み込まれてからこのファイルを読み込む
 $.when(
   $.ready,
   $.getScript("/assets/simuDec.js"),
   $.getScript("/assets/simuFunc.js"),
 ).then(function(){
+
+  console.log("呼ばれた?");
 
   //テスト
   $('#ns_main img').mouseover(function(){
@@ -60,7 +61,7 @@ $.when(
 
   //LANボタンを押した際
   $('#lan').click(function(){
-    changeLanMode();
+    fnChangeLanMode();
   });
 
   //右側の中身の画像をクリックした際
@@ -129,6 +130,7 @@ $.when(
 
   //ブラウザをリサイズ
   $(window).resize(function(){
+    console.log("リサイズされました");
     $('html').scrollTop(0);
     $('html').scrollLeft(0);
     var loadWidth         = $('#ns_main_canvas')[0].getBoundingClientRect().left -35;

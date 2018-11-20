@@ -155,11 +155,11 @@
 
 
   //マウスが押された瞬間
-  mouseDown = function(e){
+  fnMouseDown = function(e){
     console.log("mousedownのclass: " + $(e.target).attr("class"));
     //開始地点にPCかルータが存在し、かつLANモードがONの場合
     if( $(e.target).hasClass("dropMachine") && NS.lanFlag){
-      console.log("mouseDown");
+      console.log("fnMouseDown");
       //PCがすでにLANが繋がれているとき
       if ($(e.target).hasClass("dropPC") && $(e.target).hasClass("lanLink")) {
         $("#ns_console").append("<p>> PCにLANは１本しか引けません。 </p>");
@@ -198,8 +198,8 @@
   }
 
   //マウスが離れた瞬間
-  mouseUp = function(e) {
-    console.log("mouseUp");
+  fnMouseUp = function(e) {
+    console.log("fnMouseUp");
 
     //離した瞬間画像の上でないとき線を削除
     if (!$(e.target).hasClass("dropMachine") || ($(e.target).hasClass("lanFirst"))){
@@ -237,7 +237,7 @@
     $("#ns_main .ui-draggable").removeClass("lanFirst");
   }
 
-  mouseOutUp = function(e) {
+  fnMouseOutUp = function(e) {
 
   }
 
@@ -289,7 +289,7 @@
   }
 
   fnLanMoveOutUp = function(e) {
-    
+
   }
 
   fnLanMoveDrag = function(e) {
@@ -298,7 +298,7 @@
   }
 
   //lanボタンが押された場合
-  changeLanMode = function() {
+  fnChangeLanMode = function() {
     var elHtml      = $("html");
     var elMain      = $("#ns_main");
     var elMainDrag  = $("#ns_main .ui-draggable");
@@ -325,9 +325,9 @@
       })
 
       //イベントハンドラーをつける
-      elMain.on("mousedown", mouseDown);  //マウスを押した瞬間
-      elMain.on("mouseup", mouseUp);      //マウスを離した瞬間
-      elHtml.on("mouseup", mouseOutUp);
+      elMain.on("mousedown", fnMouseDown);  //マウスを押した瞬間
+      elMain.on("mouseup", fnMouseUp);      //マウスを離した瞬間
+      elHtml.on("mouseup", fnMouseOutUp);
       //lanLinkがあるとき
       if (elMainDrag.hasClass("lanLink")) {
         elMain.off("muusedown", fnLanMoveDown);
@@ -346,9 +346,9 @@
       $('.dropMachine').draggable('enable');
 
       //イベントハンドラの削除
-      elMain.off("mousedown", mouseDown);
-      elMain.off("mouseup", mouseUp);
-      elMain.off("mouseup", mouseOutUp)
+      elMain.off("mousedown", fnMouseDown);
+      elMain.off("mouseup", fnMouseUp);
+      elMain.off("mouseup", fnMouseOutUp);
       elMainDrag.off("mouseenter").off("mouseleave");
       //カーソルの変更
       elMain.css("cursor", "auto");
