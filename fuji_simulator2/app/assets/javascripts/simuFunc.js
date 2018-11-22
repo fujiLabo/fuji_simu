@@ -24,6 +24,7 @@
     // }
 
     fnCreateIP_SM(0,0,0);
+    fnCreateRoutingTable(0, 0);
 
     $.contextMenu({
       //selector: '.' + NS.dropContextName,
@@ -33,11 +34,14 @@
     });
   }
 
+  fnCopy = function(e) {
+    console.log("fnCopy");
+  }
+
   //IPアドレスとSM入力欄を作成
   //nodenum:
   function fnCreateIP_SM(nodenum, ifNum, kind) {
     $('#contextPC form .context-IPSMIF #inputIPSM').html('');
-    //$('tr.test').html('');
     for(i = 0; i < 3; i++){
       $('#contextPC form .context-IPSMIF tr:last-child').after('<tr id = "inputIPSM" align = "center"></tr>');
       $('#contextPC form .context-IPSMIF tr:last-child').append('<td>if' + i + ' :</td>');
@@ -70,15 +74,31 @@
 
   }
 
-  fnCopy = function(e) {
-    console.log("fnCopy");
-  }
-
   //RoutingTable入力欄を作成
   function fnCreateRoutingTable(nodeNum, iNum) {
+    for(i = 0;i < 4;i++){
+      $('#contextPC .context-RoutingTable tr:last-child').after('<tr id = inputRoutingTable align = "center"></tr>');
 
+      $('#contextPC .context-RoutingTable tr:last-child')
+      .append('<td><input id="routingtable-IP' + nodeNum + '_' + iNum + '"  type="text" size="13" onKeyUp="return fCopy(this);"/>/' +
+      '<input id="routingtable-SM' + nodeNum + '_' + iNum +'" type="text" size="1" onKeyUp="return fCopy(this);"/>→</td>');
+      $('#contextPC .context-RoutingTable tr:last-child')
+      .append('<td><input id="routingtable-NHA' + nodeNum + '_' + iNum + '" type="text" size="13" onKeyUp="return fCopy(this);"/></td>');
+      $('#contextPC .context-RoutingTable tr:last-child')
+      .append('<td>if<input id="routingtable-IF' + nodeNum + '_' + iNum + '" type="text" size="1" onKeyUp="return fCopy(this);"></td>');
+
+      if (true) {
+        console.log("呼ばれとんぞ");
+        $('#contextPC .context-RoutingTable tr:last-child')
+        .append('<img src = "/assets/minus.jpg" id = "minus' + nodeNum + '_' + iNum + '" class = "Router' + nodeNum + '" onClick = "return fnDelRT(this)">');
+      }
+
+    }
   }
 
+  fnDelRT = function(e) {
+
+  }
 
 
 
