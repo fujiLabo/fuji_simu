@@ -24,6 +24,7 @@ $(function() {
   NS.dropName = "";         //dropした画像のクラスの名前
   NS.dropNodeName = "";     //DropNodeの名前
   NS.dropContextName = "";  //DropNodeのContextMenuの名前(?)
+  NS.dropNum = 0;
 
 
   //canvas(描画)に関する

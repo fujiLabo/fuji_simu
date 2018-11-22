@@ -6,17 +6,24 @@
     console.log("fncontextmenuの引数: " + element);
 
 
-
-    //後で変える(試し)(現在未使用)
-    var menuName;
-    var selectorType = NS.dropContextName;
-    if (selectorType === "dropPC"){
-      menuName = "#contextPC";
-    }else{
-      menuName = "#contextRouter";
-    }
+    var nodeName = $("img[alt='" + $(element)[0].alt + "']")[0].alt;
+    console.log("nodeName: " + nodeName);
+    console.log("nodeName.slice(6): " + nodeName.slice(6));
+    console.log('element: ' + $(element).attr('dropNumber'));
 
     $.contextMenu('destroy');
+
+    // if ($(element).hasClass('dropPC'))
+    // {
+    //   fnCreateIP_SM(nodeName.slice(2), 0, 'PC');
+    // }else if ($(element).hasClass('dropRouter')){
+    //   for(i = 0;i < $(element).attr('data-ifnum'); i++){
+    //     num = $('#ns_right dt: contains(' + nodeName + ') + dd p:contains p:contains(IP-' + i + ') span:nth-of-type(2)').attr('id').split('_')[1];
+    //     fnCreateIP_SM(nodeName.slice(6), num, 'Router');
+    //   }
+    // }
+
+    fnCreateIP_SM(0,0,0);
 
     $.contextMenu({
       //selector: '.' + NS.dropContextName,
@@ -28,7 +35,40 @@
 
   //IPアドレスとSM入力欄を作成
   function fnCreateIP_SM(nodenum, ifNum, kind) {
+    for(i = 0; i < 3; i++){
+      $('#contextPC form .context-IPSMIF tr:last-child').after('<tr align = "center"></tr>');
 
+      $('#contextPC form .context-IPSMIF tr:last-child').append('<td>if' + i + ' :</td>');
+
+      $('#contextPC form .context-IPSMIF tr:last-child').append($('<td/>').append(
+        $('<input/>').attr({
+          name: 'IPアドレス',
+          type: 'text',
+          size: '16',
+          value: '',
+          id: 'IP' + i + '_' + i,
+          class: 'inputIP inputIPSMIF-item',
+          onKeyUp: 'return fnCopy(this);',
+        })
+      ));
+
+      $('#contextPC form .context-IPSMIF tr:last-child').append($('<td/>').append(
+        $('<input/>').attr({
+          name: 'SM',
+          type: 'text',
+          size: '2',
+          value: '11',
+          id: 'SM' + i + '_' + i,
+          class: 'inputSM inputIPSMIF-item',
+          onKeyUp: 'return fnCopy(this);',
+        })
+      ));
+    }
+
+  }
+
+  fnCopy = function(e) {
+    console.log("fnCopy");
   }
 
   //RoutingTable入力欄を作成
@@ -76,6 +116,7 @@
         src: ui.draggable.attr('src'),
         alt: NS.dropNodeName,
         class: NS.dropName,
+        'dropNumber': NS.dropNodeInt,
         'data_ifnum': 0,
         'data_lan_if': '',
         'data_routingtable_num': 0,
