@@ -11,7 +11,7 @@
     console.log("nodeName.slice(6): " + nodeName.slice(6));
     console.log('element: ' + $(element).attr('dropNumber'));
 
-    $.contextMenu('destroy');
+    $.contextMenu( 'destroy' );
 
     // if ($(element).hasClass('dropPC'))
     // {
@@ -34,12 +34,14 @@
   }
 
   //IPアドレスとSM入力欄を作成
+  //nodenum:
   function fnCreateIP_SM(nodenum, ifNum, kind) {
+    $('#contextPC form .context-IPSMIF #inputIPSM').html('');
+    //$('tr.test').html('');
     for(i = 0; i < 3; i++){
-      $('#contextPC form .context-IPSMIF tr:last-child').after('<tr align = "center"></tr>');
-
+      $('#contextPC form .context-IPSMIF tr:last-child').after('<tr id = "inputIPSM" align = "center"></tr>');
       $('#contextPC form .context-IPSMIF tr:last-child').append('<td>if' + i + ' :</td>');
-
+      //IPアドレス入力欄
       $('#contextPC form .context-IPSMIF tr:last-child').append($('<td/>').append(
         $('<input/>').attr({
           name: 'IPアドレス',
@@ -52,6 +54,7 @@
         })
       ));
 
+      //SM入力欄
       $('#contextPC form .context-IPSMIF tr:last-child').append($('<td/>').append(
         $('<input/>').attr({
           name: 'SM',
