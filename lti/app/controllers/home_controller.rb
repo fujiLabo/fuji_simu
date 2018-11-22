@@ -29,7 +29,8 @@ class HomeController < ApplicationController
     @METHOD = "POST"
     #@KEY = params[:oauth_consumer_key] + "&"
     @Nonce = params[:oauth_nonce]
-    @KEY = "849bbc901a95ccadda68279d41b08085&"
+    @Oauth_Consumer_key = params[:oauth_consumer_key]
+    @KEY = @Oauth_Consumer_key + "&"
     @REQUEST = CGI.escape("http://localhost:3000/home/create")
     @SourcedId = params[:lis_result_sourcedid]
     #x-frameでの表示をすべてに許可する
@@ -116,7 +117,7 @@ class HomeController < ApplicationController
 
 
 
-#=begin
+=begin
 #####POST送信関係の処理
 
 #test
@@ -133,8 +134,9 @@ t.close
                  "oauth_nonce" + "=" + "\"" + @Nonce + "\"" + "," +
                  "oauth_version" + "=" + "\"" + "1.0" + "\"" "," +
                  "oauth_signature" + "=" + "\"" + @oauth_signature + "\""
-=end
 
+=end
+=begin
 
   @uri = URI.parse(@Return_grade)
 
@@ -142,7 +144,7 @@ t.close
   header = {'Content-Type': 'application/xml',
     'Authorization': @Oauth_strings
   }
-=end
+#=end
 
   @File_read_Xml = File.open("aa.xml", "r")
 
@@ -155,6 +157,10 @@ t.close
   element.text = nil
   element.add_text(@SourcedId)
   #puts doc.to_s
+
+#=end
+
+
 #=begin
   #create the http object
   http = Net::HTTP.new(@uri.host, @uri.port)
@@ -174,15 +180,14 @@ request["Content-Type"] = "application/xml"
 request["Authorization"] = @Oauth_strings
 request.body = doc.to_s
 
-=end
+#=end
 
   #send the request
   response = http.request(request)
 
   #puts @Oauth_strings
 
-#=end
-
+=end
   end
 
 end
