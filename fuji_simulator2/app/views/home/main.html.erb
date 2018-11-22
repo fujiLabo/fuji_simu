@@ -107,10 +107,10 @@
       <hr />
 
         <table class = "context-RoutingTable" width = "300">
-          <tr align = "center">
+          <tr class = "title" align = "center">
             <%#ルーティングテーブル作成%>
-            <th><label>RoutingTable</label></th>
-            <%#img src = "/assets/plus.jpg" class = "t0" %>
+            <th class = "RoutingTable"><label>RoutingTable</label></th>
+            <th><img id = "addRButtom"class = "0" onClick = "return addRoutingTable(this)" src = "/assets/plus.jpg" style = "display:none;"/></tr>
           </tr>
           <tr align = "center">
             <th><label class = "routingtable-IPSM">宛先ルート</label></th>
@@ -147,7 +147,7 @@
       <table class = "context-RoutingTable" width = "300">
         <tr align = "center">
           <%#ルーティングテーブル側%>
-          <th>RoutingTable</th>
+          <th class = "RoutingTable">RoutingTable</th>
           <th><img class = "0" onClick = "return addRoutingTable(this)" src = "/assets/plus.jpg" /></tr>
         <tr align = "center">
           <%#見出し%>

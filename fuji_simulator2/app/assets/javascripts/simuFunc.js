@@ -22,6 +22,16 @@
     //     fnCreateIP_SM(nodeName.slice(6), num, 'Router');
     //   }
     // }
+    if ($(element).hasClass('dropRouter')){
+      console.log("よんでるけれども");
+      var nodeName = 1;
+      //$('#contextPC form .context-RoutingTable title').append($('<th/>'));
+      $('#contextPC form .context-RoutingTable title:last-child').append($('<th/>').append('<img src = "/assets/plus.jpg" class = "' + nodeName + '" onClick = "return addRoutingTable(this)"'));
+      $('#addRButtom').css('display', 'block');
+    }else if ($(element).hasClass('dropPC')){
+      $('#addRButtom').css('display', 'none');
+    }
+
 
     fnCreateIP_SM(0,0,0);
     fnCreateRoutingTable(0, 0);
@@ -87,8 +97,8 @@
       $('#contextPC .context-RoutingTable tr:last-child')
       .append('<td>if<input id="routingtable-IF' + nodeNum + '_' + iNum + '" type="text" size="1" onKeyUp="return fCopy(this);"></td>');
 
+      //最初以外(+ボタンで追加)なら削除ボタンを表示
       if (true) {
-        console.log("呼ばれとんぞ");
         $('#contextPC .context-RoutingTable tr:last-child')
         .append('<img src = "/assets/minus.jpg" id = "minus' + nodeNum + '_' + iNum + '" class = "Router' + nodeNum + '" onClick = "return fnDelRT(this)">');
       }
@@ -96,6 +106,7 @@
     }
   }
 
+  //追加したルーティングテーブルを削除する
   fnDelRT = function(e) {
 
   }
