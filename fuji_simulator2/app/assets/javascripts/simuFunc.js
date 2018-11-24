@@ -88,12 +88,12 @@
       $('#contextPlace .context-RoutingTable tr:last-child').after('<tr id = inputRoutingTable align = "center"></tr>');
 
       $('#contextPlace .context-RoutingTable tr:last-child')
-      .append('<td><input id="routingtable-IP' + nodeNum + '_' + iNum + '"  type="text" size="13" onKeyUp="return fCopy(this);"/>/' +
-      '<input id="routingtable-SM' + nodeNum + '_' + iNum +'" type="text" size="1" onKeyUp="return fCopy(this);"/>→</td>');
+      .append('<td><input id="routingtable-IP' + nodeNum + '_' + iNum + '"  type="text" size="13" onKeyUp="return fnCopy(this);"/>/' +
+      '<input id="routingtable-SM' + nodeNum + '_' + iNum +'" type="text" size="1" onKeyUp="return fnCopy(this);"/>→</td>');
       $('#contextPlace .context-RoutingTable tr:last-child')
-      .append('<td><input id="routingtable-NHA' + nodeNum + '_' + iNum + '" type="text" size="13" onKeyUp="return fCopy(this);"/></td>');
+      .append('<td><input id="routingtable-NHA' + nodeNum + '_' + iNum + '" type="text" size="13" onKeyUp="return fnCopy(this);"/></td>');
       $('#contextPlace .context-RoutingTable tr:last-child')
-      .append('<td>if<input id="routingtable-IF' + nodeNum + '_' + iNum + '" type="text" size="1" onKeyUp="return fCopy(this);"></td>');
+      .append('<td>if<input id="routingtable-IF' + nodeNum + '_' + iNum + '" type="text" size="1" onKeyUp="return fnCopy(this);"></td>');
 
       //最初以外(+ボタンで追加)なら削除ボタンを表示
       if (true) {
@@ -133,12 +133,12 @@
     $('ul .context-RoutingTable tr:last-child').after('<tr id = inputRoutingTable align = "center"></tr>');
 
     $('ul .context-RoutingTable tr:last-child')
-    .append('<td><input id="routingtable-IP' + nodeNum + '_' + iNum + '"  type="text" size="13" onKeyUp="return fCopy(this);"/>/' +
-    '<input id="routingtable-SM' + nodeNum + '_' + iNum +'" type="text" size="1" onKeyUp="return fCopy(this);"/>→</td>');
+    .append('<td><input id="routingtable-IP' + nodeNum + '_' + iNum + '"  type="text" size="13" onKeyUp="return fnCopy(this);"/>/' +
+    '<input id="routingtable-SM' + nodeNum + '_' + iNum +'" type="text" size="1" onKeyUp="return fnCopy(this);"/>→</td>');
     $('ul .context-RoutingTable tr:last-child')
-    .append('<td><input id="routingtable-NHA' + nodeNum + '_' + iNum + '" type="text" size="13" onKeyUp="return fCopy(this);"/></td>');
+    .append('<td><input id="routingtable-NHA' + nodeNum + '_' + iNum + '" type="text" size="13" onKeyUp="return fnCopy(this);"/></td>');
     $('ul .context-RoutingTable tr:last-child')
-    .append('<td>if<input id="routingtable-IF' + nodeNum + '_' + iNum + '" type="text" size="1" onKeyUp="return fCopy(this);"></td>');
+    .append('<td>if<input id="routingtable-IF' + nodeNum + '_' + iNum + '" type="text" size="1" onKeyUp="return fnCopy(this);"></td>');
     $('ul .context-RoutingTable tr:last-child')
     .append('<img src = "/assets/minus.jpg" id = "minus' + nodeNum + '_' + iNum + '" class = "Router' + nodeNum + '" onClick = "return fnDelRT(this)">');
   }
