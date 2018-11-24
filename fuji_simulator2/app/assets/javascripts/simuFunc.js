@@ -84,6 +84,7 @@
 
   //RoutingTable入力欄を作成
   fnCreateRoutingTable = function(nodeNum, iNum) {
+    $('#contextPlace form .context-RoutingTable #inputRoutingTable').html('');
     for(i = 0;i < 4;i++){
       $('#contextPlace .context-RoutingTable tr:last-child').after('<tr id = inputRoutingTable align = "center"></tr>');
 
