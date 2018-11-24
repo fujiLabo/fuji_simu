@@ -2,7 +2,7 @@
 
 
   //独自の右クリック作成
-  function fncontextmenu(element) {
+  fncontextmenu = function(element) {
     console.log("fncontextmenuの引数: " + element);
 
 
@@ -48,7 +48,7 @@
 
   //IPアドレスとSM入力欄を作成
   //nodenum:
-  function fnCreateIP_SM(nodenum, ifNum, kind) {
+  fnCreateIP_SM = function(nodenum, ifNum, kind) {
     $('#contextPlace form .context-IPSMIF #inputIPSM').html('');
     for(i = 0; i < 3; i++){
       $('#contextPlace form .context-IPSMIF tr:last-child').after('<tr id = "inputIPSM" align = "center"></tr>');
@@ -103,6 +103,46 @@
 
     }
   }
+
+  //ルーティングテーブルを追加
+  addRoutingTable = function(plus){
+    console.log("addRoutingTable");
+    // console.log("plus.class: " + $(plus).attr('class'));
+    // img = $('.ui-droppable img');
+    // console.log("img.alt: " + img[0].id);
+    // $('ul form .context-RoutingTable tr:last-child').after('<tr align = "center"></tr>');
+    //
+    // for(i = 0; i < img.length; i++){
+    //   if (img[i].alt === $(plus).attr('class')) {
+    //     element = img[i];
+    //   }
+    // }
+    //
+    // if ($(element).attr('data-routingtableNm') === undefined) {
+    //   $(elemment).attr('data-routingtablenum', 1);
+    //   num = 1;
+    // }else{
+    //   num = parseInt($(element).attr('data-routingtableNum'));
+    //   num += 1;
+    //   $(element).attr('data-routingtablenum', num);
+    // }
+    //仮置き
+    var nodeNum = 0;
+    var iNum = 0;
+
+    $('ul .context-RoutingTable tr:last-child').after('<tr id = inputRoutingTable align = "center"></tr>');
+
+    $('ul .context-RoutingTable tr:last-child')
+    .append('<td><input id="routingtable-IP' + nodeNum + '_' + iNum + '"  type="text" size="13" onKeyUp="return fCopy(this);"/>/' +
+    '<input id="routingtable-SM' + nodeNum + '_' + iNum +'" type="text" size="1" onKeyUp="return fCopy(this);"/>→</td>');
+    $('ul .context-RoutingTable tr:last-child')
+    .append('<td><input id="routingtable-NHA' + nodeNum + '_' + iNum + '" type="text" size="13" onKeyUp="return fCopy(this);"/></td>');
+    $('ul .context-RoutingTable tr:last-child')
+    .append('<td>if<input id="routingtable-IF' + nodeNum + '_' + iNum + '" type="text" size="1" onKeyUp="return fCopy(this);"></td>');
+    $('ul .context-RoutingTable tr:last-child')
+    .append('<img src = "/assets/minus.jpg" id = "minus' + nodeNum + '_' + iNum + '" class = "Router' + nodeNum + '" onClick = "return fnDelRT(this)">');
+  }
+
 
   //追加したルーティングテーブルを削除する
   fnDelRT = function(e) {
@@ -466,10 +506,7 @@
     console.log("func:changemode");
   }
 
-  //ルーティングテーブルを追加
-  addRoutingTable = function(plus){
-    console.log("addRoutingTable");
-  }
+
 
   //削除
   nodeDel = function(e){
