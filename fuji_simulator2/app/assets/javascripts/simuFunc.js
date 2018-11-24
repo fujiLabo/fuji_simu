@@ -83,7 +83,7 @@
   }
 
   //RoutingTable入力欄を作成
-  function fnCreateRoutingTable(nodeNum, iNum) {
+  fnCreateRoutingTable = function(nodeNum, iNum) {
     for(i = 0;i < 4;i++){
       $('#contextPlace .context-RoutingTable tr:last-child').after('<tr id = inputRoutingTable align = "center"></tr>');
 
@@ -105,8 +105,8 @@
   }
 
   //ルーティングテーブルを追加
-  addRoutingTable = function(plus){
-    console.log("addRoutingTable");
+  addRT = function(plus){
+    console.log("addRT");
     // console.log("plus.class: " + $(plus).attr('class'));
     // img = $('.ui-droppable img');
     // console.log("img.alt: " + img[0].id);
