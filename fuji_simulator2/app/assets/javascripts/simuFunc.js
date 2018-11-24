@@ -22,11 +22,9 @@
     //     fnCreateIP_SM(nodeName.slice(6), num, 'Router');
     //   }
     // }
+
+    //ルータの場合のみルーティングテーブルを増やすボタンを表示
     if ($(element).hasClass('dropRouter')){
-      console.log("よんでるけれども");
-      var nodeName = 1;
-      //$('#contextPC form .context-RoutingTable title').append($('<th/>'));
-      $('#contextPC form .context-RoutingTable title:last-child').append($('<th/>').append('<img src = "/assets/plus.jpg" class = "' + nodeName + '" onClick = "return addRoutingTable(this)"'));
       $('#addRButtom').css('display', 'block');
     }else if ($(element).hasClass('dropPC')){
       $('#addRButtom').css('display', 'none');
@@ -40,7 +38,7 @@
       //selector: '.' + NS.dropContextName,
       //items: $.contextMenu.fromMenu($(menuName)),
       selector: ".dropMachine",
-      items: $.contextMenu.fromMenu($("#contextPC")),
+      items: $.contextMenu.fromMenu($("#contextPlace")),
     });
   }
 
@@ -51,12 +49,12 @@
   //IPアドレスとSM入力欄を作成
   //nodenum:
   function fnCreateIP_SM(nodenum, ifNum, kind) {
-    $('#contextPC form .context-IPSMIF #inputIPSM').html('');
+    $('#contextPlace form .context-IPSMIF #inputIPSM').html('');
     for(i = 0; i < 3; i++){
-      $('#contextPC form .context-IPSMIF tr:last-child').after('<tr id = "inputIPSM" align = "center"></tr>');
-      $('#contextPC form .context-IPSMIF tr:last-child').append('<td>if' + i + ' :</td>');
+      $('#contextPlace form .context-IPSMIF tr:last-child').after('<tr id = "inputIPSM" align = "center"></tr>');
+      $('#contextPlace form .context-IPSMIF tr:last-child').append('<td>if' + i + ' :</td>');
       //IPアドレス入力欄
-      $('#contextPC form .context-IPSMIF tr:last-child').append($('<td/>').append(
+      $('#contextPlace form .context-IPSMIF tr:last-child').append($('<td/>').append(
         $('<input/>').attr({
           name: 'IPアドレス',
           type: 'text',
@@ -69,7 +67,7 @@
       ));
 
       //SM入力欄
-      $('#contextPC form .context-IPSMIF tr:last-child').append($('<td/>').append(
+      $('#contextPlace form .context-IPSMIF tr:last-child').append($('<td/>').append(
         $('<input/>').attr({
           name: 'SM',
           type: 'text',
@@ -87,19 +85,19 @@
   //RoutingTable入力欄を作成
   function fnCreateRoutingTable(nodeNum, iNum) {
     for(i = 0;i < 4;i++){
-      $('#contextPC .context-RoutingTable tr:last-child').after('<tr id = inputRoutingTable align = "center"></tr>');
+      $('#contextPlace .context-RoutingTable tr:last-child').after('<tr id = inputRoutingTable align = "center"></tr>');
 
-      $('#contextPC .context-RoutingTable tr:last-child')
+      $('#contextPlace .context-RoutingTable tr:last-child')
       .append('<td><input id="routingtable-IP' + nodeNum + '_' + iNum + '"  type="text" size="13" onKeyUp="return fCopy(this);"/>/' +
       '<input id="routingtable-SM' + nodeNum + '_' + iNum +'" type="text" size="1" onKeyUp="return fCopy(this);"/>→</td>');
-      $('#contextPC .context-RoutingTable tr:last-child')
+      $('#contextPlace .context-RoutingTable tr:last-child')
       .append('<td><input id="routingtable-NHA' + nodeNum + '_' + iNum + '" type="text" size="13" onKeyUp="return fCopy(this);"/></td>');
-      $('#contextPC .context-RoutingTable tr:last-child')
+      $('#contextPlace .context-RoutingTable tr:last-child')
       .append('<td>if<input id="routingtable-IF' + nodeNum + '_' + iNum + '" type="text" size="1" onKeyUp="return fCopy(this);"></td>');
 
       //最初以外(+ボタンで追加)なら削除ボタンを表示
       if (true) {
-        $('#contextPC .context-RoutingTable tr:last-child')
+        $('#contextPlace .context-RoutingTable tr:last-child')
         .append('<img src = "/assets/minus.jpg" id = "minus' + nodeNum + '_' + iNum + '" class = "Router' + nodeNum + '" onClick = "return fnDelRT(this)">');
       }
 
