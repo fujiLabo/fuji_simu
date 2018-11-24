@@ -68,9 +68,11 @@ $.when(
   $('#ns_right').on('click', 'img', function(){
     console.log("右側やで");
     var elthis = $(this);
+    //詳細部分の表示
     if (elthis.attr('src') === '/assets/plus.jpg') {
       elthis.attr('src', '/assets/minus.jpg');
       elthis.parent('dt').next().show();
+      //詳細部分の非表示
     }else if (elthis.attr('src') === '/assets/minus.jpg') {
       elthis.attr('src', '/assets/plus.jpg');
       elthis.parent('dt').next().hide();
@@ -81,8 +83,12 @@ $.when(
   $('#ns_rightInfo img').click(function(){
     if ($(this).attr("id") === "r-close"){
       console.log("-押された");
+      $('#ns_right dd').hide();
+      $('#ns_right dt img').attr('src', '/assets/plus.jpg');
     }else{
       console.log("+押された");
+      $('#ns_right dd').show();
+      $('#ns_right dt img').attr('src', '/assets/minus.jpg');
     }
   });
 
