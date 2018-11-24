@@ -42,8 +42,12 @@
     });
   }
 
+  //ns_rightに値を入れる
   fnCopy = function(e) {
     console.log("fnCopy");
+    var id = 'rightInfo_' + e.id;
+    $('#' + id).text(e.value);
+
   }
 
   //IPアドレスとSM入力欄を作成
@@ -245,12 +249,19 @@
     //changeDrag();
 
     //ns_rightにトポロジを追加
-    $("#ns_right dl").append("<dt><img src = /assets/plus.jpg><span>" + $("#ns_main img:last-child").attr("alt") + "</span></dt>");
+    $("#ns_right dl").append("<dt><img class = 'rightDetail'src = /assets/plus.jpg><span>" + ui.draggable.attr("alt") + NS.dropNodeInt + "</span></dt>" +
+    "<dd><p class = 'rightInfo-IPSM'>IP-0: <span id = 'rightInfo_IP" + NS.dropNodeInt + "'></span> /<span id = 'rightInfo_SM" + NS.dropNodeInt + "'></span></p></dd>");
     if (ui.draggable.attr("id") === "PC"){
-      console.log("draggable: " + ui.draggable.attr("class"));
+      //console.log("draggable: " + ui.draggable.attr("class"));
+      $('#ns_right dt:contains("' + ui.draggable.attr("alt") + NS.droNodeInt + '") + dd')
+      .append('<p class = "rightInfo_routingtableIPSM"><span id = "rightInfo_PCroutingtable-IP' + NS.dropNodeInt + '_' + '0' + '">DefaultGateway</span>/<span id = "rightInfo_PCroutingtableSM' + NS.dropNodeInt + '_' + '0' + '"</span>' +
+      '<br/>→<span id = "rightInfo_PCroutingtableNHA' + NS.dropNodeInt + '_' + '0' + '"></span>:IF<span id = "rightInfo_PCroutingtableIF' + NS.dropNodeInt + '_' + '0' + '"></span></p>');
     }else if (ui.draggable.attr("id") === "Router"){
 
     }
+    // dd要素(IPとSM)を隠す
+    $('#ns_right dd:last').css('display', 'none');
+    //fnNameDraw(ui.draggable.attr('alt') + NS.dropNodeInt);
   }
 
   //メインの線の描画

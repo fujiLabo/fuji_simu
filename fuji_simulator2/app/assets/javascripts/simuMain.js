@@ -65,8 +65,16 @@ $.when(
   });
 
   //右側の中身の画像をクリックした際
-  $('ns_right img').click(function(){
+  $('#ns_right').on('click', 'img', function(){
     console.log("右側やで");
+    var elthis = $(this);
+    if (elthis.attr('src') === '/assets/plus.jpg') {
+      elthis.attr('src', '/assets/minus.jpg');
+      elthis.parent('dt').next().show();
+    }else if (elthis.attr('src') === '/assets/minus.jpg') {
+      elthis.attr('src', '/assets/plus.jpg');
+      elthis.parent('dt').next().hide();
+    }
   });
 
   //右側のトポロジーの概要部分の画像をクリックした際
