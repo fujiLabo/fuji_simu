@@ -254,14 +254,13 @@
     if (ui.draggable.attr("id") === "PC"){
       //console.log("draggable: " + ui.draggable.attr("class"));
       console.log("PCCCCCCCCCCc!!");
-      $('#ns_right dt:contains("' + ui.draggable.attr("alt") + NS.droNodeInt + '") + dd')
-      .append('<p class = "rightInfo_routingtableIPSM"><span id = "rightInfo_PCroutingtable-IP' + NS.dropNodeInt + '_' + '0' + '">DefaultGateway</span>/<span id = "rightInfo_PCroutingtableSM' + NS.dropNodeInt + '_' + '0' + '"</span>' +
-      '<br/>→<span id = "rightInfo_PCroutingtableNHA' + NS.dropNodeInt + '_' + '0' + '"></span>:IF<span id = "rightInfo_PCroutingtableIF' + NS.dropNodeInt + '_' + '0' + '"></span></p>');
       $('#ns_right dt:contains("'+ ui.draggable.attr("alt") + NS.dropNodeInt +'") + dd')
-      .append('<p class="rightInfo_routingtableIPSM"><span id="rightInfo_PCroutingtableIP' + NS.dropNodeInt + '_'  + '0' + '">DefaultGateway</span>/<span id="rightInfo_PCroutingtableSM' + NS.dropNodeInt + '_'  + '0' +'"></span>' +
-      '<br/>→<span id="rightInfo_PCroutingtableNHA' + NS.dropNodeInt + '_'  + '0' + '"></span>：IF<span id="rightInfoPCroutingtableIF' + NS.dropNodeInt + '_'  + '0' + '"></span></p>');
+      .append('<p class="rightInfo_RT_IPSM"><span id="rightInfo_PC_RT_IP' + NS.dropNodeInt + '_'  + '0' + '">DefaultGateway</span>/<span id="rightInfo_PC_RT_SM' + NS.dropNodeInt + '_'  + '0' +'"></span>' +
+      '<br/>→<span id="rightInfo_PC_RT_NHA' + NS.dropNodeInt + '_'  + '0' + '"></span>：IF<span id="rightInfo_PC_RT_IF' + NS.dropNodeInt + '_'  + '0' + '"></span></p>');
     }else if (ui.draggable.attr("id") === "Router"){
-
+      $('#ns_right dt:contains("'+ ui.draggable.attr("alt") + NS.dropNodeInt +'") + dd')
+      .append('<p class="rightInfo_RT_IPSM"><span id="rightInfo_Router_RT_IP' + NS.dropNodeInt + '_'  + '0' + '">DefaultGateway</span>/<span id="rightInfo_Router_RT_SM' + NS.dropNodeInt + '_'  + '0' +'"></span>' +
+      '<br/>→<span id="rightInfo_Router_RT_NHA' + NS.dropNodeInt + '_'  + '0' + '"></span>：IF<span id="rightInfo_Router_RT_IF' + NS.dropNodeInt + '_'  + '0' + '"></span></p>');
     }
     // dd要素(IPとSM)を隠す
     $('#ns_right dd:last').css('display', 'none');
