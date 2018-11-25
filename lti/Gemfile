@@ -63,3 +63,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 #oauth
 gem 'oauth-plugin','>= 0.4.0.pre1'
+#システムログ
+gem 'syslog-logger', '~> 1.6', '>= 1.6.8'

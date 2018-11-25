@@ -29,8 +29,9 @@ class HomeController < ApplicationController
     @METHOD = "POST"
     #@KEY = params[:oauth_consumer_key] + "&"
     @Nonce = params[:oauth_nonce]
-    @Oauth_Consumer_key = params[:oauth_consumer_key]
-    @KEY = @Oauth_Consumer_key + "&"
+    #@Oauth_Consumer_key = params[:oauth_consumer_key]
+    #@KEY = @Oauth_Consumer_key + "&"
+    @KEY = "&"
     @REQUEST = CGI.escape("http://localhost:3000/home/create")
     @SourcedId = params[:lis_result_sourcedid]
     #x-frameでの表示をすべてに許可する
@@ -120,13 +121,20 @@ class HomeController < ApplicationController
 =begin
 #####POST送信関係の処理
 
-#test
-t = File.open('aa.txt','r')
-s = t.read
-@Oauth_strings = s.chomp
-t.close
 
-=begin
+=end
+
+
+  @uri = URI.parse(@Return_grade)
+
+  @uri_2 = URI.parse(@Return_url)
+
+
+  @File_read_Xml = File.open("aa.xml", "r")
+
+
+#OAuth_hashを作るぞ〜〜〜〜
+
 @Oauth_strings = "OAuth realm" + "=" + "\"http://sp.example.com/\"" + "," +
                  "oauth_consumer_key" + "=" + "\"" + @KEY + "\"" + "," +
                  "oauth_signature_method" + "=" + "\"HMAC-SHA1\"" + "," +
@@ -135,21 +143,10 @@ t.close
                  "oauth_version" + "=" + "\"" + "1.0" + "\"" "," +
                  "oauth_signature" + "=" + "\"" + @oauth_signature + "\""
 
-=end
-=begin
 
-  @uri = URI.parse(@Return_grade)
-
-=begin
-  header = {'Content-Type': 'application/xml',
-    'Authorization': @Oauth_strings
-  }
-#=end
-
-  @File_read_Xml = File.open("aa.xml", "r")
-
-
-#OAuth_hashを作るぞ〜〜〜〜
+                   header = {'Content-Type': 'application/xml',
+                     'Authorization': @Oauth_strings
+                   }
 
 
   doc = REXML::Document.new(@File_read_Xml)
@@ -157,14 +154,14 @@ t.close
   element.text = nil
   element.add_text(@SourcedId)
   #puts doc.to_s
-
 #=end
 
+#=end
 
 #=begin
   #create the http object
   http = Net::HTTP.new(@uri.host, @uri.port)
-  http.use_ssl = true
+  http.use_ssl = false
   request = Net::HTTP::Post.new(@uri.request_uri)
   request["Content-Type"] = "application/xml"
   request["Authorization"] = @Oauth_strings
@@ -180,14 +177,18 @@ request["Content-Type"] = "application/xml"
 request["Authorization"] = @Oauth_strings
 request.body = doc.to_s
 
-#=end
+=end
 
   #send the request
   response = http.request(request)
-
   #puts @Oauth_strings
 
-=end
+
   end
 
 end
+
+=begin
+
+
+=end
