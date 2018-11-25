@@ -92,8 +92,7 @@
     <div id="glay_layer"></div>
 
     <%#PCやルータが右クリックされた場合に呼び出される(普段は表示しない)%>
-    <%#右クリック(PC)%>
-    <menu id = "contextPC" type = "context" style = "display:none;">
+    <menu id = "contextPlace" type = "context" style = "display:none;">
     <form action = "#">
       <table id = "" class = "context-IPSMIF" width = "200">
         <tr align = "center">
@@ -102,34 +101,22 @@
           <th><label class = "IP">IPアドレス</label></th>
           <th><label class = "SM">SM</label></th>
         </tr>
-        <%#IPアドレスとSMの入力欄(後ほど関数化)%>
-        <tr align = "center">
-          <td>if0 :</td>
-          <%#IPアドレス入力欄%>
-          <td><input name = "IPアドレス" type = "text" size = "16" value = "" id = "IP0_0" class = "inputIP inputIPSMIF-item" /></td>
-          <%#SM入力欄%>
-          <td><input name = "SM" type = "text" size = "2" value = "" id = "SM0_0" class = "inputSM inputIPSMIF-item" /></td>
-        </tr>
+        <%#IPアドレスとSMの入力欄(jQuery関数)%>
       </table>
       <hr />
 
         <table class = "context-RoutingTable" width = "300">
-          <tr align = "center">
+          <tr class = "title" align = "center">
             <%#ルーティングテーブル作成%>
-            <th><label>RoutingTable</label></th>
-            <%#img src = "/assets/plus.jpg" class = "t0" %>
+            <th class = "RoutingTable"><label>RoutingTable</label></th>
+            <th><img id = "addRButtom"class = "0" onClick = "return addRT(this)" src = "/assets/plus.jpg" style = "display:none;"/></tr>
           </tr>
           <tr align = "center">
             <th><label class = "routingtable-IPSM">宛先ルート</label></th>
             <th><label class = "routingtable-NHA">NHA</label></th>
             <th><label class = "routingtable-IF">IF</label></th>
           </tr>
-          <%#Routingtable入力欄(後ほど関数化)%>
-          <tr align = "center">
-            <td><input id = "routingtable-IP0_0" type = "text" size = "13" value = "DefaultGateway" onKeyUp = "" />/<input id = "routingtable-SM0_0 type = "text" size = 1" value = "" onKeyUp = "" />→</td>
-            <td><input id = "routingtable-NHA0_0" type = "text" size = "13" value = "" onKeyUp = "" /></td>
-            <td>if<input id = "routingtable-IF0_0" type = "text" size = "1" value = "" onKeyUp = ""/></td>
-          </tr>
+          <%#Routingtable入力欄(jQuery関数化)%>
         </table>
         <hr />
     </form>
@@ -138,53 +125,7 @@
     <menuitem label = "閉じる"></menuitem>
   </menu>
 
-  <%#右クリック(ルータ)%>
-  <menu id = "contextRouter" type = "context" style = "display: none;">
-    <form action = "#">
-      <table id = "" class = "context-IPSMIF" width = "200">
-        <%#見出し%>
-        <tr align = "center">
-          <th><label class = "IF">IF</label></th>
-          <th><label class = "IP">IPアドレス</label></th>
-          <th><label class = "SM">SM</label></th>
-        </tr>
-        <%#IPアドレスSM入力欄(後ほど関数化)%>
-        <tr align = "center">
-          <td>if0 :</td>
-          <td><input name = "IPアドレス" type = "text" size = "10" value = "" id = "id0_0" class = "inputIP inputIPSMIF-item" </td>
-          <td><input name = "SM" type = "text" size = "2" value = "" id = "sm0_0" class = "inputSM inputIPSMIF-item"</td>
-        </tr>
-      </table>
-      <hr />
-      <table class = "context-RoutingTable" width = "300">
-        <tr align = "center">
-          <%#ルーティングテーブル側%>
-          <th>RoutingTable</th>
-          <th><img class = "0" onClick = "return addRoutingTable(this)" src = "/assets/plus.jpg" /></tr>
-        <tr align = "center">
-          <%#見出し%>
-          <th><label class = "routingtable-IPSM">宛先ルート</label></th>
-          <th><label class = "routingtable-NHA">NHA</label></th>
-          <th><label class = "routingtable-IF">IF</label></th>
-        </tr>
-        <%#ルーティングテーブルの入力欄(後ほど関数化)%>
-        <tr align = "center">
-          <td><input id = "routingtable-SM" type = "text" size = "13" value = "" /></td>
-          <td><input id = "routingtable-NHA" type = "text" size = "13" value = "" /></td>
-          <td><input id = "routingtable-IF" type = "text" size = "1" value = "" /></td>
-        </tr>
-
-      </table>
-      <hr />
-    </form>
-    <menuitem label = "削除" class = "nodeDel" onClick = ""></menuitem>
-    <menuitem label = "閉じる"></menuitem>
-  </menu>
+  <%= form_tag("/", method: :get) do %>
+    <input class = "movement" type="submit" value="topへ">
+    <% end %>
 </div>
-
-
-
-
-<%= form_tag("/", method: :get) do %>
-  <input class = "movement" type="submit" value="topへ">
-  <% end %>

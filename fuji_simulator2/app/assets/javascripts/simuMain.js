@@ -65,16 +65,30 @@ $.when(
   });
 
   //右側の中身の画像をクリックした際
-  $('ns_right img').click(function(){
+  $('#ns_right').on('click', 'img', function(){
     console.log("右側やで");
+    var elthis = $(this);
+    //詳細部分の表示
+    if (elthis.attr('src') === '/assets/plus.jpg') {
+      elthis.attr('src', '/assets/minus.jpg');
+      elthis.parent('dt').next().show();
+      //詳細部分の非表示
+    }else if (elthis.attr('src') === '/assets/minus.jpg') {
+      elthis.attr('src', '/assets/plus.jpg');
+      elthis.parent('dt').next().hide();
+    }
   });
 
   //右側のトポロジーの概要部分の画像をクリックした際
   $('#ns_rightInfo img').click(function(){
+    //すべての詳細を非表示
     if ($(this).attr("id") === "r-close"){
-      console.log("-押された");
+      $('#ns_right dd').hide();
+      $('#ns_right dt img').attr('src', '/assets/plus.jpg');
     }else{
-      console.log("+押された");
+      //すべての詳細を表示
+      $('#ns_right dd').show();
+      $('#ns_right dt img').attr('src', '/assets/minus.jpg');
     }
   });
 
@@ -166,6 +180,11 @@ $.when(
         'left': $('#ns_container').offset().left,
       })
     }
+  });
+
+  //行動を保存する(らしい)
+  $('html').on('click', function(e) {
+    console.log("保存しとる");
   });
 
 
