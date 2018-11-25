@@ -81,12 +81,12 @@ $.when(
 
   //右側のトポロジーの概要部分の画像をクリックした際
   $('#ns_rightInfo img').click(function(){
+    //すべての詳細を非表示
     if ($(this).attr("id") === "r-close"){
-      console.log("-押された");
       $('#ns_right dd').hide();
       $('#ns_right dt img').attr('src', '/assets/plus.jpg');
     }else{
-      console.log("+押された");
+      //すべての詳細を表示
       $('#ns_right dd').show();
       $('#ns_right dt img').attr('src', '/assets/minus.jpg');
     }
@@ -180,6 +180,11 @@ $.when(
         'left': $('#ns_container').offset().left,
       })
     }
+  });
+
+  //行動を保存する(らしい)
+  $('html').on('click', function(e) {
+    console.log("保存しとる");
   });
 
 
