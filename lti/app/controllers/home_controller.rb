@@ -143,11 +143,11 @@ class HomeController < ApplicationController
                  "oauth_version" + "=" + "\"" + "1.0" + "\"" "," +
                  "oauth_signature" + "=" + "\"" + @oauth_signature + "\""
 
-
+=begin
                    header = {'Content-Type': 'application/xml',
                      'Authorization': @Oauth_strings
                    }
-
+=end
 
   doc = REXML::Document.new(@File_read_Xml)
   element = doc.elements['imsx_POXEnvelopeRequest/imsx_POXBody/replaceResultRequest/resultRecord/sourcedGUID/sourcedId']
