@@ -120,10 +120,14 @@ class HomeController < ApplicationController
 #####POST送信関係の処理
 
 #test
+
+=begin
 t = File.open('aa.txt','r')
 s = t.read
 @Oauth_strings = s.chomp
 t.close
+
+=end
 
 =begin
 @Oauth_strings = "OAuth realm" + "=" + "\"http://sp.example.com/\"" + "," +
@@ -144,6 +148,7 @@ t.close
   }
 =end
 
+=begin
   @File_read_Xml = File.open("aa.xml", "r")
 
 
@@ -156,6 +161,9 @@ t.close
   element.add_text(@SourcedId)
   #puts doc.to_s
 #=begin
+
+=end
+
   #create the http object
   http = Net::HTTP.new(@uri.host, @uri.port)
   http.use_ssl = true
