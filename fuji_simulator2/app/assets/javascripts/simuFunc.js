@@ -46,6 +46,7 @@
   fnCopy = function(e) {
     console.log("fnCopy");
     var id = 'rightInfo_' + e.id;
+    console.log("id: " + id);
     $('#' + id).text(e.value);
 
   }
@@ -88,17 +89,18 @@
 
   //RoutingTable入力欄を作成
   fnCreateRoutingTable = function(nodeNum, iNum) {
+    nodeNum = 0; iNum = 0;
     $('#contextPlace form .context-RoutingTable #inputRoutingTable').html('');
     for(i = 0;i < 4;i++){
       $('#contextPlace .context-RoutingTable tr:last-child').after('<tr id = inputRoutingTable align = "center"></tr>');
 
       $('#contextPlace .context-RoutingTable tr:last-child')
-      .append('<td><input id="routingtable-IP' + nodeNum + '_' + iNum + '"  type="text" size="13" onKeyUp="return fnCopy(this);"/>/' +
-      '<input id="routingtable-SM' + nodeNum + '_' + iNum +'" type="text" size="1" onKeyUp="return fnCopy(this);"/>→</td>');
+      .append('<td><input id="IP' + nodeNum + '_' + iNum + '"  type="text" size="13" onKeyUp="return fnCopy(this);"/>/' +
+      '<input id="RT_SM' + nodeNum + '_' + iNum +'" type="text" size="1" onKeyUp="return fnCopy(this);"/>→</td>');
       $('#contextPlace .context-RoutingTable tr:last-child')
-      .append('<td><input id="routingtable-NHA' + nodeNum + '_' + iNum + '" type="text" size="13" onKeyUp="return fnCopy(this);"/></td>');
+      .append('<td><input id="RT_NHA' + nodeNum + '_' + iNum + '" type="text" size="13" onKeyUp="return fnCopy(this);"/></td>');
       $('#contextPlace .context-RoutingTable tr:last-child')
-      .append('<td>if<input id="routingtable-IF' + nodeNum + '_' + iNum + '" type="text" size="1" onKeyUp="return fnCopy(this);"></td>');
+      .append('<td>if<input id="RT_IF' + nodeNum + '_' + iNum + '" type="text" size="1" onKeyUp="return fnCopy(this);"></td>');
 
       //最初以外(+ボタンで追加)なら削除ボタンを表示
       if (true) {
@@ -138,12 +140,12 @@
     $('ul .context-RoutingTable tr:last-child').after('<tr id = inputRoutingTable align = "center"></tr>');
 
     $('ul .context-RoutingTable tr:last-child')
-    .append('<td><input id="routingtable-IP' + nodeNum + '_' + iNum + '"  type="text" size="13" onKeyUp="return fnCopy(this);"/>/' +
-    '<input id="routingtable-SM' + nodeNum + '_' + iNum +'" type="text" size="1" onKeyUp="return fnCopy(this);"/>→</td>');
+    .append('<td><input id="RT_IP' + nodeNum + '_' + iNum + '"  type="text" size="13" onKeyUp="return fnCopy(this);"/>/' +
+    '<input id="RT_SM' + nodeNum + '_' + iNum +'" type="text" size="1" onKeyUp="return fnCopy(this);"/>→</td>');
     $('ul .context-RoutingTable tr:last-child')
-    .append('<td><input id="routingtable-NHA' + nodeNum + '_' + iNum + '" type="text" size="13" onKeyUp="return fnCopy(this);"/></td>');
+    .append('<td><input id="RT_NHA' + nodeNum + '_' + iNum + '" type="text" size="13" onKeyUp="return fnCopy(this);"/></td>');
     $('ul .context-RoutingTable tr:last-child')
-    .append('<td>if<input id="routingtable-IF' + nodeNum + '_' + iNum + '" type="text" size="1" onKeyUp="return fnCopy(this);"></td>');
+    .append('<td>if<input id="RT_IF' + nodeNum + '_' + iNum + '" type="text" size="1" onKeyUp="return fnCopy(this);"></td>');
     $('ul .context-RoutingTable tr:last-child')
     .append('<img src = "/assets/minus.jpg" id = "minus' + nodeNum + '_' + iNum + '" class = "Router' + nodeNum + '" onClick = "return fnDelRT(this)">');
   }
@@ -250,7 +252,7 @@
 
     //ns_rightにトポロジを追加
     $("#ns_right dl").append("<dt><img class = 'rightDetail'src = /assets/plus.jpg><span>" + ui.draggable.attr("alt") + NS.dropNodeInt + "</span></dt>" +
-    "<dd><p class = 'rightInfo-IPSM'>IP-0: <span id = 'rightInfo_IP" + NS.dropNodeInt + "'></span> /<span id = 'rightInfo_SM" + NS.dropNodeInt + "'></span></p></dd>");
+    "<dd><p class = 'rightInfo_IPSM'>IP-0: <span id = 'rightInfo_IP" + NS.dropNodeInt + "'></span> /<span id = 'rightInfo_SM" + NS.dropNodeInt + "'></span></p></dd>");
     if (ui.draggable.attr("id") === "PC"){
       //console.log("draggable: " + ui.draggable.attr("class"));
       console.log("PCCCCCCCCCCc!!");
