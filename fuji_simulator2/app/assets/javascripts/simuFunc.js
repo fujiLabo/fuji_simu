@@ -53,7 +53,7 @@
 
   //IPアドレスとSM入力欄を作成
   //nodenum:
-  fnCreateIP_SM = function(nodenum, ifNum, kind) {
+  fnCreateIP_SM = function(nodeNum, ifNum, kind) {
     $('#contextPlace form .context-IPSMIF #inputIPSM').html('');
     for(i = 0; i < 3; i++){
       $('#contextPlace form .context-IPSMIF tr:last-child').after('<tr id = "inputIPSM" align = "center"></tr>');
@@ -64,9 +64,9 @@
           name: 'IPアドレス',
           type: 'text',
           size: '16',
-          value: document.getElementById('rightInfo_test').innerHTML,
+          value: document.getElementById('rightInfo_IP' + nodeNum + '_' + ifNum),//.innerHTML,
           //id: 'IP' + i + '_' + i,
-          id: 'test',
+          id: 'IP' + nodeNum + '_' + ifNum,
           class: 'inputIP inputIPSMIF-item',
           onKeyUp: 'return fnCopy(this);',
         })
@@ -78,9 +78,9 @@
           name: 'SM',
           type: 'text',
           size: '2',
-          value: '11',
+          value: document.getElementById('rightInfo_SM' + nodeNum + '_' + ifNum),//.innerHTML,
           //id: 'SM' + i + '_' + i,
-          id: 'test',
+          id: 'SM' + nodeNum + '_' + ifNum,
           class: 'inputSM inputIPSMIF-item',
           onKeyUp: 'return fnCopy(this);',
         })
@@ -255,7 +255,7 @@
     //ns_rightにトポロジを追加
     //'rightInfo_IP" + NS.dropNodeInt + "' →rightInfo_test
     $("#ns_right dl").append("<dt><img class = 'rightDetail'src = /assets/plus.jpg><span>" + ui.draggable.attr("alt") + NS.dropNodeInt + "</span></dt>" +
-    "<dd><p class = 'rightInfo_IPSM'>IP-0: <span id = 'rightInfo_test'></span> /<span id = 'rightInfo_SM" + NS.dropNodeInt + "'></span></p></dd>");
+    "<dd><p class = 'rightInfo_IPSM'>IP-0: <span id = 'rightInfo_IP" + NS.dropNodeInt + "'></span> /<span id = 'rightInfo_SM" + NS.dropNodeInt + "'></span></p></dd>");
     if (ui.draggable.attr("id") === "PC"){
       //console.log("draggable: " + ui.draggable.attr("class"));
       console.log("PCCCCCCCCCCc!!");
