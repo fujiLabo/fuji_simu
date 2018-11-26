@@ -64,8 +64,9 @@
           name: 'IPアドレス',
           type: 'text',
           size: '16',
-          value: '',
-          id: 'IP' + i + '_' + i,
+          value: document.getElementById('rightInfo_test').innerHTML,
+          //id: 'IP' + i + '_' + i,
+          id: 'test',
           class: 'inputIP inputIPSMIF-item',
           onKeyUp: 'return fnCopy(this);',
         })
@@ -78,7 +79,8 @@
           type: 'text',
           size: '2',
           value: '11',
-          id: 'SM' + i + '_' + i,
+          //id: 'SM' + i + '_' + i,
+          id: 'test',
           class: 'inputSM inputIPSMIF-item',
           onKeyUp: 'return fnCopy(this);',
         })
@@ -251,8 +253,9 @@
     //changeDrag();
 
     //ns_rightにトポロジを追加
+    //'rightInfo_IP" + NS.dropNodeInt + "' →rightInfo_test
     $("#ns_right dl").append("<dt><img class = 'rightDetail'src = /assets/plus.jpg><span>" + ui.draggable.attr("alt") + NS.dropNodeInt + "</span></dt>" +
-    "<dd><p class = 'rightInfo_IPSM'>IP-0: <span id = 'rightInfo_IP" + NS.dropNodeInt + "'></span> /<span id = 'rightInfo_SM" + NS.dropNodeInt + "'></span></p></dd>");
+    "<dd><p class = 'rightInfo_IPSM'>IP-0: <span id = 'rightInfo_test'></span> /<span id = 'rightInfo_SM" + NS.dropNodeInt + "'></span></p></dd>");
     if (ui.draggable.attr("id") === "PC"){
       //console.log("draggable: " + ui.draggable.attr("class"));
       console.log("PCCCCCCCCCCc!!");
