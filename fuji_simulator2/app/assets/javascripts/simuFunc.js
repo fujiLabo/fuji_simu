@@ -253,6 +253,7 @@
     "<dd><p class = 'rightInfo-IPSM'>IP-0: <span id = 'rightInfo_IP" + NS.dropNodeInt + "'></span> /<span id = 'rightInfo_SM" + NS.dropNodeInt + "'></span></p></dd>");
     if (ui.draggable.attr("id") === "PC"){
       //console.log("draggable: " + ui.draggable.attr("class"));
+      console.log("PCCCCCCCCCCc!!");
       $('#ns_right dt:contains("' + ui.draggable.attr("alt") + NS.droNodeInt + '") + dd')
       .append('<p class = "rightInfo_routingtableIPSM"><span id = "rightInfo_PCroutingtable-IP' + NS.dropNodeInt + '_' + '0' + '">DefaultGateway</span>/<span id = "rightInfo_PCroutingtableSM' + NS.dropNodeInt + '_' + '0' + '"</span>' +
       '<br/>→<span id = "rightInfo_PCroutingtableNHA' + NS.dropNodeInt + '_' + '0' + '"></span>:IF<span id = "rightInfo_PCroutingtableIF' + NS.dropNodeInt + '_' + '0' + '"></span></p>');
