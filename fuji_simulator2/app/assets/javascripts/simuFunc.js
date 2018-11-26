@@ -32,7 +32,7 @@
 
 
     fnCreateIP_SM(0,0,0);
-    fnCreateRoutingTable(0, 0);
+    fnCreateRT(0, 0);
 
     $.contextMenu({
       //selector: '.' + NS.dropContextName,
@@ -53,6 +53,7 @@
 
   //IPアドレスとSM入力欄を作成
   //nodenum:
+  //fnCreateIP_SM = function(nodeNum, ifNum, kind) {
   fnCreateIP_SM = function(nodeNum, ifNum, kind) {
     $('#contextPlace form .context-IPSMIF #inputIPSM').html('');
     for(i = 0; i < 3; i++){
@@ -90,7 +91,8 @@
   }
 
   //RoutingTable入力欄を作成
-  fnCreateRoutingTable = function(nodeNum, iNum) {
+  //fnCreateRoutingTable = function(nodeNum, iNum) {
+  fnCreateRT = function(nodeNum, iNum) {
     nodeNum = 0; iNum = 0;
     $('#contextPlace form .context-RoutingTable #inputRoutingTable').html('');
     for(i = 0;i < 4;i++){
