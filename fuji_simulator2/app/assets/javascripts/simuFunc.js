@@ -218,6 +218,7 @@ fnMainDrop = function(ui, obj) {
 
   //ドロップした種類を判別し、情報を追加
   console.log("contextname: " + ui.draggable.attr("id"));
+  //機種の判別
   if (ui.draggable.attr("id") === "PC") {
     console.log("PC");
     NS.dropNodeInt = NS.pcNode;
@@ -248,7 +249,6 @@ fnMainDrop = function(ui, obj) {
       'data_link_num': 0,
       id: NS.dropNodeName,
       style: "position: absolute; top: " + ui.offset.top + "px; left: " + ui.offset.left + "px",
-
     })
   );
   //画像への属性の追加の際にクラスを複数指定できなかったためここで追加(だっせぇ)
@@ -257,7 +257,6 @@ fnMainDrop = function(ui, obj) {
   //ドロップした画像に右クリックの属性をつける
   $("#ns_main img:last-child").attr('oncontextmenu', 'return fncontextmenu(this)');
 
-
   //mainにドロップされたものをドラッグ可能に(まだ？)
   $('#ns_main img:last-child').draggable({
     containment: 'parent', //親要素でのみドラッグを可能にする
@@ -265,10 +264,10 @@ fnMainDrop = function(ui, obj) {
     //ドラッグ中
     drag: function() {
       //何してるかわからないし、なくても問題なかった
-      // $(this).prev().offset({
-      //   top:  this.offsetTop - 15,
-      //   left: this.offsetLeft + 42,
-      // });
+      $(this).prev().offset({
+        top:  this.offsetTop - 15,
+        left: this.offsetLeft + 42,
+      });
       $(this).prev().css('zIndex', 3);
     },
 
@@ -296,7 +295,6 @@ fnMainDrop = function(ui, obj) {
     }).mouseleave(function() {
       $(this).removeClass("lanOn");
     });
-
   }
   //changeDrag();
 
@@ -358,7 +356,7 @@ fnLanOnDown = function(e) {
     }else{
     //canvasの追加
     NS.addCanvas = $('<canvas width="' + NS.canvasWidth + '" height="' + NS.canvasHeight + '"></canvas>').prependTo('#ns_main');
-    //NS.addCanvas = NS.addCanvasRange.prependTo('#ns_main');
+    NS.lanPointFlag = true;
     console.log("addCanvasの中身: " + NS.addCanvas);
 
     //lanLinkがある場合
@@ -376,15 +374,15 @@ fnLanOnDown = function(e) {
       y: e.pageY - this.offsetTop
     }];
 
-    if ($('#ns_main .uidraggable').hasClass("lanLink")) {
-      NS.elLanMoveThis = $(this);
-      NS.lanArrClass = $('#ns_main_canvas').attr("class").split(/\s?L_/);
-    }
+    // if ($('#ns_main .uidraggable').hasClass("lanLink")) {
+    //   NS.elLanMoveThis = $(this);
+    //   NS.lanArrClass = $('#ns_main_canvas').attr("class").split(/\s?L_/);
+    // }
+    //
+    // NS.elLanMoveThis = $(this);
+    // console.log("elLanMoveThis: " + NS.elLanMoveThis);
 
-    NS.elLanMoveThis = $(this);
-    console.log("elLanMoveThis: " + NS.elLanMoveThis);
-
-    console.log("mousedown.children: " + $(this).children(".lanOn").attr("class"));
+    //console.log("mousedown.children: " + $(this).children(".lanOn").attr("class"));
 
     //マウスが移動するときの処理
     $('#ns_main').on("mousemove", fnMouseMove);
