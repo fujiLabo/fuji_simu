@@ -61,7 +61,6 @@ fnCopy = function(e) {
 
 //IPアドレスとSM入力欄を作成
 //nodenum:
-//fnCreateIP_SM = function(nodeNum, ifNum, kind) {
 fnCreateIP_SM = function(nodeNum, ifNum, kind) {
   $('#contextPlace form .context-IPSMIF #inputIPSM').html('');
   //PCでは表示する入力欄を一つに、idやvalueの値も変えるためルータとは別に定義する
@@ -75,7 +74,6 @@ fnCreateIP_SM = function(nodeNum, ifNum, kind) {
         type: 'text',
         size: '16',
         value: document.getElementById('rightInfo_IP' + nodeNum).innerHTML,
-        //id: 'IP' + i + '_' + i,
         id: 'IP' + nodeNum,
         class: 'inputIP inputIPSMIF-item',
         onKeyUp: 'return fnCopy(this);',
@@ -89,7 +87,6 @@ fnCreateIP_SM = function(nodeNum, ifNum, kind) {
         type: 'text',
         size: '2',
         value: document.getElementById('rightInfo_SM' + nodeNum).innerHTML,
-        //id: 'SM' + i + '_' + i,
         id: 'SM' + nodeNum,
         class: 'inputSM inputIPSMIF-item',
         onKeyUp: 'return fnCopy(this);',
@@ -151,7 +148,7 @@ fnCreateRT = function(nodeNum, iNum) {
       .append('<td>if<input id="RT_IF' + nodeNum + '_' + iNum + '" type="text" size="1" onKeyUp="return fnCopy(this);"></td>');
 
     //最初以外(+ボタンで追加)なら削除ボタンを表示
-    if (true) {
+    if (i !== 0) {
       $('#contextPlace .context-RoutingTable tr:last-child')
         .append('<img src = "/assets/minus.jpg" id = "minus' + nodeNum + '_' + iNum + '" class = "Router' + nodeNum + '" onClick = "return fnDelRT(this)">');
     }
