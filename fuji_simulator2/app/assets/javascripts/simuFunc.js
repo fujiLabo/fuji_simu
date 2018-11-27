@@ -3,6 +3,12 @@
 
   //独自の右クリック作成
   fncontextmenu = function(element) {
+    const nodeNum = $(element).attr('dropNumber');
+    const ifNum = $(element).attr('data_ifnum');
+    var kind;
+
+    console.log("node: " + $("img[alt='" + $(element)[0].alt + "']")[0].alt);
+    console.log("node(new): " + $(element).attr('dropNumber'));
     console.log("fncontextmenuの引数: " + element);
 
 
@@ -11,27 +17,29 @@
     console.log("nodeName.slice(6): " + nodeName.slice(6));
     console.log('element: ' + $(element).attr('dropNumber'));
 
-    $.contextMenu( 'destroy' );
+    $.contextMenu( 'destroy');
 
-    // if ($(element).hasClass('dropPC'))
-    // {
-    //   fnCreateIP_SM(nodeName.slice(2), 0, 'PC');
-    // }else if ($(element).hasClass('dropRouter')){
-    //   for(i = 0;i < $(element).attr('data-ifnum'); i++){
-    //     num = $('#ns_right dt: contains(' + nodeName + ') + dd p:contains p:contains(IP-' + i + ') span:nth-of-type(2)').attr('id').split('_')[1];
-    //     fnCreateIP_SM(nodeName.slice(6), num, 'Router');
-    //   }
-    // }
+    //問題演習と自由病がで処理を変えるなら
+    //if ($('.change_mode').hasClass('question')){
+    //
+    //}
 
-    //ルータの場合のみルーティングテーブルを増やすボタンを表示
+
+
+    //PCとルータで場合分け
     if ($(element).hasClass('dropRouter')){
+      kind = 'Router';
+      //ルータの場合のみルーティングテーブルを増やすボタンを表示
       $('#addRButtom').css('display', 'block');
     }else if ($(element).hasClass('dropPC')){
+      //fnCreateIP_SM($(element).attr('dropNumber'), 0, 'PC');
+      kind = 'PC';
+
       $('#addRButtom').css('display', 'none');
     }
 
 
-    fnCreateIP_SM(0,0,0);
+    fnCreateIP_SM(nodeNum, ifNum, kind);
     fnCreateRT(0, 0);
 
     $.contextMenu({
@@ -56,7 +64,11 @@
   //fnCreateIP_SM = function(nodeNum, ifNum, kind) {
   fnCreateIP_SM = function(nodeNum, ifNum, kind) {
     $('#contextPlace form .context-IPSMIF #inputIPSM').html('');
-    for(i = 0; i < 3; i++){
+    if (kind === 'PC'){
+      console.log('PCだよ');
+      ifNum = 1;
+    }
+    for(i = 0; i < ifNum; i++){
       $('#contextPlace form .context-IPSMIF tr:last-child').after('<tr id = "inputIPSM" align = "center"></tr>');
       $('#contextPlace form .context-IPSMIF tr:last-child').append('<td>if' + i + ' :</td>');
       //IPアドレス入力欄
@@ -65,9 +77,9 @@
           name: 'IPアドレス',
           type: 'text',
           size: '16',
-          value: document.getElementById('rightInfo_IP' + nodeNum + '_' + ifNum),//.innerHTML,
+          value: document.getElementById('rightInfo_IP' + nodeNum + '_' + i),//.innerHTML,
           //id: 'IP' + i + '_' + i,
-          id: 'IP' + nodeNum + '_' + ifNum,
+          id: 'IP' + nodeNum + '_' + i,
           class: 'inputIP inputIPSMIF-item',
           onKeyUp: 'return fnCopy(this);',
         })
@@ -79,9 +91,9 @@
           name: 'SM',
           type: 'text',
           size: '2',
-          value: document.getElementById('rightInfo_SM' + nodeNum + '_' + ifNum),//.innerHTML,
+          value: document.getElementById('rightInfo_SM' + nodeNum + '_' + i),//.innerHTML,
           //id: 'SM' + i + '_' + i,
-          id: 'SM' + nodeNum + '_' + ifNum,
+          id: 'SM' + nodeNum + '_' + i,
           class: 'inputSM inputIPSMIF-item',
           onKeyUp: 'return fnCopy(this);',
         })
@@ -174,6 +186,7 @@
 
   //画像をmain部分にドロップする際の関数
   fnMainDrop = function(ui, obj) {
+
     //ドロップした種類を判別し、情報を追加
     console.log("contextname: " + ui.draggable.attr("id"));
     if (ui.draggable.attr("id") === "PC"){
