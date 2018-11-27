@@ -450,10 +450,81 @@ fnLanOnUp = function(e) {
     epifnum = parseInt($(".eP_" + NS.lanNode).attr("data-ifnum"));
     epifnum += 1;
 
+    //ココらへん完コピ
+    //lanとifの結びつけ
+    if ($('.sP_' + NS.lanNode).hasClass('bus') == false) {
+      if ($('.sP_' + NS.lanNode).attr('data_lan_if') == '') {
+        tmp =  $('.sP_' + NS.lanNode).attr('data_lan_if');
+        tmp += NS.lanNode + '-' + $('.sP_' + NS.lanNode).attr('data-ifnum');
+        $('.sP_' + NS.lanNode).attr('data_lan_if', tmp);
+      }
+      else if ($('.sP_' + NS.lanNode).attr('data_lan_if') != '') {
+        tmp =  $('.sP_' + NS.lanNode).attr('data_lan_if');
+        tmp += ' ';
+        tmp += NS.lanNode + '-' + $('.sP_' + NS.lanNode).attr('data-ifnum');
+        $('.sP_' + NS.lanNode).attr('data_lan_if', tmp);
+      }
+      tmp = $('.sP_' + NS.lanNode).attr('data-linknum');
+      tmp = parseInt(tmp) + 1;
+      $('.sP_' + NS.lanNode).attr('data-linknum', tmp);
+
+    }
+    if ($('.eP_' + NS.lanNode).hasClass('bus') == false) {
+      if ($('.eP_' + NS.lanNode).attr('data_lan_if') == "") {
+        tmp =  $('.eP_' + NS.lanNode).attr('data_lan_if');
+        tmp += NS.lanNode + '-' + $('.eP_' + NS.lanNode).attr('data-ifnum');
+        $('.eP_' + NS.lanNode).attr('data_lan_if', tmp);
+      }
+      else if ($('.eP_' + NS.lanNode).attr('data_lan_if') != "") {
+        tmp =  $('.eP_' + NS.lanNode).attr('data_lan_if');
+        tmp += ' ';
+        tmp += NS.lanNode + '-' + $('.eP_' + NS.lanNode).attr('data-ifnum');
+        $('.eP_' + NS.lanNode).attr('data_lan_if', tmp);
+      }
+      tmp = $('.eP_' + NS.lanNode).attr('data-linknum');
+      tmp = parseInt(tmp) + 1;
+      $('.eP_' + NS.lanNode).attr('data-linknum', tmp);
+    }
+
+
+    //rightinfoに追加
+    //router->router
+    if ($('.sP_' + NS.lanNode).attr('alt').substr(0, 6) === 'Router' && $('.eP_' + NS.lanNode).attr('alt').substr(0, 6) === 'Router') {
+
+      $('#nsf-right dl dt:contains("' + $('.sP_' + NS.lanNode)[0].alt + '") + dd .rightInfo-IPSM:last')
+      .after('<p class="rightInfo-IPSM"><span id="' + $('.sP_' + NS.lanNode).attr('data-ifnum') + '" class="num">IP-' + $('.sP_' + NS.lanNode).attr('data-ifnum') + '</span>: <span id="rightInfo-IP' + $('.sP_' + NS.lanNode)[0].alt.slice(6) + '_' + $('.sP_' + NS.lanNode).attr('data-ifnum') + '"></span>/<span id="rightInfo-SM' +
+      $('.sP_' + NS.lanNode)[0].alt.slice(6) + '_' + $('.sP_' + NS.lanNode).attr('data-ifnum') + '"></span></p>');
+      $('.sP_' + NS.lanNode).attr('data-ifnum',spifnum);
+
+      $('#nsf-right dl dt:contains("' + $('.eP_' + NS.lanNode)[0].alt + '") + dd .rightInfo-IPSM:last')
+      .after('<p class="rightInfo-IPSM"><span id="' + $('.eP_' + NS.lanNode).attr('data-ifnum') + '" class="num">IP-' + $('.eP_' + NS.lanNode).attr('data-ifnum') + '</span>: <span id="rightInfo-IP' + $('.eP_' + NS.lanNode)[0].alt.slice(6) + '_' + $('.eP_' + NS.lanNode).attr('data-ifnum') + '"></span>/<span id="rightInfo-SM' +
+      $('.eP_' + NS.lanNode)[0].alt.slice(6) + '_' + $('.eP_' + NS.lanNode).attr('data-ifnum') + '"></span></p>');
+      $('.eP_' + NS.lanNode).attr('data-ifnum', epifnum);
+
+    }
+
+    //pc,bus->router
+    if ($('.sP_' + NS.lanNode).attr('alt').substr(0, 6) !== 'Router' && $('.eP_' + NS.lanNode).attr('alt').substr(0, 6) === 'Router') {
+
+      $('#nsf-right dl dt:contains("' + $('.eP_' + NS.lanNode)[0].alt + '") + dd .rightInfo-IPSM:last')
+      .after('<p class="rightInfo-IPSM"><span id="' + $('.eP_' + NS.lanNode).attr('data-ifnum') + '" class="num">IP-' + $('.eP_' + NS.lanNode).attr('data-ifnum') + '</span>: <span id="rightInfo-IP' + $('.eP_' + NS.lanNode)[0].alt.slice(6) + '_' + $('.eP_' + NS.lanNode).attr('data-ifnum') + '"></span>/<span id="rightInfo-SM' +
+      $('.eP_' + NS.lanNode)[0].alt.slice(6) + '_' + $('.eP_' + NS.lanNode).attr('data-ifnum') + '"></span></p>');
+      $('.eP_' + NS.lanNode).attr('data-ifnum', epifnum);
+
+    }
+
+    //router->pc,bus
+    if ($('.sP_' + NS.lanNode).attr('alt').substr(0, 6) === 'Router' && $('.eP_' + NS.lanNode).attr('alt').substr(0, 6) !== 'Router') {
+      $('#nsf-right dl dt:contains("' + $('.sP_' + NS.lanNode)[0].alt + '") + dd .rightInfo-IPSM:last')
+      .after('<p class="rightInfo-IPSM"><span id="' + $('.sP_' + NS.lanNode).attr('data-ifnum') + '" class="num">IP-' + $('.sP_' + NS.lanNode).attr('data-ifnum') + '</span>: <span id="rightInfo-IP' + $('.sP_' + NS.lanNode)[0].alt.slice(6) + '_' + $('.sP_' + NS.lanNode).attr('data-ifnum') + '"></span>/<span id="rightInfo-SM' +
+      $('.sP_' + NS.lanNode)[0].alt.slice(6) + '_' + $('.sP_' + NS.lanNode).attr('data-ifnum') + '"></span></p>');
+      $('.sP_' + NS.lanNode).attr('data-ifnum',spifnum);
+    }
+
+
     //描画
     //NS.mainCtx.clearRect(0, 0, NS.canvasWidth, NS.canvasHeight);
     fnMainLanDraw();
-
   }
   //変数とフラグを更新
   NS.lanNode++;
@@ -653,7 +724,7 @@ nodeDel = function(e) {
   //delnodeにつながっているインターフェースを削除
   for(i = 0; i < split_lan.length; i++) {
     if ($(delNode).hasClass('sP_' + split_lan[i])) {
-      dataLanIf = $('.eP_' + split_lan[i]).attr('data-lan-if').split(' ');
+      dataLanIf = $('.eP_' + split_lan[i]).attr('data_lan_if').split(' ');
 
       for(j = 0; j < dataLanIf.length; j++){
         dataLanIf[j] = dataLanIf[j].split('-');
