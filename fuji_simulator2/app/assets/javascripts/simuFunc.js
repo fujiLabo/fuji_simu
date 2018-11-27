@@ -530,6 +530,8 @@ fnLanOnUp = function(e) {
   NS.lanNode++;
   NS.points = [];
   NS.lanLinkFlag = false;
+  NS.lanPointFlag = false;
+
   NS.addCanvas.remove();
   //イベントハンドラの削除
   $("#ns_main").off("mousemove", NS.fnMouseMove);
