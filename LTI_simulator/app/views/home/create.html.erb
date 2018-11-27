@@ -1,12 +1,9 @@
 <h1>createページ</h1>
 
 <%#postで送信されてきた値を画面に表示する%>
-<p1><%#= params %></p1>
-<h3><%= @sort %></h3>
-<h4><%= @oauth_consumer_key %><h4>
-<h5><%= params[:ext_content_return_types] %></h5>
-<h5><%= params[:selection_directive] %></h5>
-
+<p1><%= params %></p1>
+<h3><%#= @sort %></h3>
+<h4><%#= @oauth_consumer_key %><h4>
 
 
 <%= form_tag('/home/top', method: :get) do %>
@@ -90,8 +87,8 @@
 
 <%#LTI6 Section1用 %>
 <%= form_tag(@Return_grade , method: :POST) do %>
-<%= hidden_field_tag :lis_outcome_service_url,"esultScore > textString" %>
-<%= hidden_field_tag :lis_result_sourcedid,"esultScore > textString" %>
+<%=# hidden_field_tag :lis_outcome_service_url,"resultScore > textString" %>
+<%=# hidden_field_tag :lis_result_sourcedid,"resultScore > textString" %>
 
 <%= submit_tag 'grade' %>
 
