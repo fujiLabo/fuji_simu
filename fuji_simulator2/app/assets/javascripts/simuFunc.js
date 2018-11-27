@@ -396,12 +396,47 @@ fnLanOnDown = function(e) {
 fnLanOnUp = function(e) {
   console.log("fnLanOnUp");
 
-  //離した瞬間画像の上でないとき線を削除
+  //マウスを押してドラッグしなかったとき || 画像の上でないとき線を削除 || 最初の画像のとき
   if (NS.points.length === 1 || !$(e.target).hasClass("dropMachine") || ($(e.target).hasClass("lanFirst"))) {
-
+    if (NS.lanLinkFlag === true) {
+      $('.sP_' + NS.lanNode).removeClass('sP_' + NS.lanNode);
+    }else{
+      $('.sP_' + NS.lanNode).removeClass('lanLink sP_' + NS.lanNode);
+    }
+    $('#ns_main_canvas').removeClass('L_' + NS.lanNode);
+    NS.lanFlagDelet = false;
+    NS.lanNode--;
 
     //画像以外をクリックした際エラー(別に関数を用意)
     NS.addCtx.clearRect(0, 0, NS.canvasWidth, NS.canvasHeight);
+  }
+  //else if bus関連の処理
+
+  //PCにもう線が引かれているとき
+  else if ($(e.target).hasClass('lanLink') &&　$(e.target).hasClass('dropPC')){
+    if (NS.lanLinkFlag === true) {
+      $('.sP_' + NS.lanNode).removeClass('sP_' + NS.lanNode);
+    }else{
+      $('.sP_' + NS.lanNode).removeClass('lanLink sP_' + NS.lanNode);
+    }
+    $('#ns_main_canvas').removeClass('L_' + NS.lanNode);
+    $('#ns_console').append('<p>> PCにLANは1本しか引けません。</p>');
+    NS.lanFlagDelet = false;
+    NS.lanNode--;
+  }
+  //同じ場所に線を引かないようにする
+  else {
+    for(var i = 0; i < NS.lanNode; i++) {
+      if (($('.lanFirst').hasClass('sP_' + i) && $('.lanOn').hasClass('eP_' + i)) ||
+           ($('.lanFirst').hasClass('eP_' + i) && $('.lanOn').hasClass('sP_' + i))) {
+             $('.sP_' + NS.lanNode).removeClass('sP_' + NS.lanNode);
+             $('#ns_main_canvas').removeClass('L_' + NS.lanNode);
+             $('#ns_console').append('<p>> 同じところにLANは引けません。</p>');
+             NS.lanFlagDelet = false;
+             NS.lanNode--;
+             break;
+           }
+    }
   }
 
   //画像の真ん中に線を持ってくる
@@ -419,12 +454,12 @@ fnLanOnUp = function(e) {
     //NS.mainCtx.clearRect(0, 0, NS.canvasWidth, NS.canvasHeight);
     fnMainLanDraw();
 
-    //変数とフラグを更新
-    NS.lanNode++;
-    NS.points = [];
-    NS.lanLinkFlag = false;
-    NS.addCanvas.remove();
   }
+  //変数とフラグを更新
+  NS.lanNode++;
+  NS.points = [];
+  NS.lanLinkFlag = false;
+  NS.addCanvas.remove();
   //イベントハンドラの削除
   $("#ns_main").off("mousemove", NS.fnMouseMove);
   $("#ns_main .ui-draggable").removeClass("lanFirst");
@@ -436,7 +471,7 @@ fnLanOnOutUp = function(e) {
   if (NS.lanFlagPoint) {
     NS.addCanvas.remove();
     if (!(NS.lanFlagLink)) {
-      $(".sP_" + NS.lanNode).removeClass(lanLink);
+      $(".sP_" + NS.lanNode).removeClass('lanLink');
     }
     $('#ns_main').off('mousemove', fnMouseMove);
     $('#ns_main .ui-draggable').removeClass('lanFirst');
@@ -599,9 +634,43 @@ fnChangeMode = function() {
 
 
 
-//削除
+//削除(エラー)(途中)
 nodeDel = function(e) {
   console.log("nodeDel");
+  nodeName = $(e).attr('class');  //消去したいノードの名前
+  delNode = $('[alt=' + nodeName + ']')[0]; //消去したいノードの要素
+  console.log("delNode: " + delNode);
+  delNodeClass = $(delNode).attr('class').split(' ');
+  delNodeIf = [];
+  mainCanvasHeight = $('#ns_main_canvas').attr('data-y') -35;
+  mainCanvasWidth = $('#ns_main_canvas').attr('data-x') - 35;
+
+  split_lan = $('#ns_main_canvas').attr('class').split(/\?L_/);
+
+  //線を削除
+  $('#ns_main_canvas')[0].getContext('2d').clearRect(0, 0, $('#ns_main').width(), $('#ns_main').height());
+
+  //delnodeにつながっているインターフェースを削除
+  for(i = 0; i < split_lan.length; i++) {
+    if ($(delNode).hasClass('sP_' + split_lan[i])) {
+      dataLanIf = $('.eP_' + split_lan[i]).attr('data-lan-if').split(' ');
+
+      for(j = 0; j < dataLanIf.length; j++){
+        dataLanIf[j] = dataLanIf[j].split('-');
+
+        if (dataLanIf[j][0] === split_lan[i]) {
+          //消去する要素のあとの要素を取得
+          //changeElement = $('#rightInfo_IP' + split_lan[i])[0].lalt.slice(6).alt.slice(6) + '_' + dataLanIf[j][1]).parent().nextALL();
+          //rightInfoから削除
+          for(k = 0; k < changeElement.lengthi; k++) {
+            if ($(changeElement[k]).children().hasClass('num')) {
+
+            }
+          }
+        }
+      }
+    }
+  }
 }
 
 //全要素の削除
