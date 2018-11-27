@@ -350,12 +350,12 @@ fnMainLanDraw = function() {
 fnLanOnDown = function(e) {
   console.log("mousedownのclass: " + $(e.target).attr("class"));
   //開始地点にPCかルータが存在し、かつLANモードがONの場合
-  if ($(e.target).hasClass("dropMachine") && NS.lanFlag) {
+  if ($(e.target).hasClass("dropMachine")) {
     console.log("fnLanOnDown");
     //PCがすでにLANが繋がれているとき
     if ($(e.target).hasClass("dropPC") && $(e.target).hasClass("lanLink")) {
       $("#ns_console").append("<p>> PCにLANは１本しか引けません。 </p>");
-    }
+    }else{
     //canvasの追加
     NS.addCanvas = $('<canvas width="' + NS.canvasWidth + '" height="' + NS.canvasHeight + '"></canvas>').prependTo('#ns_main');
     //NS.addCanvas = NS.addCanvasRange.prependTo('#ns_main');
@@ -375,7 +375,6 @@ fnLanOnDown = function(e) {
       x: e.pageX - this.offsetLeft,
       y: e.pageY - this.offsetTop
     }];
-    console.log("座標の取得: " + NS.points);
 
     if ($('#ns_main .uidraggable').hasClass("lanLink")) {
       NS.elLanMoveThis = $(this);
@@ -389,6 +388,7 @@ fnLanOnDown = function(e) {
 
     //マウスが移動するときの処理
     $('#ns_main').on("mousemove", fnMouseMove);
+  }
   }
 }
 
@@ -543,7 +543,7 @@ fnLanOnOutUp = function(e) {
   console.log("fnLanOnOutUp");
   if (NS.lanFlagPoint) {
     NS.addCanvas.remove();
-    if (!(NS.lanFlagLink)) {
+    if (!(NS.lanLinkFlag)) {
       $(".sP_" + NS.lanNode).removeClass('lanLink');
     }
     $('#ns_main').off('mousemove', fnMouseMove);
