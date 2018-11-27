@@ -398,6 +398,8 @@ fnLanOnUp = function(e) {
 
   //離した瞬間画像の上でないとき線を削除
   if (NS.points.length === 1 || !$(e.target).hasClass("dropMachine") || ($(e.target).hasClass("lanFirst"))) {
+
+
     //画像以外をクリックした際エラー(別に関数を用意)
     NS.addCtx.clearRect(0, 0, NS.canvasWidth, NS.canvasHeight);
   }
@@ -420,6 +422,7 @@ fnLanOnUp = function(e) {
     //変数とフラグを更新
     NS.lanNode++;
     NS.points = [];
+    NS.lanLinkFlag = false;
     NS.addCanvas.remove();
   }
   //イベントハンドラの削除
@@ -427,8 +430,23 @@ fnLanOnUp = function(e) {
   $("#ns_main .ui-draggable").removeClass("lanFirst");
 }
 
+//線を引いてる途中 ns_main以外でマウスを離したとき
 fnLanOnOutUp = function(e) {
-
+  console.log("fnLanOnOutUp");
+  if (NS.lanFlagPoint) {
+    NS.addCanvas.remove();
+    if (!(NS.lanFlagLink)) {
+      $(".sP_" + NS.lanNode).removeClass(lanLink);
+    }
+    $('#ns_main').off('mousemove', fnMouseMove);
+    $('#ns_main .ui-draggable').removeClass('lanFirst');
+    $('.sP_' + NS.lanNode).removeClass('sP_' + NS.lanNode);
+    $('#ns_main_canvas').removeClass('L_' + NS.lanNode);
+    //変数とフラグをリセット
+    NS.points = [];
+    NS.lanLinkFlag = false;
+    NS.lanPointFlag = false;
+  }
 }
 
 //マウスが移動した際
