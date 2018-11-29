@@ -214,20 +214,14 @@ $().introtzikas({
 
 //画像をmain部分にドロップする際の関数
 fnMainDrop = function(ui, obj) {
-
-  //ドロップした種類を判別し、情報を追加
-  console.log("contextname: " + ui.draggable.attr("id"));
   //機種の判別
   if (ui.draggable.attr("id") === "PC") {
-    console.log("PC");
     NS.dropNodeInt = NS.pcNode;
     NS.dropNodeName = "PC" + NS.pcNode;
     NS.dropContextName = "contextmenuPC";
     //NS.dropName = "dropPC";
     NS.pcNode++;
-    console.log("nodename: " + NS.dropNodeName);
   } else if (ui.draggable.attr("id") === "Router") {
-    console.log("Router");
     NS.dropNodeInt = NS.ruNode;
     NS.dropNodeName = "Router" + NS.ruNode;
     NS.dropContextName = "contextmenuRouter";
@@ -262,17 +256,20 @@ fnMainDrop = function(ui, obj) {
     zIndex: 2,
     //ドラッグ中
     drag: function() {
-      //何してるかわからないし、なくても問題なかった
-      // $(this).prev().offset({
-      //   top:  this.offsetTop - 15,
-      //   left: this.offsetLeft + 42,
-      // });
-      $(this).prev().css('zIndex', 3);
+      //追従
+      if ($(this).prev().hasClass('get_node2') || $(this).prev().hasClass('send_node2')) {
+        $(this).prev().offset({
+          top: this.offsetTop - 15,
+          left: this.offsetLeft + 42,
+        });
+        $(this).prev().css('zIndex', 3);
+      }
     },
-
     //ドラッグ終了
     stop: function() {
-      $(this).prev().css('zIndex', 1);
+      if ($(this).prev().hasClass('get-node2') || $(this).prev().hasClass('send_node2')) {
+        $(this).prev().css('zIndex', 1);
+      }
     },
 
   });
@@ -290,8 +287,10 @@ fnMainDrop = function(ui, obj) {
     //あったほうがいいんだろうがもっと他にやり方ありそう
     //応急処置感
     elMainImgLast.mouseenter(function() {
+      NS.imgFlag = true;
       $(this).addClass("lanOn");
     }).mouseleave(function() {
+      NS.imgFlag = false;
       $(this).removeClass("lanOn");
     });
   }
@@ -303,7 +302,6 @@ fnMainDrop = function(ui, obj) {
     "<dd><p class = 'rightInfo_IPSM'>IP-0: <span id = 'rightInfo_IP" + NS.dropNodeInt + "'></span> /<span id = 'rightInfo_SM" + NS.dropNodeInt + "'></span></p></dd>");
   if (ui.draggable.attr("id") === "PC") {
     //console.log("draggable: " + ui.draggable.attr("class"));
-    console.log("PCCCCCCCCCCc!!");
     $('#ns_right dt:contains("' + ui.draggable.attr("alt") + NS.dropNodeInt + '") + dd')
       .append('<p class="rightInfo_RT_IPSM"><span id="rightInfo_PC_RT_IP' + NS.dropNodeInt + '_' + '0' + '">DefaultGateway</span>/<span id="rightInfo_PC_RT_SM' + NS.dropNodeInt + '_' + '0' + '"></span>' +
         '<br/>→<span id="rightInfo_PC_RT_NHA' + NS.dropNodeInt + '_' + '0' + '"></span>：IF<span id="rightInfo_PC_RT_IF' + NS.dropNodeInt + '_' + '0' + '"></span></p>');
@@ -332,10 +330,10 @@ fnMainLanDraw = function() {
     console.log("lanNum:" + lanNum);
     NS.mainCtx.clearRect(0, 0, NS.canvasWidth, NS.canvasHeight);
 
-    for(i=0; i < lanNum.length; i++){
+    for (i = 0; i < lanNum.length; i++) {
       NS.mainCtx.beginPath();
-      NS.mainCtx.moveTo($(".sP_"+ lanNum[i])[0].offsetLeft - NS.mainCanvasWidth, $(".sP_"+ lanNum[i])[0].offsetTop - NS.mainCanvasHeight);
-      NS.mainCtx.lineTo($(".eP_"+ lanNum[i])[0].offsetLeft - NS.mainCanvasWidth, $(".eP_"+ lanNum[i])[0].offsetTop - NS.mainCanvasHeight);
+      NS.mainCtx.moveTo($(".sP_" + lanNum[i])[0].offsetLeft - NS.mainCanvasWidth, $(".sP_" + lanNum[i])[0].offsetTop - NS.mainCanvasHeight);
+      NS.mainCtx.lineTo($(".eP_" + lanNum[i])[0].offsetLeft - NS.mainCanvasWidth, $(".eP_" + lanNum[i])[0].offsetTop - NS.mainCanvasHeight);
       NS.mainCtx.stroke();
     }
 
@@ -347,45 +345,45 @@ fnMainLanDraw = function() {
 fnLanOnDown = function(e) {
   console.log("mousedownのclass: " + $(e.target).attr("class"));
   //開始地点にPCかルータが存在し、かつLANモードがONの場合
-  if ($(e.target).hasClass("dropMachine")) {
+  if (NS.lanFlag && $(e.target).hasClass("dropMachine")) {
     console.log("fnLanOnDown");
     //PCがすでにLANが繋がれているとき
     if ($(e.target).hasClass("contextmenuPC") && $(e.target).hasClass("lanLink")) {
       $("#ns_console").append("<p>> PCにLANは１本しか引けません。 </p>");
-    }else{
-    //canvasの追加
-    NS.addCanvas = $('<canvas width="' + NS.canvasWidth + '" height="' + NS.canvasHeight + '"></canvas>').prependTo('#ns_main');
-    NS.lanPointFlag = true;
-    console.log("addCanvasの中身: " + NS.addCanvas);
+    } else {
+      //canvasの追加
+      NS.addCanvas = $('<canvas width="' + NS.canvasWidth + '" height="' + NS.canvasHeight + '"></canvas>').prependTo('#ns_main');
+      NS.lanPointFlag = true;
+      console.log("addCanvasの中身: " + NS.addCanvas);
 
-    //lanLinkがある場合
-    if ($(this).children(".lanOn").hasClass("lanLink")) {
-      NS.lanLinkFlag = true;
+      //lanLinkがある場合
+      if ($(this).children(".lanOn").hasClass("lanLink")) {
+        NS.lanLinkFlag = true;
+      }
+
+      //classの追加()
+      $(this).children(".lanOn").addClass("lanFirst lanLink sP_" + NS.lanNode);
+      console.log("追加したクラス: " + $(this).children(".lanOn").attr("class"));
+
+      //マウスを押した場所の座標を取得
+      NS.points = [{
+        x: e.pageX - this.offsetLeft,
+        y: e.pageY - this.offsetTop
+      }];
+
+      // if ($('#ns_main .uidraggable').hasClass("lanLink")) {
+      //   NS.elLanMoveThis = $(this);
+      //   NS.lanArrClass = $('#ns_main_canvas').attr("class").split(/\s?L_/);
+      // }
+      //
+      // NS.elLanMoveThis = $(this);
+      // console.log("elLanMoveThis: " + NS.elLanMoveThis);
+
+      //console.log("mousedown.children: " + $(this).children(".lanOn").attr("class"));
+
+      //マウスが移動するときの処理
+      $('#ns_main').on("mousemove", fnLanOnDrag);
     }
-
-    //classの追加()
-    $(this).children(".lanOn").addClass("lanFirst lanLink sP_" + NS.lanNode);
-    console.log("追加したクラス: " + $(this).children(".lanOn").attr("class"));
-
-    //マウスを押した場所の座標を取得
-    NS.points = [{
-      x: e.pageX - this.offsetLeft,
-      y: e.pageY - this.offsetTop
-    }];
-
-    // if ($('#ns_main .uidraggable').hasClass("lanLink")) {
-    //   NS.elLanMoveThis = $(this);
-    //   NS.lanArrClass = $('#ns_main_canvas').attr("class").split(/\s?L_/);
-    // }
-    //
-    // NS.elLanMoveThis = $(this);
-    // console.log("elLanMoveThis: " + NS.elLanMoveThis);
-
-    //console.log("mousedown.children: " + $(this).children(".lanOn").attr("class"));
-
-    //マウスが移動するときの処理
-    $('#ns_main').on("mousemove", fnLanOnDrag);
-  }
   }
 }
 
@@ -393,152 +391,153 @@ fnLanOnDown = function(e) {
 fnLanOnUp = function(e) {
   console.log("fnLanOnUp");
 
-  //マウスを押してドラッグしなかったとき || 画像の上でないとき線を削除 || 最初の画像のとき
-  if (NS.points.length === 1 || !$(e.target).hasClass("dropMachine") || ($(e.target).hasClass("lanFirst"))) {
-    if (NS.lanLinkFlag === true) {
-      $('.sP_' + NS.lanNode).removeClass('sP_' + NS.lanNode);
-    }else{
-      $('.sP_' + NS.lanNode).removeClass('lanLink sP_' + NS.lanNode);
-    }
-    $('#ns_main_canvas').removeClass('L_' + NS.lanNode);
-    NS.lanFlagDelet = false;
-    NS.lanNode--;
-
-    //画像以外をクリックした際エラー(別に関数を用意)
-    NS.addCtx.clearRect(0, 0, NS.canvasWidth, NS.canvasHeight);
-  }
-  //else if bus関連の処理
-
-  //PCにもう線が引かれているとき
-  else if ($(e.target).hasClass('lanLink') &&　$(e.target).hasClass('contextmenuPC')){
-    if (NS.lanLinkFlag === true) {
-      $('.sP_' + NS.lanNode).removeClass('sP_' + NS.lanNode);
-    }else{
-      $('.sP_' + NS.lanNode).removeClass('lanLink sP_' + NS.lanNode);
-    }
-    $('#ns_main_canvas').removeClass('L_' + NS.lanNode);
-    $('#ns_console').append('<p>> PCにLANは1本しか引けません。</p>');
-    NS.lanFlagDelet = false;
-    NS.lanNode--;
-  }
-  //同じ場所に線を引かないようにする
-  else {
-    for(var i = 0; i < NS.lanNode; i++) {
-      if (($('.lanFirst').hasClass('sP_' + i) && $('.lanOn').hasClass('eP_' + i)) ||
-           ($('.lanFirst').hasClass('eP_' + i) && $('.lanOn').hasClass('sP_' + i))) {
-             $('.sP_' + NS.lanNode).removeClass('sP_' + NS.lanNode);
-             $('#ns_main_canvas').removeClass('L_' + NS.lanNode);
-             $('#ns_console').append('<p>> 同じところにLANは引けません。</p>');
-             NS.lanFlagDelet = false;
-             NS.lanNode--;
-             break;
-           }
-    }
-  }
-
-  //画像の真ん中に線を持ってくる
-  if (!($(e.target).hasClass("lanFirst")) && $(e.target).hasClass("lanOn")) {
-    NS.lanArrWidth[NS.lanNode] = NS.lanWidth; //いらないっぽい
-    $(".lanOn").addClass("lanLink eP_" + NS.lanNode);
-
-    $("#ns_main_canvas").addClass("L_" + NS.lanNode);
-    spifnum = parseInt($('.sP_' + NS.lanNode).attr("data-ifnum"));
-    spifnum += 1;
-    epifnum = parseInt($(".eP_" + NS.lanNode).attr("data-ifnum"));
-    epifnum += 1;
-
-    //ココらへん完コピ
-    //lanとifの結びつけ
-    if ($('.sP_' + NS.lanNode).hasClass('bus') == false) {
-      if ($('.sP_' + NS.lanNode).attr('data_lan_if') == '') {
-        tmp =  $('.sP_' + NS.lanNode).attr('data_lan_if');
-        tmp += NS.lanNode + '-' + $('.sP_' + NS.lanNode).attr('data-ifnum');
-        $('.sP_' + NS.lanNode).attr('data_lan_if', tmp);
+  if (NS.lanPointFlag && NS.lanFlag) {
+    NS.lanDeleteFlag = true;
+    //マウスを押してドラッグしなかったとき || 画像の上でないとき線を削除 || 最初の画像のとき
+    if (NS.points.length === 1 || !$(e.target).hasClass("dropMachine") || ($(e.target).hasClass("lanFirst"))) {
+      if (NS.lanLinkFlag === true) {
+        $('.sP_' + NS.lanNode).removeClass('sP_' + NS.lanNode);
+      } else {
+        $('.sP_' + NS.lanNode).removeClass('lanLink sP_' + NS.lanNode);
       }
-      else if ($('.sP_' + NS.lanNode).attr('data_lan_if') != '') {
-        tmp =  $('.sP_' + NS.lanNode).attr('data_lan_if');
-        tmp += ' ';
-        tmp += NS.lanNode + '-' + $('.sP_' + NS.lanNode).attr('data-ifnum');
-        $('.sP_' + NS.lanNode).attr('data_lan_if', tmp);
+      $('#ns_main_canvas').removeClass('L_' + NS.lanNode);
+      NS.lanFlagDelet = false;
+      NS.lanNode--;
+
+      //画像以外をクリックした際エラー(別に関数を用意)
+      NS.addCtx.clearRect(0, 0, NS.canvasWidth, NS.canvasHeight);
+    }
+    //else if bus関連の処理
+
+    //PCにもう線が引かれているとき
+    else if ($(e.target).hasClass('lanLink') && $(e.target).hasClass('contextmenuPC')) {
+      if (NS.lanLinkFlag === true) {
+        $('.sP_' + NS.lanNode).removeClass('sP_' + NS.lanNode);
+      } else {
+        $('.sP_' + NS.lanNode).removeClass('lanLink sP_' + NS.lanNode);
       }
-      tmp = $('.sP_' + NS.lanNode).attr('data-linknum');
-      tmp = parseInt(tmp) + 1;
-      $('.sP_' + NS.lanNode).attr('data-linknum', tmp);
-
+      $('#ns_main_canvas').removeClass('L_' + NS.lanNode);
+      $('#ns_console').append('<p>> PCにLANは1本しか引けません。</p>');
+      NS.lanFlagDelet = false;
+      NS.lanNode--;
     }
-    if ($('.eP_' + NS.lanNode).hasClass('bus') == false) {
-      if ($('.eP_' + NS.lanNode).attr('data_lan_if') == "") {
-        tmp =  $('.eP_' + NS.lanNode).attr('data_lan_if');
-        tmp += NS.lanNode + '-' + $('.eP_' + NS.lanNode).attr('data-ifnum');
-        $('.eP_' + NS.lanNode).attr('data_lan_if', tmp);
+    //同じ場所に線を引かないようにする
+    else {
+      for (var i = 0; i < NS.lanNode; i++) {
+        if (($('.lanFirst').hasClass('sP_' + i) && $('.lanOn').hasClass('eP_' + i)) ||
+          ($('.lanFirst').hasClass('eP_' + i) && $('.lanOn').hasClass('sP_' + i))) {
+          $('.sP_' + NS.lanNode).removeClass('sP_' + NS.lanNode);
+          $('#ns_main_canvas').removeClass('L_' + NS.lanNode);
+          $('#ns_console').append('<p>> 同じところにLANは引けません。</p>');
+          NS.lanFlagDelet = false;
+          NS.lanNode--;
+          break;
+        }
       }
-      else if ($('.eP_' + NS.lanNode).attr('data_lan_if') != "") {
-        tmp =  $('.eP_' + NS.lanNode).attr('data_lan_if');
-        tmp += ' ';
-        tmp += NS.lanNode + '-' + $('.eP_' + NS.lanNode).attr('data-ifnum');
-        $('.eP_' + NS.lanNode).attr('data_lan_if', tmp);
+    }
+
+    //画像の真ん中に線を持ってくる
+    if (!($(e.target).hasClass("lanFirst")) && $(e.target).hasClass("lanOn")) {
+      NS.lanArrWidth[NS.lanNode] = NS.lanWidth; //いらないっぽい
+      $(".lanOn").addClass("lanLink eP_" + NS.lanNode);
+
+      $("#ns_main_canvas").addClass("L_" + NS.lanNode);
+      spifnum = parseInt($('.sP_' + NS.lanNode).attr("data-ifnum"));
+      spifnum += 1;
+      epifnum = parseInt($(".eP_" + NS.lanNode).attr("data-ifnum"));
+      epifnum += 1;
+
+      //ココらへん完コピ
+      //lanとifの結びつけ
+      if ($('.sP_' + NS.lanNode).hasClass('bus') == false) {
+        if ($('.sP_' + NS.lanNode).attr('data_lan_if') == '') {
+          tmp = $('.sP_' + NS.lanNode).attr('data_lan_if');
+          tmp += NS.lanNode + '-' + $('.sP_' + NS.lanNode).attr('data-ifnum');
+          $('.sP_' + NS.lanNode).attr('data_lan_if', tmp);
+        } else if ($('.sP_' + NS.lanNode).attr('data_lan_if') != '') {
+          tmp = $('.sP_' + NS.lanNode).attr('data_lan_if');
+          tmp += ' ';
+          tmp += NS.lanNode + '-' + $('.sP_' + NS.lanNode).attr('data-ifnum');
+          $('.sP_' + NS.lanNode).attr('data_lan_if', tmp);
+        }
+        tmp = $('.sP_' + NS.lanNode).attr('data-linknum');
+        tmp = parseInt(tmp) + 1;
+        $('.sP_' + NS.lanNode).attr('data-linknum', tmp);
+
       }
-      tmp = $('.eP_' + NS.lanNode).attr('data-linknum');
-      tmp = parseInt(tmp) + 1;
-      $('.eP_' + NS.lanNode).attr('data-linknum', tmp);
+      if ($('.eP_' + NS.lanNode).hasClass('bus') == false) {
+        if ($('.eP_' + NS.lanNode).attr('data_lan_if') == "") {
+          tmp = $('.eP_' + NS.lanNode).attr('data_lan_if');
+          tmp += NS.lanNode + '-' + $('.eP_' + NS.lanNode).attr('data-ifnum');
+          $('.eP_' + NS.lanNode).attr('data_lan_if', tmp);
+        } else if ($('.eP_' + NS.lanNode).attr('data_lan_if') != "") {
+          tmp = $('.eP_' + NS.lanNode).attr('data_lan_if');
+          tmp += ' ';
+          tmp += NS.lanNode + '-' + $('.eP_' + NS.lanNode).attr('data-ifnum');
+          $('.eP_' + NS.lanNode).attr('data_lan_if', tmp);
+        }
+        tmp = $('.eP_' + NS.lanNode).attr('data-linknum');
+        tmp = parseInt(tmp) + 1;
+        $('.eP_' + NS.lanNode).attr('data-linknum', tmp);
+      }
+
+
+      //rightinfoに追加
+      //router->router
+      if ($('.sP_' + NS.lanNode).attr('alt').substr(0, 6) === 'Router' && $('.eP_' + NS.lanNode).attr('alt').substr(0, 6) === 'Router') {
+
+        $('#nsf-right dl dt:contains("' + $('.sP_' + NS.lanNode)[0].alt + '") + dd .rightInfo-IPSM:last')
+          .after('<p class="rightInfo-IPSM"><span id="' + $('.sP_' + NS.lanNode).attr('data-ifnum') + '" class="num">IP-' + $('.sP_' + NS.lanNode).attr('data-ifnum') + '</span>: <span id="rightInfo-IP' + $('.sP_' + NS.lanNode)[0].alt.slice(6) + '_' + $('.sP_' + NS.lanNode).attr('data-ifnum') + '"></span>/<span id="rightInfo-SM' +
+            $('.sP_' + NS.lanNode)[0].alt.slice(6) + '_' + $('.sP_' + NS.lanNode).attr('data-ifnum') + '"></span></p>');
+        $('.sP_' + NS.lanNode).attr('data-ifnum', spifnum);
+
+        $('#nsf-right dl dt:contains("' + $('.eP_' + NS.lanNode)[0].alt + '") + dd .rightInfo-IPSM:last')
+          .after('<p class="rightInfo-IPSM"><span id="' + $('.eP_' + NS.lanNode).attr('data-ifnum') + '" class="num">IP-' + $('.eP_' + NS.lanNode).attr('data-ifnum') + '</span>: <span id="rightInfo-IP' + $('.eP_' + NS.lanNode)[0].alt.slice(6) + '_' + $('.eP_' + NS.lanNode).attr('data-ifnum') + '"></span>/<span id="rightInfo-SM' +
+            $('.eP_' + NS.lanNode)[0].alt.slice(6) + '_' + $('.eP_' + NS.lanNode).attr('data-ifnum') + '"></span></p>');
+        $('.eP_' + NS.lanNode).attr('data-ifnum', epifnum);
+
+      }
+
+      //pc,bus->router
+      if ($('.sP_' + NS.lanNode).attr('alt').substr(0, 6) !== 'Router' && $('.eP_' + NS.lanNode).attr('alt').substr(0, 6) === 'Router') {
+
+        $('#nsf-right dl dt:contains("' + $('.eP_' + NS.lanNode)[0].alt + '") + dd .rightInfo-IPSM:last')
+          .after('<p class="rightInfo-IPSM"><span id="' + $('.eP_' + NS.lanNode).attr('data-ifnum') + '" class="num">IP-' + $('.eP_' + NS.lanNode).attr('data-ifnum') + '</span>: <span id="rightInfo-IP' + $('.eP_' + NS.lanNode)[0].alt.slice(6) + '_' + $('.eP_' + NS.lanNode).attr('data-ifnum') + '"></span>/<span id="rightInfo-SM' +
+            $('.eP_' + NS.lanNode)[0].alt.slice(6) + '_' + $('.eP_' + NS.lanNode).attr('data-ifnum') + '"></span></p>');
+        $('.eP_' + NS.lanNode).attr('data-ifnum', epifnum);
+
+      }
+
+      //router->pc,bus
+      if ($('.sP_' + NS.lanNode).attr('alt').substr(0, 6) === 'Router' && $('.eP_' + NS.lanNode).attr('alt').substr(0, 6) !== 'Router') {
+        $('#nsf-right dl dt:contains("' + $('.sP_' + NS.lanNode)[0].alt + '") + dd .rightInfo-IPSM:last')
+          .after('<p class="rightInfo-IPSM"><span id="' + $('.sP_' + NS.lanNode).attr('data-ifnum') + '" class="num">IP-' + $('.sP_' + NS.lanNode).attr('data-ifnum') + '</span>: <span id="rightInfo-IP' + $('.sP_' + NS.lanNode)[0].alt.slice(6) + '_' + $('.sP_' + NS.lanNode).attr('data-ifnum') + '"></span>/<span id="rightInfo-SM' +
+            $('.sP_' + NS.lanNode)[0].alt.slice(6) + '_' + $('.sP_' + NS.lanNode).attr('data-ifnum') + '"></span></p>');
+        $('.sP_' + NS.lanNode).attr('data-ifnum', spifnum);
+      }
+
+
+      //描画
+      //NS.mainCtx.clearRect(0, 0, NS.canvasWidth, NS.canvasHeight);
+      fnMainLanDraw();
     }
+    //変数とフラグを更新
+    NS.lanNode++;
+    NS.points = [];
+    NS.lanLinkFlag = false;
+    NS.lanPointFlag = false;
 
-
-    //rightinfoに追加
-    //router->router
-    if ($('.sP_' + NS.lanNode).attr('alt').substr(0, 6) === 'Router' && $('.eP_' + NS.lanNode).attr('alt').substr(0, 6) === 'Router') {
-
-      $('#nsf-right dl dt:contains("' + $('.sP_' + NS.lanNode)[0].alt + '") + dd .rightInfo-IPSM:last')
-      .after('<p class="rightInfo-IPSM"><span id="' + $('.sP_' + NS.lanNode).attr('data-ifnum') + '" class="num">IP-' + $('.sP_' + NS.lanNode).attr('data-ifnum') + '</span>: <span id="rightInfo-IP' + $('.sP_' + NS.lanNode)[0].alt.slice(6) + '_' + $('.sP_' + NS.lanNode).attr('data-ifnum') + '"></span>/<span id="rightInfo-SM' +
-      $('.sP_' + NS.lanNode)[0].alt.slice(6) + '_' + $('.sP_' + NS.lanNode).attr('data-ifnum') + '"></span></p>');
-      $('.sP_' + NS.lanNode).attr('data-ifnum',spifnum);
-
-      $('#nsf-right dl dt:contains("' + $('.eP_' + NS.lanNode)[0].alt + '") + dd .rightInfo-IPSM:last')
-      .after('<p class="rightInfo-IPSM"><span id="' + $('.eP_' + NS.lanNode).attr('data-ifnum') + '" class="num">IP-' + $('.eP_' + NS.lanNode).attr('data-ifnum') + '</span>: <span id="rightInfo-IP' + $('.eP_' + NS.lanNode)[0].alt.slice(6) + '_' + $('.eP_' + NS.lanNode).attr('data-ifnum') + '"></span>/<span id="rightInfo-SM' +
-      $('.eP_' + NS.lanNode)[0].alt.slice(6) + '_' + $('.eP_' + NS.lanNode).attr('data-ifnum') + '"></span></p>');
-      $('.eP_' + NS.lanNode).attr('data-ifnum', epifnum);
-
-    }
-
-    //pc,bus->router
-    if ($('.sP_' + NS.lanNode).attr('alt').substr(0, 6) !== 'Router' && $('.eP_' + NS.lanNode).attr('alt').substr(0, 6) === 'Router') {
-
-      $('#nsf-right dl dt:contains("' + $('.eP_' + NS.lanNode)[0].alt + '") + dd .rightInfo-IPSM:last')
-      .after('<p class="rightInfo-IPSM"><span id="' + $('.eP_' + NS.lanNode).attr('data-ifnum') + '" class="num">IP-' + $('.eP_' + NS.lanNode).attr('data-ifnum') + '</span>: <span id="rightInfo-IP' + $('.eP_' + NS.lanNode)[0].alt.slice(6) + '_' + $('.eP_' + NS.lanNode).attr('data-ifnum') + '"></span>/<span id="rightInfo-SM' +
-      $('.eP_' + NS.lanNode)[0].alt.slice(6) + '_' + $('.eP_' + NS.lanNode).attr('data-ifnum') + '"></span></p>');
-      $('.eP_' + NS.lanNode).attr('data-ifnum', epifnum);
-
-    }
-
-    //router->pc,bus
-    if ($('.sP_' + NS.lanNode).attr('alt').substr(0, 6) === 'Router' && $('.eP_' + NS.lanNode).attr('alt').substr(0, 6) !== 'Router') {
-      $('#nsf-right dl dt:contains("' + $('.sP_' + NS.lanNode)[0].alt + '") + dd .rightInfo-IPSM:last')
-      .after('<p class="rightInfo-IPSM"><span id="' + $('.sP_' + NS.lanNode).attr('data-ifnum') + '" class="num">IP-' + $('.sP_' + NS.lanNode).attr('data-ifnum') + '</span>: <span id="rightInfo-IP' + $('.sP_' + NS.lanNode)[0].alt.slice(6) + '_' + $('.sP_' + NS.lanNode).attr('data-ifnum') + '"></span>/<span id="rightInfo-SM' +
-      $('.sP_' + NS.lanNode)[0].alt.slice(6) + '_' + $('.sP_' + NS.lanNode).attr('data-ifnum') + '"></span></p>');
-      $('.sP_' + NS.lanNode).attr('data-ifnum',spifnum);
-    }
-
-
-    //描画
-    //NS.mainCtx.clearRect(0, 0, NS.canvasWidth, NS.canvasHeight);
-    fnMainLanDraw();
+    NS.addCanvas.remove();
+    //イベントハンドラの削除
+    $("#ns_main").off("mousemove", NS.fnLanOnDrag);
+    $("#ns_main .ui-draggable").removeClass("lanFirst");
   }
-  //変数とフラグを更新
-  NS.lanNode++;
-  NS.points = [];
-  NS.lanLinkFlag = false;
-  NS.lanPointFlag = false;
-
-  NS.addCanvas.remove();
-  //イベントハンドラの削除
-  $("#ns_main").off("mousemove", NS.fnLanOnDrag);
-  $("#ns_main .ui-draggable").removeClass("lanFirst");
 }
 
 //線を引いてる途中 ns_main以外でマウスを離したとき
 fnLanOnOutUp = function(e) {
   console.log("fnLanOnOutUp");
-  if (NS.lanFlagPoint) {
+  if (NS.lanPointFlag) {
     NS.addCanvas.remove();
     if (!(NS.lanLinkFlag)) {
       $(".sP_" + NS.lanNode).removeClass('lanLink');
@@ -705,12 +704,12 @@ fnChangeMode = function() {
 //削除(エラー)(途中)
 nodeDel = function(e) {
   console.log("nodeDel");
-  nodeName = $(e).attr('class');  //消去したいノードの名前
+  nodeName = $(e).attr('class'); //消去したいノードの名前
   delNode = $('[alt=' + nodeName + ']')[0]; //消去したいノードの要素
   console.log("delNode: " + delNode);
   delNodeClass = $(delNode).attr('class').split(' ');
   delNodeIf = [];
-  mainCanvasHeight = $('#ns_main_canvas').attr('data-y') -35;
+  mainCanvasHeight = $('#ns_main_canvas').attr('data-y') - 35;
   mainCanvasWidth = $('#ns_main_canvas').attr('data-x') - 35;
 
   split_lan = $('#ns_main_canvas').attr('class').split(/\?L_/);
@@ -719,18 +718,18 @@ nodeDel = function(e) {
   $('#ns_main_canvas')[0].getContext('2d').clearRect(0, 0, $('#ns_main').width(), $('#ns_main').height());
 
   //delnodeにつながっているインターフェースを削除
-  for(i = 0; i < split_lan.length; i++) {
+  for (i = 0; i < split_lan.length; i++) {
     if ($(delNode).hasClass('sP_' + split_lan[i])) {
       dataLanIf = $('.eP_' + split_lan[i]).attr('data_lan_if').split(' ');
 
-      for(j = 0; j < dataLanIf.length; j++){
+      for (j = 0; j < dataLanIf.length; j++) {
         dataLanIf[j] = dataLanIf[j].split('-');
 
         if (dataLanIf[j][0] === split_lan[i]) {
           //消去する要素のあとの要素を取得
           //changeElement = $('#rightInfo_IP' + split_lan[i])[0].lalt.slice(6).alt.slice(6) + '_' + dataLanIf[j][1]).parent().nextALL();
           //rightInfoから削除
-          for(k = 0; k < changeElement.lengthi; k++) {
+          for (k = 0; k < changeElement.lengthi; k++) {
             if ($(changeElement[k]).children().hasClass('num')) {
 
             }
@@ -754,8 +753,7 @@ fnAllReset = function() {
   $('#ns_console').html("");
 
   //lanLinkがあるとき
-  if ($('#ns_main .ui-draggable').hasClass('lanLink')) {
-  }
+  if ($('#ns_main .ui-draggable').hasClass('lanLink')) {}
 
   //画像と線の削除
   $('#ns_main img').remove();
