@@ -561,10 +561,9 @@ fnLanOnDrag = function(e) {
   NS.addCtx = NS.addCanvas.get(0).getContext('2d');
   NS.points.push({
     x: e.pageX - this.offsetLeft,
-    y: e.pageY - this.offsetTop
+    y: e.pageY - this.offsetTop,
   });
   NS.addCtx.clearRect(0, 0, NS.canvasWidth, NS.canvasHeight);
-  //NS.mainCtx.clearRect(0, 0, NS.canvasWidth, NS.canvasHeight);
   NS.addCtx.beginPath();
   //色の変更
   if (!($(e.target).hasClass("lanFirst")) && $(e.target).hasClass("lanOn")) {
@@ -586,7 +585,6 @@ fnLanOnDrag = function(e) {
   // NS.mainCtx.lineTo(e.pageX - this.offsetLeft, e.pageY - this.offsetTop); //現在のマウスの座標
   // NS.mainCtx.stroke();
 
-  fnMainLanDraw();
 }
 
 //LANモードがoffかつ、線が描画されているときにマウスを押した際の関数
