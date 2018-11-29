@@ -21,7 +21,7 @@ $(function() {
   //main部分の変数
   NS.mainDropFlag = true;    //draggableのフラグ
   NS.dropNodeInt = 0;       //DropNodeの個数
-  NS.dropName = "";         //dropした画像のクラスの名前
+  //NS.dropName = "";         //dropした画像のクラスの名前
   NS.dropNodeName = "";     //DropNodeの名前
   NS.dropContextName = "";  //DropNodeのContextMenuの名前(?)
   NS.dropNum = 0;

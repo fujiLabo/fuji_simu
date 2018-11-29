@@ -27,17 +27,16 @@ fncontextmenu = function(element) {
 
 
   //PCとルータで場合分け
-  if ($(element).hasClass('dropRouter')) {
+  if ($(element).hasClass('contextmenuRouter')) {
     kind = 'Router';
     //ルータの場合のみルーティングテーブルを増やすボタンを表示
     $('#addRButtom').css('display', 'block');
-  } else if ($(element).hasClass('dropPC')) {
+  } else if ($(element).hasClass('contextmenuPC')) {
     //fnCreateIP_SM($(element).attr('dropNumber'), 0, 'PC');
     kind = 'PC';
 
     $('#addRButtom').css('display', 'none');
   }
-
 
   fnCreateIP_SM(nodeNum, ifNum, kind);
   fnCreateRT(0, 0);
@@ -224,7 +223,7 @@ fnMainDrop = function(ui, obj) {
     NS.dropNodeInt = NS.pcNode;
     NS.dropNodeName = "PC" + NS.pcNode;
     NS.dropContextName = "contextmenuPC";
-    NS.dropName = "dropPC";
+    //NS.dropName = "dropPC";
     NS.pcNode++;
     console.log("nodename: " + NS.dropNodeName);
   } else if (ui.draggable.attr("id") === "Router") {
@@ -232,7 +231,7 @@ fnMainDrop = function(ui, obj) {
     NS.dropNodeInt = NS.ruNode;
     NS.dropNodeName = "Router" + NS.ruNode;
     NS.dropContextName = "contextmenuRouter";
-    NS.dropName = "dropRouter";
+    //NS.dropName = "dropRouter";
     NS.ruNode++;
   }
 
@@ -241,7 +240,7 @@ fnMainDrop = function(ui, obj) {
     $('<img>').attr({
       src: ui.draggable.attr('src'),
       alt: NS.dropNodeName,
-      class: NS.dropName,
+      class: NS.dropContextName,
       'dropNumber': NS.dropNodeInt,
       'data_ifnum': 0,
       'data_lan_if': '',
@@ -264,10 +263,10 @@ fnMainDrop = function(ui, obj) {
     //ドラッグ中
     drag: function() {
       //何してるかわからないし、なくても問題なかった
-      $(this).prev().offset({
-        top:  this.offsetTop - 15,
-        left: this.offsetLeft + 42,
-      });
+      // $(this).prev().offset({
+      //   top:  this.offsetTop - 15,
+      //   left: this.offsetLeft + 42,
+      // });
       $(this).prev().css('zIndex', 3);
     },
 
@@ -324,7 +323,7 @@ fnMainLanDraw = function() {
   console.log("fnMainLanDrawだよー");
   console.log("ns_main_canvasのクラス: " + $('#ns_main_canvas').attr('class'));
   if ($('#ns_main_canvas').attr('class') != '') {
-    //NS.mainCtx.beginPath();
+    NS.mainCtx.beginPath();
     lanNum = $('#ns_main_canvas').attr('class').split(' ');
     for (i = 0; i < lanNum.length; i++) {
       lanNum[i] = lanNum[i].slice(2);
@@ -333,10 +332,10 @@ fnMainLanDraw = function() {
     console.log("lanNum:" + lanNum);
     NS.mainCtx.clearRect(0, 0, NS.canvasWidth, NS.canvasHeight);
 
-    for (i = 0; i < lanNum.length; i++) {
+    for(i=0; i < lanNum.length; i++){
       NS.mainCtx.beginPath();
-      NS.mainCtx.moveTo($(".sP_" + lanNum[i])[0].offsetLeft - NS.mainCanvasWidth, $(".sP_" + lanNum[i])[0].offsetTop - NS.mainCanvasHeight);
-      NS.mainCtx.lineTo($(".eP_" + lanNum[i])[0].offsetLeft - NS.mainCanvasWidth, $(".eP_" + lanNum[i])[0].offsetTop - NS.mainCanvasHeight);
+      NS.mainCtx.moveTo($(".sP_"+ lanNum[i])[0].offsetLeft - NS.mainCanvasWidth, $(".sP_"+ lanNum[i])[0].offsetTop - NS.mainCanvasHeight);
+      NS.mainCtx.lineTo($(".eP_"+ lanNum[i])[0].offsetLeft - NS.mainCanvasWidth, $(".eP_"+ lanNum[i])[0].offsetTop - NS.mainCanvasHeight);
       NS.mainCtx.stroke();
     }
 
@@ -351,7 +350,7 @@ fnLanOnDown = function(e) {
   if ($(e.target).hasClass("dropMachine")) {
     console.log("fnLanOnDown");
     //PCがすでにLANが繋がれているとき
-    if ($(e.target).hasClass("dropPC") && $(e.target).hasClass("lanLink")) {
+    if ($(e.target).hasClass("contextmenuPC") && $(e.target).hasClass("lanLink")) {
       $("#ns_console").append("<p>> PCにLANは１本しか引けません。 </p>");
     }else{
     //canvasの追加
@@ -385,7 +384,7 @@ fnLanOnDown = function(e) {
     //console.log("mousedown.children: " + $(this).children(".lanOn").attr("class"));
 
     //マウスが移動するときの処理
-    $('#ns_main').on("mousemove", fnMouseMove);
+    $('#ns_main').on("mousemove", fnLanOnDrag);
   }
   }
 }
@@ -411,7 +410,7 @@ fnLanOnUp = function(e) {
   //else if bus関連の処理
 
   //PCにもう線が引かれているとき
-  else if ($(e.target).hasClass('lanLink') &&　$(e.target).hasClass('dropPC')){
+  else if ($(e.target).hasClass('lanLink') &&　$(e.target).hasClass('contextmenuPC')){
     if (NS.lanLinkFlag === true) {
       $('.sP_' + NS.lanNode).removeClass('sP_' + NS.lanNode);
     }else{
@@ -532,7 +531,7 @@ fnLanOnUp = function(e) {
 
   NS.addCanvas.remove();
   //イベントハンドラの削除
-  $("#ns_main").off("mousemove", NS.fnMouseMove);
+  $("#ns_main").off("mousemove", NS.fnLanOnDrag);
   $("#ns_main .ui-draggable").removeClass("lanFirst");
 }
 
@@ -544,7 +543,7 @@ fnLanOnOutUp = function(e) {
     if (!(NS.lanLinkFlag)) {
       $(".sP_" + NS.lanNode).removeClass('lanLink');
     }
-    $('#ns_main').off('mousemove', fnMouseMove);
+    $('#ns_main').off('mousemove', fnLanOnDrag);
     $('#ns_main .ui-draggable').removeClass('lanFirst');
     $('.sP_' + NS.lanNode).removeClass('sP_' + NS.lanNode);
     $('#ns_main_canvas').removeClass('L_' + NS.lanNode);
@@ -556,8 +555,8 @@ fnLanOnOutUp = function(e) {
 }
 
 //マウスが移動した際
-fnMouseMove = function(e) {
-  console.log("fnMouseMove");
+fnLanOnDrag = function(e) {
+  console.log("fnLanOnDrag");
   //マウスを押した場所から現在の場所までの線を再描画
   NS.addCtx = NS.addCanvas.get(0).getContext('2d');
   NS.points.push({
@@ -587,7 +586,7 @@ fnMouseMove = function(e) {
   // NS.mainCtx.lineTo(e.pageX - this.offsetLeft, e.pageY - this.offsetTop); //現在のマウスの座標
   // NS.mainCtx.stroke();
 
-  //fnMainLanDraw();
+  fnMainLanDraw();
 }
 
 //LANモードがoffかつ、線が描画されているときにマウスを押した際の関数
@@ -757,6 +756,8 @@ fnAllReset = function() {
   $('#ns_console').html("");
 
   //lanLinkがあるとき
+  if ($('#ns_main .ui-draggable').hasClass('lanLink')) {
+  }
 
   //画像と線の削除
   $('#ns_main img').remove();
