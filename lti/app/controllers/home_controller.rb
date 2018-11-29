@@ -29,11 +29,13 @@ class HomeController < ApplicationController
     @METHOD = "POST"
     #@KEY = params[:oauth_consumer_key] + "&"
     @Nonce = params[:oauth_nonce]
-    #@Oauth_Consumer_key = params[:oauth_consumer_key]
+    @Oauth_Consumer_key = params[:oauth_consumer_key]
     #@KEY = @Oauth_Consumer_key + "&"
-    @KEY = "&"
+    @KEY = "321&"
+    #@KEY = "140beed4619fd0cdaff80e163a125eca&"
     @REQUEST = CGI.escape("http://localhost:3000/home/create")
     @SourcedId = params[:lis_result_sourcedid]
+    @SourcedId = params[:lis_course_section_sourcedid]
     #x-frameでの表示をすべてに許可する
     response.headers['X-Frame-Options'] = 'ALLOWALL'
 
@@ -135,19 +137,19 @@ class HomeController < ApplicationController
 
 #OAuth_hashを作るぞ〜〜〜〜
 
-@Oauth_strings = "OAuth realm" + "=" + "\"http://sp.example.com/\"" + "," +
-                 "oauth_consumer_key" + "=" + "\"" + @KEY + "\"" + "," +
+puts @Oauth_strings = "OAuth realm" + "=" + "\"http://sp.example.com/\"" + "," +
+                 "oauth_consumer_key" + "=" + "\"" + @Oauth_Consumer_key + "\"" + "," +
                  "oauth_signature_method" + "=" + "\"HMAC-SHA1\"" + "," +
                  "oauth_timestamp" + "=" + "\"" + @timestamp + "\"" + "," +
                  "oauth_nonce" + "=" + "\"" + @Nonce + "\"" + "," +
                  "oauth_version" + "=" + "\"" + "1.0" + "\"" "," +
                  "oauth_signature" + "=" + "\"" + @oauth_signature + "\""
 
-=begin
+#=begin
                    header = {'Content-Type': 'application/xml',
                      'Authorization': @Oauth_strings
                    }
-=end
+#=end
 
   doc = REXML::Document.new(@File_read_Xml)
   element = doc.elements['imsx_POXEnvelopeRequest/imsx_POXBody/replaceResultRequest/resultRecord/sourcedGUID/sourcedId']
@@ -168,6 +170,7 @@ class HomeController < ApplicationController
   request.body = doc.to_s
 #=end
 
+
 =begin
 #test
 http = Net::HTTP.new("133.14.14.232", 80)
@@ -187,8 +190,3 @@ request.body = doc.to_s
   end
 
 end
-
-=begin
-
-
-=end
