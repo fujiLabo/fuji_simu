@@ -436,6 +436,7 @@ fnLanOnUp = function(e) {
           $('#ns_console').append('<p>> 同じところにLANは引けません。</p>');
           NS.lanFlagDelet = false;
           NS.lanNode--;
+          //fnMainLanDraw();
           break;
         }
       }

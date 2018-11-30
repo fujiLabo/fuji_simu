@@ -54,6 +54,39 @@ $.when(
     }
   });
 
+  $('#bus').draggable({
+    helper: 'clone',
+    revert: true,
+    zIndex: 3,
+
+    start: function(e, ui) {
+      $(this).addClass('dragout')
+    },
+    stop: function(e, ui) {
+      $(this).removeClass('dragout')
+    },
+  });
+
+  $('#ns_main').droppable({
+    accept: '#Bus',
+    tolerance: 'fit',
+
+      //ドロップされたとき
+      drop: function(e, ui) {
+        fnBusDrop();
+      },
+      //ドロップを受け入れる Draggable 要素がドラッグを終了したとき
+      deactivate: function(e, ui) {
+        ui.draggable.draggable({
+
+        });
+        // if (NS.mainDropFlag == false) {
+        //   NS.mainDropFlag = true;
+        // }
+      }
+    });
+
+
   //ns_mainの画像の上にいるとき
   $('#ns_main').on('mouseover', 'img', function(e) {
 
