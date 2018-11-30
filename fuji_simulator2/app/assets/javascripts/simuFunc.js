@@ -315,6 +315,10 @@ fnMainDrop = function(ui, obj) {
   //fnNameDraw(ui.draggable.attr('alt') + NS.dropNodeInt);
 }
 
+fnBusDrop = function() {
+  console.log('fnBusDrop');
+}
+
 //メインの線の描画
 //関連付けされたsPとePの画像の中心から中心への描画
 fnMainLanDraw = function() {

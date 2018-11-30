@@ -20,7 +20,7 @@ $.when(
   });
 
   //PCやルータのドラッグ設定
-  $('.machine').draggable({
+  $('.dropImage').draggable({
     helper: 'clone',
     revert: true,
     zIndex: 3,
@@ -35,11 +35,13 @@ $.when(
 
   //ns_mainにドロップ
   $('#ns_main').droppable({
-    accept: '.machine',
+    accept: '.dropImage',
     tolerance: 'fit',
+
 
     //ドロップされたとき
     drop: function(e, ui) {
+      console.log("DROP!!!");
       NS.mainDropFlag = false;
       fnMainDrop(ui, $(this));
     },
@@ -67,24 +69,24 @@ $.when(
     },
   });
 
-  $('#ns_main').droppable({
-    accept: '#Bus',
-    tolerance: 'fit',
-
-      //ドロップされたとき
-      drop: function(e, ui) {
-        fnBusDrop();
-      },
-      //ドロップを受け入れる Draggable 要素がドラッグを終了したとき
-      deactivate: function(e, ui) {
-        ui.draggable.draggable({
-
-        });
-        // if (NS.mainDropFlag == false) {
-        //   NS.mainDropFlag = true;
-        // }
-      }
-    });
+  // $('#ns_main').droppable({
+  //   accept: '#Bus',
+  //   tolerance: 'fit',
+  //
+  //     //ドロップされたとき
+  //     drop: function(e, ui) {
+  //       fnBusDrop();
+  //     },
+  //     //ドロップを受け入れる Draggable 要素がドラッグを終了したとき
+  //     deactivate: function(e, ui) {
+  //       ui.draggable.draggable({
+  //
+  //       });
+  //       // if (NS.mainDropFlag == false) {
+  //       //   NS.mainDropFlag = true;
+  //       // }
+  //     }
+  //   });
 
 
   //ns_mainの画像の上にいるとき
