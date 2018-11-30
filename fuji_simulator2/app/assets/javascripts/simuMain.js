@@ -77,6 +77,13 @@ $.when(
 
   //ns_mainのバスの上から外れたとき
 
+  //バスのドラッグ後
+
+  //animecanvasを削除
+  $('body').click(function () {
+    $('.animecanvasflag').remove();
+  })
+
   //マウスを動かしている間再描画
   $('#ns_main').mousemove(function(e) {
     if ($('#ns_main_canvas').attr('class') === '' && $('#ns_main img').length > 0){
