@@ -277,21 +277,21 @@ fnMainDrop = function(ui, obj) {
   //ドロップした際にLANモードがonならば、ドラッグを不可にする
   if (NS.lanFlag) {
     var elMainImgLast = $('#ns_main img:last-child');
-    elMainImgLast.draggable('disable');
     elMainImgLast.mouseup(function(e) {
       e.preventDefault(e);
     });
     elMainImgLast.mousedown(function(e) {
       e.preventDefault(e);
     });
-    //あったほうがいいんだろうがもっと他にやり方ありそう
     //応急処置感
     elMainImgLast.mouseenter(function() {
       NS.imgFlag = true;
       $(this).addClass("lanOn");
+      $(this).draggable('disable');
     }).mouseleave(function() {
       NS.imgFlag = false;
       $(this).removeClass("lanOn");
+      $(this).draggable('enable');
     });
   }
   //changeDrag();
@@ -345,7 +345,7 @@ fnMainLanDraw = function() {
 fnLanOnDown = function(e) {
   console.log("mousedownのclass: " + $(e.target).attr("class"));
   //開始地点にPCかルータが存在し、かつLANモードがONの場合
-  if (NS.lanFlag && $(e.target).hasClass("dropMachine")) {
+  if ( NS.imgFlag && NS.lanFlag) {
     console.log("fnLanOnDown");
     //PCがすでにLANが繋がれているとき
     if ($(e.target).hasClass("contextmenuPC") && $(e.target).hasClass("lanLink")) {
@@ -623,29 +623,11 @@ fnChangeLanMode = function() {
     $('#lan').attr('src', '/assets/lanCableOn.png');
     NS.lanFlag = true;
 
-    //画像のドラッグを禁止
-    elMainDrag.draggable('disable');
-    elMainDrag.mouseup(function(e) {
-      e.preventDefault();
-    });
-    elMainDrag.mousedown(function(e) {
-      e.preventDefault();
-    });
-    //画像にマウスが乗ったときの動作
-    elMainDrag.mouseenter(function() {
-      console.log("マウスが画像に乗った");
-      NS.imgFlag = true;
-      $(this).addClass("lanOn");
-    }).mouseleave(function() {
-      console.log("マウスが画像から離れた");
-      NS.imgFlag = false;
-      $(this).removeClass("lanOn");
-    })
-
     //イベントハンドラーをつける
     elMain.on("mousedown", fnLanOnDown); //マウスを押した瞬間
     elMain.on("mouseup", fnLanOnUp); //マウスを離した瞬間
     elHtml.on("mouseup", fnLanOnOutUp);
+
     //lanLinkがあるとき
     if (elMainDrag.hasClass("lanLink")) {
       elMain.off("muusedown", fnLanOffDown);
@@ -655,6 +637,24 @@ fnChangeLanMode = function() {
     //カーソルの変更
     elMain.css("cursor", "crosshair");
     elMainDrag.css("cursor", "crosshair");
+
+    //画像のドラッグ防止
+    elMainDrag.mouseup(function(e) { e.preventDefault(); });
+    elMainDrag.mousedown(function(e) {e.preventDefault(); });
+
+    //画像にマウスが乗ったときの動作
+    elMainDrag.mouseenter(function() {
+      console.log("マウスが画像に乗った");
+      NS.imgFlag = true;
+      $(this).addClass("lanOn");
+      $(this).draggable('disable');
+    }).mouseleave(function() {
+      console.log("マウスが画像から離れた");
+      NS.imgFlag = false;
+      $(this).removeClass("lanOn");
+      $(this).draggable('enable');
+    });
+
   } else { //lanボタンがonのとき
     //lanボタンをoffにする
     $('#lan').attr('src', '/assets/lanCableOff.png');
