@@ -41,7 +41,6 @@ $.when(
 
     //ドロップされたとき
     drop: function(e, ui) {
-      console.log("DROP!!!");
       NS.mainDropFlag = false;
       fnMainDrop(ui, $(this));
     },

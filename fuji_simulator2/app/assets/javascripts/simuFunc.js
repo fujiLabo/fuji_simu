@@ -215,6 +215,15 @@ $().introtzikas({
 //画像をmain部分にドロップする際の関数
 fnMainDrop = function(ui, obj) {
   //機種の判別
+  if (ui.draggable.attr('id') === 'Bus'){
+    fnBusDrop();
+  }else{
+    fnMachineDrop(ui, obj);
+  }
+
+}
+
+fnMachineDrop = function(ui, obj){
   if (ui.draggable.attr("id") === "PC") {
     NS.dropNodeInt = NS.pcNode;
     NS.dropNodeName = "PC" + NS.pcNode;
@@ -227,6 +236,8 @@ fnMainDrop = function(ui, obj) {
     NS.dropContextName = "contextmenuRouter";
     //NS.dropName = "dropRouter";
     NS.ruNode++;
+  } else if (ui.draggable.attr('id') === 'Bus') {
+    fnBusDrop();
   }
 
   //ドロップした画像を追加
