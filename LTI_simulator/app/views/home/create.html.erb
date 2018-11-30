@@ -89,7 +89,7 @@
 <%= form_tag(@Return_grade , method: :POST) do %>
 <%=# hidden_field_tag :lis_outcome_service_url,"resultScore > textString" %>
 <%=# hidden_field_tag :lis_result_sourcedid,"resultScore > textString" %>
-
-<%= submit_tag 'grade' %>
-
+<%= grade %>
 <% end %>
+
+<%= button_to "成績", { :action => "grade"}, :method => "POST" %>

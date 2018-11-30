@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   get "/home/temp" => "home#temp"
   get "/home/tstamp" => "home#tstamp"
   get "/home/error" => "home#error"
+  post "/home/grade" => "home#grade"
 end
