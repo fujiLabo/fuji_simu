@@ -603,7 +603,10 @@ fnLanOffDown = function(e) {
 //LANモードがoffかつ、線が描画されているときにマウスを離した際の関数
 fnLanOffUp = function(e) {
   console.log("fnLanOffUp");
-  NS.elLanMoveThis.off("mousemove", fnLanOffDrag);
+  if (NS.lanMoveFlag === true) {
+    NS.lanMoveFlag = false;
+    NS.elLanMoveThis.off("mousemove", fnLanOffDrag);
+  }
 }
 
 fnLanOffOutUp = function(e) {
