@@ -184,41 +184,41 @@ $.when(
     })
   })
 
-  //描画中にns_main_canvasの外に出たとき描画を中止する
-  $('html').on('mouseover', function(e) {
-    console.log('mouseover html');
-    if ($(e.target).attr('id') != 'ns_main_canvas' && NS.busDrawFrag == true && $(e.target).hasClass('ui-draggable') == false) {
-      NS.points = [];
-      NS.addCanvas.remove();
-      NS.busDrawFrag = false;
-      //イベントハンドラの削除
-      //$('#ns_main').off('mousemove', fnBusDrag);
-      //$('#ns_main').off('mouseup', fnBusUp);
-    }
-
-    if ($(e.target).attr('id') != 'ns_main_canvas') {
-      console.log('ns_main_canvas外');
-    }
-    if (NS.lanPointFlag === true){
-      console.log('lanPointがtrue');
-    }
-
-    if ($(e.target).attr('id') != 'ns_main_canvas' && NS.lanPointFlag == true && $(e.target).hasClass('ui-draggable') == false){
-      console.log('消したるで');
-      NS.addCanvas.remove();
-      if (!(NS.lanLinkFlag)) {
-        $('.sP_' + NS.lanNode).removeClass('lanLink');
-      }
-      $('#ns_main').off('mousemove', fnLanOnDrag);
-      $('#ns_main .ui-draggable').removeClass('lanFirst');
-      $('.sP_' + NS.lanNode).removeClass('sP_' + NS.lanNode);
-      $('#ns_main_canvas').removeClass('L_' + NS.lanNode);
-      //変数とフラグのリセット
-      NS.points = [];
-      NS.lanLinkFlag = false;
-      NS.lanPointFlag = false;
-    }
-  });
+  // //描画中にns_main_canvasの外に出たとき描画を中止する
+  // $('html').on('mouseover', function(e) {
+  //   console.log('mouseover html');
+  //   if ($(e.target).attr('id') != 'ns_main_canvas' && NS.busDrawFrag == true && $(e.target).hasClass('ui-draggable') == false) {
+  //     NS.points = [];
+  //     NS.addCanvas.remove();
+  //     NS.busDrawFrag = false;
+  //     //イベントハンドラの削除
+  //     //$('#ns_main').off('mousemove', fnBusDrag);
+  //     //$('#ns_main').off('mouseup', fnBusUp);
+  //   }
+  //
+  //   if ($(e.target).attr('id') != 'ns_main_canvas') {
+  //     console.log('ns_main_canvas外');
+  //   }
+  //   if (NS.lanPointFlag === true){
+  //     console.log('lanPointがtrue');
+  //   }
+  //
+  //   if ($(e.target).attr('id') != 'ns_main_canvas' && NS.lanPointFlag == true && $(e.target).hasClass('.dropMachine') == true){
+  //     console.log('消したるで');
+  //     NS.addCanvas.remove();
+  //     if (!(NS.lanLinkFlag)) {
+  //       $('.sP_' + NS.lanNode).removeClass('lanLink');
+  //     }
+  //     $('#ns_main').off('mousemove', fnLanOnDrag);
+  //     $('#ns_main .ui-draggable').removeClass('lanFirst');
+  //     $('.sP_' + NS.lanNode).removeClass('sP_' + NS.lanNode);
+  //     $('#ns_main_canvas').removeClass('L_' + NS.lanNode);
+  //     //変数とフラグのリセット
+  //     NS.points = [];
+  //     NS.lanLinkFlag = false;
+  //     NS.lanPointFlag = false;
+  //   }
+  // });
 
   //ブラウザをリサイズ(ブラウザのサイズを変更した際に呼び出される)
   $(window).resize(function(){
