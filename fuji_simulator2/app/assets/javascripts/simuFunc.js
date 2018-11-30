@@ -212,9 +212,9 @@ $().introtzikas({
 });
 */
 
-//画像をmain部分にドロップする際の関数
+//左部分からドロップされた画像を判別する関数
 fnMainDrop = function(ui, obj) {
-  //機種の判別
+  //種類の判別
   if (ui.draggable.attr('id') === 'Bus'){
     fnBusDrop();
   }else{
@@ -223,6 +223,7 @@ fnMainDrop = function(ui, obj) {
 
 }
 
+//ドロップされた画像がPCまたはルータだった場合
 fnMachineDrop = function(ui, obj){
   if (ui.draggable.attr("id") === "PC") {
     NS.dropNodeInt = NS.pcNode;
@@ -326,8 +327,12 @@ fnMachineDrop = function(ui, obj){
   //fnNameDraw(ui.draggable.attr('alt') + NS.dropNodeInt);
 }
 
+//ドロップされた画像がBusだった場合
 fnBusDrop = function() {
   console.log('fnBusDrop');
+  NS.addCtx = NS.addCanvas.get(0).getContext('2d');
+  NS.addCtx.clearRect(0, 0, NS.canvasWidth, NS.canvasHeight);
+
 }
 
 //メインの線の描画
