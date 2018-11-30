@@ -52,7 +52,7 @@ $(function() {
   NS.busFlag = false;
   NS.busDrawFrag = false;
   NS.lanLinkFlag;           //lanLinkがあるとき
-  NS.lanPointFlag;          //mouseDownが実行されたとき
+  NS.lanPointFlag = false;          //mouseDownが実行されたとき
   NS.lanDeleteFlag;         //mouseDownを削除するとき
   NS.lanMoveFlag;           //mouseMoveDownが実行されたとき
 

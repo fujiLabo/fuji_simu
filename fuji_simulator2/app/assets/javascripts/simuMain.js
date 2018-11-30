@@ -33,14 +33,17 @@ $.when(
     },
   });
 
+  //ns_mainにドロップ
   $('#ns_main').droppable({
     accept: '.machine',
     tolerance: 'fit',
 
+    //ドロップされたとき
     drop: function(e, ui) {
       NS.mainDropFlag = false;
       fnMainDrop(ui, $(this));
     },
+    //ドロップを受け入れる Draggable 要素がドラッグを終了したとき
     deactivate: function(e, ui) {
       ui.draggable.draggable({
         revert: NS.mainDropFlag
@@ -50,6 +53,29 @@ $.when(
       }
     }
   });
+
+  //ns_mainの画像の上にいるとき
+  $('#ns_main').on('mouseover', 'img', function(e) {
+
+    $(e.target).addClass('mouseover');
+
+    $("#ns_right dt:contains('" + $(this).attr("alt") + "'), #ns_right dt:contains('" + $(this).attr("alt") + "') + dd").css({
+      color: "#49cbf6",
+    });
+  }).on("mouseout", "img", function(e) {
+    $("#ns_right dt:contains('"+ $(this).attr("alt") +"'), #ns_right dt:contains('"+ $(this).attr("alt") +"') + dd").css({
+      color: "",
+    });
+  });
+
+  //busの上にあるとき
+
+  //ns_mainの画像の上から外れたとき
+  $("#ns_main").on("mouseout", "img", function(e) {
+    $(e.target).removeClass('mouseover');
+  });
+
+  //ns_mainのバスの上から外れたとき
 
   //マウスを動かしている間再描画
   $('#ns_main').mousemove(function(e) {
@@ -165,6 +191,9 @@ $.when(
 
     if ($(e.target).attr('id') != 'ns_main_canvas') {
       console.log('ns_main_canvas外');
+    }
+    if (NS.lanPointFlag === true){
+      console.log('lanPointがtrue');
     }
 
     if ($(e.target).attr('id') != 'ns_main_canvas' && NS.lanPointFlag == true && $(e.target).hasClass('ui-draggable') == false){

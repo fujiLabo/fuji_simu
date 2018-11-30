@@ -371,6 +371,11 @@ fnLanOnDown = function(e) {
         y: e.pageY - this.offsetTop
       }];
 
+      //busから線を引いたときのフラグ
+      if ($('.sP_' + NS.lanNode).hasClass('bus')) {
+        NS.busFlag = true;
+      }
+
       // if ($('#ns_main .uidraggable').hasClass("lanLink")) {
       //   NS.elLanMoveThis = $(this);
       //   NS.lanArrClass = $('#ns_main_canvas').attr("class").split(/\s?L_/);
