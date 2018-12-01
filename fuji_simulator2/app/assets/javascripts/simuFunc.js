@@ -393,6 +393,129 @@ fnMainLanDraw = function() {
   }
 }
 
+//ifをcanvasに描画
+fnIfDraw = function () {
+
+  NS.mainCtx.beginPath();
+  ctx = document.getElementById('ns_main_canvas').getContext('2d');
+
+  lanClass =  $('#ns_main_canvas').attr('class').split(/\s?L_/);
+
+  for(lanClassNum=1; lanClassNum < lanClass.length; lanClassNum++){
+    lanNum = lanClass[lanClassNum];
+
+    //sPがbusでない
+    if ($('.sP_' + lanNum).attr('data_lan_if') != undefined) {
+      spSplit = $('.sP_' + lanNum).attr('data_lan_if').split(' ');
+      spLanIf = [];
+      for(i=0; i < spSplit.length; i++){
+        spLanIf[i] = spSplit[i].split('-')
+      }
+      for(i=0; i < spLanIf.length; i++){
+        if (spLanIf[i][0] == lanNum) {
+          spIf = 'if' + spLanIf[i][1];
+        }
+      }
+      spX = $('.sP_' + lanNum)[0].style.left.slice(0, -2) - NS.mainCanvasWidth;
+      spY = $('.sP_' + lanNum)[0].style.top.slice(0, -2) - NS.mainCanvasHeight;
+      spType = $('.sP_' + lanNum).attr('alt').substr(0, 6);
+    }
+    //sPがbus
+    else {
+      //busが上
+      if ($('.eP_' + lanNum)[0].style.top.slice(0, -2) > $('.sP_' + lanNum)[0].style.top.slice(0, -2)) {
+        spX = $('.eP_' + lanNum)[0].style.left.slice(0, -2) - NS.mainCanvasWidth + 25;
+        spY = $('.sP_' + lanNum)[0].style.top.slice(0, -2) - NS.mainCanvasHeight;
+      }
+      //busが下
+      else {
+        spX = $('.eP_' + lanNum)[0].style.left.slice(0, -2) - NS.mainCanvasWidth + 25;
+        spY = $('.sP_' + lanNum)[0].style.top.slice(0, -2) - NS.mainCanvasHeight;
+      }
+      spIf = ''
+    }
+
+    //ePがbusでない
+    if ($('.eP_' + lanNum).attr('data_lan_if') != undefined) {
+      epSplit = $('.eP_' + lanNum).attr('data_lan_if').split(' ');
+      epLanIf = [];
+      for(i=0; i < epSplit.length; i++){
+        epLanIf[i] = epSplit[i].split('-')
+      }
+      for(i=0; i < epLanIf.length; i++){
+        if (epLanIf[i][0] == lanNum) {
+          epIf = 'if' + epLanIf[i][1];
+        }
+      }
+      epX = $('.eP_' + lanNum)[0].style.left.slice(0, -2) - NS.mainCanvasWidth;
+      epY = $('.eP_' + lanNum)[0].style.top.slice(0, -2) - NS.mainCanvasHeight;
+      epType = $('.eP_' + lanNum).attr('alt').substr(0, 6);
+    }
+    //ePがbus
+    else {
+      //busが上
+      if ($('.eP_' + lanNum)[0].style.top.slice(0, -2) < $('.sP_' + lanNum)[0].style.top.slice(0, -2)) {
+        epX = $('.sP_' + lanNum)[0].style.left.slice(0, -2) - NS.mainCanvasWidth + 25;
+        epY = $('.eP_' + lanNum)[0].style.top.slice(0, -2) - NS.mainCanvasHeight;
+      }
+      //busが下
+      else {
+        epX = $('.sP_' + lanNum)[0].style.left.slice(0, -2) - NS.mainCanvasWidth + 25;
+        epY = $('.eP_' + lanNum)[0].style.top.slice(0, -2) - NS.mainCanvasHeight;
+      }
+      epIf = ''
+    }
+
+    if ($('.sP_' + lanNum).attr('data_lan_if') != undefined) {
+      ifDraw(spX, spY, epX, epY, spType, spIf);
+    }
+    if ($('.eP_' + lanNum).attr('data_lan_if') != undefined) {
+      ifDraw(epX, epY, spX, spY, epType, epIf);
+    }
+  }
+
+  function ifDraw(aX, aY, bX, bY, type, ifname) {
+    if (type === 'Router') {
+      //楕円と直線の交点を求める
+      var s = 50;
+      var t = 30;
+      var a = (bY-aY) / (bX-aX);
+      var x = Math.sqrt((s*s * t*t) / (t*t + a*a * s*s));
+      var y = a * x;
+
+      if (bX-aX > 0) {
+        x = x + aX;
+        y = y + aY;
+        ctx.fillText(ifname, x, y, 200);
+      }
+      else {
+        x = aX - x;
+        y = aY - y;
+        ctx.fillText(ifname, x, y, 200);
+      }
+
+    }
+    else {
+      //円と直線の交点を求める
+      var a = (bY-aY) / (bX-aX);
+      var r = 50;
+      var x = Math.sqrt(r*r / (1+a*a));
+      var y = a * x;
+
+      if (bX-aX > 0) {
+        x = x + aX;
+        y = y + aY;
+        ctx.fillText(ifname, x, y, 200);
+      }
+      else {
+        x = aX - x;
+        y = aY - y;
+        ctx.fillText(ifname, x, y, 200);
+      }
+    }
+  }
+}
+
 
 //マウスが押された瞬間
 fnLanOnDown = function(e) {
@@ -557,12 +680,12 @@ fnLanOnUp = function(e) {
       //router->router
       if ($('.sP_' + NS.lanNode).attr('alt').substr(0, 6) === 'Router' && $('.eP_' + NS.lanNode).attr('alt').substr(0, 6) === 'Router') {
 
-        $('#nsf-right dl dt:contains("' + $('.sP_' + NS.lanNode)[0].alt + '") + dd .rightInfo-IPSM:last')
+        $('#NS-right dl dt:contains("' + $('.sP_' + NS.lanNode)[0].alt + '") + dd .rightInfo-IPSM:last')
           .after('<p class="rightInfo-IPSM"><span id="' + $('.sP_' + NS.lanNode).attr('data-ifnum') + '" class="num">IP-' + $('.sP_' + NS.lanNode).attr('data-ifnum') + '</span>: <span id="rightInfo-IP' + $('.sP_' + NS.lanNode)[0].alt.slice(6) + '_' + $('.sP_' + NS.lanNode).attr('data-ifnum') + '"></span>/<span id="rightInfo-SM' +
             $('.sP_' + NS.lanNode)[0].alt.slice(6) + '_' + $('.sP_' + NS.lanNode).attr('data-ifnum') + '"></span></p>');
         $('.sP_' + NS.lanNode).attr('data-ifnum', spifnum);
 
-        $('#nsf-right dl dt:contains("' + $('.eP_' + NS.lanNode)[0].alt + '") + dd .rightInfo-IPSM:last')
+        $('#NS-right dl dt:contains("' + $('.eP_' + NS.lanNode)[0].alt + '") + dd .rightInfo-IPSM:last')
           .after('<p class="rightInfo-IPSM"><span id="' + $('.eP_' + NS.lanNode).attr('data-ifnum') + '" class="num">IP-' + $('.eP_' + NS.lanNode).attr('data-ifnum') + '</span>: <span id="rightInfo-IP' + $('.eP_' + NS.lanNode)[0].alt.slice(6) + '_' + $('.eP_' + NS.lanNode).attr('data-ifnum') + '"></span>/<span id="rightInfo-SM' +
             $('.eP_' + NS.lanNode)[0].alt.slice(6) + '_' + $('.eP_' + NS.lanNode).attr('data-ifnum') + '"></span></p>');
         $('.eP_' + NS.lanNode).attr('data-ifnum', epifnum);
@@ -572,7 +695,7 @@ fnLanOnUp = function(e) {
       //pc,bus->router
       if ($('.sP_' + NS.lanNode).attr('alt').substr(0, 6) !== 'Router' && $('.eP_' + NS.lanNode).attr('alt').substr(0, 6) === 'Router') {
 
-        $('#nsf-right dl dt:contains("' + $('.eP_' + NS.lanNode)[0].alt + '") + dd .rightInfo-IPSM:last')
+        $('#NS-right dl dt:contains("' + $('.eP_' + NS.lanNode)[0].alt + '") + dd .rightInfo-IPSM:last')
           .after('<p class="rightInfo-IPSM"><span id="' + $('.eP_' + NS.lanNode).attr('data-ifnum') + '" class="num">IP-' + $('.eP_' + NS.lanNode).attr('data-ifnum') + '</span>: <span id="rightInfo-IP' + $('.eP_' + NS.lanNode)[0].alt.slice(6) + '_' + $('.eP_' + NS.lanNode).attr('data-ifnum') + '"></span>/<span id="rightInfo-SM' +
             $('.eP_' + NS.lanNode)[0].alt.slice(6) + '_' + $('.eP_' + NS.lanNode).attr('data-ifnum') + '"></span></p>');
         $('.eP_' + NS.lanNode).attr('data-ifnum', epifnum);
@@ -581,7 +704,7 @@ fnLanOnUp = function(e) {
 
       //router->pc,bus
       if ($('.sP_' + NS.lanNode).attr('alt').substr(0, 6) === 'Router' && $('.eP_' + NS.lanNode).attr('alt').substr(0, 6) !== 'Router') {
-        $('#nsf-right dl dt:contains("' + $('.sP_' + NS.lanNode)[0].alt + '") + dd .rightInfo-IPSM:last')
+        $('#NS-right dl dt:contains("' + $('.sP_' + NS.lanNode)[0].alt + '") + dd .rightInfo-IPSM:last')
           .after('<p class="rightInfo-IPSM"><span id="' + $('.sP_' + NS.lanNode).attr('data-ifnum') + '" class="num">IP-' + $('.sP_' + NS.lanNode).attr('data-ifnum') + '</span>: <span id="rightInfo-IP' + $('.sP_' + NS.lanNode)[0].alt.slice(6) + '_' + $('.sP_' + NS.lanNode).attr('data-ifnum') + '"></span>/<span id="rightInfo-SM' +
             $('.sP_' + NS.lanNode)[0].alt.slice(6) + '_' + $('.sP_' + NS.lanNode).attr('data-ifnum') + '"></span></p>');
         $('.sP_' + NS.lanNode).attr('data-ifnum', spifnum);
@@ -590,6 +713,7 @@ fnLanOnUp = function(e) {
 
       //描画
       //NS.mainCtx.clearRect(0, 0, NS.canvasWidth, NS.canvasHeight);
+      fnIfDraw();
       fnMainLanDraw();
     }
     //変数とフラグを更新
