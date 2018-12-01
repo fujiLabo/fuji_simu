@@ -368,6 +368,13 @@ fnBusDrop = function(e) {
   //NS.addCanvas.remove();
 }
 
+//描画セット
+fnDraw = function() {
+  fnIfDraw();
+  fnMainLanDraw();
+  fnNameDraw();
+}
+
 //メインの線の描画
 //関連付けされたsPとePの画像の中心から中心への描画
 fnMainLanDraw = function() {
@@ -381,7 +388,98 @@ fnMainLanDraw = function() {
       console.log("lanNum" + [i] + ": " + lanNum[i]);
     }
     console.log("lanNum:" + lanNum);
-    NS.mainCtx.clearRect(0, 0, NS.canvasWidth, NS.canvasHeight);
+
+    if ($('#ns_main_canvas').attr('data_busLan') != undefined) {
+      busLanNum = $('#ns_main_canvas').attr('data_busLan').split(' ');
+      for(i = 0;i < busLanNum.length; i++) {
+        busLanNum[i] = busLanNum[i].slice(2);
+      }
+    }else {
+      busLanNum = '';
+    }
+
+    tmp = new Object();
+
+    //busの数だけ描画
+    if (busLanNum != '') {
+      $('.bus').each(function (i, e) {
+        bus = new Object();
+        bus.element = e;
+        bus.x = e.offsetLeeft + e.offsetWidth / 2;
+        bus.y = e.offsetTop + e.offsetHeight /2;
+        nodes = [];
+
+        //Busがいくつのノードとつながっているか
+        for(j = 0, count = 0; j < busLanNum.length; j++) {
+          if ($(e).hasClass('sP_' + busLanNum[j])) {
+            nodes[count] = new Object();
+            nodes[count].element = $('.eP_' + busLanNum[j]);
+            nodes[count].x = $('.eP_' + busLanNum[j])[0].x;
+            nodes[count].y = $('.eP_' + busLanNum[j])[0].y;
+            count++;
+            for(k = 0;k < lanNum.length; k++) {
+              if (lanNum[k] == busLanNum[j]) {
+                lanNum.splice(k, 1);
+                k--;
+              }
+            }
+          }else if ($(e).hasClass('eP_' + busLanNum[j])) {
+            nodes[count] = new Object();
+            nodes[count].element = $('.sP_' + busLanNum[j]);
+            nodes[count].x = $('.sP_' + busLanNum[j])[0].x;
+            nodes[count].y = $('.sP_' + busLanNum[j])[0].y;
+            count++;
+            for(k = 0; k < lanNum.length; k++) {
+              if (lanNum[k] == busLanNum[j]) {
+                lanNum.splice(k, 1);
+                k--;
+              }
+            }
+          }
+        }
+
+        //Busの線より上か下か
+        nodeUp = [];
+        nodeDown = [];
+        for(j = 0, upCount = 0, downCount = 0; j < nodes.length; j++) {
+          if (bus.y - nodes[j].y >= 0) {
+            nodeUp[uoCount] = new Object();
+            nodeUp[upCount] = nodes[j];
+            upCount++;
+          }else{
+            nodeDown[downCount] = new Object();
+            nodeDown[downCount] = nodes[j];
+            downCount++;
+          }
+        }
+
+        //右側にノードを並び替える
+        for(j = 0;j < nodes.length; j++) {
+          for(k = j+1; k < nodes.length; k++) {
+            if (nodes[j].x < nodes[k].x) {
+              tmp = nodes[j];
+              nodes[j] = nodes[k]
+              nodes[k] = tmp;
+            }
+          }
+        }
+
+        //縦の線を描画
+        for(j = 0; j < nodes.length; j++) {
+          NS.mainCtx.moveTo(nodes[j].x - NS.mainCanvasWidth, nodes[j].y - NS.mainCanvasHeight);
+          NS.mainCtx.lineTo(nodes[j].x - NS.mainCanvasWidth, bus.y - NS.mainCanvasY);
+          NS.mainCtx.stroke();
+        }
+
+        //divを変形させる
+        if (nodes.length > 1) {
+          $(e).css({
+            'left': nodes[0].x,
+            'width': 70,
+          });
+        }
+      });
+    }
 
     for (i = 0; i < lanNum.length; i++) {
       NS.mainCtx.beginPath();
@@ -474,6 +572,7 @@ fnIfDraw = function () {
     }
   }
 
+  //ifをcanvasに描画
   function ifDraw(aX, aY, bX, bY, type, ifname) {
     if (type === 'Router') {
       //楕円と直線の交点を求める
