@@ -481,6 +481,7 @@ fnMainLanDraw = function() {
       });
     }
 
+    //node-to-nodeの描画
     for (i = 0; i < lanNum.length; i++) {
       NS.mainCtx.beginPath();
       NS.mainCtx.moveTo($(".sP_" + lanNum[i])[0].offsetLeft - NS.mainCanvasWidth, $(".sP_" + lanNum[i])[0].offsetTop - NS.mainCanvasHeight);
@@ -572,7 +573,6 @@ fnIfDraw = function () {
     }
   }
 
-  //ifをcanvasに描画
   function ifDraw(aX, aY, bX, bY, type, ifname) {
     if (type === 'Router') {
       //楕円と直線の交点を求める
@@ -615,6 +615,40 @@ fnIfDraw = function () {
   }
 }
 
+
+//contextMenuのcallback関数(PC Router)
+fnConfunc = function(key, opt) {
+  //削除を押したときの動作
+  if (key === 'del') {
+    NS.lanArrClass = $('#ns_main_canvas').attr('class').split(/\s?L_/);
+    NS.mainCtx.clearRect(0, 0, NS.canvasWidth, NS.canvasHeight);
+    for(var i = 1;i < NS.lanArrClass.length; i++) {
+      if (this.hasClass('sP_' + NS.lanArrClass[i])) {
+        $('#ns_main img').removeClass('eP_' + NS.lanArrClass[i]);
+        $('#ns_main_canvas').removeClass('L_' + NS.lanArrClass[i]);
+        $('#ns_main img').removeClass('if_' + NS.lanArrClass[i]);
+      }else if (this.hasClass('eP_' + NS.lanArrClass[i])) {
+        $('#ns_main img').removeClass('sP_' + NS.lanArrClass[i]);
+        $('#ns_main_canvas').removeClass('L_' + NS.lanArrClass[i]);
+        $('#ns_main img').removeClass('if_' + NS.lanArrClass[i]);
+      }else{
+        fnLanMainDraw(NS.lanArrClass[i]);
+      }
+    }
+    if ($(this).hasClass('get-node') || $(this).hasClass('send-node')) {
+      $(this).prev().remove();
+    }
+    $(this).remove();
+    $("#ns_main img:not([class*='P_'])").removeClass('lanLink');
+    $("#ns_right dt:contains('" + opt.$trigger[0].alt + "'), #ns_right dt: contains('" + opt.$trigger[0].alt + "') + dd").remove();
+    //lanLinkがないとき
+    if (!($('#ns_main .ui-draggable').hasClass('lanLink'))) {
+      $('#ns_main').off('mousedown', fnLanOnDown);
+      $('#ns_main').off('mouseup', fnLanOnUp);
+      $('html').off('mouseup', fnLanOnOutUp);
+    }
+  }
+}
 
 //マウスが押された瞬間
 fnLanOnDown = function(e) {
