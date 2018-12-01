@@ -331,15 +331,18 @@ fnMachineDrop = function(ui, obj){
 //ドロップされた画像がBusだった場合
 fnBusDrop = function(e) {
   console.log('fnBusDrop');
-  var x = e.offset.left - 70;
-  var y = e.offset.top - 110;
+  //Bus画像をドロップした座標の取得(くそざこ)
+  NS.busX = e.offset.left - 70;
+  NS.busY = e.offset.top - 110;
+
   NS.addCanvas = $('<canvas width = "' + NS.canvasWidth + '" height = "' + NS.canvasHeight + '"></canvas>').prependTo('#ns_main');
   NS.addCtx = NS.addCanvas.get(0).getContext('2d');
   NS.addCtx.clearRect(0, 0, NS.canvasWidth, NS.canvasHeight);
   NS.addCtx.beginPath();
+  NS.addCtx.strokeStyle = "#2fb9fe";
   NS.addCtx.lineWidth = 10;
-  NS.addCtx.moveTo(x - 30, y);
-  NS.addCtx.lineTo(x + 30, y);
+  NS.addCtx.moveTo(NS.busX - 40, NS.busY);
+  NS.addCtx.lineTo(NS.busX + 40, NS.busY);
   NS.addCtx.stroke();
 
   //divを追加
@@ -348,11 +351,21 @@ fnBusDrop = function(e) {
       alt: 'bus' + NS.busNode,
       class: 'bus',
       'data_bus': '',
-      style: 'position: absolute; top: ' + y + 'px; left: ' + x + 'px;width: 10 px; height: 10px;'
+      style: 'position: absolute; top: ' + NS.busY + 'px; left: ' + NS.busX + 'px;width: 80 px; height: 10px;'
+      //'oncontextmenu': 'return busContextmenu(this)',
     })
   );
+  $('.bus').draggable({
+    containment:'parent',
+    scroll: false,
+  });
 
-  NS.busDrawFrag = true;
+  $('.bus').on('drag', fnLanOffDrag);
+
+  //NS.busDrawFrag = true;
+
+  NS.busNode++;
+  //NS.addCanvas.remove();
 }
 
 //メインの線の描画

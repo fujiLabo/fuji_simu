@@ -56,6 +56,9 @@ $(function() {
   NS.lanDeleteFlag;         //mouseDownを削除するとき
   NS.lanMoveFlag;           //mouseMoveDownが実行されたとき
 
+  NS.busX;
+  NS.busY;
+
 
   //ns_mainのxy
   $('#ns_main_canvas').attr('data-x', NS.mainCanvasWidth);
