@@ -429,16 +429,6 @@ fnLanOnDown = function(e) {
         NS.busFlag = true;
       }
 
-      // if ($('#ns_main .uidraggable').hasClass("lanLink")) {
-      //   NS.elLanMoveThis = $(this);
-      //   NS.lanArrClass = $('#ns_main_canvas').attr("class").split(/\s?L_/);
-      // }
-      //
-      // NS.elLanMoveThis = $(this);
-      // console.log("elLanMoveThis: " + NS.elLanMoveThis);
-
-      //console.log("mousedown.children: " + $(this).children(".lanOn").attr("class"));
-
       //マウスが移動するときの処理
       $('#ns_main').on("mousemove", fnLanOnDrag);
     }
@@ -463,9 +453,20 @@ fnLanOnUp = function(e) {
       NS.lanNode--;
 
       //画像以外をクリックした際エラー(別に関数を用意)
-      NS.addCtx.clearRect(0, 0, NS.canvasWidth, NS.canvasHeight);
+      //NS.addCtx.clearRect(0, 0, NS.canvasWidth, NS.canvasHeight);
     }
-    //else if bus関連の処理
+    //bus関連の処理
+    else if (NS.busFlag == true && $(e.target).hasClass('bus')) {
+      $('#ns_console').append('<p>> busとbusはつなげません</p>');
+      if (NS.lanLinkFlag === true) {
+        $('.sP_' + NS.lanNode).removeClass('sP_' + NS.lanNode);
+      }else{
+        $('.sP_' + NS.lanNode).removeClass('lanLink sP_' + NS.lanNode);
+      }
+      $('#ns_main_canvas').removeClass('L_' + NS.lanNode);
+      NS.lanDeleteFlag = false;
+      NS.lanNode--;
+    }
 
     //PCにもう線が引かれているとき
     else if ($(e.target).hasClass('lanLink') && $(e.target).hasClass('contextmenuPC')) {
@@ -505,6 +506,17 @@ fnLanOnUp = function(e) {
       spifnum += 1;
       epifnum = parseInt($(".eP_" + NS.lanNode).attr("data-ifnum"));
       epifnum += 1;
+
+      //buslanの追加
+      if ($('.sP_' + NS.lanNode).hasClass('bus') || $('.eP_' + NS.lanNode).hasClass('bus')) {
+        if ($('#ns_main_canvas').attr('data_busLan') == undefined) {
+          $('#ns_main_canvas').attr('data_basLan', 'B_' + lanNode);
+        }else{
+          tmp = $('#ns_main_canvas').attr('data_busLan');
+          tmp += '' + 'B_' + NS.lanNode;
+          $('#ns_main_canvas').attr('data_busLan', tmp);
+        }
+      }
 
       //ココらへん完コピ
       //lanとifの結びつけ
@@ -707,15 +719,20 @@ fnChangeLanMode = function() {
     //画像にマウスが乗ったときの動作
     elMainDrag.mouseenter(function() {
       console.log("マウスが画像に乗った");
+      //フラグの設定
       NS.imgFlag = true;
       $(this).addClass("lanOn");
       $(this).draggable('disable');
     }).mouseleave(function() {
       console.log("マウスが画像から離れた");
+      //フラグの設定
       NS.imgFlag = false;
       $(this).removeClass("lanOn");
       $(this).draggable('enable');
     });
+    //busをoffにする
+    $('#bus').prop('checked', false);
+    $('input[name=busSwitch]').removeClass('busOn');
 
   } else { //lanボタンがonのとき
     //lanボタンをoffにする
@@ -815,11 +832,15 @@ fnAllReset = function() {
   $('#ns_console').html("");
 
   //lanLinkがあるとき
-  if ($('#ns_main .ui-draggable').hasClass('lanLink')) {}
+  if ($('#ns_main .ui-draggable').hasClass('lanLink')) {
+    $('#ns_main').off('mousedown', fnLanOnDown);
+    $('#ns_main').off('mouseup', fnLanOnUp);
+    $('html').off('mouseup', fnLanOnOutUp);
+  }
 
   //画像と線の削除
   $('#ns_main img').remove();
-  //$('.bus').remove();
+  $('.bus').remove();
   $('#ns_main_canvas').removeClass();
   $('#ns_main_canvas').attr('data-buslan', '');
   NS.mainCtx.clearRect(0, 0, NS.canvasWidth, NS.canvasHeight);
