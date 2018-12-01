@@ -216,7 +216,8 @@ $().introtzikas({
 fnMainDrop = function(ui, obj) {
   //種類の判別
   if (ui.draggable.attr('id') === 'Bus'){
-    fnBusDrop();
+    console.log('Busだぜ');
+    fnBusDrop(ui);
   }else{
     fnMachineDrop(ui, obj);
   }
@@ -328,11 +329,30 @@ fnMachineDrop = function(ui, obj){
 }
 
 //ドロップされた画像がBusだった場合
-fnBusDrop = function() {
+fnBusDrop = function(e) {
   console.log('fnBusDrop');
+  var x = e.offset.left - 70;
+  var y = e.offset.top - 110;
+  NS.addCanvas = $('<canvas width = "' + NS.canvasWidth + '" height = "' + NS.canvasHeight + '"></canvas>').prependTo('#ns_main');
   NS.addCtx = NS.addCanvas.get(0).getContext('2d');
   NS.addCtx.clearRect(0, 0, NS.canvasWidth, NS.canvasHeight);
+  NS.addCtx.beginPath();
+  NS.addCtx.lineWidth = 10;
+  NS.addCtx.moveTo(x - 30, y);
+  NS.addCtx.lineTo(x + 30, y);
+  NS.addCtx.stroke();
 
+  //divを追加
+  $('#ns_main').append(
+    $('<div>').attr({
+      alt: 'bus' + NS.busNode,
+      class: 'bus',
+      'data_bus': '',
+      style: 'position: absolute; top: ' + y + 'px; left: ' + x + 'px;width: 10 px; height: 10px;'
+    })
+  );
+
+  NS.busDrawFrag = true;
 }
 
 //メインの線の描画
