@@ -1,0 +1,16 @@
+PWD /Users/chachamaru/rails/fuji_simu/卒論
+INPUT /usr/local/texlive/2018/texmf.cnf
+INPUT /usr/local/texlive/2018/texmf-dist/web2c/texmf.cnf
+INPUT /usr/local/texlive/2018/texmf.cnf
+INPUT /usr/local/texlive/2018/texmf-var/web2c/euptex/uplatex.fmt
+INPUT test.tex
+OUTPUT test.log
+INPUT /usr/local/texlive/2018/texmf-dist/tex/latex/base/article.cls
+INPUT /usr/local/texlive/2018/texmf-dist/tex/latex/base/article.cls
+INPUT /usr/local/texlive/2018/texmf-dist/tex/latex/base/size10.clo
+INPUT /usr/local/texlive/2018/texmf-dist/tex/latex/base/size10.clo
+INPUT test.aux
+INPUT test.aux
+OUTPUT test.aux
+OUTPUT test.dvi
+INPUT test.aux
