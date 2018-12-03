@@ -1,0 +1,128 @@
+% 本論
+
+\documentclass[11pt, a4paper]{jsarticle}
+\usepackage[dvipdfmx]{graphicx}
+\usepackage[dvipdfmx]{hyperref}
+\usepackage{ascmac}
+\usepackage{listings}
+\usepackage{fancyhdr}
+\usepackage{pxjahyper}
+% 余白設定
+% \setlength{\textheight}{\paperheight}
+% \setlength{\topmargin}{-3.0truemm}
+% \addtolength{\topmargin}{-\headheight}
+% \addtolength{\topmargin}{-\headsep}
+% \addtolength{\textheight}{-55truemm}
+\setlength{\textwidth}{455pt}
+% \setlength{\oddsidemargin}{5truemm}
+\setlength{\hoffset}{5truemm}
+% \setlength{\evensidemargin}{-2.5truemm}
+\addtolength{\textwidth}{-25truemm}
+% \setlength{\columnsep}{3zw}
+
+% 行間の倍率
+\renewcommand{\baselinestretch}{1.0}
+
+
+% maketitleの編集
+\makeatletter
+  \def\@maketitle{%
+    \clearpage\null
+    \begin{center}%
+      \vskip 10.0em
+      \let\footnote\thanks
+      {\LARGE \@title \par}%
+      \vskip 4.0em
+      {\Large
+        \lineskip 0.5em
+        \begin{tabular}[t]{c}%
+          \@author
+        \end{tabular}\par}%
+      \vskip 3.0em
+      {\Large \@date}%
+    \end{center}%
+    \par\vskip 0.5em
+    \ifvoid\@abstractbox\else\centerline{\box\@abstractbox}\vskip1.5em\fi
+  }
+\makeatother
+
+% ヘッダ情報
+\fancypagestyle{normal}{%
+    \lhead{}
+    \chead{\large 2016年度 情報システムデザイン学系卒業論文}
+    \rhead{}
+    \lfoot{}
+    \cfoot{\thepage}
+    \rfoot{}
+    \renewcommand{\headrulewidth}{0.5pt}
+}
+
+% タイトル情報
+\title{\LARGE 論文番号 fm2016-01\\ \Huge Web技術を用いた\\3D系譜図自動描画システムについて}
+\author{13RD044 尾崎 愛, 13RD194 古姓 竜樹, 13RD211 馬目 哲大\\ \\指導: 藤本 衡 准教授}
+\date{提出日: 2017年1月27日}
+\hypersetup{
+  pdfauthor={13RD044 尾崎 愛, 13RD194 古姓 竜樹, 13RD211 馬目 哲大},
+  pdftitle={Web技術を用いた3D系譜図自動描画システムについて},
+  pdfkeywords={},
+  pdfsubject={},
+  pdfcreator={},
+  pdflang={Japanese},
+  pdfborder={0 0 0},
+  colorlinks=false,
+}
+
+\begin{document}
+\pagestyle{normal}
+% タイトル
+\maketitle
+\thispagestyle{normal}
+\clearpage
+
+% 概要
+\fontsize{11pt}{28pt}\selectfont
+\input{source/abstract}
+
+\clearpage
+
+\tableofcontents
+\clearpage
+
+% 本文ここから
+% 研究目的
+\input{source/goal}
+\clearpage
+% 系譜図
+\input{source/familytree}
+% ギリシャ神話
+\input{source/greek}
+% WHIteBasE
+\input{source/WHIteBasE}
+
+
+\section{システム概要}
+\input{source/system_abs}
+% データベース
+\input{source/database}
+% アプリケーション
+\input{source/app}
+% Webレイアウト
+\input{source/web}
+
+\clearpage
+% アプリケーション評価方法
+\input{source/eval}
+
+\clearpage
+% まとめと課題
+\input{source/summary}
+
+\clearpage
+
+\input{source/thanks}
+% 参考文献
+\bibliographystyle{junsrt}
+\nocite{*}
+\bibliography{../biblio}
+
+\end{document}

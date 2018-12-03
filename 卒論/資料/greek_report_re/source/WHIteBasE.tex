@@ -1,0 +1,46 @@
+\section{WHIteBasEについて}
+\label{tag:wb}
+
+本研究では、前節で示したような複雑な人物や関係をデータベース化するモデルとして、
+WHIteBasEモデル\cite{white}を用いる。
+
+WHIteBasE(Widespread Hands to InTErconnect BASic Elements)とは、
+系譜図における関係性を扱うための管理手法として、杉山らが2011年に提案したものである\cite{white}。
+2Dの系譜図における関係性を示す線分が交叉することを考慮し、
+婚姻関係と子の関係を一つのイベントとして不可視結節点(図\ref{fig:whitebase01})を用いて管理される。
+この不可視結節点をWHIteBasEと呼ぶ。
+ここで、個人のノードを管理するための不可視結節点を使った結合モデルを図\ref{fig:whitebase02}に示す。
+
+WHIteBasEモデルは、ノードを結合するための3種類の「鍵穴」を持つ。
+このうち2種（$S_L$,$S_R$）はそれぞれ1つずつ存在し、婚姻関係にある2ノードを結合する役割を持つ。
+またこの婚姻関係から生じたN個の子ノードを結合するために、鍵穴$D_k$($k=1,2,...,N$)が用いられる。
+実際の表示位置としての左右や、男親・女親の違いは順不同である。
+また、$D_k$は下向きに子のノードを結合するための「鍵穴」である。
+
+個人ノード(Individual Node)は2種類の鍵A, $M_j$($j=1,2,...,N$)を持ち、
+これらの鍵とWHIteBasEの鍵穴により、不可視結節点に個人を結合することを表す。
+A(Ascendant)は鍵穴$D_k$に結合して親への鍵を、M(Married)は$S_L$または$S_R$に結合して婚姻の鍵をそれぞれ表す。
+子の個人ノードはそれぞれの鍵Aを用いてWHIteBasEと結合される。
+婚姻関係の個人ノードに対しては鍵$M_j$を用いてそれぞれWHIteBasEに結合する。
+
+このモデルを用いた座標計算については、\ref{tag:backend}節で述べる。
+
+\begin{figure}[htbp]
+  % 1
+  \begin{minipage}{0.5\hsize}
+    \begin{center}
+      \includegraphics*[scale=0.3]{img/whitebase01.png}
+    \end{center}
+    \caption{2Dでの系譜図表示スタイル}
+    \label{fig:whitebase01}
+  \end{minipage}
+  % 2
+  \begin{minipage}{0.5\hsize}
+    \begin{center}      
+      \includegraphics*[scale=0.4]{img/whitebase02.png}
+    \end{center}
+    \caption{WHIteBasEモデル}
+    \label{fig:whitebase02}
+  \end{minipage}
+  \label{fig:whiltebase00}
+\end{figure}
