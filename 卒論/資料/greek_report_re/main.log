@@ -1,0 +1,673 @@
+This is e-upTeX, Version 3.14159265-p3.8.0-u1.23-180226-2.6 (utf8.uptex) (TeX Live 2018) (preloaded format=uplatex 2018.12.3)  3 DEC 2018 12:14
+entering extended mode
+ restricted \write18 enabled.
+ file:line:error style messages enabled.
+ %&-line parsing enabled.
+**main.tex
+(./main.tex
+pLaTeX2e <2018-04-01u02>+1 (based on LaTeX2e <2018-04-01> patch level 2)
+Babel <3.18> and hyphenation patterns for 84 language(s) loaded.
+(/usr/local/texlive/2018/texmf-dist/tex/platex/jsclasses/jsarticle.cls
+Document Class: jsarticle 2018/03/11 jsclasses (okumura, texjporg)
+
+/usr/local/texlive/2018/texmf-dist/tex/platex/jsclasses/jsarticle.cls:236: Class jsarticle Error: You are running upLaTeX.
+(jsarticle)              Please use pLaTeX instead, or add 'uplatex' to
+(jsarticle)              the class option list.
+
+See the jsarticle class documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.236       {\@ehc}
+                   
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+\jsc@mpt=\dimen118
+\jsc@mmm=\dimen119
+\jsc@smallskipamount=\skip41
+LaTeX Info: Redefining \rmfamily on input line 466.
+LaTeX Info: Redefining \sffamily on input line 469.
+LaTeX Info: Redefining \ttfamily on input line 472.
+LaTeX Info: Redefining \textmc on input line 476.
+LaTeX Info: Redefining \textgt on input line 478.
+\symmincho=\mathgroup4
+LaTeX Font Info:    Overwriting symbol font `mincho' in version `bold'
+(Font)                  JY2/mc/m/n --> JY2/gt/m/n on input line 540.
+LaTeX Font Info:    Font shape `JT2/mc/m/n' will be
+(Font)              scaled to size 9.24683pt on input line 731.
+LaTeX Font Info:    Font shape `JY2/mc/m/n' will be
+(Font)              scaled to size 9.24683pt on input line 731.
+\fullwidth=\dimen120
+LaTeX Font Info:    Font shape `JT2/mc/m/n' will be
+(Font)              scaled to size 7.39746pt on input line 884.
+LaTeX Font Info:    Font shape `JY2/mc/m/n' will be
+(Font)              scaled to size 7.39746pt on input line 884.
+\c@part=\count83
+\c@section=\count84
+\c@subsection=\count85
+\c@subsubsection=\count86
+\c@paragraph=\count87
+\c@subparagraph=\count88
+\@abstractbox=\box42
+\c@figure=\count89
+\c@table=\count90
+\abovecaptionskip=\skip42
+\belowcaptionskip=\skip43
+\jsc@tocl@width=\dimen121
+\@lnumwidth=\dimen122
+\bibindent=\dimen123
+(/usr/local/texlive/2018/texmf-dist/tex/platex/jsclasses/jslogo.sty
+Package: jslogo 2017/02/24 okumura, texjporg
+LaTeX Info: Redefining \TeX on input line 94.
+LaTeX Info: Redefining \LaTeX on input line 147.
+LaTeX Info: Redefining \LaTeXe on input line 200.
+)
+\heisei=\count91
+) (/usr/local/texlive/2018/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 2017/06/01 v1.1a Enhanced LaTeX Graphics (DPC,SPQR)
+ (/usr/local/texlive/2018/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+\KV@toks@=\toks15
+) (/usr/local/texlive/2018/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2017/06/25 v1.2c Standard LaTeX Graphics (DPC,SPQR)
+ (/usr/local/texlive/2018/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
+) (/usr/local/texlive/2018/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: dvipdfmx.def on input line 99.
+ (/usr/local/texlive/2018/texmf-dist/tex/latex/graphics-def/dvipdfmx.def
+File: dvipdfmx.def 2017/06/24 v5.0g Graphics/color driver for dvipdfmx
+))
+\Gin@req@height=\dimen124
+\Gin@req@width=\dimen125
+) (/usr/local/texlive/2018/texmf-dist/tex/latex/hyperref/hyperref.sty
+Package: hyperref 2018/02/06 v6.86b Hypertext links for LaTeX
+ (/usr/local/texlive/2018/texmf-dist/tex/generic/oberdiek/hobsub-hyperref.sty
+Package: hobsub-hyperref 2016/05/16 v1.14 Bundle oberdiek, subset hyperref (HO)
+ (/usr/local/texlive/2018/texmf-dist/tex/generic/oberdiek/hobsub-generic.sty
+Package: hobsub-generic 2016/05/16 v1.14 Bundle oberdiek, subset generic (HO)
+Package: hobsub 2016/05/16 v1.14 Construct package bundles (HO)
+Package: infwarerr 2016/05/16 v1.4 Providing info/warning/error messages (HO)
+Package: ltxcmds 2016/05/16 v1.23 LaTeX kernel commands for general use (HO)
+Package: ifluatex 2016/05/16 v1.4 Provides the ifluatex switch (HO)
+Package ifluatex Info: LuaTeX not detected.
+Package: ifvtex 2016/05/16 v1.6 Detect VTeX and its facilities (HO)
+Package ifvtex Info: VTeX not detected.
+Package: intcalc 2016/05/16 v1.2 Expandable calculations with integers (HO)
+Package: ifpdf 2017/03/15 v3.2 Provides the ifpdf switch
+Package: etexcmds 2016/05/16 v1.6 Avoid name clashes with e-TeX commands (HO)
+Package etexcmds Info: Could not find \expanded.
+(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
+(etexcmds)             that some package has redefined \expanded.
+(etexcmds)             In the latter case, load this package earlier.
+Package: kvsetkeys 2016/05/16 v1.17 Key value parser (HO)
+Package: kvdefinekeys 2016/05/16 v1.4 Define keys (HO)
+Package: pdftexcmds 2018/01/30 v0.27 Utility functions of pdfTeX for LuaTeX (HO)
+Package pdftexcmds Info: LuaTeX not detected.
+Package pdftexcmds Info: pdfTeX >= 1.30 not detected.
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode not found.
+Package: pdfescape 2016/05/16 v1.14 Implements pdfTeX's escape features (HO)
+Package: bigintcalc 2016/05/16 v1.4 Expandable calculations on big integers (HO)
+Package: bitset 2016/05/16 v1.2 Handle bit-vector datatype (HO)
+Package: uniquecounter 2016/05/16 v1.3 Provide unlimited unique counter (HO)
+)
+Package hobsub Info: Skipping package `hobsub' (already loaded).
+Package: letltxmacro 2016/05/16 v1.5 Let assignment for LaTeX macros (HO)
+Package: hopatch 2016/05/16 v1.3 Wrapper for package hooks (HO)
+Package: xcolor-patch 2016/05/16 xcolor patch
+Package: atveryend 2016/05/16 v1.9 Hooks at the very end of document (HO)
+Package atveryend Info: \enddocument detected (standard20110627).
+Package: atbegshi 2016/06/09 v1.18 At begin shipout hook (HO)
+Package: refcount 2016/05/16 v3.5 Data extraction from label references (HO)
+Package: hycolor 2016/05/16 v1.8 Color options for hyperref/bookmark (HO)
+) (/usr/local/texlive/2018/texmf-dist/tex/generic/ifxetex/ifxetex.sty
+Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
+) (/usr/local/texlive/2018/texmf-dist/tex/latex/oberdiek/auxhook.sty
+Package: auxhook 2016/05/16 v1.4 Hooks for auxiliary files (HO)
+) (/usr/local/texlive/2018/texmf-dist/tex/latex/oberdiek/kvoptions.sty
+Package: kvoptions 2016/05/16 v3.12 Key value format for package options (HO)
+)
+\@linkdim=\dimen126
+\Hy@linkcounter=\count92
+\Hy@pagecounter=\count93
+ (/usr/local/texlive/2018/texmf-dist/tex/latex/hyperref/pd1enc.def
+File: pd1enc.def 2018/02/06 v6.86b Hyperref: PDFDocEncoding definition (HO)
+Now handling font encoding PD1 ...
+... no UTF-8 mapping file for font encoding PD1
+)
+\Hy@SavedSpaceFactor=\count94
+
+(/usr/local/texlive/2018/texmf-dist/tex/latex/latexconfig/hyperref.cfg
+File: hyperref.cfg 2002/06/06 v1.2 hyperref configuration of TeXLive
+)
+Package hyperref Info: Hyper figures OFF on input line 4509.
+Package hyperref Info: Link nesting OFF on input line 4514.
+Package hyperref Info: Hyper index ON on input line 4517.
+Package hyperref Info: Plain pages OFF on input line 4524.
+Package hyperref Info: Backreferencing OFF on input line 4529.
+Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
+Package hyperref Info: Bookmarks ON on input line 4762.
+\c@Hy@tempcnt=\count95
+ (/usr/local/texlive/2018/texmf-dist/tex/latex/url/url.sty
+\Urlmuskip=\muskip10
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+)
+LaTeX Info: Redefining \url on input line 5115.
+\XeTeXLinkMargin=\dimen127
+\Fld@menulength=\count96
+\Field@Width=\dimen128
+\Fld@charsize=\dimen129
+Package hyperref Info: Hyper figures OFF on input line 6369.
+Package hyperref Info: Link nesting OFF on input line 6374.
+Package hyperref Info: Hyper index ON on input line 6377.
+Package hyperref Info: backreferencing OFF on input line 6384.
+Package hyperref Info: Link coloring OFF on input line 6389.
+Package hyperref Info: Link coloring with OCG OFF on input line 6394.
+Package hyperref Info: PDF/A mode OFF on input line 6399.
+LaTeX Info: Redefining \ref on input line 6439.
+LaTeX Info: Redefining \pageref on input line 6443.
+\Hy@abspage=\count97
+\c@Item=\count98
+\c@Hfootnote=\count99
+)
+Package hyperref Info: Driver: hdvipdfm.
+ (/usr/local/texlive/2018/texmf-dist/tex/latex/hyperref/hdvipdfm.def
+File: hdvipdfm.def 2018/02/06 v6.86b Hyperref driver for dvipdfm
+\pdfm@box=\box43
+\c@Hy@AnnotLevel=\count100
+\HyField@AnnotCount=\count101
+\Fld@listcount=\count102
+\c@bookmark@seq@number=\count103
+ (/usr/local/texlive/2018/texmf-dist/tex/latex/oberdiek/rerunfilecheck.sty
+Package: rerunfilecheck 2016/05/16 v1.8 Rerun checks for auxiliary files (HO)
+Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 282.
+)
+\Hy@SectionHShift=\skip44
+) (/usr/local/texlive/2018/texmf-dist/tex/latex/ascmac/ascmac.sty
+Package: ascmac 2018/03/09 v2.0h ascmac wrapper (community edition) 
+ (/usr/local/texlive/2018/texmf-dist/tex/latex/ascmac/tascmac.sty
+Package: tascmac 2018/03/09 v2.0h ascmac package (community edition) 
+\@savetbaselineshift=\dimen130
+\@saveybaselineshift=\dimen131
+\scb@x=\box44
+\scscb@x=\box45
+\@bw=\dimen132
+\@nbox=\box46
+\@nbody=\box47
+\@scw=\dimen133
+\ascmac@hoboxa=\box48
+\ascmac@hoboxb=\box49
+\@itemh=\dimen134
+\@iboxpos=\toks16
+\@iboxstr=\box50
+\@bwsp=\box51
+\@@bwsp=\box52
+\@bcal=\count104
+\shaderule=\dimen135
+)) (/usr/local/texlive/2018/texmf-dist/tex/latex/listings/listings.sty
+\lst@mode=\count105
+\lst@gtempboxa=\box53
+\lst@token=\toks17
+\lst@length=\count106
+\lst@currlwidth=\dimen136
+\lst@column=\count107
+\lst@pos=\count108
+\lst@lostspace=\dimen137
+\lst@width=\dimen138
+\lst@newlines=\count109
+\lst@lineno=\count110
+\lst@maxwidth=\dimen139
+ (/usr/local/texlive/2018/texmf-dist/tex/latex/listings/lstmisc.sty
+File: lstmisc.sty 2015/06/04 1.6 (Carsten Heinz)
+\c@lstnumber=\count111
+\lst@skipnumbers=\count112
+\lst@framebox=\box54
+) (/usr/local/texlive/2018/texmf-dist/tex/latex/listings/listings.cfg
+File: listings.cfg 2015/06/04 1.6 listings configuration
+))
+Package: listings 2015/06/04 1.6 (Carsten Heinz)
+ (/usr/local/texlive/2018/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
+Package: fancyhdr 2017/06/30 v3.9a Extensive control of page headers and footers
+\f@nch@headwidth=\skip45
+\f@nch@O@elh=\skip46
+\f@nch@O@erh=\skip47
+\f@nch@O@olh=\skip48
+\f@nch@O@orh=\skip49
+\f@nch@O@elf=\skip50
+\f@nch@O@erf=\skip51
+\f@nch@O@olf=\skip52
+\f@nch@O@orf=\skip53
+) (/usr/local/texlive/2018/texmf-dist/tex/platex/pxjahyper/pxjahyper.sty
+Package: pxjahyper 2018/01/25 v0.3c
+LaTeX Info: Composite with undeclared \u in encoding PD1 on input line 828.
+LaTeX Info: Composite with undeclared \H in encoding PD1 on input line 837.
+)
+Package hyperref Info: Option `colorlinks' set `false' on input line 73.
+ (./main.aux
+
+LaTeX Warning: Label `fig:familytree' multiply defined.
+
+)
+\openout1 = `main.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 75.
+LaTeX Font Info:    ... okay on input line 75.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 75.
+LaTeX Font Info:    ... okay on input line 75.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 75.
+LaTeX Font Info:    ... okay on input line 75.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 75.
+LaTeX Font Info:    ... okay on input line 75.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 75.
+LaTeX Font Info:    ... okay on input line 75.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 75.
+LaTeX Font Info:    ... okay on input line 75.
+LaTeX Font Info:    Checking defaults for JY2/mc/m/n on input line 75.
+LaTeX Font Info:    ... okay on input line 75.
+LaTeX Font Info:    Checking defaults for JT2/mc/m/n on input line 75.
+LaTeX Font Info:    ... okay on input line 75.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 75.
+LaTeX Font Info:    ... okay on input line 75.
+\AtBeginShipoutBox=\box55
+Package hyperref Info: Link coloring OFF on input line 75.
+ (/usr/local/texlive/2018/texmf-dist/tex/latex/hyperref/nameref.sty
+Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
+ (/usr/local/texlive/2018/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
+Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
+)
+\c@section@level=\count113
+)
+LaTeX Info: Redefining \ref on input line 75.
+LaTeX Info: Redefining \pageref on input line 75.
+LaTeX Info: Redefining \nameref on input line 75.
+ (./main.out) (./main.out)
+\@outlinefile=\write3
+\openout3 = `main.out'.
+
+\c@lstlisting=\count114
+LaTeX Font Info:    Font shape `JT2/mc/m/n' will be
+(Font)              scaled to size 15.9785pt on input line 79.
+LaTeX Font Info:    Font shape `JY2/mc/m/n' will be
+(Font)              scaled to size 15.9785pt on input line 79.
+LaTeX Font Info:    Font shape `JT2/mc/m/n' will be
+(Font)              scaled to size 23.0061pt on input line 79.
+LaTeX Font Info:    Font shape `JY2/mc/m/n' will be
+(Font)              scaled to size 23.0061pt on input line 79.
+LaTeX Font Info:    Font shape `JT2/mc/m/n' will be
+(Font)              scaled to size 13.31541pt on input line 79.
+LaTeX Font Info:    Font shape `JY2/mc/m/n' will be
+(Font)              scaled to size 13.31541pt on input line 79.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <14.4> on input line 79.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 79.
+LaTeX Font Info:    Font shape `JY2/mc/m/n' will be
+(Font)              scaled to size 6.47278pt on input line 79.
+LaTeX Font Info:    Font shape `JT2/mc/m/n' will be
+(Font)              scaled to size 11.09619pt on input line 80.
+LaTeX Font Info:    Font shape `JY2/mc/m/n' will be
+(Font)              scaled to size 11.09619pt on input line 80.
+ [1
+
+
+]
+LaTeX Font Info:    Font shape `JT2/mc/m/n' will be
+(Font)              scaled to size 10.17151pt on input line 83.
+LaTeX Font Info:    Font shape `JY2/mc/m/n' will be
+(Font)              scaled to size 10.17151pt on input line 83.
+ (./source/abstract.tex
+LaTeX Font Info:    Font shape `JT2/gt/m/n' will be
+(Font)              scaled to size 13.31541pt on input line 1.
+LaTeX Font Info:    Font shape `JY2/gt/m/n' will be
+(Font)              scaled to size 13.31541pt on input line 1.
+) [2
+
+]
+LaTeX Font Info:    Font shape `JT2/gt/m/n' will be
+(Font)              scaled to size 10.17151pt on input line 88.
+LaTeX Font Info:    Font shape `JY2/gt/m/n' will be
+(Font)              scaled to size 10.17151pt on input line 88.
+ (./main.toc
+LaTeX Font Info:    Calculating math sizes for size <11> on input line 7.
+
+
+LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <5.5> not available
+(Font)              size <5> substituted on input line 7.
+
+
+LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <5.5> not available
+(Font)              size <5> substituted on input line 7.
+
+
+LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <5.5> not available
+(Font)              size <5> substituted on input line 7.
+
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <11> on input line 7.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7.69997> on input line 7.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5.5> on input line 7.
+LaTeX Font Info:    Font shape `JY2/mc/m/n' will be
+(Font)              scaled to size 7.12001pt on input line 7.
+LaTeX Font Info:    Font shape `JY2/mc/m/n' will be
+(Font)              scaled to size 5.08575pt on input line 7.
+)
+\tf@toc=\write4
+\openout4 = `main.toc'.
+
+ [3
+
+] (./source/goal.tex [4
+
+]) [5] (./source/familytree.tex
+
+LaTeX Warning: File `img/familytree-ver2.png' not found on input line 18.
+
+
+./source/familytree.tex:18: LaTeX Error: Cannot determine size of graphic in img/familytree-ver2.xbb (no BoundingBox).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.18 ...phics*[scale=0.3]{img/familytree-ver2.png}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+File: img/familytree-ver2.png Graphic file (type bmp)
+<img/familytree-ver2.png>
+LaTeX Font Info:    Font shape `JT2/mc/m/n' will be
+(Font)              scaled to size 8.32214pt on input line 20.
+LaTeX Font Info:    Font shape `JY2/mc/m/n' will be
+(Font)              scaled to size 8.32214pt on input line 20.
+) (./source/greek.tex [6
+
+]
+LaTeX Font Info:    Font shape `JT2/mc/bx/n' in size <11> not available
+(Font)              Font shape `JT2/gt/m/n' tried instead on input line 26.
+LaTeX Font Info:    Font shape `JT2/gt/m/n' will be
+(Font)              scaled to size 10.17151pt on input line 26.
+LaTeX Font Info:    Font shape `JY2/mc/bx/n' in size <11> not available
+(Font)              Font shape `JY2/gt/m/n' tried instead on input line 26.
+LaTeX Font Info:    Font shape `JY2/gt/m/n' will be
+(Font)              scaled to size 10.17151pt on input line 26.
+
+
+LaTeX Warning: Citation `mythology' on page 7 undefined on input line 26.
+
+[7]) (./source/WHIteBasE.tex
+
+LaTeX Warning: Citation `white' on page 8 undefined on input line 5.
+
+
+LaTeX Warning: Citation `white' on page 8 undefined on input line 8.
+
+[8]
+
+LaTeX Warning: File `img/whitebase01.png' not found on input line 32.
+
+
+./source/WHIteBasE.tex:32: LaTeX Error: Cannot determine size of graphic in img/whitebase01.xbb (no BoundingBox).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.32 ...egraphics*[scale=0.3]{img/whitebase01.png}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+File: img/whitebase01.png Graphic file (type bmp)
+<img/whitebase01.png>
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 36.
+LaTeX Font Info:    Font shape `JY2/mc/m/n' will be
+(Font)              scaled to size 4.62341pt on input line 36.
+
+LaTeX Warning: File `img/whitebase02.png' not found on input line 40.
+
+
+./source/WHIteBasE.tex:40: LaTeX Error: Cannot determine size of graphic in img/whitebase02.xbb (no BoundingBox).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.40 ...egraphics*[scale=0.4]{img/whitebase02.png}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+File: img/whitebase02.png Graphic file (type bmp)
+<img/whitebase02.png>
+
+Overfull \hbox (2.2222pt too wide) in paragraph at lines 30--46
+[][]$[]$[] []$[]$[]
+ []
+
+) (./source/system_abs.tex [9]
+
+LaTeX Warning: File `img/sys_com.png' not found on input line 16.
+
+
+./source/system_abs.tex:16: LaTeX Error: Cannot determine size of graphic in img/sys_com.xbb (no BoundingBox).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.16 ...cludegraphics*[scale=0.5]{img/sys_com.png}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+File: img/sys_com.png Graphic file (type bmp)
+<img/sys_com.png>
+) (./source/database.tex
+LaTeX Font Info:    Font shape `JT2/gt/m/n' will be
+(Font)              scaled to size 11.09619pt on input line 1.
+LaTeX Font Info:    Font shape `JY2/gt/m/n' will be
+(Font)              scaled to size 11.09619pt on input line 1.
+LaTeX Font Info:    Font shape `JT2/gt/m/n' will be
+(Font)              scaled to size 9.24683pt on input line 6.
+LaTeX Font Info:    Font shape `JY2/gt/m/n' will be
+(Font)              scaled to size 9.24683pt on input line 6.
+
+
+LaTeX Warning: Citation `chiba' on page 10 undefined on input line 8.
+
+
+LaTeX Warning: Citation `theogony' on page 10 undefined on input line 9.
+
+
+LaTeX Warning: Citation `mythology' on page 10 undefined on input line 9.
+
+[10]
+
+LaTeX Warning: Citation `maria' on page 11 undefined on input line 21.
+
+[11]) (./source/app.tex [12] [13]
+LaTeX Font Info:    Font shape `JT2/mc/m/n' will be
+(Font)              scaled to size 7.12001pt on input line 41.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 41.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 41.
+LaTeX Font Info:    Font shape `JY2/mc/m/n' will be
+(Font)              scaled to size 5.5481pt on input line 41.
+LaTeX Font Info:    Font shape `JT2/mc/m/n' will be
+(Font)              scaled to size 5.5481pt on input line 41.
+ [14]
+
+LaTeX Warning: File `img/familytree02.png' not found on input line 73.
+
+
+./source/app.tex:73: LaTeX Error: Cannot determine size of graphic in img/familytree02.xbb (no BoundingBox).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.73 ...graphics*[scale=0.4]{img/familytree02.png}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+File: img/familytree02.png Graphic file (type bmp)
+<img/familytree02.png>
+[15]
+
+LaTeX Warning: Citation `threejs' on page 16 undefined on input line 81.
+
+
+LaTeX Warning: Citation `opengl' on page 16 undefined on input line 86.
+
+
+LaTeX Warning: Citation `javascript' on page 16 undefined on input line 86.
+
+
+LaTeX Warning: Citation `webgl' on page 16 undefined on input line 86.
+
+
+LaTeX Warning: Citation `chromatics' on page 16 undefined on input line 99.
+
+
+LaTeX Warning: Citation `facetype' on page 16 undefined on input line 105.
+
+[16]
+
+LaTeX Warning: File `img/familytree01.png' not found on input line 124.
+
+
+./source/app.tex:124: LaTeX Error: Cannot determine size of graphic in img/familytree01.xbb (no BoundingBox).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.124 ...raphics*[scale=0.4]{img/familytree01.png}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+File: img/familytree01.png Graphic file (type bmp)
+<img/familytree01.png>
+[17]) (./source/web.tex [18]
+
+LaTeX Warning: File `./img/top.png' not found on input line 27.
+
+
+./source/web.tex:27: LaTeX Error: Cannot determine size of graphic in ./img/top.xbb (no BoundingBox).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.27 ...,width=12.0cm,height=8.0cm]{./img/top.png}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+File: ./img/top.png Graphic file (type bmp)
+<./img/top.png>
+
+LaTeX Warning: File `./img/gai.png' not found on input line 35.
+
+
+./source/web.tex:35: LaTeX Error: Cannot determine size of graphic in ./img/gai.xbb (no BoundingBox).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.35 ...,width=12.0cm,height=8.0cm]{./img/gai.png}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+File: ./img/gai.png Graphic file (type bmp)
+<./img/gai.png>
+
+LaTeX Warning: File `./img/byou.png' not found on input line 43.
+
+
+./source/web.tex:43: LaTeX Error: Cannot determine size of graphic in ./img/byou.xbb (no BoundingBox).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.43 ...width=12.0cm,height=8.0cm]{./img/byou.png}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+File: ./img/byou.png Graphic file (type bmp)
+<./img/byou.png>
+
+LaTeX Warning: File `./img/ank.png' not found on input line 51.
+
+
+./source/web.tex:51: LaTeX Error: Cannot determine size of graphic in ./img/ank.xbb (no BoundingBox).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.51 ...,width=12.0cm,height=8.0cm]{./img/ank.png}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+File: ./img/ank.png Graphic file (type bmp)
+<./img/ank.png>
+) [19] [20] [21] (./source/eval.tex [22
+
+]) [23] (./source/summary.tex
+
+LaTeX Warning: Citation `ui' on page 24 undefined on input line 8.
+
+[24
+
+]) [25] (./source/thanks.tex)
+No file main.bbl.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 128.
+[26
+
+]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 128.
+ (./main.aux)
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 128.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 128.
+Package rerunfilecheck Info: File `main.out' has not changed.
+(rerunfilecheck)             Checksum: 2B99547576CB4C4D96841D0B45A9E954;849.
+
+
+LaTeX Font Warning: Size substitutions with differences
+(Font)              up to 0.5pt have occurred.
+
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: There were multiply-defined labels.
+
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 128.
+ ) 
+Here is how much of TeX's memory you used:
+ 6812 strings out of 493270
+ 97446 string characters out of 6145018
+ 194225 words of memory out of 5000000
+ 10670 multiletter control sequences out of 15000+600000
+ 17308 words of font info for 85 fonts, out of 8000000 for 9000
+ 934 hyphenation exceptions out of 8191
+ 29i,11n,43p,324b,413s stack positions out of 5000i,500n,10000p,200000b,80000s
+
+Output written on main.dvi (26 pages, 72744 bytes).
