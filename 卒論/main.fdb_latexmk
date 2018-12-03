@@ -1,9 +1,9 @@
 # Fdb version 3
-["dvipdf"] 1543807702 "main.dvi" "main.pdf" "main" 1543807703
-  "main.dvi" 1543807702 3520 a9f47d3d9320f7ffdf6d17dd4ca6936b "latex"
+["dvipdf"] 1543815629 "main.dvi" "main.pdf" "main" 1543815630
+  "main.dvi" 1543815629 5300 7f3e6de349abe96a7590bcccc6873c2a "latex"
   (generated)
   "main.pdf"
-["latex"] 1543807702 "main.tex" "main.dvi" "main" 1543807703
+["latex"] 1543815628 "main.tex" "main.dvi" "main" 1543815630
   "/usr/local/texlive/2018/texmf-dist/fonts/map/fontname/texfonts.map" 1511824771 3332 103109f5612ad95229751940c61aada0 ""
   "/usr/local/texlive/2018/texmf-dist/fonts/tfm/public/ascmac/ascgrp.tfm" 1520635638 448 9a1f3a95c3a7e2681aa6eefcf410b7ac ""
   "/usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm" 1480098701 1324 c910af8c371558dc20f2d7822f66fe64 ""
@@ -47,15 +47,15 @@
   "/usr/local/texlive/2018/texmf-dist/web2c/texmf.cnf" 1522066949 33362 cf75436e19743e94a92a6b1b9183c434 ""
   "/usr/local/texlive/2018/texmf-var/web2c/euptex/uplatex.fmt" 1543773687 4470727 b7f4572ee1ce76f6992df74be45da296 ""
   "/usr/local/texlive/2018/texmf.cnf" 1523934483 577 0b39adfd7c93507ff20c9c14c2f1a33f ""
-  "main.aux" 1543807702 693 ce54bc1182e542599d4d4fa47c1a1ed6 ""
-  "main.out" 1543807702 96 ac05b8303db27cdd62168f953ad9baea ""
-  "main.tex" 1543807703 1988 21f81551589d503658d3b1396d2f4587 ""
-  "main.toc" 1543807702 0 d41d8cd98f00b204e9800998ecf8427e ""
-  "source/abstract.tex" 1543807692 1217 0291fea4b4bac4dd29a50d7e2ce66db3 ""
+  "main.aux" 1543815629 693 ce54bc1182e542599d4d4fa47c1a1ed6 ""
+  "main.out" 1543815629 96 ac05b8303db27cdd62168f953ad9baea ""
+  "main.tex" 1543815628 1987 cd653a2416c836380e391060b5970297 ""
+  "main.toc" 1543815629 0 d41d8cd98f00b204e9800998ecf8427e ""
+  "source/abstract.tex" 1543815551 2065 83894bcb3d98162bd14e778680d19500 ""
   "source/goal.tex" 0 -1 0 ""
   (generated)
-  "main.aux"
-  "main.log"
-  "main.out"
   "main.dvi"
+  "main.out"
+  "main.log"
+  "main.aux"
   "main.toc"

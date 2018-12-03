@@ -1,4 +1,4 @@
-This is e-upTeX, Version 3.14159265-p3.8.0-u1.23-180226-2.6 (utf8.uptex) (TeX Live 2018) (preloaded format=uplatex 2018.12.3)  3 DEC 2018 12:28
+This is e-upTeX, Version 3.14159265-p3.8.0-u1.23-180226-2.6 (utf8.uptex) (TeX Live 2018) (preloaded format=uplatex 2018.12.3)  3 DEC 2018 14:40
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -394,10 +394,10 @@ Type X to quit or <RETURN> to proceed,
 or enter new name. (Default extension: tex)
 
 Enter file name: 
-./main.tex:89: Emergency stop.
+./main.tex:88: Emergency stop.
 <read *> 
          
-l.89 \input{source/goal}
+l.88 \input{source/goal}
                         ^^M
 *** (cannot \read from terminal in nonstop modes)
 
@@ -405,9 +405,9 @@ l.89 \input{source/goal}
 Here is how much of TeX's memory you used:
  6513 strings out of 493270
  93823 string characters out of 6145018
- 187317 words of memory out of 5000000
+ 189317 words of memory out of 5000000
  10434 multiletter control sequences out of 15000+600000
  10515 words of font info for 53 fonts, out of 8000000 for 9000
  929 hyphenation exceptions out of 8191
- 28i,10n,43p,212b,356s stack positions out of 5000i,500n,10000p,200000b,80000s
-Output written on main.dvi (3 pages, 3520 bytes).
+ 28i,10n,43p,1397b,356s stack positions out of 5000i,500n,10000p,200000b,80000s
+Output written on main.dvi (3 pages, 5300 bytes).
