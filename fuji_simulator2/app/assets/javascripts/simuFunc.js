@@ -382,7 +382,8 @@ fnMainLanDraw = function() {
   console.log("ns_main_canvasのクラス: " + $('#ns_main_canvas').attr('class'));
   if ($('#ns_main_canvas').attr('class') != '') {
     NS.mainCtx.beginPath();
-    NS.mainCtx.fillRect(0, 0, NS.canvasWidth, NS.canvasHeight); 
+    NS.mainCtx.fillstyle = "rgb(200, 0, 0)";
+    NS.mainCtx.fillRect(0, 0, NS.canvasWidth, NS.canvasHeight);
     lanNum = $('#ns_main_canvas').attr('class').split(' ');
     for (i = 0; i < lanNum.length; i++) {
       lanNum[i] = lanNum[i].slice(2);
