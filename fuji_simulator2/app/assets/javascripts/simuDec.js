@@ -43,7 +43,7 @@ $(function() {
   NS.questionCanvasY  = $('#ns_main_canvas')[0].getBoundingClientRect().top + 60;
   NS.mainCtx = $('#ns_main_canvas')[0].getContext('2d'); //ns_main_canvasをAPIにアクセスできるオブジェクト
   NS.mainCtx.strokeStyle = "#2fb9fe";
-  NS.addCanvasRange = $('<canvas width = ' + NS.canvasWidth + ' height = ' + NS.canvasHeight + '></canvas>');
+  NS.addCanvasRange = $('<canvas class = "red" width = ' + NS.canvasWidth + ' height = ' + NS.canvasHeight + '></canvas>');
   NS.addCanvas; //追加したCanvasを格納
   NS.addCtx;  //追加したCanvasのAPIにアクセスできるオブジェクト
   //canvasに関するフラグ

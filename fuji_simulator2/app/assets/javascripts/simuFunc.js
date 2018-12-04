@@ -335,7 +335,7 @@ fnBusDrop = function(e) {
   NS.busX = e.offset.left - 70;
   NS.busY = e.offset.top - 110;
 
-  NS.addCanvas = $('<canvas width = "' + NS.canvasWidth + '" height = "' + NS.canvasHeight + '"></canvas>').prependTo('#ns_main');
+  NS.addCanvas = $('<canvas class = "add" width = "' + NS.canvasWidth + '" height = "' + NS.canvasHeight + '"></canvas>').prependTo('#ns_main');
   NS.addCtx = NS.addCanvas.get(0).getContext('2d');
   NS.addCtx.clearRect(0, 0, NS.canvasWidth, NS.canvasHeight);
   NS.addCtx.beginPath();
@@ -382,6 +382,7 @@ fnMainLanDraw = function() {
   console.log("ns_main_canvasのクラス: " + $('#ns_main_canvas').attr('class'));
   if ($('#ns_main_canvas').attr('class') != '') {
     NS.mainCtx.beginPath();
+    NS.mainCtx.fillRect(0, 0, NS.canvasWidth, NS.canvasHeight); 
     lanNum = $('#ns_main_canvas').attr('class').split(' ');
     for (i = 0; i < lanNum.length; i++) {
       lanNum[i] = lanNum[i].slice(2);

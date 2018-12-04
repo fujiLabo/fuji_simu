@@ -99,4 +99,14 @@ INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/uptex-fonts/jis/upjisg-h.tfm
 INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
 INPUT main.toc
 INPUT main.toc
+INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/uptex-fonts/jis/upjisg-v.tfm
+INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/uptex-fonts/jis/upjisg-h.tfm
+INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm
 OUTPUT main.toc
+INPUT source/goal.tex
+INPUT source/goal.tex
+INPUT source/thanks.tex
+INPUT source/thanks.tex
+INPUT main.aux
+INPUT ./main.out
+INPUT ./main.out
