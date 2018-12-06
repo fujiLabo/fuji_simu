@@ -8,7 +8,13 @@ $.when(
   $.getScript("/assets/simuFunc.js"),
 ).then(function(){
 
-  console.log("呼ばれた?");
+  // //読み込み時のアニメーション
+  // $().introtzikas({
+  //   line: '#fff', //ラインの色
+  //   speedwidth: 1000, //幅の移動完了スピード
+  //   speedheight: 1000, //高さの移動完了スピード
+  //   bg: '#333' //背景色
+  // });
 
   //テスト
   $('#ns_main img').mouseover(function(){
@@ -103,20 +109,30 @@ $.when(
   });
 
   //busの上にあるとき
+  $('#ns_main').on('mouseover', '.bus', function(e) {
+    $(e.target).addClass('bus_mouseover');
+    $(e.target).draggable();
+  });
 
   //ns_mainの画像の上から外れたとき
   $("#ns_main").on("mouseout", "img", function(e) {
     $(e.target).removeClass('mouseover');
   });
 
-  //ns_mainのバスの上から外れたとき
+  //ns_mainのbusの上から外れたとき
+  $('#ns_main').on('mouseout', '.bus', function(e) {
+    $(e.target).removeClass('bus_mouseover');
+  });
 
-  //バスのドラッグ後
+  //busのドラッグ後
+  $('#ns_main').on('mouseup', '.bus', function(e) {
+    fnLanMainDraw();
+  });
 
   //animecanvasを削除
   $('body').click(function () {
     $('.animecanvasflag').remove();
-  })
+  });
 
   //マウスを動かしている間再描画
   $('#ns_main').mousemove(function(e) {

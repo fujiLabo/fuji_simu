@@ -238,8 +238,6 @@ fnMachineDrop = function(ui, obj){
     NS.dropContextName = "contextmenuRouter";
     //NS.dropName = "dropRouter";
     NS.ruNode++;
-  } else if (ui.draggable.attr('id') === 'Bus') {
-    fnBusDrop();
   }
 
   //ドロップした画像を追加
@@ -1013,7 +1011,7 @@ fnChangeLanMode = function() {
       $(this).draggable('enable');
     });
     //busをoffにする
-    $('#bus').prop('checked', false);
+    //$('#bus').prop('checked', false);
     $('input[name=busSwitch]').removeClass('busOn');
 
   } else { //lanボタンがonのとき
@@ -1158,7 +1156,48 @@ paketAnimation = function(e) {
     })
   );
 
-  
+  $('#ns_main').append('<canvas width = "600" height = "400" id = "animecanvas"></canvas>');
+
+  canvas = document.getElementById('animecanvas');
+  context = canvas.getContext("2d");
+
+  context.beginPath();
+  context.arrow(animationData[0].animecanvasX, animationData[0].animecanvasY, animationData[1].animecanvasX, animationData[1].animecanvsY, [0, 1, -20, 5, -20, 12]);
+  context.fill();
+
+  moveAnimation(1)
+
+  //描画
+  function moveAnimation(i) {
+    $('.PacketAnime')
+    .hide().fadeIn(200).animate({})
+    .animate({
+      left: animationData[i].packetanimeX,
+      top: animationData[i].paketanimeY
+    },{
+      duration: 500,
+      complete:function () {
+        if (animationData[i + 1] != undefined) {
+          context.beginPath();
+          context.arrow(animationData[i].animecanvasX, animationData[i].animecanvasY, animationData[i+1].animecanvasX, animationData[i + 1].animecanvasY, [0, 1, -20, 5, -20, 12]);
+          context.fill();
+        }
+        if (i == animationData.length - 1) {
+          $('#animecanvas').addClass('animecanvasflag');
+          $('.PacketAnime').remove();
+          if (animationData[i] == 1) {
+            $('.animecanvasflag').remove();
+            for(j = 0; j < animationData.length - 1; j++) {
+              if (animationData[j].name.slice(0, 2) == 'PC' || animationData[j].name.slice(0, 6) == 'Router') {
+                animationData[j].packetanimeX = animationData[j].packetanimeX - 35;
+                animationData[i].packetanimeY = animationData
+              }
+            }
+          }
+        }
+      }
+    })
+  }
 }
 
 //全要素の削除
