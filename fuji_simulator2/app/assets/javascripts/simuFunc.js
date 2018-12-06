@@ -964,7 +964,7 @@ fnLanOffOutUp = function(e) {
 //画像のドラッグに応じて関連された線を移動し、描画する関数
 fnLanOffDrag = function(e) {
   NS.mainCtx.clearRect(0, 0, NS.canvasWidth, NS.canvasHeight);
-  fnMainLanDraw();
+  fnDraw();
 }
 
 //lanボタンが押された場合
@@ -1099,6 +1099,66 @@ nodeDel = function(e) {
       }
     }
   }
+}
+//パケットアニメーション
+paketAnimation = function(e) {
+  animeData = $(e).attr('class').split('_');
+  animationData = [];
+  mainCanvasX = $('#ns_main_canvas').attr('data-x');
+  mainCanvasY = $('#ns_main_canvas').attr('data-y');
+
+  $('.animecanvasflag').remove();
+
+  if (animeData[animeData.length - 2].slice(0, 3) == 'bus') {
+    animeData.splice(animeData.length - 2, 1);
+  }
+
+  for(i = 0, count = 0; i < animeData.length; i++, count++) {
+    if (animeData[i].slice(0, 3) == 'bus') {
+      animationData[count] = new Object();
+      animationData[count].name = 'Start' + animeData[i];
+      count++;
+      animationData[count] = new Object();
+      animationData[count].name = 'End' + animeData[i];
+    }else{
+      $('#ns_main img[alt = "' + animeData[i] + '"]').each(function(j, e) {
+        animationData[count] = new Object();
+        animationData[count].name = e.alt;
+        animationData[count].animecanvasX = e.x - mainCanvasX;
+        animationData[count].animecanvasY = e.y - mainCanvasY;
+        animationData[count].packetanimeX = e.x + 23;
+        animationData[count].packetanimeY = e.y + 23;
+      });
+    }
+    if (i == animeData.length - 1) {
+      animationData[count] = animeData[i];
+    }
+  }
+
+  //busの座標
+  for(i = 0; i < animationData.length - 1; i++) {
+    if (animationData[i].name.slice(0, 5) == 'Start') {
+      animationData[i].animecanvasX = animationData[i - 1].animecanvasX;
+      animationData[i].animecanvasY = $('#ns_main div[alt="' + animationData[i].name.slice(5) + '"]')[0].offsetTop - mainCanvasY - 30;
+      animationData[i].packetanimeX = animationData[i - 1].packetanimeX;
+      animationData[i].packetanimeY = $('#ns_main div[alt="' + animationData[i].name.slice(5) + '"]')[0].offsetTop - 3;
+    }else if (animationData[i].name.slice(0, 3) == 'End') {
+      animationData[i].animecanvasX = animationData[i + 1].animecanvasX;
+      animationData[i].animecanvasY = $('#ns_main div[alt="' + animationData[i].name.slice(3) + '"]')[0].offsetTop - mainCanvasY - 30;
+      animationData[i].packetanimeX = animationData[i + 1].packetanimeX;
+      animationData[i].packetanimeY = $('#ns_main div[alt="' + animationData[i].name.slice(3) + '"]')[0].offsetTop - 3;
+    }
+  }
+
+  //canvasに追加
+  $("#ns_main").append(
+    $('<div>').attr({
+      class: 'PacketAnime',
+      style: "position: absolute; top: " + animationData[0].packetanimeY + "px; left: " + animationData[0].packetanimeX + "px; width: 30px; height: 30px;"
+    })
+  );
+
+  
 }
 
 //全要素の削除

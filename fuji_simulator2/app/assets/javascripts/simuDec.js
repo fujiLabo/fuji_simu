@@ -59,6 +59,7 @@ $(function() {
   NS.busX;
   NS.busY;
 
+  //urlパラメータの取得
 
   //ns_mainのxy
   $('#ns_main_canvas').attr('data-x', NS.mainCanvasWidth);
