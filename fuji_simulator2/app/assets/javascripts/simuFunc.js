@@ -325,7 +325,7 @@ fnMachineDrop = function(ui, obj){
   }
   // dd要素(IPとSM)を隠す
   $('#ns_right dd:last').css('display', 'none');
-  //fnNameDraw(ui.draggable.attr('alt') + NS.dropNodeInt);
+  fnNameDraw(ui.draggable.attr('alt') + NS.dropNodeInt);
 }
 
 //ドロップされた画像がBusだった場合
@@ -382,7 +382,7 @@ fnMainLanDraw = function() {
   console.log("ns_main_canvasのクラス: " + $('#ns_main_canvas').attr('class'));
   if ($('#ns_main_canvas').attr('class') != '') {
     NS.mainCtx.beginPath();
-    NS.mainCtx.fillStyle = "rgba(255, 0, 0, 0.5)";
+    NS.mainCtx.fillStyle = "rgba(255, 0, 0, 0.3)";
     NS.mainCtx.fillRect(0, 0, NS.canvasWidth, NS.canvasHeight);
     lanNum = $('#ns_main_canvas').attr('class').split(' ');
     for (i = 0; i < lanNum.length; i++) {
@@ -492,6 +492,27 @@ fnMainLanDraw = function() {
     }
 
   }
+}
+
+//ノードの名前を表示
+fnNameDraw = function() {
+  NS.mainCtx.beginPath();
+  ctx = document.getElementById('ns_main_canvas').getContext('2d');
+  $('#ns_main img').each(function(i, e) {
+  if ($(e).attr('id') != 'questionClose') {
+    if ($(e)[0].alt.slice(0, 2) == 'PC') {
+      drawName = $(e)[0].alt;
+      x = $('#ns_main img[alt = "' + $(e)[0].alt + '"]')[0].x - NS.mainCanvasWidth - 10;
+      y = $('#ns_main img[alt = "' + $(e)[0].alt + '"]')[0].y - NS.mainCanvasHeight - 35;
+      ctx.fillText(drawName, x, y, 200);
+    }else if ($(e)[0].alt.slice(0, 2) == 'Ro') {
+      drawName = 'Ro' + $(e)[0].alt.slice(6);
+      x = $('#ns_main img[alt = "' + $(e)[0].alt + '"]')[0].x - NS.mainCanvasWidth - 10;
+      y = $('#ns_main img[alt = "' + $(e)[0].alt + '"]')[0].y - NS.mainCanvasHeight - 20;
+      ctx.fillText(drawName, x, y, 200);
+    }
+  }
+});
 }
 
 //ifをcanvasに描画
@@ -894,7 +915,7 @@ fnLanOnDrag = function(e) {
   });
   NS.addCtx.clearRect(0, 0, NS.canvasWidth, NS.canvasHeight);
   NS.addCtx.beginPath();
-  NS.addCtx.fillStyle = "rgba(0, 0, 255, 0.5)";
+  NS.addCtx.fillStyle = "rgba(0, 0, 255, 0.3)";
   NS.addCtx.fillRect(0, 0, NS.canvasWidth, NS.canvasHeight);
   //色の変更
   if (!($(e.target).hasClass("lanFirst")) && $(e.target).hasClass("lanOn")) {
