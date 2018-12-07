@@ -202,6 +202,18 @@ $.when(
   });
 
   $('#check').click(function() {
+    console.log('目ん玉〜');
+    //onのとき
+    if ($('#check').attr('src') == '/assets/check_2.png') {
+      //画像をoffに変更
+      $('#check').attr('src', '/assets/check.png');
+      //checkLayerを閉じる
+      $('#checkLayer').css({'display': 'none', 'height' : 0});
+      $('#checkLayer').empty();
+    }else {
+      //画像を変更
+      $('#check').attr('src', '/assets/check_2.png');
+    }
 
   });
 
