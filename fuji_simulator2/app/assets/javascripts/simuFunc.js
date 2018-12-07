@@ -1,6 +1,5 @@
 //simuMainで使用する関数等のファイル
 
-
 //独自の右クリック作成
 fncontextmenu = function(element) {
   const nodeNum = $(element).attr('dropNumber');
@@ -288,6 +287,7 @@ fnMachineDrop = function(ui, obj){
   //ドロップした際にLANモードがonならば、ドラッグを不可にする
   if (NS.lanFlag) {
     var elMainImgLast = $('#ns_main img:last-child');
+    elMainImgLast.css('cursor', 'crosshair');
     elMainImgLast.mouseup(function(e) {
       e.preventDefault(e);
     });
@@ -349,10 +349,11 @@ fnBusDrop = function(e) {
       alt: 'bus' + NS.busNode,
       class: 'bus',
       'data_bus': '',
-      style: 'position: absolute; top: ' + NS.busY + 'px; left: ' + NS.busX + 'px;width: 80 px; height: 10px;'
+      style: 'position: absolute; top: ' + NS.busY + 'px; left: ' + NS.busX + 'px;width: 80 px; height: 10px;',
       //'oncontextmenu': 'return busContextmenu(this)',
     })
   );
+
   $('.bus').draggable({
     containment:'parent',
     scroll: false,

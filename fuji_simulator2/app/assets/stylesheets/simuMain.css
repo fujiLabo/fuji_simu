@@ -256,6 +256,10 @@ div.tooltip:hover span{
 
 /******************************/
 
+canvas {
+  position: absolute;
+}
+
 h4{
   font-size: 20px;
 }
