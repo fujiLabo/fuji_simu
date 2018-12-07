@@ -16,6 +16,10 @@ $.when(
   //   bg: '#333' //背景色
   // });
 
+  //初期位置に戻す
+  $('html').scrollTop(0);
+  $('html').scrollLeft(0);
+
   //テスト
   $('#ns_main img').mouseover(function(){
     console.log("testflag = true");
