@@ -73,7 +73,7 @@ fnCreateIP_SM = function(nodeNum, ifNum, kind) {
         size: '16',
         value: document.getElementById('rightInfo_IP' + nodeNum).innerHTML,
         id: 'IP' + nodeNum,
-        class: 'inputIP inputIPSMIF-item',
+        class: 'inputIP IPSMIF-item',
         onKeyUp: 'return fnCopy(this);',
       })
     ));
@@ -86,7 +86,7 @@ fnCreateIP_SM = function(nodeNum, ifNum, kind) {
         size: '2',
         value: document.getElementById('rightInfo_SM' + nodeNum).innerHTML,
         id: 'SM' + nodeNum,
-        class: 'inputSM inputIPSMIF-item',
+        class: 'inputSM IPSMIF-item',
         onKeyUp: 'return fnCopy(this);',
       })
     ));
@@ -103,7 +103,7 @@ fnCreateIP_SM = function(nodeNum, ifNum, kind) {
           value: document.getElementById('rightInfo_IP' + nodeNum + '_' + i), //.innerHTML,
           //id: 'IP' + i + '_' + i,
           id: 'IP' + nodeNum + '_' + i,
-          class: 'inputIP inputIPSMIF-item',
+          class: 'inputIP IPSMIF-item',
           onKeyUp: 'return fnCopy(this);',
         })
       ));
@@ -117,7 +117,7 @@ fnCreateIP_SM = function(nodeNum, ifNum, kind) {
           value: document.getElementById('rightInfo_SM' + nodeNum + '_' + i), //.innerHTML,
           //id: 'SM' + i + '_' + i,
           id: 'SM' + nodeNum + '_' + i,
-          class: 'inputSM inputIPSMIF-item',
+          class: 'inputSM IPSMIF-item',
           onKeyUp: 'return fnCopy(this);',
         })
       ));
