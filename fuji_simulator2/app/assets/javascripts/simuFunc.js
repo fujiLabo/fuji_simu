@@ -381,8 +381,6 @@ fnMainLanDraw = function() {
   console.log("ns_main_canvasのクラス: " + $('#ns_main_canvas').attr('class'));
   if ($('#ns_main_canvas').attr('class') != '') {
     NS.mainCtx.beginPath();
-    NS.mainCtx.fillStyle = "rgba(255, 0, 0, 0.3)";
-    NS.mainCtx.fillRect(0, 0, NS.canvasWidth, NS.canvasHeight);
     lanNum = $('#ns_main_canvas').attr('class').split(' ');
     for (i = 0; i < lanNum.length; i++) {
       lanNum[i] = lanNum[i].slice(2);
@@ -914,8 +912,6 @@ fnLanOnDrag = function(e) {
   });
   NS.addCtx.clearRect(0, 0, NS.canvasWidth, NS.canvasHeight);
   NS.addCtx.beginPath();
-  NS.addCtx.fillStyle = "rgba(0, 0, 255, 0.3)";
-  NS.addCtx.fillRect(0, 0, NS.canvasWidth, NS.canvasHeight);
   //色の変更
   if (!($(e.target).hasClass("lanFirst")) && $(e.target).hasClass("lanOn")) {
     //線が自分以外の画像に触れているとき
