@@ -1187,13 +1187,73 @@ paketAnimation = function(e) {
             for(j = 0; j < animationData.length - 1; j++) {
               if (animationData[j].name.slice(0, 2) == 'PC' || animationData[j].name.slice(0, 6) == 'Router') {
                 animationData[j].packetanimeX = animationData[j].packetanimeX - 35;
-                animationData[i].packetanimeY = animationData
+                animationData[i].packetanimeY = animationData[j].packetanimeY - 35;
+                $('#ns_main').append(
+                  $('<div').attr({
+                    class: "cssCircle",
+                    style: "position: absolute; top: " + animationData[j].packetanimeY + "px; left: " + animationData[j].packetanimeX + "px; width: 100px; height: 100px;"
+                  })
+                );
+                $('.cssCircle:last-child').append(
+                  $('<img>').attr({
+                    src: '/assets/circle.png',
+                  })
+                );
               }
             }
+            $('.cssCircle').fadeOut(400, function() {
+              $(this).fadeIn(400, function () {
+                $(this).fadeOut(200, function() {
+                  $('.cssCircle').remove();
+                })
+              })
+            });
           }
+          if (animationData[i] == 0) {
+
+            $('#animecanvas').drawRect({
+              strokeStyle: 'red',
+              strokeWidth: 1,
+              x: animationData[i-1].animecanvasX,
+              y: animationData[i-1].animecanvasY,
+              width: 80,
+              height: 80,
+            });
+
+            style = $('#ns_main img[alt = ' + animationData[i - 1].name + ']').attr('style');
+
+            animationData[i - 1].packetanimeX = animationData[i - 1].packetanimeX - 30;
+            animationData[i - 1].packetanimeY = animationData[i - 1].packetanimeY - 30;
+
+            $('#ns_main').append(
+              $('<div').attr({
+                class: 'cssCross',
+                style: "position: absolute; top: " + animationData[i - 1].packetanimeY + "px; left: " + animationData[i - 1].packetanimeX + "px; width: 100px; height: 100px;"
+              })
+            );
+
+            $('#ns_main img[alt =' + animationData[i-1].name + ']').addClass('hurueru');
+
+            $('.hurueru').css({
+              'display': 'inline-block',
+              'animation': 'hurueru .1s 9'
+            });
+
+            $('.cssCross').fadeOut(300, function() {
+              $(this).fadeIn(400, function () {
+                $(this).fadeOut(200, function () {
+                  $('.cssCross').remove();
+                  $('#ns_main img[alt=' + animationData[i - 1].name + ']').attr('style', style);
+                  $('#ns_main img[alt=' + animationData[i - 1].name + ']').removeClass('hurueru');
+                })
+              })
+            });
+          }
+        }else {
+          moveAnimation(i + 1);
         }
       }
-    })
+    });
   }
 }
 
