@@ -242,15 +242,15 @@ fnMachineDrop = function(ui, obj){
   //ドロップした画像を追加
   $('#ns_main').append(
     $('<img>').attr({
-      src: ui.draggable.attr('src'),
-      alt: NS.dropNodeName,
-      class: NS.dropContextName,
-      'dropNumber': NS.dropNodeInt,
+      src: ui.draggable.attr('src'),  //画像の種類
+      alt: NS.dropNodeName,           //個別の名前(種類+数字)
+      class: NS.dropContextName,      //contextPC(Router)
+      'dropNumber': NS.dropNodeInt,   //何番目のドロップ化(未使用?)
       'data_ifnum': 0,
       'data_lan_if': '',
       'data_routingtable_num': 0,
       'data_link_num': 0,
-      id: NS.dropNodeName,
+      id: NS.dropNodeName,            //個別の名前(種類+数字)
       style: "position: absolute; top: " + ui.offset.top + "px; left: " + ui.offset.left + "px",
     })
   );
@@ -528,7 +528,8 @@ fnIfDraw = function () {
       spSplit = $('.sP_' + lanNum).attr('data_lan_if').split(' ');
       spLanIf = [];
       for(i=0; i < spSplit.length; i++){
-        spLanIf[i] = spSplit[i].split('-')
+        console.log("spSplit[" + i + "]: " + spSplit[i]);
+        spLanIf[i] = spSplit[i].split('-');
       }
       for(i=0; i < spLanIf.length; i++){
         if (spLanIf[i][0] == lanNum) {
@@ -794,17 +795,18 @@ fnLanOnUp = function(e) {
         }
       }
 
-      //ココらへん完コピ
       //lanとifの結びつけ
       if ($('.sP_' + NS.lanNode).hasClass('bus') == false) {
         if ($('.sP_' + NS.lanNode).attr('data_lan_if') == '') {
           tmp = $('.sP_' + NS.lanNode).attr('data_lan_if');
-          tmp += NS.lanNode + '-' + $('.sP_' + NS.lanNode).attr('data-ifnum');
+          console.log('tmp(before): ' + tmp);
+          tmp += NS.lanNode + '-' + $('.sP_' + NS.lanNode).attr('data_ifnum');
+          console.log('tmp(after): ' + tmp);
           $('.sP_' + NS.lanNode).attr('data_lan_if', tmp);
         } else if ($('.sP_' + NS.lanNode).attr('data_lan_if') != '') {
           tmp = $('.sP_' + NS.lanNode).attr('data_lan_if');
           tmp += ' ';
-          tmp += NS.lanNode + '-' + $('.sP_' + NS.lanNode).attr('data-ifnum');
+          tmp += NS.lanNode + '-' + $('.sP_' + NS.lanNode).attr('data_ifnum');
           $('.sP_' + NS.lanNode).attr('data_lan_if', tmp);
         }
         tmp = $('.sP_' + NS.lanNode).attr('data-linknum');
@@ -815,12 +817,12 @@ fnLanOnUp = function(e) {
       if ($('.eP_' + NS.lanNode).hasClass('bus') == false) {
         if ($('.eP_' + NS.lanNode).attr('data_lan_if') == "") {
           tmp = $('.eP_' + NS.lanNode).attr('data_lan_if');
-          tmp += NS.lanNode + '-' + $('.eP_' + NS.lanNode).attr('data-ifnum');
+          tmp += NS.lanNode + '-' + $('.eP_' + NS.lanNode).attr('data_ifnum');
           $('.eP_' + NS.lanNode).attr('data_lan_if', tmp);
         } else if ($('.eP_' + NS.lanNode).attr('data_lan_if') != "") {
           tmp = $('.eP_' + NS.lanNode).attr('data_lan_if');
           tmp += ' ';
-          tmp += NS.lanNode + '-' + $('.eP_' + NS.lanNode).attr('data-ifnum');
+          tmp += NS.lanNode + '-' + $('.eP_' + NS.lanNode).attr('data_ifnum');
           $('.eP_' + NS.lanNode).attr('data_lan_if', tmp);
         }
         tmp = $('.eP_' + NS.lanNode).attr('data-linknum');
