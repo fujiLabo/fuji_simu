@@ -213,6 +213,24 @@ $.when(
     }else {
       //画像を変更
       $('#check').attr('src', '/assets/check_2.png');
+      //checkLayerを表示
+      $('#checkLayer').css({
+        display: 'block',
+      });
+      $('#checkLayer').animate({
+        top:    $('#ns_main').offset().top,
+        left:   $('#ns_main').offset().left,
+        height: $('#ns_main').height(),
+        width:  $('#ns_main').width(),
+      },{
+        duration: 400,
+        complete: function() {
+        $('#checkLayer').append('<canvas width = "600" height = "400" id = "checkLayer_"canvas"></canvas>');
+        $('#nsright dd').show();
+        $('#ns_right dt img').attr('src', '/assets/minus.jpg');
+        IndicateNodeInfo();
+      }
+    });
     }
 
   });

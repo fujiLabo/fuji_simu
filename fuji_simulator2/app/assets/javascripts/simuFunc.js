@@ -1055,6 +1055,55 @@ fnChangeMode = function() {
   console.log("func:changemode");
 }
 
+//Nodeの情報を表示
+IndicateNodeInfo = function() {
+  var nodes = [];
+
+  //nodeの情報を取得
+  for(i = 0, num = 0; i < $('#ns_main img').length; i++) {
+    element = $('#ns_main img')[i];
+    if ($(element).hasClass('send-node2') !== true && $(element).hasClass('get-node2') !== true) {
+      nodes[num] = new Object();
+      nodes[num].element = element;
+      num++;
+    }
+  }
+
+  for(i = 0; i < nodes.length; i++){
+    info_height = 20;
+    ddElements = $('#ns_right dt:contains(' + nodes[i].element.alt + ') + dd').clone();
+    pElements = $('#ns_right dt: contains(' + nodes[i].element.alt + ') + dd p').clone();
+
+    if (nodes[i].element.alt.slice(0, 2) == 'PC') {
+      info_height = 80;
+      info_width = 170;
+    }else {
+      for(j = 0;j < pElements.length; j++) {
+        if (pElements[j].className == 'rightInfo_IPSM') {
+          info_height += 20;
+        }else {
+          info_height += 40;
+        }
+      }
+      info_width = 170;
+    }
+    nodeX = nodes[i].element.x + 35 - NS.mainCanvasX;
+    nodeY = nodes[i].element.y + 35 - NS.mainCanvasY;
+    rightInfoX = $('#ns_right dt:contains("' + nodes[i].element.alt + '") img')[0].offsetLeft;
+    rightInfoY = $('#ns_right dt:contains("' + nodes[i].element.alt + '") img')[0].offsetTop;
+
+
+    $('#checkLayer').append(
+      $('<div>').attr({
+        class: 'info',
+        style: 'position: absolute; top: ' + nodeY + 'px; left: ' + nodeX + 'px; width:' + info_width + 'px: height: ' + info_height + 'px;'
+      })
+    );
+
+    $('#checkLayer div:last-child').append('<p>' + nodes[i].element.alt + '</p>');
+    $('#checkLayer div:last-child').append(ddElements);
+  }
+}
 
 
 //削除(エラー)(途中)
