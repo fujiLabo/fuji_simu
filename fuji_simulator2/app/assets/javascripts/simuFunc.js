@@ -1096,7 +1096,7 @@ nodeDel = function(e) {
   }
 }
 //パケットアニメーション
-paketAnimation = function(e) {
+packetAnimation = function(e) {
   animeData = $(e).attr('class').split('_');
   animationData = [];
   mainCanvasX = $('#ns_main_canvas').attr('data-x');
