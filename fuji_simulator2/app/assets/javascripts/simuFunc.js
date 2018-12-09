@@ -835,13 +835,13 @@ fnLanOnUp = function(e) {
       //router->router
       if ($('.sP_' + NS.lanNode).attr('alt').substr(0, 6) === 'Router' && $('.eP_' + NS.lanNode).attr('alt').substr(0, 6) === 'Router') {
 
-        $('#NS-right dl dt:contains("' + $('.sP_' + NS.lanNode)[0].alt + '") + dd .rightInfo-IPSM:last')
-          .after('<p class="rightInfo-IPSM"><span id="' + $('.sP_' + NS.lanNode).attr('data_ifnum') + '" class="num">IP-' + $('.sP_' + NS.lanNode).attr('data_ifnum') + '</span>: <span id="rightInfo-IP' + $('.sP_' + NS.lanNode)[0].alt.slice(6) + '_' + $('.sP_' + NS.lanNode).attr('data_ifnum') + '"></span>/<span id="rightInfo-SM' +
+        $('#NS-right dl dt:contains("' + $('.sP_' + NS.lanNode)[0].alt + '") + dd .rightInfo_IPSM:last')
+          .after('<p class="rightInfo_IPSM"><span id="' + $('.sP_' + NS.lanNode).attr('data_ifnum') + '" class="num">IP-' + $('.sP_' + NS.lanNode).attr('data_ifnum') + '</span>: <span id="rightInfo_IP' + $('.sP_' + NS.lanNode)[0].alt.slice(6) + '_' + $('.sP_' + NS.lanNode).attr('data_ifnum') + '"></span>/<span id="rightInfo_SM' +
             $('.sP_' + NS.lanNode)[0].alt.slice(6) + '_' + $('.sP_' + NS.lanNode).attr('data_ifnum') + '"></span></p>');
         $('.sP_' + NS.lanNode).attr('data_ifnum', spifnum);
 
-        $('#NS-right dl dt:contains("' + $('.eP_' + NS.lanNode)[0].alt + '") + dd .rightInfo-IPSM:last')
-          .after('<p class="rightInfo-IPSM"><span id="' + $('.eP_' + NS.lanNode).attr('data_ifnum') + '" class="num">IP-' + $('.eP_' + NS.lanNode).attr('data_ifnum') + '</span>: <span id="rightInfo-IP' + $('.eP_' + NS.lanNode)[0].alt.slice(6) + '_' + $('.eP_' + NS.lanNode).attr('data_ifnum') + '"></span>/<span id="rightInfo-SM' +
+        $('#NS-right dl dt:contains("' + $('.eP_' + NS.lanNode)[0].alt + '") + dd .rightInfo_IPSM:last')
+          .after('<p class="rightInfo_IPSM"><span id="' + $('.eP_' + NS.lanNode).attr('data_ifnum') + '" class="num">IP-' + $('.eP_' + NS.lanNode).attr('data_ifnum') + '</span>: <span id="rightInfo_IP' + $('.eP_' + NS.lanNode)[0].alt.slice(6) + '_' + $('.eP_' + NS.lanNode).attr('data_ifnum') + '"></span>/<span id="rightInfo_SM' +
             $('.eP_' + NS.lanNode)[0].alt.slice(6) + '_' + $('.eP_' + NS.lanNode).attr('data_ifnum') + '"></span></p>');
         $('.eP_' + NS.lanNode).attr('data_ifnum', epifnum);
 
@@ -850,8 +850,8 @@ fnLanOnUp = function(e) {
       //pc,bus->router
       if ($('.sP_' + NS.lanNode).attr('alt').substr(0, 6) !== 'Router' && $('.eP_' + NS.lanNode).attr('alt').substr(0, 6) === 'Router') {
 
-        $('#NS-right dl dt:contains("' + $('.eP_' + NS.lanNode)[0].alt + '") + dd .rightInfo-IPSM:last')
-          .after('<p class="rightInfo-IPSM"><span id="' + $('.eP_' + NS.lanNode).attr('data_ifnum') + '" class="num">IP-' + $('.eP_' + NS.lanNode).attr('data_ifnum') + '</span>: <span id="rightInfo-IP' + $('.eP_' + NS.lanNode)[0].alt.slice(6) + '_' + $('.eP_' + NS.lanNode).attr('data_ifnum') + '"></span>/<span id="rightInfo-SM' +
+        $('#NS-right dl dt:contains("' + $('.eP_' + NS.lanNode)[0].alt + '") + dd .rightInfo_IPSM:last')
+          .after('<p class="rightInfo_IPSM"><span id="' + $('.eP_' + NS.lanNode).attr('data_ifnum') + '" class="num">IP-' + $('.eP_' + NS.lanNode).attr('data_ifnum') + '</span>: <span id="rightInfo_IP' + $('.eP_' + NS.lanNode)[0].alt.slice(6) + '_' + $('.eP_' + NS.lanNode).attr('data_ifnum') + '"></span>/<span id="rightInfo_SM' +
             $('.eP_' + NS.lanNode)[0].alt.slice(6) + '_' + $('.eP_' + NS.lanNode).attr('data_ifnum') + '"></span></p>');
         $('.eP_' + NS.lanNode).attr('data_ifnum', epifnum);
 
@@ -859,8 +859,8 @@ fnLanOnUp = function(e) {
 
       //router->pc,bus
       if ($('.sP_' + NS.lanNode).attr('alt').substr(0, 6) === 'Router' && $('.eP_' + NS.lanNode).attr('alt').substr(0, 6) !== 'Router') {
-        $('#NS-right dl dt:contains("' + $('.sP_' + NS.lanNode)[0].alt + '") + dd .rightInfo-IPSM:last')
-          .after('<p class="rightInfo-IPSM"><span id="' + $('.sP_' + NS.lanNode).attr('data_ifnum') + '" class="num">IP-' + $('.sP_' + NS.lanNode).attr('data_ifnum') + '</span>: <span id="rightInfo-IP' + $('.sP_' + NS.lanNode)[0].alt.slice(6) + '_' + $('.sP_' + NS.lanNode).attr('data_ifnum') + '"></span>/<span id="rightInfo-SM' +
+        $('#NS-right dl dt:contains("' + $('.sP_' + NS.lanNode)[0].alt + '") + dd .rightInfo_IPSM:last')
+          .after('<p class="rightInfo_IPSM"><span id="' + $('.sP_' + NS.lanNode).attr('data_ifnum') + '" class="num">IP-' + $('.sP_' + NS.lanNode).attr('data_ifnum') + '</span>: <span id="rightInfo_IP' + $('.sP_' + NS.lanNode)[0].alt.slice(6) + '_' + $('.sP_' + NS.lanNode).attr('data_ifnum') + '"></span>/<span id="rightInfo_SM' +
             $('.sP_' + NS.lanNode)[0].alt.slice(6) + '_' + $('.sP_' + NS.lanNode).attr('data_ifnum') + '"></span></p>');
         $('.sP_' + NS.lanNode).attr('data_ifnum', spifnum);
       }
