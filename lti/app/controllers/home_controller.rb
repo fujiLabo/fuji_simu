@@ -12,7 +12,12 @@ require "rexml/document"
 class HomeController < ApplicationController
 
   def top
+    response.headers['X-Frame-Options'] = 'ALLOWALL'
 
+  end
+
+  def temp
+    response.headers['X-Frame-Options'] = 'ALLOWALL'
   end
 
   def tstamp
@@ -23,13 +28,18 @@ class HomeController < ApplicationController
 
   end
 
+  def grade_page
+    response.headers['X-Frame-Options'] = 'ALLOWALL'
+
+  end
+
   def create
     #XMLの読み込み
     f = File.open("aa.xml", "r")
     @File_read_Xml = f.read
 
     #Oauth_hash作成
-    @Body_hash = CGI.escape(Base64.encode64(Digest::SHA1.digest(@File_read_Xml)).chomp)
+    #@Body_hash = CGI.escape(Base64.encode64(Digest::SHA1.digest(@File_read_Xml)).chomp)
 
     #timestampを取得して格納
     @timestamp = Time.now.to_i.to_s
@@ -42,7 +52,7 @@ class HomeController < ApplicationController
     #@KEY = "140beed4619fd0cdaff80e163a125eca&"
     @REQUEST = CGI.escape("http://localhost:3000/home/create")
     @SourcedId = params[:lis_result_sourcedid]
-    @SourcedId = params[:lis_course_section_sourcedid]
+    #@SourcedId = params[:lis_course_section_sourcedid]
     #x-frameでの表示をすべてに許可する
     response.headers['X-Frame-Options'] = 'ALLOWALL'
 
@@ -51,7 +61,7 @@ class HomeController < ApplicationController
     @temp = params
 
     #Body_hashの追加
-    @temp[:oauth_body_hash] = @Body_hash
+    #@temp[:oauth_body_hash] = @Body_hash
     #戻り値が文字列だった
     @temp.delete(:action)
     @temp.delete(:controller)
@@ -148,14 +158,14 @@ puts $Oauth_strings = "OAuth realm" + "=" + "\"\"" + "," +
                  "oauth_timestamp" + "=" + "\"" + @timestamp + "\"" + "," +
                  "oauth_nonce" + "=" + "\"" + @Nonce + "\"" + "," +
                  "oauth_version" + "=" + "\"" + "1.0" + "\"" "," +
-                 "oauth_signature" + "=" + "\"" + @oauth_signature + "\"" + "," +
-                 "oauth_body_hash" + "=" + "\"" + @Body_hash + "\""
+                 "oauth_signature" + "=" + "\"" + @oauth_signature + "\"" #+ "," +
+                 #{}"oauth_body_hash" + "=" + "\"" + @Body_hash + "\""
 
-#=begin
+=begin
                    header = {'Content-Type': 'application/xml',
                      'Authorization': $Oauth_strings
                    }
-#=end
+=end
 
   $doc = REXML::Document.new(@File_read_Xml)
   element = $doc.elements['imsx_POXEnvelopeRequest/imsx_POXBody/replaceResultRequest/resultRecord/sourcedGUID/sourcedId']
@@ -196,6 +206,8 @@ request.body = doc.to_s
   end
   def grade
 #=begin
+
+    puts "aaaa"
     http = Net::HTTP.new($uri.host, $uri.port)
     http.use_ssl = false
     request = Net::HTTP::Post.new($uri.request_uri)
@@ -204,6 +216,9 @@ request.body = doc.to_s
     request.body = $doc.to_s
 
     response = http.request(request)
+    $test = response.body
+
+    redirect_to :action => "grade_page"
 #=end
 
 =begin

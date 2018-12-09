@@ -6,4 +6,6 @@ Rails.application.routes.draw do
   get "/home/tstamp" => "home#tstamp"
   get "/home/error" => "home#error"
   post "/home/grade" => "home#grade"
+  get "/home/grade_page" => "home#grade_page"
+  get "/home/grade" => "home#grade"
 end
