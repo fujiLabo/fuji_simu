@@ -180,6 +180,24 @@ addRT = function(plus) {
   var nodeNum = 0;
   var iNum = 0;
 
+  img = $('.ui-droppable img');
+
+  for(i = 0; i < img.length; i++) {
+    if (img[i].alt === $(plus).attr('class')) {
+      console.log('呼ばれるかな？');
+      element = img[i];
+    }
+  }
+
+  if ($(element).attr('data_routingtable_num') === undefined) {
+    $(element).attr('data_routingtable_num', 1);
+    num = 1;
+  }else{
+    num = parseInt($(element).attr('data_routingtablenum'));
+    num += 1;
+    $(element).attr('data_routingtablenum', num);
+  }
+
   $('ul .context-RoutingTable tr:last-child').after('<tr id = inputRoutingTable align = "center"></tr>');
 
   $('ul .context-RoutingTable tr:last-child')
@@ -809,9 +827,9 @@ fnLanOnUp = function(e) {
           tmp += NS.lanNode + '-' + $('.sP_' + NS.lanNode).attr('data_ifnum');
           $('.sP_' + NS.lanNode).attr('data_lan_if', tmp);
         }
-        tmp = $('.sP_' + NS.lanNode).attr('data-linknum');
+        tmp = $('.sP_' + NS.lanNode).attr('data_link_num');
         tmp = parseInt(tmp) + 1;
-        $('.sP_' + NS.lanNode).attr('data-linknum', tmp);
+        $('.sP_' + NS.lanNode).attr('data_link_num', tmp);
 
       }
       if ($('.eP_' + NS.lanNode).hasClass('bus') == false) {
@@ -825,9 +843,9 @@ fnLanOnUp = function(e) {
           tmp += NS.lanNode + '-' + $('.eP_' + NS.lanNode).attr('data_ifnum');
           $('.eP_' + NS.lanNode).attr('data_lan_if', tmp);
         }
-        tmp = $('.eP_' + NS.lanNode).attr('data-linknum');
+        tmp = $('.eP_' + NS.lanNode).attr('data_link_num');
         tmp = parseInt(tmp) + 1;
-        $('.eP_' + NS.lanNode).attr('data-linknum', tmp);
+        $('.eP_' + NS.lanNode).attr('data_link_num', tmp);
       }
 
 
@@ -1331,7 +1349,7 @@ fnAllReset = function() {
   $('#ns_main img').remove();
   $('.bus').remove();
   $('#ns_main_canvas').removeClass();
-  $('#ns_main_canvas').attr('data-buslan', '');
+  $('#ns_main_canvas').attr('data_busLan', '');
   NS.mainCtx.clearRect(0, 0, NS.canvasWidth, NS.canvasHeight);
 
 }
