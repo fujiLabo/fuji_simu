@@ -58,7 +58,7 @@ fnCopy = function(e) {
 }
 
 //IPアドレスとSM入力欄を作成
-//nodenum:
+//nodenum:何番目のPC(Routerか), ifNum:いくつのifを持っているか, kind:PCかRouter
 fnCreateIP_SM = function(nodeNum, ifNum, kind) {
   $('#contextPlace form .context-IPSMIF #inputIPSM').html('');
   //PCでは表示する入力欄を一つに、idやvalueの値も変えるためルータとは別に定義する
