@@ -10,4 +10,7 @@ class HomeController < ApplicationController
 
   def post
   end
+
+  def create
+  end
 end

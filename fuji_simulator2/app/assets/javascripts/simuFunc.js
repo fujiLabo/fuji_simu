@@ -38,7 +38,7 @@ fncontextmenu = function(element) {
   }
 
   fnCreateIP_SM(nodeNum, ifNum, kind);
-  fnCreateRT(0, 0);
+  fnCreateRT(kind, $(element).attr('data_routingtable_num'));
 
   $.contextMenu({
     //selector: '.' + NS.dropContextName,
@@ -157,6 +157,8 @@ fnCreateRT = function(nodeNum, iNum) {
 //ルーティングテーブルを追加
 addRT = function(plus) {
   console.log("addRT");
+  console.log('plus: ' + plus);
+  console.log('plus img: ' + $(plus).attr('id'));
   // console.log("plus.class: " + $(plus).attr('class'));
   // img = $('.ui-droppable img');
   // console.log("img.alt: " + img[0].id);
@@ -183,6 +185,8 @@ addRT = function(plus) {
   img = $('.ui-droppable img');
 
   for(i = 0; i < img.length; i++) {
+    console.log('img['+i+']: ' + img[i].alt);
+    console.log('plusのクラス: ' + $(plus).attr('class'));
     if (img[i].alt === $(plus).attr('class')) {
       console.log('呼ばれるかな？');
       element = img[i];
@@ -195,8 +199,10 @@ addRT = function(plus) {
   }else{
     num = parseInt($(element).attr('data_routingtablenum'));
     num += 1;
-    $(element).attr('data_routingtablenum', num);
+    $(element).attr('data_routingtable_num', num);
   }
+
+  $(element).attr('data_routingtable_num', 'data_routingtable_num' + 1)
 
   $('ul .context-RoutingTable tr:last-child').after('<tr id = inputRoutingTable align = "center"></tr>');
 
