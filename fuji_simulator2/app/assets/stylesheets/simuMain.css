@@ -250,7 +250,15 @@ div.tooltip:hover span{
   border-radius: 5px;
 }
 
+.add{
+  background-color: red;
+}
+
 /******************************/
+
+canvas {
+  position: absolute;
+}
 
 h4{
   font-size: 20px;

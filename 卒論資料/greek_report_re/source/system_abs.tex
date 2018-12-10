@@ -1,0 +1,20 @@
+\label{tag:app}
+本研究で提案するシステムは、クライアント(Webブラウザ)、アプリケーションサーバ(データベース+座標計算スクリプト)からなる。
+本システムの基本設計を図\ref{fig:sys_com}に示す。
+
+クライアントは系図を操作するためのユーザインタフェース(UI)を提供する。
+クライアントがJavaScriptによってアプリケーションサーバにノードの座標計算のためのリクエストを送信する。
+データベースは個人ノードに関するデータを保有しており、
+アプリケーションサーバがデータベースを参照し、計算した座標とともにクライアントにJSONデータとして送信される。
+そのJSONデータをもとに、クライアントがthree.jsを用いて系図を描画する。
+データベースの扱いについては\ref{tag:database}節、
+ノードの座標計算については\ref{tag:backend}節、
+クライアントの描画システムについては\ref{tag:client}節で詳しく述べる。
+
+\begin{figure}[htbp]
+    \begin{center}
+        \includegraphics*[scale=0.5]{img/sys_com.png}
+        \caption{システムの基本設計}
+        \label{fig:sys_com}
+    \end{center}
+\end{figure}

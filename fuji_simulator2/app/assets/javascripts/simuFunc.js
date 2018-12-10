@@ -1,6 +1,5 @@
 //simuMainで使用する関数等のファイル
 
-
 //独自の右クリック作成
 fncontextmenu = function(element) {
   const nodeNum = $(element).attr('dropNumber');
@@ -19,7 +18,7 @@ fncontextmenu = function(element) {
 
   $.contextMenu('destroy');
 
-  //問題演習と自由病がで処理を変えるなら
+  //問題演習と自由描画で処理を変えるなら
   //if ($('.change_mode').hasClass('question')){
   //
   //}
@@ -74,7 +73,7 @@ fnCreateIP_SM = function(nodeNum, ifNum, kind) {
         size: '16',
         value: document.getElementById('rightInfo_IP' + nodeNum).innerHTML,
         id: 'IP' + nodeNum,
-        class: 'inputIP inputIPSMIF-item',
+        class: 'inputIP IPSMIF-item',
         onKeyUp: 'return fnCopy(this);',
       })
     ));
@@ -87,7 +86,7 @@ fnCreateIP_SM = function(nodeNum, ifNum, kind) {
         size: '2',
         value: document.getElementById('rightInfo_SM' + nodeNum).innerHTML,
         id: 'SM' + nodeNum,
-        class: 'inputSM inputIPSMIF-item',
+        class: 'inputSM IPSMIF-item',
         onKeyUp: 'return fnCopy(this);',
       })
     ));
@@ -104,7 +103,7 @@ fnCreateIP_SM = function(nodeNum, ifNum, kind) {
           value: document.getElementById('rightInfo_IP' + nodeNum + '_' + i), //.innerHTML,
           //id: 'IP' + i + '_' + i,
           id: 'IP' + nodeNum + '_' + i,
-          class: 'inputIP inputIPSMIF-item',
+          class: 'inputIP IPSMIF-item',
           onKeyUp: 'return fnCopy(this);',
         })
       ));
@@ -118,7 +117,7 @@ fnCreateIP_SM = function(nodeNum, ifNum, kind) {
           value: document.getElementById('rightInfo_SM' + nodeNum + '_' + i), //.innerHTML,
           //id: 'SM' + i + '_' + i,
           id: 'SM' + nodeNum + '_' + i,
-          class: 'inputSM inputIPSMIF-item',
+          class: 'inputSM IPSMIF-item',
           onKeyUp: 'return fnCopy(this);',
         })
       ));
@@ -238,22 +237,20 @@ fnMachineDrop = function(ui, obj){
     NS.dropContextName = "contextmenuRouter";
     //NS.dropName = "dropRouter";
     NS.ruNode++;
-  } else if (ui.draggable.attr('id') === 'Bus') {
-    fnBusDrop();
   }
 
   //ドロップした画像を追加
   $('#ns_main').append(
     $('<img>').attr({
-      src: ui.draggable.attr('src'),
-      alt: NS.dropNodeName,
-      class: NS.dropContextName,
-      'dropNumber': NS.dropNodeInt,
+      src: ui.draggable.attr('src'),  //画像の種類
+      alt: NS.dropNodeName,           //個別の名前(種類+数字)
+      class: NS.dropContextName,      //contextPC(Router)
+      'dropNumber': NS.dropNodeInt,   //何番目のドロップ化(未使用?)
       'data_ifnum': 0,
       'data_lan_if': '',
       'data_routingtable_num': 0,
       'data_link_num': 0,
-      id: NS.dropNodeName,
+      id: NS.dropNodeName,            //個別の名前(種類+数字)
       style: "position: absolute; top: " + ui.offset.top + "px; left: " + ui.offset.left + "px",
     })
   );
@@ -290,6 +287,7 @@ fnMachineDrop = function(ui, obj){
   //ドロップした際にLANモードがonならば、ドラッグを不可にする
   if (NS.lanFlag) {
     var elMainImgLast = $('#ns_main img:last-child');
+    elMainImgLast.css('cursor', 'crosshair');
     elMainImgLast.mouseup(function(e) {
       e.preventDefault(e);
     });
@@ -325,7 +323,7 @@ fnMachineDrop = function(ui, obj){
   }
   // dd要素(IPとSM)を隠す
   $('#ns_right dd:last').css('display', 'none');
-  //fnNameDraw(ui.draggable.attr('alt') + NS.dropNodeInt);
+  fnNameDraw(ui.draggable.attr('alt') + NS.dropNodeInt);
 }
 
 //ドロップされた画像がBusだった場合
@@ -335,7 +333,7 @@ fnBusDrop = function(e) {
   NS.busX = e.offset.left - 70;
   NS.busY = e.offset.top - 110;
 
-  NS.addCanvas = $('<canvas width = "' + NS.canvasWidth + '" height = "' + NS.canvasHeight + '"></canvas>').prependTo('#ns_main');
+  NS.addCanvas = $('<canvas class = "add" width = "' + NS.canvasWidth + '" height = "' + NS.canvasHeight + '"></canvas>').prependTo('#ns_main');
   NS.addCtx = NS.addCanvas.get(0).getContext('2d');
   NS.addCtx.clearRect(0, 0, NS.canvasWidth, NS.canvasHeight);
   NS.addCtx.beginPath();
@@ -351,10 +349,11 @@ fnBusDrop = function(e) {
       alt: 'bus' + NS.busNode,
       class: 'bus',
       'data_bus': '',
-      style: 'position: absolute; top: ' + NS.busY + 'px; left: ' + NS.busX + 'px;width: 80 px; height: 10px;'
+      style: 'position: absolute; top: ' + NS.busY + 'px; left: ' + NS.busX + 'px;width: 80 px; height: 10px;',
       //'oncontextmenu': 'return busContextmenu(this)',
     })
   );
+
   $('.bus').draggable({
     containment:'parent',
     scroll: false,
@@ -492,6 +491,27 @@ fnMainLanDraw = function() {
   }
 }
 
+//ノードの名前を表示
+fnNameDraw = function() {
+  NS.mainCtx.beginPath();
+  ctx = document.getElementById('ns_main_canvas').getContext('2d');
+  $('#ns_main img').each(function(i, e) {
+  if ($(e).attr('id') != 'questionClose') {
+    if ($(e)[0].alt.slice(0, 2) == 'PC') {
+      drawName = $(e)[0].alt;
+      x = $('#ns_main img[alt = "' + $(e)[0].alt + '"]')[0].x - NS.mainCanvasWidth - 10;
+      y = $('#ns_main img[alt = "' + $(e)[0].alt + '"]')[0].y - NS.mainCanvasHeight - 35;
+      ctx.fillText(drawName, x, y, 200);
+    }else if ($(e)[0].alt.slice(0, 2) == 'Ro') {
+      drawName = 'Ro' + $(e)[0].alt.slice(6);
+      x = $('#ns_main img[alt = "' + $(e)[0].alt + '"]')[0].x - NS.mainCanvasWidth - 10;
+      y = $('#ns_main img[alt = "' + $(e)[0].alt + '"]')[0].y - NS.mainCanvasHeight - 20;
+      ctx.fillText(drawName, x, y, 200);
+    }
+  }
+});
+}
+
 //ifをcanvasに描画
 fnIfDraw = function () {
 
@@ -508,7 +528,8 @@ fnIfDraw = function () {
       spSplit = $('.sP_' + lanNum).attr('data_lan_if').split(' ');
       spLanIf = [];
       for(i=0; i < spSplit.length; i++){
-        spLanIf[i] = spSplit[i].split('-')
+        console.log("spSplit[" + i + "]: " + spSplit[i]);
+        spLanIf[i] = spSplit[i].split('-');
       }
       for(i=0; i < spLanIf.length; i++){
         if (spLanIf[i][0] == lanNum) {
@@ -758,9 +779,9 @@ fnLanOnUp = function(e) {
       $(".lanOn").addClass("lanLink eP_" + NS.lanNode);
 
       $("#ns_main_canvas").addClass("L_" + NS.lanNode);
-      spifnum = parseInt($('.sP_' + NS.lanNode).attr("data-ifnum"));
+      spifnum = parseInt($('.sP_' + NS.lanNode).attr("data_ifnum"));
       spifnum += 1;
-      epifnum = parseInt($(".eP_" + NS.lanNode).attr("data-ifnum"));
+      epifnum = parseInt($(".eP_" + NS.lanNode).attr("data_ifnum"));
       epifnum += 1;
 
       //buslanの追加
@@ -774,17 +795,18 @@ fnLanOnUp = function(e) {
         }
       }
 
-      //ココらへん完コピ
       //lanとifの結びつけ
       if ($('.sP_' + NS.lanNode).hasClass('bus') == false) {
         if ($('.sP_' + NS.lanNode).attr('data_lan_if') == '') {
           tmp = $('.sP_' + NS.lanNode).attr('data_lan_if');
-          tmp += NS.lanNode + '-' + $('.sP_' + NS.lanNode).attr('data-ifnum');
+          console.log('tmp(before): ' + tmp);
+          tmp += NS.lanNode + '-' + $('.sP_' + NS.lanNode).attr('data_ifnum');
+          console.log('tmp(after): ' + tmp);
           $('.sP_' + NS.lanNode).attr('data_lan_if', tmp);
         } else if ($('.sP_' + NS.lanNode).attr('data_lan_if') != '') {
           tmp = $('.sP_' + NS.lanNode).attr('data_lan_if');
           tmp += ' ';
-          tmp += NS.lanNode + '-' + $('.sP_' + NS.lanNode).attr('data-ifnum');
+          tmp += NS.lanNode + '-' + $('.sP_' + NS.lanNode).attr('data_ifnum');
           $('.sP_' + NS.lanNode).attr('data_lan_if', tmp);
         }
         tmp = $('.sP_' + NS.lanNode).attr('data-linknum');
@@ -795,12 +817,12 @@ fnLanOnUp = function(e) {
       if ($('.eP_' + NS.lanNode).hasClass('bus') == false) {
         if ($('.eP_' + NS.lanNode).attr('data_lan_if') == "") {
           tmp = $('.eP_' + NS.lanNode).attr('data_lan_if');
-          tmp += NS.lanNode + '-' + $('.eP_' + NS.lanNode).attr('data-ifnum');
+          tmp += NS.lanNode + '-' + $('.eP_' + NS.lanNode).attr('data_ifnum');
           $('.eP_' + NS.lanNode).attr('data_lan_if', tmp);
         } else if ($('.eP_' + NS.lanNode).attr('data_lan_if') != "") {
           tmp = $('.eP_' + NS.lanNode).attr('data_lan_if');
           tmp += ' ';
-          tmp += NS.lanNode + '-' + $('.eP_' + NS.lanNode).attr('data-ifnum');
+          tmp += NS.lanNode + '-' + $('.eP_' + NS.lanNode).attr('data_ifnum');
           $('.eP_' + NS.lanNode).attr('data_lan_if', tmp);
         }
         tmp = $('.eP_' + NS.lanNode).attr('data-linknum');
@@ -814,14 +836,14 @@ fnLanOnUp = function(e) {
       if ($('.sP_' + NS.lanNode).attr('alt').substr(0, 6) === 'Router' && $('.eP_' + NS.lanNode).attr('alt').substr(0, 6) === 'Router') {
 
         $('#NS-right dl dt:contains("' + $('.sP_' + NS.lanNode)[0].alt + '") + dd .rightInfo-IPSM:last')
-          .after('<p class="rightInfo-IPSM"><span id="' + $('.sP_' + NS.lanNode).attr('data-ifnum') + '" class="num">IP-' + $('.sP_' + NS.lanNode).attr('data-ifnum') + '</span>: <span id="rightInfo-IP' + $('.sP_' + NS.lanNode)[0].alt.slice(6) + '_' + $('.sP_' + NS.lanNode).attr('data-ifnum') + '"></span>/<span id="rightInfo-SM' +
-            $('.sP_' + NS.lanNode)[0].alt.slice(6) + '_' + $('.sP_' + NS.lanNode).attr('data-ifnum') + '"></span></p>');
-        $('.sP_' + NS.lanNode).attr('data-ifnum', spifnum);
+          .after('<p class="rightInfo-IPSM"><span id="' + $('.sP_' + NS.lanNode).attr('data_ifnum') + '" class="num">IP-' + $('.sP_' + NS.lanNode).attr('data_ifnum') + '</span>: <span id="rightInfo-IP' + $('.sP_' + NS.lanNode)[0].alt.slice(6) + '_' + $('.sP_' + NS.lanNode).attr('data_ifnum') + '"></span>/<span id="rightInfo-SM' +
+            $('.sP_' + NS.lanNode)[0].alt.slice(6) + '_' + $('.sP_' + NS.lanNode).attr('data_ifnum') + '"></span></p>');
+        $('.sP_' + NS.lanNode).attr('data_ifnum', spifnum);
 
         $('#NS-right dl dt:contains("' + $('.eP_' + NS.lanNode)[0].alt + '") + dd .rightInfo-IPSM:last')
-          .after('<p class="rightInfo-IPSM"><span id="' + $('.eP_' + NS.lanNode).attr('data-ifnum') + '" class="num">IP-' + $('.eP_' + NS.lanNode).attr('data-ifnum') + '</span>: <span id="rightInfo-IP' + $('.eP_' + NS.lanNode)[0].alt.slice(6) + '_' + $('.eP_' + NS.lanNode).attr('data-ifnum') + '"></span>/<span id="rightInfo-SM' +
-            $('.eP_' + NS.lanNode)[0].alt.slice(6) + '_' + $('.eP_' + NS.lanNode).attr('data-ifnum') + '"></span></p>');
-        $('.eP_' + NS.lanNode).attr('data-ifnum', epifnum);
+          .after('<p class="rightInfo-IPSM"><span id="' + $('.eP_' + NS.lanNode).attr('data_ifnum') + '" class="num">IP-' + $('.eP_' + NS.lanNode).attr('data_ifnum') + '</span>: <span id="rightInfo-IP' + $('.eP_' + NS.lanNode)[0].alt.slice(6) + '_' + $('.eP_' + NS.lanNode).attr('data_ifnum') + '"></span>/<span id="rightInfo-SM' +
+            $('.eP_' + NS.lanNode)[0].alt.slice(6) + '_' + $('.eP_' + NS.lanNode).attr('data_ifnum') + '"></span></p>');
+        $('.eP_' + NS.lanNode).attr('data_ifnum', epifnum);
 
       }
 
@@ -829,18 +851,18 @@ fnLanOnUp = function(e) {
       if ($('.sP_' + NS.lanNode).attr('alt').substr(0, 6) !== 'Router' && $('.eP_' + NS.lanNode).attr('alt').substr(0, 6) === 'Router') {
 
         $('#NS-right dl dt:contains("' + $('.eP_' + NS.lanNode)[0].alt + '") + dd .rightInfo-IPSM:last')
-          .after('<p class="rightInfo-IPSM"><span id="' + $('.eP_' + NS.lanNode).attr('data-ifnum') + '" class="num">IP-' + $('.eP_' + NS.lanNode).attr('data-ifnum') + '</span>: <span id="rightInfo-IP' + $('.eP_' + NS.lanNode)[0].alt.slice(6) + '_' + $('.eP_' + NS.lanNode).attr('data-ifnum') + '"></span>/<span id="rightInfo-SM' +
-            $('.eP_' + NS.lanNode)[0].alt.slice(6) + '_' + $('.eP_' + NS.lanNode).attr('data-ifnum') + '"></span></p>');
-        $('.eP_' + NS.lanNode).attr('data-ifnum', epifnum);
+          .after('<p class="rightInfo-IPSM"><span id="' + $('.eP_' + NS.lanNode).attr('data_ifnum') + '" class="num">IP-' + $('.eP_' + NS.lanNode).attr('data_ifnum') + '</span>: <span id="rightInfo-IP' + $('.eP_' + NS.lanNode)[0].alt.slice(6) + '_' + $('.eP_' + NS.lanNode).attr('data_ifnum') + '"></span>/<span id="rightInfo-SM' +
+            $('.eP_' + NS.lanNode)[0].alt.slice(6) + '_' + $('.eP_' + NS.lanNode).attr('data_ifnum') + '"></span></p>');
+        $('.eP_' + NS.lanNode).attr('data_ifnum', epifnum);
 
       }
 
       //router->pc,bus
       if ($('.sP_' + NS.lanNode).attr('alt').substr(0, 6) === 'Router' && $('.eP_' + NS.lanNode).attr('alt').substr(0, 6) !== 'Router') {
         $('#NS-right dl dt:contains("' + $('.sP_' + NS.lanNode)[0].alt + '") + dd .rightInfo-IPSM:last')
-          .after('<p class="rightInfo-IPSM"><span id="' + $('.sP_' + NS.lanNode).attr('data-ifnum') + '" class="num">IP-' + $('.sP_' + NS.lanNode).attr('data-ifnum') + '</span>: <span id="rightInfo-IP' + $('.sP_' + NS.lanNode)[0].alt.slice(6) + '_' + $('.sP_' + NS.lanNode).attr('data-ifnum') + '"></span>/<span id="rightInfo-SM' +
-            $('.sP_' + NS.lanNode)[0].alt.slice(6) + '_' + $('.sP_' + NS.lanNode).attr('data-ifnum') + '"></span></p>');
-        $('.sP_' + NS.lanNode).attr('data-ifnum', spifnum);
+          .after('<p class="rightInfo-IPSM"><span id="' + $('.sP_' + NS.lanNode).attr('data_ifnum') + '" class="num">IP-' + $('.sP_' + NS.lanNode).attr('data_ifnum') + '</span>: <span id="rightInfo-IP' + $('.sP_' + NS.lanNode)[0].alt.slice(6) + '_' + $('.sP_' + NS.lanNode).attr('data_ifnum') + '"></span>/<span id="rightInfo-SM' +
+            $('.sP_' + NS.lanNode)[0].alt.slice(6) + '_' + $('.sP_' + NS.lanNode).attr('data_ifnum') + '"></span></p>');
+        $('.sP_' + NS.lanNode).attr('data_ifnum', spifnum);
       }
 
 
@@ -939,7 +961,7 @@ fnLanOffOutUp = function(e) {
 //画像のドラッグに応じて関連された線を移動し、描画する関数
 fnLanOffDrag = function(e) {
   NS.mainCtx.clearRect(0, 0, NS.canvasWidth, NS.canvasHeight);
-  fnMainLanDraw();
+  fnDraw();
 }
 
 //lanボタンが押された場合
@@ -988,7 +1010,7 @@ fnChangeLanMode = function() {
       $(this).draggable('enable');
     });
     //busをoffにする
-    $('#bus').prop('checked', false);
+    //$('#bus').prop('checked', false);
     $('input[name=busSwitch]').removeClass('busOn');
 
   } else { //lanボタンがonのとき
@@ -1035,6 +1057,55 @@ fnChangeMode = function() {
   console.log("func:changemode");
 }
 
+//Nodeの情報を表示
+IndicateNodeInfo = function() {
+  var nodes = [];
+
+  //nodeの情報を取得
+  for(i = 0, num = 0; i < $('#ns_main img').length; i++) {
+    element = $('#ns_main img')[i];
+    if ($(element).hasClass('send-node2') !== true && $(element).hasClass('get-node2') !== true) {
+      nodes[num] = new Object();
+      nodes[num].element = element;
+      num++;
+    }
+  }
+
+  for(i = 0; i < nodes.length; i++){
+    info_height = 20;
+    ddElements = $('#ns_right dt:contains(' + nodes[i].element.alt + ') + dd').clone();
+    pElements = $('#ns_right dt: contains(' + nodes[i].element.alt + ') + dd p').clone();
+
+    if (nodes[i].element.alt.slice(0, 2) == 'PC') {
+      info_height = 80;
+      info_width = 170;
+    }else {
+      for(j = 0;j < pElements.length; j++) {
+        if (pElements[j].className == 'rightInfo_IPSM') {
+          info_height += 20;
+        }else {
+          info_height += 40;
+        }
+      }
+      info_width = 170;
+    }
+    nodeX = nodes[i].element.x + 35 - NS.mainCanvasX;
+    nodeY = nodes[i].element.y + 35 - NS.mainCanvasY;
+    rightInfoX = $('#ns_right dt:contains("' + nodes[i].element.alt + '") img')[0].offsetLeft;
+    rightInfoY = $('#ns_right dt:contains("' + nodes[i].element.alt + '") img')[0].offsetTop;
+
+
+    $('#checkLayer').append(
+      $('<div>').attr({
+        class: 'info',
+        style: 'position: absolute; top: ' + nodeY + 'px; left: ' + nodeX + 'px; width:' + info_width + 'px: height: ' + info_height + 'px;'
+      })
+    );
+
+    $('#checkLayer div:last-child').append('<p>' + nodes[i].element.alt + '</p>');
+    $('#checkLayer div:last-child').append(ddElements);
+  }
+}
 
 
 //削除(エラー)(途中)
@@ -1073,6 +1144,167 @@ nodeDel = function(e) {
         }
       }
     }
+  }
+}
+//パケットアニメーション
+packetAnimation = function(e) {
+  animeData = $(e).attr('class').split('_');
+  animationData = [];
+  mainCanvasX = $('#ns_main_canvas').attr('data-x');
+  mainCanvasY = $('#ns_main_canvas').attr('data-y');
+
+  $('.animecanvasflag').remove();
+
+  if (animeData[animeData.length - 2].slice(0, 3) == 'bus') {
+    animeData.splice(animeData.length - 2, 1);
+  }
+
+  for(i = 0, count = 0; i < animeData.length; i++, count++) {
+    if (animeData[i].slice(0, 3) == 'bus') {
+      animationData[count] = new Object();
+      animationData[count].name = 'Start' + animeData[i];
+      count++;
+      animationData[count] = new Object();
+      animationData[count].name = 'End' + animeData[i];
+    }else{
+      $('#ns_main img[alt = "' + animeData[i] + '"]').each(function(j, e) {
+        animationData[count] = new Object();
+        animationData[count].name = e.alt;
+        animationData[count].animecanvasX = e.x - mainCanvasX;
+        animationData[count].animecanvasY = e.y - mainCanvasY;
+        animationData[count].packetanimeX = e.x + 23;
+        animationData[count].packetanimeY = e.y + 23;
+      });
+    }
+    if (i == animeData.length - 1) {
+      animationData[count] = animeData[i];
+    }
+  }
+
+  //busの座標
+  for(i = 0; i < animationData.length - 1; i++) {
+    if (animationData[i].name.slice(0, 5) == 'Start') {
+      animationData[i].animecanvasX = animationData[i - 1].animecanvasX;
+      animationData[i].animecanvasY = $('#ns_main div[alt="' + animationData[i].name.slice(5) + '"]')[0].offsetTop - mainCanvasY - 30;
+      animationData[i].packetanimeX = animationData[i - 1].packetanimeX;
+      animationData[i].packetanimeY = $('#ns_main div[alt="' + animationData[i].name.slice(5) + '"]')[0].offsetTop - 3;
+    }else if (animationData[i].name.slice(0, 3) == 'End') {
+      animationData[i].animecanvasX = animationData[i + 1].animecanvasX;
+      animationData[i].animecanvasY = $('#ns_main div[alt="' + animationData[i].name.slice(3) + '"]')[0].offsetTop - mainCanvasY - 30;
+      animationData[i].packetanimeX = animationData[i + 1].packetanimeX;
+      animationData[i].packetanimeY = $('#ns_main div[alt="' + animationData[i].name.slice(3) + '"]')[0].offsetTop - 3;
+    }
+  }
+
+  //canvasに追加
+  $("#ns_main").append(
+    $('<div>').attr({
+      class: 'PacketAnime',
+      style: "position: absolute; top: " + animationData[0].packetanimeY + "px; left: " + animationData[0].packetanimeX + "px; width: 30px; height: 30px;"
+    })
+  );
+
+  $('#ns_main').append('<canvas width = "600" height = "400" id = "animecanvas"></canvas>');
+
+  canvas = document.getElementById('animecanvas');
+  context = canvas.getContext("2d");
+
+  context.beginPath();
+  context.arrow(animationData[0].animecanvasX, animationData[0].animecanvasY, animationData[1].animecanvasX, animationData[1].animecanvsY, [0, 1, -20, 5, -20, 12]);
+  context.fill();
+
+  moveAnimation(1)
+
+  //描画
+  function moveAnimation(i) {
+    $('.PacketAnime')
+    .hide().fadeIn(200).animate({})
+    .animate({
+      left: animationData[i].packetanimeX,
+      top: animationData[i].paketanimeY
+    },{
+      duration: 500,
+      complete:function () {
+        if (animationData[i + 1] != undefined) {
+          context.beginPath();
+          context.arrow(animationData[i].animecanvasX, animationData[i].animecanvasY, animationData[i+1].animecanvasX, animationData[i + 1].animecanvasY, [0, 1, -20, 5, -20, 12]);
+          context.fill();
+        }
+        if (i == animationData.length - 1) {
+          $('#animecanvas').addClass('animecanvasflag');
+          $('.PacketAnime').remove();
+          if (animationData[i] == 1) {
+            $('.animecanvasflag').remove();
+            for(j = 0; j < animationData.length - 1; j++) {
+              if (animationData[j].name.slice(0, 2) == 'PC' || animationData[j].name.slice(0, 6) == 'Router') {
+                animationData[j].packetanimeX = animationData[j].packetanimeX - 35;
+                animationData[i].packetanimeY = animationData[j].packetanimeY - 35;
+                $('#ns_main').append(
+                  $('<div').attr({
+                    class: "cssCircle",
+                    style: "position: absolute; top: " + animationData[j].packetanimeY + "px; left: " + animationData[j].packetanimeX + "px; width: 100px; height: 100px;"
+                  })
+                );
+                $('.cssCircle:last-child').append(
+                  $('<img>').attr({
+                    src: '/assets/circle.png',
+                  })
+                );
+              }
+            }
+            $('.cssCircle').fadeOut(400, function() {
+              $(this).fadeIn(400, function () {
+                $(this).fadeOut(200, function() {
+                  $('.cssCircle').remove();
+                })
+              })
+            });
+          }
+          if (animationData[i] == 0) {
+
+            $('#animecanvas').drawRect({
+              strokeStyle: 'red',
+              strokeWidth: 1,
+              x: animationData[i-1].animecanvasX,
+              y: animationData[i-1].animecanvasY,
+              width: 80,
+              height: 80,
+            });
+
+            style = $('#ns_main img[alt = ' + animationData[i - 1].name + ']').attr('style');
+
+            animationData[i - 1].packetanimeX = animationData[i - 1].packetanimeX - 30;
+            animationData[i - 1].packetanimeY = animationData[i - 1].packetanimeY - 30;
+
+            $('#ns_main').append(
+              $('<div').attr({
+                class: 'cssCross',
+                style: "position: absolute; top: " + animationData[i - 1].packetanimeY + "px; left: " + animationData[i - 1].packetanimeX + "px; width: 100px; height: 100px;"
+              })
+            );
+
+            $('#ns_main img[alt =' + animationData[i-1].name + ']').addClass('hurueru');
+
+            $('.hurueru').css({
+              'display': 'inline-block',
+              'animation': 'hurueru .1s 9'
+            });
+
+            $('.cssCross').fadeOut(300, function() {
+              $(this).fadeIn(400, function () {
+                $(this).fadeOut(200, function () {
+                  $('.cssCross').remove();
+                  $('#ns_main img[alt=' + animationData[i - 1].name + ']').attr('style', style);
+                  $('#ns_main img[alt=' + animationData[i - 1].name + ']').removeClass('hurueru');
+                })
+              })
+            });
+          }
+        }else {
+          moveAnimation(i + 1);
+        }
+      }
+    });
   }
 }
 

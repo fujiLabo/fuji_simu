@@ -1,0 +1,17 @@
+\contentsline {section}{概要}{2}{section*.1}
+\contentsline {section}{\numberline {1}はじめに}{4}{section.1}
+\contentsline {section}{\numberline {2}系譜図について}{6}{section.2}
+\contentsline {section}{\numberline {3}ギリシャ神話について}{6}{section.3}
+\contentsline {section}{\numberline {4}WHIteBasEについて}{8}{section.4}
+\contentsline {section}{\numberline {5}システム概要}{9}{section.5}
+\contentsline {subsection}{\numberline {5.1}データベース}{10}{subsection.5.1}
+\contentsline {subsubsection}{\numberline {5.1.1}データベースの作成}{10}{subsubsection.5.1.1}
+\contentsline {subsubsection}{\numberline {5.1.2}データ追加・変更}{11}{subsubsection.5.1.2}
+\contentsline {subsection}{\numberline {5.2}ノードの座標計算}{12}{subsection.5.2}
+\contentsline {subsubsection}{\numberline {5.2.1}WHIteBasEモデル化}{13}{subsubsection.5.2.1}
+\contentsline {subsubsection}{\numberline {5.2.2}座標計算}{14}{subsubsection.5.2.2}
+\contentsline {subsection}{\numberline {5.3}Webブラウザ上における系譜図描画}{16}{subsection.5.3}
+\contentsline {subsection}{\numberline {5.4}Webページデザイン}{18}{subsection.5.4}
+\contentsline {section}{\numberline {6}アプリケーション評価方法}{22}{section.6}
+\contentsline {section}{\numberline {7}考察}{24}{section.7}
+\contentsline {section}{\numberline {8}まとめと課題}{24}{section.8}
