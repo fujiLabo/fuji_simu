@@ -1,8 +1,7 @@
 <h1>createページ</h1>
 
 <%#postで送信されてきた値を画面に表示する%>
-<p1><%#= params %></p1>
-<h3><%= @Return_grade %></h3>
+<p1><%= params %></p1>
 <h4><%= @oauth_consumer_key %><h4>
 <h5><%= params[:ext_content_return_types] %></h5>
 <h5><%= params[:selection_directive] %></h5>
@@ -91,6 +90,13 @@
 
 <%= button_to "ボタン", {action: 'grade'}, {method: :post} %>
 
-<%= form_tag(controller: 'home', action: 'grade') do %>
+
+<%= form_tag('grade_page',controller: 'home', action: 'grade', method: :get) do %>
 <%= submit_tag 'grade' %>
+<% end %>
+
+<%= form_tag('/home/grade_page', method: :get) do %>
+  <input type = "submit" value = "testへ">
+
+
 <% end %>
