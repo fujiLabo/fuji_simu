@@ -13,4 +13,16 @@
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
+
+//先に読み込んでおきたいものを明示的に指定
+//= require jquery-3.1.1.min.js
+//= require jquery-ui-1.12.1.min.js
+//= require jquery.contextMenu.js
+//= require jquery.ui.position.js
+//= require cable.js
+//= require canvas-arrow.js
+//= require gpFloat.js
+//= require introtzikas.js
+
+
 //= require_tree .

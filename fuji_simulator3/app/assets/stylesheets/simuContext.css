@@ -1,0 +1,57 @@
+/*********右クリック関連*************/
+.IPSMIF-item {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.context-IPSMIF{
+  font-size: 13px;
+  display: table;
+  width: 100%;
+}
+.inputIPSMIF-item {
+  display: table-cell;
+  vertical-align: middle;
+}
+.context-IPSMIF-item {
+  font-size: 13px;
+  display: table-cell;
+  vertical-align: middle;
+}
+
+
+.inputIP{
+  width: 100px;
+}
+
+.inputSM{
+  width: 20px;
+}
+.context-menu-item span {
+  font-size: 13px;
+}
+.context-RoutingTable{
+  font-size: 13px;
+}
+.context-RoutingTable-sub{
+  font-size: 13px;
+  display: table;
+  width: 100%;
+}
+.routingtable-item {
+  display: table-cell;
+  vertical-align: middle;
+}
+.routingtable-item-middle {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+}
+
+
+.contextMenuSeparator{
+  border: 0.5px black solid;
+}
+
+
+/**********************************/
