@@ -1,133 +1,85 @@
 <h1>mainのページ</h1>
 
-<%#シミュレータ全体%>
-<div id="ns_all">
-  <div id="ns_container">
-    <%#シミュレータ上部のアイコンやボタン%>
-    <div id="ns_nav">
-      <%#モード変更ボタン%>
-      <div class="change_mode draw tooltip tooltip_mode">
-        <input type="radio" name="DorQ" id="mode_draw" checked="" autocomplete="off">
-        <label for="mode_draw" class="mode_draw">自由描画</label>
-        <input type="radio" name="DorQ" id="mode_question" autocomplete="off">
-        <label for="mode_question" class="mode_question">問題演習</label>
-        <span class = "output">モードを選択します</span>
-      </div>
-      <%#各アイコン, height_line = アイコンを区切る縦のライン(本当はhr使いたかった)%>
-      <div class="height_line"></div>
-      <div class="tooltip tooltip_start">
-        <img src="/assets/start.png" id="start" title="実行">
-          <span>ネットワークの判定をします</span>
-      </div>
-      <div class="height_line"></div>
-      <div class="tooltip tooltip_check">
-        <img src="/assets/check.png" id="check" title="情報を確認">
-        <span>ノードごとの情報を確認します</span>
-      </div>
-      <div class = "height_line"></div>
-      <div class="tooltip tooltip_dust">
-        <img src="/assets/dust.png" id="dust" title="ノードの削除">
-        <span>すべてのノードを削除します</span>
-      </div>
-      <div class = "height_line"></div>
-
-      <%#問題演習時にのみ表示するツール%>
-      <div id = "questionTip">
-        <div class = "tooltip tooltip_study add_nav">
-          <img src = "/assets/study.png" id = "study" title = "練習問題" />
-          <span>問題を表示します</span>
+  <div id="nsf-all">
+    <div id="nsf-container">
+      <div id="nsf-nav">
+        <!-- <img src="/assets/mode_draw.png" id="change-mode" title="モード"> -->
+        <!-- <img src="/assets/mode_draw.png" id="change-mode"> -->
+        <div class="change_mode draw tooltip tooltip_mode">
+          <input type="radio" name="s2" id="mode_draw" checked="" autocomplete="off">
+          <label for="mode_draw" class="mode_draw">自由描画</label>
+          <input type="radio" name="s2" id="mode_question" autocomplete="off">
+          <label for="mode_question" class="mode_question">問題演習</label>
+          <span>
+            モードを選択します
+          </span>
         </div>
-        <div class = "height_line"></div>
-        <div class = "tooltip tooltip_save add_nav">
-          <img src = "/assets/save.png" id = "save" title = "セーブ" />
-          <span>現在のネットワーク構成を保存します</span>
+        <div class="height_line"></div>
+        <div class="tooltip tooltip_start">
+          <img src="/assets/start.png" id="connect-start" title="実行">
+          <span>
+            ネットワークの判定をします
+          </span>
         </div>
-        <div class = "height_line"></div>
-        <div class = "tooltip tooltip_load add_nav">
-          <img src = "/assets/load.png" id = "load" title = "ロード" />
-          <span>セーブした問題のネットワーク構成を復元します</span>
+        <div class="height_line"></div>
+        <div class="tooltip tooltip_check">
+          <img src="/assets/check.png" id="check" title="情報を確認">
+          <span>
+            ノードごとの情報を確認します
+          </span>
         </div>
-        <div class = "height_line"></div>
-        <div class = "tooltip tooltip_quit add_nav">
-          <img src = "/assets/quit.png" id = "quit" title = "終了" />
-          <span>問題演習を終了します</span>
+        <div class="height_line"></div>
+        <div class="tooltip tooltip_dust">
+          <img src="/assets/dust.png" id="dust" title="全削除">
+          <span>
+            全てのノードを削除します
+          </span>
         </div>
-        <div class = "height_line"></div>
+        <div class="height_line"></div>
+        <!-- <img src="/assets/info.png" id="info" title="ヘルプ"> -->
+        <!-- <div class="height_line"></div>
+        <img src="/assets/cui.png" id="cui" title="Debug"> -->
       </div>
-    </div>
-
-      <%#左側のあれこれ, width_line = それぞれの要素を区切る横の線%>
-      <div id="ns_left">
-        <img src="/assets/pc.png" alt="PC" class="dropImage" id = "PC">
-        <hr class = "width_line" />
-        <img src="/assets/router.png" alt="Router" class="dropImage" id = "Router">
-        <hr class = "width_line" />
-        <img src = "/assets/bus.png" alt = "Bus" class = "dropImage" id = "Bus" />
-        <hr class = "width_line" />
-        <img src="/assets/lanCableOff.png" title="LANをつなげる" id="lan">
+      <div id="nsf-left">
+        <img src="/assets/pc.png" alt="PC" class="machinery">
+        <div class="width_line"></div>
+        <img src="/assets/router.png" alt="Router" class="machinery">
+        <div class="width_line"></div>
+        <img src="/assets/lanCable.png" id="lan" title="LANを繋げる">
+        <div class="width_line"></div>
+        <div id="nsf-left-switch">
+          <li class='tg-list-item'>
+            <!-- <h4>Draw</h4>
+            <input class='tgl tgl-light' id='lan' type='checkbox' name="lanSwitch" autocomplete="off">
+            <label class='tgl-btn' for='lan'></label> -->
+            <h4>Bus</h4>
+            <input class='tgl tgl-light' id='bus' type='checkbox' name="busSwitch" autocomplete="off">
+            <label class='tgl-btn' for='bus'></label>
+          </li>
+        </div>
       </div>
-      <%#シミュレートする部分%>
-      <div id="ns_main">
-        <canvas width="600" height="400" id="ns_main_canvas" class=""></canvas>
+      <div id="nsf-main">
+        <canvas width="600" height="400" id="nsf-main-canvas" class=""></canvas>
         <div id="checkLayer"></div>
         <div id="questionLayer"></div>
       </div>
-      <%#右側のシミュレートの詳細上部%>
-      <div id="ns_rightInfo">
-        <p>
-          トポロジーの概要
-          <img src = "/assets/close.png" id = "r-close" title = "詳細を閉じる" />
-          <img src = "/assets/open.png" id = "r-open" title = "詳細を開く" />
+      <div id="nsf-right-info">
+        <p>トポロジーの概要
+          <img src="/assets/close.png" id="r-close" title="詳細を閉じる">
+          <img src="/assets/open.png" id="r-open" title="詳細を開く">
         </p>
       </div>
-      <%#右側のシミュレートの詳細中身%>
-      <div id="ns_right"><dl><%#main内の要素の表示欄%></dl></div>
-
-      <%#コンソール上部%>
-      <div id="ns_consoleInfo"><p>コンソール</p></div>
-      <%#コンソール内部%>
-      <div id="ns_console"></div>
-      <%#グレー%>
+      <div id="nsf-right"><dl></dl></div>
+      <div id="nsf-console-info"><p>コンソール</p></div>
+      <div id="nsf-console"></div>
     </div>
-    <div id="glay_layer"></div>
-
-    <%#PCやルータが右クリックされた場合に呼び出される(普段は表示しない)%>
-    <menu id = "contextPlace" type = "context" style = "display:none;">
-    <form action = "#">
-      <table id = "" class = "context-IPSMIF" width = "200">
-        <tr align = "center">
-          <%#見出し%>
-          <th><label class = "IF">IF</label></th>
-          <th><label class = "IP">IPアドレス</label></th>
-          <th><label class = "SM">SM</label></th>
-        </tr>
-        <%#IPアドレスとSMの入力欄(jQuery関数)%>
-      </table>
-      <hr />
-
-        <table class = "context-RoutingTable" width = "300">
-          <tr class = "title" align = "center">
-            <%#ルーティングテーブル作成%>
-            <th class = "RoutingTable"><label>RoutingTable</label></th>
-            <th><img id = "addRButtom"class = "0" onClick = "return addRT(this)" src = "/assets/plus.jpg" style = "display:none;"/></tr>
-          </tr>
-          <tr align = "center">
-            <th><label class = "routingtable-IPSM">宛先ルート</label></th>
-            <th><label class = "routingtable-NHA">NHA</label></th>
-            <th><label class = "routingtable-IF">IF</label></th>
-          </tr>
-          <%#Routingtable入力欄(jQuery関数化)%>
-        </table>
-        <hr />
-    </form>
-    <%#各種ボタン%>
-    <menuitem label = "削除" class = "nodeName" onclick = "return nodeDel(this)"></menuitem>
-    <menuitem label = "閉じる"></menuitem>
+    <div id="glayLayer"></div>
+  </div>
+  <menu id="contextMenuTemplate" type="context" style="display:none;" >
+    <menuitem></menuitem>
   </menu>
 
   <%= form_tag("/", method: :get) do %>
     <input class = "movement" type="submit" value="topへ">
     <% end %>
 </div>
-
-<image src = "/assets/circle.png" id = "bottom">
