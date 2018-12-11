@@ -2488,7 +2488,7 @@ $(function(){
       }
     }
 
-    ifDraw = function(aX, aY, bX, bY, type, ifname) {
+    function ifDraw (aX, aY, bX, bY, type, ifname) {
       if (type === 'Router') {
         //楕円と直線の交点を求める
         var s = 50;
