@@ -1,14 +1,11 @@
 //mainファイル
 
-
 //他のファイルが読み込まれてからこのファイルを読み込む
 $.when(
   $.ready,
   $.getScript("/assets/simuDec.js"),
   $.getScript("/assets/simuFunc.js"),
 ).then(function(){
-
-
   /*
    * ネットワークシミュレータのプログラム
    * メインのコードを書いている
@@ -45,684 +42,6 @@ $.when(
    ・main-canvasに追加する場合 -> x +
    */
 
-
-  //右クリック時に実行
-  fncontextmenu = function(element) {
-    if (true) {
-      var count = 0;
-      var split_lan = [];
-
-      var lan_info = $(element).attr('data-ifnum');
-
-
-      //console.log(element);
-      var nodeName = $("img[alt='" + $(element)[0].alt +  "']")[0].alt;
-
-      $.contextMenu( 'destroy' );
-
-      //contextMenuを生成
-      $('#contextMenuTemplate').html('');
-
-      $('#contextMenuTemplate').append('<form action="#"/>');
-
-      $('#contextMenuTemplate form').append('<table class="context-IPSMIF" width="200"><tr align="center"></tr></table>');
-
-      $('#contextMenuTemplate form .context-IPSMIF tr').append('<th><label class="IF">IF</label></th>');
-
-      $('#contextMenuTemplate form .context-IPSMIF tr').append('<th><label class="IP">IPアドレス</label></th>');
-
-      $('#contextMenuTemplate form .context-IPSMIF tr').append('<th><label class="SM">SM</label></th>');
-
-      //自由描画モード
-      if ($(element).hasClass('context-menu-Router')) {
-        var selectorType = '.context-menu-Router';
-
-        //ifの数だけIPアドレスとSM入力欄を生成
-        for(i = 0; i < $(element).attr('data-ifnum'); i++){
-          num = $('#ns-right dt:contains(' + nodeName + ') + dd p:contains(IP-'  + i + ') span:nth-of-type(2)').attr('id').split('_')[1];
-          //$('#ns-right:contains').attr
-          createIP_SM(nodeName.slice(6), num, 'Router');
-        }
-
-        $('#contextMenuTemplate form').append('<li class="context-menu-separator"></li>');
-
-        $('#contextMenuTemplate form .context-menu-separator').after('<table class="context-RoutingTable" width="300"><tr align="center"></tr></table>');
-
-        //ルーティングテーブル作成
-        $('#contextMenuTemplate form .context-RoutingTable tr').append('<th><label>RoutingTable</label></th>');
-        $('#contextMenuTemplate form .context-RoutingTable tr').append('<img src="/assets/plus.jpg" class="' + nodeName + '" onClick="return addRoutingTable(this)">');
-        $('#contextMenuTemplate form .context-RoutingTable tr:last-child').after('<tr align="center"></tr>')
-        $('#contextMenuTemplate form .context-RoutingTable tr:last-child').append('<th><label class="routingtable-IPSM">宛先ルート</label></th>');
-        $('#contextMenuTemplate form .context-RoutingTable tr:last-child').append('<th><label class="routingtable-NHA">NHA</label></th>');
-        $('#contextMenuTemplate form .context-RoutingTable tr:last-child').append('<th><label class="routingtable-IF">IF</label></th>');
-
-        //ifの数だけ生成
-        for (i = 0; i <= $(element).attr('data-routingtablenum'); i++) {
-          createRoutingTable(nodeName.slice(6), i);
-        }
-
-        $('#contextMenuTemplate').append('<li class="context-menu-separator"></li>');
-
-        $('#contextMenuTemplate').append(
-          $('<menuitem>').attr({
-            label: '削除',
-            class: nodeName,
-            onclick: 'return nodeDel(this);'
-          }));
-
-        $('#contextMenuTemplate').append(
-          $('<menuitem>').attr({
-            label: '閉じる'
-          }));
-
-        }
-
-      else if ($(element).hasClass('context-menu-PC')) {
-        var selectorType = '.context-menu-PC';
-
-        //IPアドレスとSM入力欄を生成
-        createIP_SM(nodeName.slice(2), 0, 'PC');
-
-
-        $('#contextMenuTemplate form').append('<li class="context-menu-separator"></li>');
-
-        $('#contextMenuTemplate form .context-menu-separator').after('<table class="context-RoutingTable" width="300"><tr align="center"></tr></table>');
-
-        //ルーティングテーブル作成
-        $('#contextMenuTemplate form .context-RoutingTable tr').append('<th><label>RoutingTable</label></th>');
-        $('#contextMenuTemplate form .context-RoutingTable tr:last-child').after('<tr align="center"></tr>')
-        $('#contextMenuTemplate form .context-RoutingTable tr:last-child').append('<th><label class="routingtable-IPSM">宛先ルート</label></th>');
-        $('#contextMenuTemplate form .context-RoutingTable tr:last-child').append('<th><label class="routingtable-NHA">NHA</label></th>');
-        $('#contextMenuTemplate form .context-RoutingTable tr:last-child').append('<th><label class="routingtable-IF">IF</label></th>');
-
-        //ifの数だけ生成
-        $('#contextMenuTemplate form .context-RoutingTable tr:last-child').after('<tr align="center"></tr>');
-        $('#contextMenuTemplate .context-RoutingTable tr:last-child')
-        .append('<td><input id="PCroutingtable-IP' + nodeName.slice(2) + '_' + 0 + '"  type="text" size="13" value="' + document.getElementById('rightInfo-PCroutingtable-IP' + nodeName.slice(2) + '_' + 0).innerHTML + '" onKeyUp="return fCopy(this);"/>/' +
-        '<input id="PCroutingtable-SM' + nodeName.slice(2) + '_' + 0 +'" type="text" size="1" value="' + document.getElementById('rightInfo-PCroutingtable-SM' + nodeName.slice(2) + '_' + 0).innerHTML + '" onKeyUp="return fCopy(this);"/>→</td>');
-        $('#contextMenuTemplate .context-RoutingTable tr:last-child')
-        .append('<td><input id="PCroutingtable-NHA' + nodeName.slice(2) + '_' + 0 + '" type="text" size="13" value="' + document.getElementById('rightInfo-PCroutingtable-NHA' + nodeName.slice(2) + '_' + 0).innerHTML + '" onKeyUp="return fCopy(this);"/></td>');
-        $('#contextMenuTemplate .context-RoutingTable tr:last-child')
-        .append('<td>if<input id="PCroutingtable-IF' + nodeName.slice(2) + '_' + 0 + '" type="text" size="1" value="' + document.getElementById('rightInfo-PCroutingtable-IF' + nodeName.slice(2) + '_' + 0).innerHTML + '" onKeyUp="return fCopy(this);"></td>');
-
-        $('#contextMenuTemplate').append('<li class="context-menu-separator"></li>');
-
-
-        $('#contextMenuTemplate').append(
-          $('<menuitem>').attr({
-            label: '削除',
-            class: nodeName,
-            onclick: 'return nodeDel(this);'
-          }));
-
-        $('#contextMenuTemplate').append(
-          $('<menuitem>').attr({
-            label: '閉じる'
-          }));
-      }
-
-      //問題演習モードの場合
-      else if ($(element).hasClass('q-context-menu-Router')) {
-        var selectorType = '.q-context-menu-Router';
-
-        //ifの数だけIPアドレスとSM入力欄を生成
-        for(i = 0; i < $(element).attr('data-ifnum'); i++){
-          num = $('#ns-right dt:contains(' + nodeName + ') + dd p:contains(IP-'  + i + ') span:nth-of-type(2)').attr('id').split('_')[1];
-          //$('#ns-right:contains').attr
-          createIP_SM(nodeName.slice(6), num, 'Router');
-        }
-
-        $('#contextMenuTemplate form').append('<li class="context-menu-separator"></li>');
-
-        $('#contextMenuTemplate form .context-menu-separator').after('<table class="context-RoutingTable" width="300"><tr align="center"></tr></table>');
-
-        //ルーティングテーブル作成
-        $('#contextMenuTemplate form .context-RoutingTable tr').append('<th><label>RoutingTable</label></th>');
-        $('#contextMenuTemplate form .context-RoutingTable tr').append('<img src="/assets/plus.jpg" class="' + nodeName + '" onClick="return addRoutingTable(this)">');
-        $('#contextMenuTemplate form .context-RoutingTable tr:last-child').after('<tr align="center"></tr>')
-        $('#contextMenuTemplate form .context-RoutingTable tr:last-child').append('<th><label class="routingtable-IPSM">宛先ルート</label></th>');
-        $('#contextMenuTemplate form .context-RoutingTable tr:last-child').append('<th><label class="routingtable-NHA">NHA</label></th>');
-        $('#contextMenuTemplate form .context-RoutingTable tr:last-child').append('<th><label class="routingtable-IF">IF</label></th>');
-
-        //ifの数だけ生成
-        for (i = 0; i <= $(element).attr('data-routingtablenum'); i++) {
-          createRoutingTable(nodeName.slice(6), i);
-        }
-
-        $('#contextMenuTemplate').append('<li class="context-menu-separator"></li>');
-
-
-        $('#contextMenuTemplate').append(
-          $('<menuitem>').attr({
-            label: '閉じる'
-          }));
-
-
-      }
-
-      else if ($(element).hasClass('q-context-menu-PC')) {
-        var selectorType = '.q-context-menu-PC';
-
-        //IPアドレスとSM入力欄を生成
-        createIP_SM(nodeName.slice(2), 0, 'PC');
-
-
-        $('#contextMenuTemplate form').append('<li class="context-menu-separator"></li>');
-
-        $('#contextMenuTemplate form .context-menu-separator').after('<table class="context-RoutingTable" width="300"><tr align="center"></tr></table>');
-
-        //ルーティングテーブル作成
-        $('#contextMenuTemplate form .context-RoutingTable tr').append('<th><label>RoutingTable</label></th>');
-        $('#contextMenuTemplate form .context-RoutingTable tr:last-child').after('<tr align="center"></tr>')
-        $('#contextMenuTemplate form .context-RoutingTable tr:last-child').append('<th><label class="routingtable-IPSM">宛先ルート</label></th>');
-        $('#contextMenuTemplate form .context-RoutingTable tr:last-child').append('<th><label class="routingtable-NHA">NHA</label></th>');
-        $('#contextMenuTemplate form .context-RoutingTable tr:last-child').append('<th><label class="routingtable-IF">IF</label></th>');
-
-        //ifの数だけ生成
-        $('#contextMenuTemplate form .context-RoutingTable tr:last-child').after('<tr align="center"></tr>');
-        $('#contextMenuTemplate .context-RoutingTable tr:last-child')
-        .append('<td><input id="PCroutingtable-IP' + nodeName.slice(2) + '_' + 0 + '"  type="text" size="13" value="' + document.getElementById('rightInfo-PCroutingtable-IP' + nodeName.slice(2) + '_' + 0).innerHTML + '" onKeyUp="return fCopy(this);"/>/' +
-        '<input id="PCroutingtable-SM' + nodeName.slice(2) + '_' + 0 +'" type="text" size="1" value="' + document.getElementById('rightInfo-PCroutingtable-SM' + nodeName.slice(2) + '_' + 0).innerHTML + '" onKeyUp="return fCopy(this);"/>→</td>');
-        $('#contextMenuTemplate .context-RoutingTable tr:last-child')
-        .append('<td><input id="PCroutingtable-NHA' + nodeName.slice(2) + '_' + 0 + '" type="text" size="13" value="' + document.getElementById('rightInfo-PCroutingtable-NHA' + nodeName.slice(2) + '_' + 0).innerHTML + '" onKeyUp="return fCopy(this);"/></td>');
-        $('#contextMenuTemplate .context-RoutingTable tr:last-child')
-        .append('<td>if<input id="PCroutingtable-IF' + nodeName.slice(2) + '_' + 0 + '" type="text" size="1" value="' + document.getElementById('rightInfo-PCroutingtable-IF' + nodeName.slice(2) + '_' + 0).innerHTML + '" onKeyUp="return fCopy(this);"></td>');
-
-        $('#contextMenuTemplate').append('<li class="context-menu-separator"></li>');
-
-
-
-        $('#contextMenuTemplate').append(
-          $('<menuitem>').attr({
-            label: '閉じる'
-          }));
-      }
-
-
-      $.contextMenu({
-        selector: selectorType,
-        items: $.contextMenu.fromMenu($('#contextMenuTemplate'))
-      });
-
-    }
-  }
-
-  //contextMenuの動作
-
-  //ns-rightに値を入れる
-  fCopy = function(e){
-    id = 'rightInfo-' + e.id;
-    $('#' + id).text(e.value);
-  }
-
-  //IPアドレスとSM入力欄を作成
-  createIP_SM = function(nodeNum, ifNum, kind) {
-
-   if (kind === 'Router') {
-
-     $('#contextMenuTemplate form .context-IPSMIF tr:last-child').after('<tr align="center"></tr>');
-
-     //IF
-     $('#contextMenuTemplate form .context-IPSMIF tr:last-child').append('<td>if' + ifNum + '：</td>');
-
-     //IPアドレス入力欄
-     $('#contextMenuTemplate form .context-IPSMIF tr:last-child').append($('<td/>').append(
-       $('<input/>').attr({
-         name: 'IPアドレス',
-         type: 'text',
-         size: '16',
-         value: document.getElementById('rightInfo-IP' + nodeNum + '_' + ifNum).innerHTML,
-         id: 'IP' + nodeNum + '_' + ifNum,
-         class: 'context-IP IPSMIF-item-middle',
-         onKeyUp: 'return fCopy(this);'
-       })));
-
-     //SM入力欄
-     $('#contextMenuTemplate form .context-IPSMIF tr:last-child').append($('<td/>').append(
-       $('<input/>').attr({
-         name: 'SM',
-         type: 'text',
-         size: '2',
-         value: document.getElementById('rightInfo-SM' + nodeNum + '_' + ifNum).innerHTML,
-         id: 'SM' + nodeNum + '_' + ifNum,
-         class: 'context-SM',
-         onKeyUp: 'return fCopy(this);'
-       })));
-     /*
-     //SM入力欄
-     $('#contextMenuTemplate form').append('<li class="context-SM"></li>');
-     $('#contextMenuTemplate form .context-SM:last-child').append('<label></label>');
-     $('#contextMenuTemplate form .context-SM:last-child label').append(
-       $('<input>').attr({
-         name: 'SM',
-         type: 'text',
-         size: '2',
-         value: document.getElementById('rightInfo-SM' + nodeNum + '_' + lanNum).innerHTML,
-         id: 'context-rightInfo-SM' + nodeNum + '_' + lanNum,
-         class: 'context-SM',
-         onKeyUp: 'return fCopy(this);'
-       }));
-
-
-     //IPアドレス入力欄
-     $('#contextMenuTemplate form').append('<li class="context-IP"></li>');
-     $('#contextMenuTemplate form .context-IP:last-child').append('<label></label>');
-     $('#contextMenuTemplate form .context-IP:last-child label').append(
-       $('<input>').attr({
-         name: 'IPアドレス',
-         type: 'text',
-         size: '16',
-         value: document.getElementById('rightInfo-IP' + nodeNum + '_' + lanNum).innerHTML,
-         id: 'context-rightInfo-IP' + nodeNum + '_' + lanNum,
-         class: 'context-IP',
-         onKeyUp: 'return fCopy(this);'
-       }));
-       */
-   }
-
-   else if (kind === 'PC') {
-
-     $('#contextMenuTemplate form .context-IPSMIF tr').after('<tr align="center"></tr>');
-
-     //IF
-     $('#contextMenuTemplate form .context-IPSMIF tr:last-child').append($('<th/>').append('if0：'));
-
-     //IPアドレス入力欄
-     $('#contextMenuTemplate form .context-IPSMIF tr:last-child').append($('<th/>').append(
-       $('<input>').attr({
-         name: 'IPアドレス',
-         type: 'text',
-         size: '16',
-         value: document.getElementById('rightInfo-IP' + nodeNum).innerHTML,
-         id: 'IP' + nodeNum,
-         class: 'context-IP IPSMIF-item-middle',
-         onKeyUp: 'return fCopy(this);'
-       })));
-
-     //SM入力欄
-     $('#contextMenuTemplate form .context-IPSMIF tr:last-child').append($('<th/>').append(
-       $('<input>').attr({
-         name: 'SM',
-         type: 'text',
-         size: '2',
-         value: document.getElementById('rightInfo-SM' + nodeNum).innerHTML,
-         id: 'SM' + nodeNum,
-         class: 'context-SM IPSMIF-item',
-         onKeyUp: 'return fCopy(this);'
-       })));
-
-   }
-  }
-
-  //Routingtable入力欄を作成
-  createRoutingTable = function(nodeNum, iNum) {
-    //iNum += 1;
-    $('#contextMenuTemplate .context-RoutingTable tr:last-child').after('<tr align="center"></tr>');
-
-    $('#contextMenuTemplate .context-RoutingTable tr:last-child')
-    .append('<td><input id="routingtable-IP' + nodeNum + '_' + iNum + '"  type="text" size="13" value="' + document.getElementById('rightInfo-routingtable-IP' + nodeNum + '_' + iNum).innerHTML + '" onKeyUp="return fCopy(this);"/>/' +
-    '<input id="routingtable-SM' + nodeNum + '_' + iNum +'" type="text" size="1" value="' + document.getElementById('rightInfo-routingtable-SM' + nodeNum + '_' + iNum).innerHTML + '" onKeyUp="return fCopy(this);"/>→</td>');
-    $('#contextMenuTemplate .context-RoutingTable tr:last-child')
-    .append('<td><input id="routingtable-NHA' + nodeNum + '_' + iNum + '" type="text" size="13" value="' + document.getElementById('rightInfo-routingtable-NHA' + nodeNum + '_' + iNum).innerHTML + '" onKeyUp="return fCopy(this);"/></td>');
-    $('#contextMenuTemplate .context-RoutingTable tr:last-child')
-    .append('<td>if<input id="routingtable-IF' + nodeNum + '_' + iNum + '" type="text" size="1" value="' + document.getElementById('rightInfo-routingtable-IF' + nodeNum + '_' + iNum).innerHTML + '" onKeyUp="return fCopy(this);"></td>');
-
-    if (iNum != 0) {
-      $('#contextMenuTemplate .context-RoutingTable tr:last-child')
-      .append('<img src="/assets/minus.jpg" id="minus' + nodeNum + '_' + iNum + '" class="Router' + nodeNum + '" onClick="return delRoutingTable(this)">');
-    }
-
-
-    // if ($('#context-rightInfo-IF-NHA' + nodeNum + '_' + iNum)[0].value == 'DirectConected') {
-    //   e = $('#context-rightInfo-IF-NHA' + nodeNum + '_' + iNum)[0];
-    //   $(e).attr('readonly', true);
-    // }
-
-  }
-
-  //ルーティングテーブルを追加
-   addRoutingTable = function(plus) {
-    console.log('plusのクラス: ' + $(plus).attr('class'));
-    $('ul form .context-RoutingTable tr:last-child').after('<tr align="center"></tr>');
-    img = $('.ui-droppable img');
-
-    for(i=0; i < img.length; i++){
-      if (img[i].alt === $(plus).attr('class')) {
-        element = img[i]
-      }
-    }
-
-    if ($(element).attr('data-routingtableNum') === undefined) {
-        $(element).attr('data-routingtablenum', 1);
-        num = 1;
-    }
-    else {
-        num = parseInt($(element).attr('data-routingtablenum'));
-        num += 1;
-        $(element).attr('data-routingtablenum', num);
-    }
-
-    //routingtableに追加
-    $('ul form .context-RoutingTable tr:last-child')
-    .append('<td><input id="routingtable-IP' + element.alt.slice(6) + '_' + num + '"  type="text" size="13" onKeyUp="return fCopy(this);"/>/' +
-    '<input id="routingtable-SM' + element.alt.slice(6) + '_' + num +'" type="text" size="1" onKeyUp="return fCopy(this);"/>→</td>');
-    $('ul form .context-RoutingTable tr:last-child')
-    .append('<td><input id="routingtable-NHA' + element.alt.slice(6) + '_' + num + '" type="text" size="13" onKeyUp="return fCopy(this);"/></td>');
-    $('ul form .context-RoutingTable tr:last-child')
-    .append('<td>if<input id="routingtable-IF' + element.alt.slice(6) + '_' + num + '" type="text" size="1" onKeyUp="return fCopy(this);"></td>');
-    $('ul form .context-RoutingTable tr:last-child')
-    .append('<img src="/assets/minus.jpg" id="minus' + element.alt.slice(6) + '_' + num + '" class="' + element.alt + '" onClick="return delRoutingTable(this)">');
-
-    //rightinfoに追加
-    $('#ns-right dt:contains("'+ element.alt +'") + dd')
-    .append('<p class="rightInfo-routingtable-IPSM"><span id="rightInfo-routingtable-IP' + element.alt.slice(6) + '_'  + num + '"></span>/<span id="rightInfo-routingtable-SM' + element.alt.slice(6) + '_'  + num +'"></span>' +
-    '<br/>→<span id="rightInfo-routingtable-NHA' + element.alt.slice(6) + '_'  + num + '"></span>：IF<span id="rightInfo-routingtable-IF' + element.alt.slice(6) + '_'  + num + '"></span></p>');
-  }
-
-  //ルーティングテーブルを削除
-  delRoutingTable = function(minus) {
-    console.log(minus.id);
-    minusid = minus.id.slice(5);
-    element = $('#ns-main img[alt="' + $(minus).attr('class') + '"]');
-    num = $(element).attr('data-routingtablenum');
-    $(element).attr('data-routingtablenum', num-1);
-    $('ul #routingtable-IP' + minusid).parent().parent()[0].remove();
-    // if ($('#routingtable-IP' + minus.id).length > 0) {
-    //     $('#routingtable-IP' + minus.id).parent().parent()[0].remove();
-    // }
-    $('#rightInfo-routingtable-IP' + minusid).parent()[0].remove();
-
-    //ルーティングテーブルとrightをつめる
-    for(i=0, j=1; i < num; i++, j++){
-      if ($('#rightInfo-routingtable-IP' + $(minus).attr('class').slice(6) + '_' + i).length == 0) {
-        $('#rightInfo-routingtable-IP' + $(minus).attr('class').slice(6) + '_' + j).attr('id', 'rightInfo-routingtable-IP' + $(minus).attr('class').slice(6) + '_' + i);
-        $('#rightInfo-routingtable-SM' + $(minus).attr('class').slice(6) + '_' + j).attr('id', 'rightInfo-routingtable-SM' + $(minus).attr('class').slice(6) + '_' + i);
-        $('#rightInfo-routingtable-NHA' + $(minus).attr('class').slice(6) + '_' + j).attr('id', 'rightInfo-routingtable-NHA' + $(minus).attr('class').slice(6) + '_' + i);
-        $('#rightInfo-routingtable-IF' + $(minus).attr('class').slice(6) + '_' + j).attr('id', 'rightInfo-routingtable-IF' + $(minus).attr('class').slice(6) + '_' + i);
-
-      }
-      if (($('ul #routingtable-IP' + $(minus).attr('class').slice(6) + '_' + i).length == 0)) {
-        $('ul #routingtable-IP' + $(minus).attr('class').slice(6) + '_' + j).attr('id', 'routingtable-IP' + $(minus).attr('class').slice(6) + '_' + i);
-        $('ul #routingtable-SM' + $(minus).attr('class').slice(6) + '_' + j).attr('id', 'routingtable-SM' + $(minus).attr('class').slice(6) + '_' + i);
-        $('ul #routingtable-NHA' + $(minus).attr('class').slice(6) + '_' + j).attr('id', 'routingtable-NHA' + $(minus).attr('class').slice(6) + '_' + i);
-        $('ul #routingtable-IF' + $(minus).attr('class').slice(6) + '_' + j).attr('id', 'routingtable-IF' + $(minus).attr('class').slice(6) + '_' + i);
-        $('ul #minus' + $(minus).attr('class').slice(6) + '_' + j).attr('id', 'minus' + $(minus).attr('class').slice(6) + '_' + i);
-      }
-    }
-  }
-
-  //削除
-  nodeDel = function(e) {
-    nodeName = $(e).attr('class'); //消去したいノードの名前
-    delNode = $('[alt=' + nodeName + ']')[0]; //消去したいノードの要素
-    delNodeClass = $(delNode).attr('class').split(' ');
-    delNodeIf = [];
-    mainCanvasHeight = $('#ns-main-canvas').attr('data-y') - 35;
-    mainCanvasWidth = $('#ns-main-canvas').attr('data-x') - 35;
-
-    split_lan = $('#ns-main-canvas').attr('class').split(/\s?L_/);
-
-    //線を削除
-    $('#ns-main-canvas')[0].getContext('2d').clearRect(0, 0, $('#ns-main').width(), $('#ns-main').height());
-
-    //delnodeにつながっているインターフェースを削除
-    for(i=0; i < split_lan.length; i++){
-      if ($(delNode).hasClass('sP_' + split_lan[i])) {
-        dataLanIf =  $('.eP_' + split_lan[i]).attr('data-lan-if').split(' ');
-
-        for(j=0; j < dataLanIf.length; j++){
-          dataLanIf[j] = dataLanIf[j].split('-');
-
-          if (dataLanIf[j][0] == split_lan[i]) {
-            //消去する要素の後の要素を取得
-            changeElement = $('#rightInfo-IP' + $('.eP_' + split_lan[i])[0].alt.slice(6) + '_' + dataLanIf[j][1]).parent().nextAll();
-            //rightInfoから削除
-            $('#rightInfo-IP' + $('.eP_' + split_lan[i])[0].alt.slice(6) + '_' + dataLanIf[j][1]).parent().remove();
-            //rightInfoの見かけの番号を-1
-            for(k=0; k < changeElement.length; k++){
-              if ($(changeElement[k]).children().hasClass('num')) {
-                num = parseInt($(changeElement[k]).children()[0].innerHTML.slice(3)) - 1;
-                element = $(changeElement[k]).children()[0]
-                $(element).html('IP-' + num);
-              }
-            }
-            //data-lannunを-1
-            $('.eP_' + split_lan[i]).attr('data-ifnum', parseInt($('.eP_' + split_lan[i]).attr('data-ifnum')) - 1)
-          }
-        }
-        $('#ns-main img').removeClass('eP_' + split_lan[i]);
-        $('#ns-main-canvas').removeClass('L_' + split_lan[i]);
-      }
-      else if ($(delNode).hasClass('eP_' + split_lan[i])) {
-        dataLanIf =  $('.sP_' + split_lan[i]).attr('data-lan-if').split(' ');
-
-        for(j=0; j < dataLanIf.length; j++){
-          dataLanIf[j] = dataLanIf[j].split('-');
-
-          if (dataLanIf[j][0] == split_lan[i]) {
-            //消去する要素の後の要素を取得
-            changeElement = $('#rightInfo-IP' + $('.sP_' + split_lan[i])[0].alt.slice(6) + '_' + dataLanIf[j][1]).parent().nextAll();
-            //rightInfoから削除
-            $('#rightInfo-IP' + $('.sP_' + split_lan[i])[0].alt.slice(6) + '_' + dataLanIf[j][1]).parent().remove();
-            //rightInfoの見かけの番号を-1
-            for(k=0; k < changeElement.length; k++){
-              if ($(changeElement[k]).children().hasClass('num')) {
-                num = parseInt($(changeElement[k]).children()[0].innerHTML.slice(3)) - 1;
-                element = $(changeElement[k]).children()[0]
-                $(element).html('IP-' + num);
-              }
-            }
-            //data-lannunを-1
-            $('.sP_' + split_lan[i]).attr('data-ifnum', parseInt($('.sP_' + split_lan[i]).attr('data-ifnum')) - 1)
-          }
-        }
-        $('#ns-main img').removeClass('sP_' + split_lan[i]);
-        $('#ns-main-canvas').removeClass('L_' + split_lan[i]);
-      }
-    }
-
-    $('#ns-main img:not([class*="P_"])').removeClass('lanLink');
-
-    // lanLinkがないとき
-    if(!($('#ns-main .ui-draggable').hasClass('lanLink'))) {
-      $('#ns-main').off('mousedown');
-      $('#ns-main').off('mouseup');
-      $('html').off('mouseup');
-    }
-
-    //ns-rightから削除する
-    $('#ns-right dt:contains("'+ nodeName +'"), #ns-right dt:contains("'+ nodeName +'") + dd').remove();
-
-    // for(i=0; i < delNodeIf.length; i++){
-    //   $('.rightInfo-IPSM:contains("IP-' + delNodeIf[i] + '") + p').remove();
-    //   $('.rightInfo-IPSM:contains("IP-' + delNodeIf[i] + '") + p').remove();
-    //   $('.rightInfo-IPSM:contains("IP-' + delNodeIf[i] + '") + p').remove();
-    //   $('.rightInfo-IPSM:contains("IP-' + delNodeIf[i] + '")').remove();
-    // }
-
-    delNode.remove();
-
-  }
-
-  //bussのコンテキストメニュー
-  busscontextmenu = function(element) {
-    // console.log(element);
-  }
-
-  bussDel = function(e) {}
-
-  //パケットアニメーション
-  packetAnimation = function(e) {
-    animeData = $(e).attr('class').split('-');
-    animationData = [];
-    mainCanvasX = $('#ns-main-canvas').attr('data-x');
-    mainCanvasY = $('#ns-main-canvas').attr('data-y');
-
-    $('.animecanvasflag').remove();
-
-    if (animeData[animeData.length-2].slice(0, 3) == 'bus') {
-      animeData.splice(animeData.length-2, 1);
-    }
-
-    for(i=0, count=0; i < animeData.length; i++, count++){
-      if (animeData[i].slice(0, 3) == 'bus') {
-        animationData[count] = new Object();
-        animationData[count].name = 'Start' + animeData[i];
-        count++;
-        animationData[count] = new Object();
-        animationData[count].name = 'End' + animeData[i];
-      }
-      else {
-        $('#ns-main img[alt="' + animeData[i] + '"]').each(function (j, e) {
-          animationData[count] = new Object();
-          animationData[count].name = e.alt;
-          animationData[count].animecanvasX = e.x  - mainCanvasX;
-          animationData[count].animecanvasY = e.y  - mainCanvasY;
-          animationData[count].packetanimeX = e.x + 23;
-          animationData[count].packetanimeY = e.y + 23;
-        });
-      }
-      if (i == animeData.length-1) {
-        animationData[count] = animeData[i];
-      }
-    }
-
-    //busの座標
-    for(i=0; i < animationData.length-1; i++){
-      if (animationData[i].name.slice(0, 5) == 'Start') {
-        animationData[i].animecanvasX = animationData[i-1].animecanvasX;
-        animationData[i].animecanvasY = $('#ns-main div[alt="' + animationData[i].name.slice(5) + '"]')[0].offsetTop - mainCanvasY - 30;
-        animationData[i].packetanimeX = animationData[i-1].packetanimeX;
-        animationData[i].packetanimeY = $('#ns-main div[alt="' + animationData[i].name.slice(5) + '"]')[0].offsetTop - 3;
-      }
-      else if (animationData[i].name.slice(0, 3) == 'End'){
-        animationData[i].animecanvasX = animationData[i+1].animecanvasX;
-        animationData[i].animecanvasY = $('#ns-main div[alt="' + animationData[i].name.slice(3) + '"]')[0].offsetTop - mainCanvasY - 30;
-        animationData[i].packetanimeX = animationData[i+1].packetanimeX;
-        animationData[i].packetanimeY = $('#ns-main div[alt="' + animationData[i].name.slice(3) + '"]')[0].offsetTop - 3;
-      }
-    }
-
-    //canvasに追加
-    $("#ns-main").append(
-      $("<div>").attr({
-        class: "PacketAnime",
-        style: "position: absolute; top: " + animationData[0].packetanimeY + "px; left: "+ animationData[0].packetanimeX +"px; width:30px; height:30px;"
-      }));
-
-
-    $('#ns-main').append('<canvas width="600" height="400" id="animecanvas"></canvas>');
-
-    canvas = document.getElementById('animecanvas');
-    context = canvas.getContext("2d");
-
-    context.beginPath();
-    context.arrow(animationData[0].animecanvasX, animationData[0].animecanvasY, animationData[1].animecanvasX, animationData[1].animecanvasY, [0, 1, -20, 5, -20, 12]);
-    context.fill();
-
-    moveAnimation(1)
-
-    //描画
-    moveAnimation = function(i) {
-
-      $('.PacketAnime')
-        .hide().fadeIn(200).animate({})
-        .animate({
-          left: animationData[i].packetanimeX,
-          top: animationData[i].packetanimeY
-        },{
-          duration: 500,
-          complete:function () {
-            if (animationData[i+1] != undefined) {
-              context.beginPath();
-              context.arrow(animationData[i].animecanvasX, animationData[i].animecanvasY, animationData[i+1].animecanvasX, animationData[i+1].animecanvasY, [0, 1, -20, 5, -20, 12]);
-              context.fill();
-            }
-            if (i == animationData.length-1) {
-              $('#animecanvas').addClass('animecanvasflag');
-              $(".PacketAnime").remove();
-              if (animationData[i] == 1) {
-                $('.animecanvasflag').remove();
-                for(j=0; j < animationData.length-1; j++){
-                  if (animationData[j].name.slice(0, 2) == 'PC' || animationData[j].name.slice(0, 6) == 'Router') {
-                    animationData[j].packetanimeX = animationData[j].packetanimeX - 35;
-                    animationData[j].packetanimeY = animationData[j].packetanimeY - 35;
-                    $("#ns-main").append(
-                      $("<div>").attr({
-                        class: "cssCircle",
-                        style: "position: absolute; top: " + animationData[j].packetanimeY + "px; left: "+ animationData[j].packetanimeX +"px; width:100px; height:100px;"
-                      }));
-                    $('.cssCircle:last-child').append(
-                      $('<img>').attr({
-                        src: '/assets/circle.png'
-                      }));
-                  }
-                }
-                $('.cssCircle').fadeOut(300,function(){
-                  $(this).fadeIn(400, function () {
-                    $(this).fadeOut(200, function () {
-                      $('.cssCircle').remove();
-                    })
-                  })
-                });
-              }
-              if (animationData[i] == 0) {
-
-                $("#animecanvas").drawRect({
-                  strokeStyle: "red",
-                  strokeWidth: 1,
-                  x: animationData[i-1].animecanvasX,
-                  y: animationData[i-1].animecanvasY,
-                  width: 80,
-                  height: 80
-                });
-
-                style = $('#ns-main img[alt=' + animationData[i-1].name + ']').attr('style');
-
-                animationData[i-1].packetanimeX = animationData[i-1].packetanimeX - 30;
-                animationData[i-1].packetanimeY = animationData[i-1].packetanimeY - 30;
-
-                $("#ns-main").append(
-                  $("<div>").attr({
-                    class: "cssCross",
-                    style: "position: absolute; top: " + animationData[i-1].packetanimeY + "px; left: "+ animationData[i-1].packetanimeX +"px; width:100px; height:100px;"
-                  }));
-
-                $('#ns-main img[alt=' + animationData[i-1].name + ']').addClass('hurueru');
-
-                $(".hurueru").css({
-                  'display': 'inline-block',
-                  'animation': 'hurueru .1s 9'
-                });
-
-                $('.cssCross').append(
-                  $('<img>').attr({
-                    src: '/assets/cross.png'
-                  }));
-
-                $('.cssCross').fadeOut(300,function(){
-                  $(this).fadeIn(400, function () {
-                    $(this).fadeOut(200, function () {
-                      $('.cssCross').remove();
-                      $('#ns-main img[alt=' + animationData[i-1].name + ']').attr('style', style);
-                      $('#ns-main img[alt=' + animationData[i-1].name + ']').removeClass('hurueru');
-                    })
-                  })
-                });
-              }
-            }
-            else {
-              moveAnimation(i+1);
-            }
-          }
-      });
-    }
-
-  }
-
-
-  $(function(){
-
     //初期位置に戻す
     $('html').scrollTop(0);
     $('html').scrollLeft(0);
@@ -735,7 +54,7 @@ $.when(
   //ns-nav Fnction
 
   // 全要素の削除
-  NS.fnAllReset = function() {
+  fnAllReset = function() {
     // 変数のリセット
     NS.pcNode  = 0;
     NS.swNode  = 0;
@@ -747,9 +66,9 @@ $.when(
     $("#ns-console").html("");
     // lanLinkがある時
     if($("#ns-main .ui-draggable").hasClass("lanLink")) {
-      $("#ns-main").off("mousedown", NS.fnLanMoveDown);
-      $("#ns-main").off("mouseup", NS.fnLanMoveUp);
-      $("html").off("mouseup", NS.fnLanMoveOutUp);
+      $("#ns-main").off("mousedown", fnLanMoveDown);
+      $("#ns-main").off("mouseup", fnLanMoveUp);
+      $("html").off("mouseup", fnLanMoveOutUp);
     }
     // 画像と線の削除
     $("#ns-main img").remove();
@@ -760,7 +79,7 @@ $.when(
   }
 
   // パケット画像の変更
-  NS.fnPacketChenge = function(set1, set2, set3) {
+  fnPacketChenge = function(set1, set2, set3) {
     if($("#"+ set1 +"-packet").attr("src") === "/assets/"+ set1 +"_1.png") {
       $("#"+ set1 +"-packet").attr("src", "/assets/"+ set1 +"_2.png");
       if($("#"+ set2 +"-packet").attr("src") === "/assets/"+ set2 +"_2.png") {
@@ -776,7 +95,7 @@ $.when(
   }
 
   // パケットの追加
-  NS.fnPacketAdd = function() {
+  fnPacketAdd = function() {
     var elthis = $(this);
     // get-nodeを付加する処理
     if($("#get-packet").attr("src") === "/assets/get_2.png") {
@@ -786,11 +105,11 @@ $.when(
       else if(elthis.hasClass("send-node")) {
         elthis.removeClass("send-node");
         elthis.prev().remove();
-        NS.fnSetBadge(this, "get-node");
+        fnSetBadge(this, "get-node");
       }
       // get-node と send-nodeがないとき
       else {
-        NS.fnSetBadge(this, "get-node");
+        fnSetBadge(this, "get-node");
       }
     }
     // send-nodeを付加する処理
@@ -801,7 +120,7 @@ $.when(
         $("#ns-main img").removeClass("send-node");
         elthis.removeClass("get-node");
         elthis.prev().remove();
-        NS.fnSetBadge(this, "send-node");
+        fnSetBadge(this, "send-node");
       }
       // send-nodeがあるとき
       else if(elthis.hasClass("send-node")) { }
@@ -809,7 +128,7 @@ $.when(
       else {
         $(".send-node").prev().remove();
         $("#ns-main img").removeClass("send-node");
-        NS.fnSetBadge(this, "send-node");
+        fnSetBadge(this, "send-node");
       }
     }
     // nodeをリセットする処理
@@ -823,7 +142,7 @@ $.when(
   }
 
   // GlayLayerを表示 (New)
-  NS.fnGlayOpen = function() {
+  fnGlayOpen = function() {
     // glayLayerのフラグを true にする
     NS.bGlayFladg = true;
     // ID glayLayerの座標と大きさの指定
@@ -839,7 +158,7 @@ $.when(
   }
 
   // 左矢印ボタンが押されたとき
-  NS.fnGlayInfoLeft = function() {
+  fnGlayInfoLeft = function() {
     $("#slideUl:not(:animated)")
     .css("margin-left", -1*$("#slideUl li").width())
     .prepend($("#slideUl li:last-child"))
@@ -849,7 +168,7 @@ $.when(
   }
 
   // 右矢印ボタンが押されたとき
-  NS.fnGlayInfoRight = function() {
+  fnGlayInfoRight = function() {
     $("#slideUl:not(:animated)").animate({
       "margin-left" : -1*$("#slideUl li").width()
     }, function(){
@@ -859,42 +178,42 @@ $.when(
   }
 
   // 問題のタイトルを押されたとき (Update)
-  NS.fnGlayStudyTitleInfo = function() {
+  fnGlayStudyTitleInfo = function() {
     $("#studyLeftTitle").text($(this).text());
   }
 
   // 閉じるボタンが押されたとき (Update)
-  NS.fnAllGlayClose = function() {
+  fnAllGlayClose = function() {
     // 変数のリセット
     NS.bGlayFladg = false;
     // イベントハンドラの削除
-    $("#infoLeft").off('click', NS.fnGlayInfoLeft);
-    $("#infoRight").off('click', NS.fnGlayInfoRight);
-    $("#glayClose").off('click', NS.fnAllGlayClose);
-    $("#studyMenuButtonIn").off('click', NS.fnGlayStudyInput);
-    $("#studyMenuButtonOut").off('click', NS.fnGlayStudyOutput);
+    $("#infoLeft").off('click', fnGlayInfoLeft);
+    $("#infoRight").off('click', fnGlayInfoRight);
+    $("#glayClose").off('click', fnAllGlayClose);
+    $("#studyMenuButtonIn").off('click', fnGlayStudyInput);
+    $("#studyMenuButtonOut").off('click', fnGlayStudyOutput);
     // GlayLayerを設定
     $("#glayLayer").css({'display':'none','height':0});
     $("#glayLayer").empty();
   }
 
-  NS.fnQuestionSelectClose = function() {
+  fnQuestionSelectClose = function() {
     // イベントハンドラの削除
-    //$("#questionClose").off('click', NS.fnAllGlayClose);
+    //$("#questionClose").off('click', fnAllGlayClose);
     // GlayLayerを設定
     $("#questionLayer").css({'display':'none','height':0});
     $("#questionLayer").empty();
     // $("#check").on('click', NS.IndicateNodeInfo);
-    // $("#study").on('click', NS.fnstudy);
-    // $("#save").on('click', NS.fnsave);
-    // $("#load").on('click', NS.fnload);
-    // $("#quit").on('click', NS.fnquit);
+    // $("#study").on('click', fnstudy);
+    // $("#save").on('click', fnsave);
+    // $("#load").on('click', fnload);
+    // $("#quit").on('click', fnquit);
   }
 
   //lanボタンが押された時
   NS.changeLanMode = function () {
-    NS.fnAllGlayClose();
-    NS.fnQuestionSelectClose();
+    fnAllGlayClose();
+    fnQuestionSelectClose();
     var elHtml     = $("html");
     var elMain     = $("#ns-main");
     var elMainDrag = $("#ns-main .ui-draggable");
@@ -903,20 +222,20 @@ $.when(
       // 画像を ONに変更
       $('#lan').attr("src", "/assets/lanCable_2.png");
       // イベントハンドラーを付ける
-      elMain.on("mousedown", NS.fnLanDown);
-      elMain.on("mouseup", NS.fnLanUp);
-      elHtml.on("mouseup", NS.fnLanOutUp);
-      // elMain.on("mousedown", NS.fnBusDown);
-      // elMain.on("mouseup", NS.fnBusUp);
-      // elHtml.on("mouseup", NS.fnBusOutUp);
+      elMain.on("mousedown", fnLanDown);
+      elMain.on("mouseup", fnLanUp);
+      elHtml.on("mouseup", fnLanOutUp);
+      // elMain.on("mousedown", fnBusDown);
+      // elMain.on("mouseup", fnBusUp);
+      // elHtml.on("mouseup", fnBusOutUp);
       // lanLinkがある時
       if(elMainDrag.hasClass("lanLink")) {
-        elMain.off("mousedown", NS.fnLanMoveDown);
-        elMain.off("mouseup", NS.fnLanMoveUp);
-        elHtml.off("mouseup", NS.fnLanMoveOutUp);
-      //   elMain.off("mousedown", NS.fnBusMoveDown);
-      //   elMain.off("mouseup", NS.fnBusMoveUp);
-      //   elHtml.off("mouseup", NS.fnBusMoveOutUp);
+        elMain.off("mousedown", fnLanMoveDown);
+        elMain.off("mouseup", fnLanMoveUp);
+        elHtml.off("mouseup", fnLanMoveOutUp);
+      //   elMain.off("mousedown", fnBusMoveDown);
+      //   elMain.off("mouseup", fnBusMoveUp);
+      //   elHtml.off("mouseup", fnBusMoveOutUp);
       }
       // カーソルの変更
       elMain.css("cursor", "crosshair");
@@ -938,9 +257,9 @@ $.when(
       });
       //busをoffにする
       $('#bus').prop('checked',false);
-      $("#ns-main").off("mousedown", NS.fnBusDown);
-      $("#ns-main").off("mouseup", NS.fnBusUp);
-      $("html").off("mouseup", NS.fnBusOutUp);
+      $("#ns-main").off("mousedown", fnBusDown);
+      $("#ns-main").off("mouseup", fnBusUp);
+      $("html").off("mouseup", fnBusOutUp);
       $("input[name=busSwitch]").removeClass('busOn');
     }
     // ONのとき
@@ -948,24 +267,24 @@ $.when(
       // 画像を OFFに変更
       $('#lan').attr("src", "/assets/lanCable.png");
       // イベントハンドラーの削除
-      elMain.off("mousedown", NS.fnLanDown);
-      elMain.off("mouseup", NS.fnLanUp);
-      elHtml.off("mouseup", NS.fnLanOutUp);
+      elMain.off("mousedown", fnLanDown);
+      elMain.off("mouseup", fnLanUp);
+      elHtml.off("mouseup", fnLanOutUp);
       elMainDrag.off("mouseenter").off("mouseleave");
       // カーソルの変更
       elMain.css("cursor", "auto");
       elMainDrag.css("cursor", "pointer");
       // lanLinkがある時
       if(elMainDrag.hasClass("lanLink")) {
-        elMain.on("mousedown", NS.fnLanMoveDown);
-        elMain.on("mouseup", NS.fnLanMoveUp);
-        elHtml.on("mouseup", NS.fnLanMoveOutUp);
+        elMain.on("mousedown", fnLanMoveDown);
+        elMain.on("mouseup", fnLanMoveUp);
+        elHtml.on("mouseup", fnLanMoveOutUp);
       }
     }
   }
 
   //トポロジーを再構成
-  NS.fnReconstructionTopology = function (Qdata) {
+  fnReconstructionTopology = function (Qdata) {
 
 
     $('#ns-main-canvas').attr('class', Qdata.lanInfo);
@@ -1089,7 +408,7 @@ $.when(
       // Qdata.nodeInfo[i].positionY = $('#ns-main img:last-child')[0].style.top.slice(0, -2);
     }
 
-    NS.fnDraw();
+    fnDraw();
 
     //ns-rightの情報を隠す
     $("#ns-right dd:last").css("display","none");
@@ -1100,7 +419,7 @@ $.when(
   }
 
   //問題を選択
-  NS.fnstudySelect = function () {
+  fnstudySelect = function () {
 
     //タイトルを取得
     NS.question_id = $(this).attr('data-qid');
@@ -1121,30 +440,30 @@ $.when(
       //問題番号を表示
       $("#question span").html(Qdata.id);
       // 要素の全削除
-      NS.fnAllReset();
+      fnAllReset();
       $("#ns-console").append("<p>> 問題を取得しました </p>");
       //トポロジーを再現
-      NS.fnReconstructionTopology(Qdata);
+      fnReconstructionTopology(Qdata);
 
 
     }).fail(function(XMLHttpRequest, textStatus) {
       $("#ns-console").append("<p>> エラーが発生しました</p>");
     }).always(function(){
-      NS.fnQuestionSelectClose();
+      fnQuestionSelectClose();
       // イベントハンドラの追加と削除
-      $("#questionClose").off('click', NS.fnQuestionSelectClose);
-      $("#studySelect").off('click', NS.fnstudySelect);
-      $(".qusetion-select-button").off('click', NS.fnstudySelect);
+      $("#questionClose").off('click', fnQuestionSelectClose);
+      $("#studySelect").off('click', fnstudySelect);
+      $(".qusetion-select-button").off('click', fnstudySelect);
       // $("#check").on('click', NS.IndicateNodeInfo);
-      // $("#study").on('click', NS.fnstudy);
-      // $("#save").on('click', NS.fnsave);
-      // $("#load").on('click', NS.fnload);
-      // $("#quit").on('click', NS.fnquit);
+      // $("#study").on('click', fnstudy);
+      // $("#save").on('click', fnsave);
+      // $("#load").on('click', fnload);
+      // $("#quit").on('click', fnquit);
     });
   }
 
   //トポロジーをロード
-  NS.fnloadSelect = function () {
+  fnloadSelect = function () {
     //タイトル取得
     // var studyTitleValue = $("#studySelectTitle").val();
 
@@ -1166,22 +485,22 @@ $.when(
       //問題番号を表示
       $("#question span").html(Qdata.id);
       // 要素の全削除
-      NS.fnAllReset();
+      fnAllReset();
       $("#ns-console").append("<p>>トポロジーを読み込みました</p>");
       //トポロジーを再現
-      NS.fnReconstructionTopology(Qdata);
+      fnReconstructionTopology(Qdata);
 
     }).fail(function(XMLHttpRequest, textStatus) {
       $("#ns-console").append("<p>> エラーが発生しました</p>");
-    }).always(function(){ NS.fnQuestionSelectClose(); });
+    }).always(function(){ fnQuestionSelectClose(); });
 
   }
 
   //モードを切り替える
-  NS.fnchangeMode = function () {
+  fnchangeMode = function () {
 
     //全削除
-    NS.fnAllReset();
+    fnAllReset();
 
     //自由描画モードのとき
     if ($(".change_mode").hasClass('draw')) {
@@ -1198,14 +517,14 @@ $.when(
       "<div class='add_height_line' id='line'></div>");
 
       //イベントハンドラを付ける
-      $("#study").on('click', NS.fnstudy);
-      $("#save").on('click', NS.fnsave);
-      $("#load").on('click', NS.fnload);
-      $("#quit").on('click', NS.fnquit);
+      $("#study").on('click', fnstudy);
+      $("#save").on('click', fnsave);
+      $("#load").on('click', fnload);
+      $("#quit").on('click', fnquit);
 
       //dustのイベントハンドラを削除
       $("#dust").attr("src", "/assets/dust2.png");
-      $("#dust").off('click', NS.fnAllReset);
+      $("#dust").off('click', fnAllReset);
 
       //ns-leftのイベントハンドラを削除
       // $('.machinery').draggable('destroy')
@@ -1228,7 +547,7 @@ $.when(
       $("#question").remove();
       //dustにイベントハンドラを付ける
       $("#dust").attr("src", "/assets/dust.png");
-      $("#dust").on('click', NS.fnAllReset);
+      $("#dust").on('click', fnAllReset);
       // // machineryをドラッグ
       // $(".machinery").draggable({
       //   helper: 'clone',  // 要素を複製する
@@ -1247,12 +566,12 @@ $.when(
       // $('.tgl').prop('disabled', false);
 
 
-      NS.fnQuestionSelectClose();
+      fnQuestionSelectClose();
     }
   }
 
   //studyをクリック（問題一覧を表示）
-  NS.fnstudy = function () {
+  fnstudy = function () {
     studyTitleValue = 0;
     $.ajax({
       type: 'POST',
@@ -1262,7 +581,7 @@ $.when(
       data:{question_id :$('#question span').innerHTML, id : NS.urlparameter}
     }).done(function(data) {
 
-      NS.fnQuestionSelectClose();
+      fnQuestionSelectClose();
 
       //取得したJSONをオブジェクトに戻す
       Qdata = JSON.parse(data);
@@ -1301,20 +620,20 @@ $.when(
       $("#ns-console").append("<p>> エラーが発生しました</p>");
     }).always(function(){
       // イベントハンドラの追加と削除
-      $("#questionClose").on('click', NS.fnQuestionSelectClose);
-      $("#studySelect").on('click', NS.fnstudySelect);
-      $(".qusetion-select-button").on('click', NS.fnstudySelect);
+      $("#questionClose").on('click', fnQuestionSelectClose);
+      $("#studySelect").on('click', fnstudySelect);
+      $(".qusetion-select-button").on('click', fnstudySelect);
       // $("#check").off('click', NS.IndicateNodeInfo);
-      // $("#study").off('click', NS.fnstudy);
-      // $("#save").off('click', NS.fnsave);
-      // $("#load").off('click', NS.fnload);
-      // $("#quit").off('click', NS.fnquit);
+      // $("#study").off('click', fnstudy);
+      // $("#save").off('click', fnsave);
+      // $("#load").off('click', fnload);
+      // $("#quit").off('click', fnquit);
     });
   }
 
   //ここから
   //saveをクリック 解読するならここからがオススメ
-  NS.fnsave = function () {
+  fnsave = function () {
     if ( typeof NSFCSA === "undefined" ) var NSFCSA = {};
 
       router = [];          //routerの構造体配列
@@ -1603,7 +922,7 @@ $.when(
   }
 
   //loadをクリック
-  NS.fnload = function () {
+  fnload = function () {
     $.ajax({
       type: 'POST',
       dataType: 'text',
@@ -1613,7 +932,7 @@ $.when(
     }).done(function(data) {
 
 
-      NS.fnQuestionSelectClose();
+      fnQuestionSelectClose();
 
       //取得したJSONをオブジェクトに戻す
       Qdata = JSON.parse(data);
@@ -1648,20 +967,20 @@ $.when(
 
 
       // イベントハンドラの追加
-      $("#questionClose").on('click', NS.fnQuestionSelectClose);
-      $("#studySelect").on('click', NS.fnstudySelect);
-      $(".qusetion-load-button").on('click', NS.fnloadSelect);
-      // $("#study").off('click', NS.fnstudy);
-      // $("#save").off('click', NS.fnsave);
-      // $("#load").off('click', NS.fnload);
-      // $("#quit").off('click', NS.fnquit);
+      $("#questionClose").on('click', fnQuestionSelectClose);
+      $("#studySelect").on('click', fnstudySelect);
+      $(".qusetion-load-button").on('click', fnloadSelect);
+      // $("#study").off('click', fnstudy);
+      // $("#save").off('click', fnsave);
+      // $("#load").off('click', fnload);
+      // $("#quit").off('click', fnquit);
     });
   }
 
   //quitボタンをクリック
-  NS.fnquit = function () {
+  fnquit = function () {
 
-    NS.fnchangeMode();
+    fnchangeMode();
     $('#mode_draw').prop('checked', true);
     $('.change_mode').removeClass('question');
     $('.change_mode').addClass('draw');
@@ -1709,7 +1028,7 @@ $.when(
       }
 
       // イベントハンドラの追加
-      $("#questionClose").on('click', NS.fnQuestionSelectClose);
+      $("#questionClose").on('click', fnQuestionSelectClose);
 
 
     }).fail(function(XMLHttpRequest, textStatus) {
@@ -1777,7 +1096,7 @@ $.when(
   // ns-main Fnction
 
   // 画像を追加
-  NS.fnMainDrop = function(ui, obj) {
+  fnMainDrop = function(ui, obj) {
     // 機種の判別
     if(ui.draggable.attr("src") === "/assets/pc.png") {
       NS.dropNodeInt = NS.pcNode;
@@ -1861,14 +1180,14 @@ $.when(
     }
     // dd要素(IPとSM)を隠す
     $("#ns-right dd:last").css("display","none");
-    NS.fnNameDraw(ui.draggable.attr('alt') + NS.dropNodeInt);
+    fnNameDraw(ui.draggable.attr('alt') + NS.dropNodeInt);
   }
 
 
   // ns-canvas Function
 
   // マウスのボタンが押されたときに処理を実行する関数
-  NS.fnLanDown = function(e) {
+  fnLanDown = function(e) {
     // imgにマウスが乗っているとき
     if(NS.lanFlag && $("#lan").attr("src") === "/assets/lanCable_2.png") {
       // PCに線が引かれているとき
@@ -1893,24 +1212,24 @@ $.when(
           NS.busFlag = true;
         }
         // 関数 lanDragの呼び出し
-        $("#ns-main").on("mousemove", NS.fnLanDrag);
+        $("#ns-main").on("mousemove", fnLanDrag);
       }
     }
   }
 
-  NS.fnBusDown = function (e) {
+  fnBusDown = function (e) {
     if($('#lan').attr('src') === '/assets/lanCable.png' && $('.mouseover').length == 0 && $('.lanFirst').length == 0 && $('.bus-mouseover').length == 0) {
       NS.points = [];
       NS.addCanvas = $('<canvas width="' + NS.canvasWidth + '" height="' + NS.canvasHeight + '"></canvas>').prependTo('#ns-main');
-      $("#ns-main").on("mousemove", NS.fnBusDrag);
-      $('#ns-main').on('mouseup', NS.fnBusUp);
-      $("html").on("mouseup", NS.fnBusOutUp);
+      $("#ns-main").on("mousemove", fnBusDrag);
+      $('#ns-main').on('mouseup', fnBusUp);
+      $("html").on("mouseup", fnBusOutUp);
       NS.busDrawFrag = true;
     }
   }
 
   // マウスが移動したときに処理を実行する関数
-  NS.fnLanDrag = function(e) {
+  fnLanDrag = function(e) {
     NS.addCtx = NS.addCanvas.get(0).getContext('2d');
     NS.points.push({x:e.pageX - this.offsetLeft, y:e.pageY - this.offsetTop});
     NS.addCtx.clearRect(0, 0, NS.canvasWidth, NS.canvasHeight);
@@ -1928,7 +1247,7 @@ $.when(
     NS.addCtx.stroke();
   }
 
-  NS.fnBusDrag = function (e) {
+  fnBusDrag = function (e) {
     NS.addCtx = NS.addCanvas.get(0).getContext('2d');
     NS.points.push({x:e.pageX - this.offsetLeft, y:e.pageY - this.offsetTop});
     NS.addCtx.clearRect(0, 0, NS.canvasWidth, NS.canvasHeight);
@@ -1937,7 +1256,7 @@ $.when(
   }
 
   // マウスのボタンが離されたときに処理を実行する関数
-  NS.fnLanUp = function(e) {
+  fnLanUp = function(e) {
     if(NS.lanFlagPoint && $("#lan").attr("src") === "/assets/lanCable_2.png") {
       NS.lanFlagDelet = true;
       // マウスを押してドラッグしなかったとき || 画像の上に載ってないとき || 最初の画像のとき
@@ -2089,8 +1408,8 @@ $.when(
         }
 
         //描画
-        NS.fnIfDraw();
-        NS.fnLanDraw();
+        fnIfDraw();
+        fnLanDraw();
       }
 
       // 変数とフラグを設定
@@ -2106,7 +1425,7 @@ $.when(
     }
   }
 
-  NS.fnBusUp = function (e) {
+  fnBusUp = function (e) {
     if($('#lan').attr('src') === '/assets/lanCable.png' && $('.mouseover').length == 0) {
       //始点と終点の位置
       if (NS.points[NS.points.length - 1].x - NS.points[0].x > 0) {
@@ -2135,26 +1454,26 @@ $.when(
         scroll: false,
       });
 
-      $('.bus').on('drag', NS.fnLanMoveDrag);
+      $('.bus').on('drag', fnLanMoveDrag);
 
       NS.points = [];
       NS.busNode++;
       NS.addCanvas.remove();
       NS.busDrawFrag = false;
       // イベントハンドラの削除
-      $('#ns-main').off('mousemove', NS.fnBusDrag);
-      $('#ns-main').off('mouseup', NS.fnBusUp);
+      $('#ns-main').off('mousemove', fnBusDrag);
+      $('#ns-main').off('mouseup', fnBusUp);
     }
   }
 
   // 線を引いてる途中 ns-main以外でマウスを放した時
-  NS.fnLanOutUp = function(e) {
+  fnLanOutUp = function(e) {
     if(NS.lanFlagPoint) {
       NS.addCanvas.remove();
       if(!(NS.lanFlaglink)) {
         $(".sP_"+ NS.lanNode).removeClass("lanLink");
       }
-      $("#ns-main").off("mousemove", NS.fnLanDrag);
+      $("#ns-main").off("mousemove", fnLanDrag);
       $("#ns-main .ui-draggable").removeClass("lanFirst");
       $(".sP_"+ NS.lanNode).removeClass("sP_"+ NS.lanNode);
       $("#ns-main-canvas").removeClass("L_"+ NS.lanNode);
@@ -2165,64 +1484,64 @@ $.when(
     }
   }
 
-  NS.fnBusOutUp = function(e) {
+  fnBusOutUp = function(e) {
     // NS.addCanvas.remove();
-    // $("#ns-main").off("mousemove", NS.fnBusDrag);
+    // $("#ns-main").off("mousemove", fnBusDrag);
     // // 変数とフラグをリセット
     // NS.points = [];
   }
 
   // マウスを押したとき (線を動かす動作)
-  NS.fnLanMoveDown = function(e) {
+  fnLanMoveDown = function(e) {
     // if($(e.target).hasClass("lanLink")) {
     //   NS.elLanMoveThis = $(this);
     //   NS.lanFlagMove = true;
     //   NS.lanArrClass = $("#ns-main-canvas").attr("class").split(/\s?L_/);
-    //   NS.elLanMoveThis.on("mousemove", NS.fnLanMoveDrag);
+    //   NS.elLanMoveThis.on("mousemove", fnLanMoveDrag);
     // }
     NS.elLanMoveThis = $(this);
     NS.lanFlagMove = true;
     NS.lanArrClass = $("#ns-main-canvas").attr("class").split(/\s?L_/);
-    NS.elLanMoveThis.on("mousemove", NS.fnLanMoveDrag);
+    NS.elLanMoveThis.on("mousemove", fnLanMoveDrag);
   }
 
   // ドラッグしている時 (線を動かす動作)
-  NS.fnLanMoveDrag = function(e) {
+  fnLanMoveDrag = function(e) {
     NS.mainCtx.clearRect(0, 0, NS.canvasWidth, NS.canvasHeight);
-    NS.fnDraw();
+    fnDraw();
   }
 
   // マウスを放した時 (線を動かす動作)
-  NS.fnLanMoveUp = function(e) {
+  fnLanMoveUp = function(e) {
     if(NS.lanFlagMove === true) {
       NS.lanFlagMove = false;
-      NS.elLanMoveThis.off("mousemove", NS.fnLanMoveDrag);
+      NS.elLanMoveThis.off("mousemove", fnLanMoveDrag);
     }
   }
 
   // main以外でマウスを放した時 (線を動かす動作)
-  // NS.fnLanMoveOutUp = function(e) {
+  // fnLanMoveOutUp = function(e) {
   //   if(NS.lanFlagMove === true) {
   //     NS.mainCtx.clearRect(0, 0, NS.canvasWidth, NS.canvasHeight);
   //     for(var i = 1; i < NS.lanArrClass.length; i++) {
-  //       //NS.fnIfDraw(NS.lanArrClass[i]);
-  //       NS.fnLanDraw(NS.lanArrClass[i]);
+  //       //fnIfDraw(NS.lanArrClass[i]);
+  //       fnLanDraw(NS.lanArrClass[i]);
   //      }
   //     NS.lanFlagMove = false;
-  //     NS.elLanMoveThis.off("mousemove", NS.fnLanMoveDrag);
+  //     NS.elLanMoveThis.off("mousemove", fnLanMoveDrag);
   //   }
   // }
 
 
   //描画セット
-  NS.fnDraw = function () {
-    NS.fnIfDraw();
-    NS.fnLanDraw();
-    NS.fnNameDraw();
+  fnDraw = function () {
+    fnIfDraw();
+    fnLanDraw();
+    fnNameDraw();
   }
 
   // 線の描画関数 (バス型要改良)
-  NS.fnLanDraw = function() {
+  fnLanDraw = function() {
 
     if ($('#ns-main-canvas').attr('class') != '') {
       NS.mainCtx.beginPath();
@@ -2346,7 +1665,7 @@ $.when(
   }
 
   //ifをcanvasに描画
-  NS.fnIfDraw = function () {
+  fnIfDraw = function () {
 
     NS.mainCtx.beginPath();
     ctx = document.getElementById('ns-main-canvas').getContext('2d');
@@ -2470,7 +1789,7 @@ $.when(
 
 
   //ノードの名前を表示
-  NS.fnNameDraw = function () {
+  fnNameDraw = function () {
     NS.mainCtx.beginPath();
     ctx = document.getElementById('ns-main-canvas').getContext('2d');
     $('#ns-main img').each(function (i, e) {
@@ -2495,7 +1814,7 @@ $.when(
   // ns-etc Fnction
 
   // contextMenuのcallback関数 (PC Router)
-  NS.fnConfunc = function(key, opt) {
+  fnConfunc = function(key, opt) {
     // 削除を押した時の動作
     if(key === "del") {
       NS.lanArrClass = $("#ns-main-canvas").attr("class").split(/\s?L_/);
@@ -2512,7 +1831,7 @@ $.when(
           $("#ns-main img").removeClass("if_"+ NS.lanArrClass[i]);
         }
         else {
-          NS.fnLanDraw(NS.lanArrClass[i]);
+          fnLanDraw(NS.lanArrClass[i]);
         }
       }
       if($(this).hasClass("get-node") || $(this).hasClass("send-node")) {
@@ -2523,9 +1842,9 @@ $.when(
       $("#ns-right dt:contains('"+ opt.$trigger[0].alt +"'), #ns-right dt:contains('"+ opt.$trigger[0].alt +"') + dd").remove();
       // lanLinkがないとき
       if(!($("#ns-main .ui-draggable").hasClass("lanLink"))) {
-        $("#ns-main").off("mousedown", NS.fnLanMoveDown);
-        $("#ns-main").off("mouseup", NS.fnLanMoveUp);
-        $("html").off("mouseup", NS.fnLanMoveOutUp);
+        $("#ns-main").off("mousedown", fnLanMoveDown);
+        $("#ns-main").off("mouseup", fnLanMoveUp);
+        $("html").off("mouseup", fnLanMoveOutUp);
       }
     }
   }
@@ -2607,7 +1926,7 @@ $.when(
   // ns-nav
 
   // Dustをクリック
-  $("#dust").on('click', NS.fnAllReset);
+  $("#dust").on('click', fnAllReset);
 
   //startをクリック
   $("#connect-start").click(function(){
@@ -3372,7 +2691,7 @@ $.when(
   //Modeをクリック
   $('.mode_draw').click(function () {
     if ($('.change_mode').hasClass('question')) {
-      NS.fnchangeMode();
+      fnchangeMode();
       $('.change_mode').removeClass('question');
       $('.change_mode').addClass('draw');
     }
@@ -3380,7 +2699,7 @@ $.when(
 
   $('.mode_question').click(function () {
     if ($('.change_mode').hasClass('draw')) {
-      NS.fnchangeMode();
+      fnchangeMode();
       $('.change_mode').removeClass('draw');
       $('.change_mode').addClass('question');
     }
@@ -3444,7 +2763,7 @@ $.when(
   // Helpをクリック (Update)
   $("#info").click(function(){
     // GlayLayerを表示
-    NS.fnGlayOpen();
+    fnGlayOpen();
     // 画像等の追加
     $("#glayLayer").append('<div id="slideGalley"><ul id="slideUl">'+
       '<li><img src="/assets/sample1.png"></li><li><img src="/assets/sample2.png"></li><li><img src="/assets/sample3.png"></li><li><img src="/assets/sample4.png"></li><li><img src="/assets/sample5.png"></li><li><img src="/assets/sample6.png"></li><li><img src="/assets/sample7.png"></li><li><img src="/assets/sample8.png"></li>'+
@@ -3453,9 +2772,9 @@ $.when(
     $("#glayLayer").append('<img src="/assets/left.png" id="infoLeft">');
     $("#glayLayer").append('<img src="/assets/right.png" id="infoRight">');
     // イベントハンドラの追加
-    $("#infoLeft").on('click', NS.fnGlayInfoLeft);
-    $("#infoRight").on('click', NS.fnGlayInfoRight);
-    $("#glayClose").on('click', NS.fnAllGlayClose);
+    $("#infoLeft").on('click', fnGlayInfoLeft);
+    $("#infoRight").on('click', fnGlayInfoRight);
+    $("#glayClose").on('click', fnAllGlayClose);
   });
 
   // Debugをクリック
@@ -3496,32 +2815,32 @@ $.when(
   //
   //   if ($('input[name=lanSwitch]').hasClass('lanDrawOn')) {
   //     // イベントハンドラーの削除
-  //     elMain.off("mousedown", NS.fnLanDown);
-  //     elMain.off("mouseup", NS.fnLanUp);
-  //     elHtml.off("mouseup", NS.fnLanOutUp);
+  //     elMain.off("mousedown", fnLanDown);
+  //     elMain.off("mouseup", fnLanUp);
+  //     elHtml.off("mouseup", fnLanOutUp);
   //     elMainDrag.off("mouseenter").off("mouseleave");
   //     // カーソルの変更
   //     elMain.css("cursor", "auto");
   //     elMainDrag.css("cursor", "pointer");
   //     // lanLinkがある時
   //     if(elMainDrag.hasClass("lanLink")) {
-  //       elMain.on("mousedown", NS.fnLanMoveDown);
-  //       elMain.on("mouseup", NS.fnLanMoveUp);
-  //       elHtml.on("mouseup", NS.fnLanMoveOutUp);
+  //       elMain.on("mousedown", fnLanMoveDown);
+  //       elMain.on("mouseup", fnLanMoveUp);
+  //       elHtml.on("mouseup", fnLanMoveOutUp);
   //     }
   //
   //     $("input[name=busSwitch]").removeClass('lanDrawOn');
   //   }
   //   else {
   //     // イベントハンドラーを付ける
-  //     elMain.on("mousedown", NS.fnLanDown);
-  //     elMain.on("mouseup", NS.fnLanUp);
-  //     elHtml.on("mouseup", NS.fnLanOutUp);
+  //     elMain.on("mousedown", fnLanDown);
+  //     elMain.on("mouseup", fnLanUp);
+  //     elHtml.on("mouseup", fnLanOutUp);
   //     // lanLinkがある時
   //     if(elMainDrag.hasClass("lanLink")) {
-  //       elMain.off("mousedown", NS.fnLanMoveDown);
-  //       elMain.off("mouseup", NS.fnLanMoveUp);
-  //       elHtml.off("mouseup", NS.fnLanMoveOutUp);
+  //       elMain.off("mousedown", fnLanMoveDown);
+  //       elMain.off("mouseup", fnLanMoveUp);
+  //       elHtml.off("mouseup", fnLanMoveOutUp);
   //     }
   //     // カーソルの変更
   //     elMain.css("cursor", "crosshair");
@@ -3548,25 +2867,25 @@ $.when(
   // LANのスター型とバス型をクリック
   $('input[name=busSwitch]').click(function(){
 
-    //NS.fnAllReset();
+    //fnAllReset();
     // NS.lanArrClass = $("#ns-main-canvas").attr("class").split(/\s?L_/);
     // NS.mainCtx.clearRect(0, 0, NS.canvasWidth, NS.canvasHeight);
     // for(var i = 1; i < NS.lanArrClass.length; i++) {
-    //   NS.fnLanDraw();
-    //   //NS.fnIfDraw(NS.lanArrClass[i]);
+    //   fnLanDraw();
+    //   //fnIfDraw(NS.lanArrClass[i]);
     // }
 
     //バスをoffにする
     if ($('input[name=busSwitch]').hasClass('busOn')) {
-      $("#ns-main").off("mousedown", NS.fnBusDown);
-      $("#ns-main").off("mouseup", NS.fnBusUp);
-      $("html").off("mouseup", NS.fnBusOutUp);
+      $("#ns-main").off("mousedown", fnBusDown);
+      $("#ns-main").off("mouseup", fnBusUp);
+      $("html").off("mouseup", fnBusOutUp);
       $("input[name=busSwitch]").removeClass('busOn');
     }
     //バスをonにする
     else {
       // イベントハンドラーを付ける
-      $("#ns-main").on("mousedown", NS.fnBusDown);
+      $("#ns-main").on("mousedown", fnBusDown);
       $("input[name=busSwitch]").addClass('busOn');
 
       //lanがonの時offに切り替え
@@ -3586,7 +2905,7 @@ $.when(
     tolerance: 'fit',
     // ドロップされたとき
     drop: function(e, ui){
-      NS.fnMainDrop(ui, $(this));
+      fnMainDrop(ui, $(this));
       NS.mainDropFlg = false;
     },
     // ドロップを受け入れる Draggable 要素がドラッグを終了したとき
@@ -3636,7 +2955,7 @@ $.when(
 
   //バスのドラック後
   $("#ns-main").on("mouseup", ".bus", function(e){
-    NS.fnLanDraw();
+    fnLanDraw();
   });
 
 
@@ -3653,8 +2972,8 @@ $.when(
       NS.addCanvas.remove();
       NS.busDrawFrag = false;
       // イベントハンドラの削除
-      $('#ns-main').off('mousemove', NS.fnBusDrag);
-      $('#ns-main').off('mouseup', NS.fnbusUp);
+      $('#ns-main').off('mousemove', fnBusDrag);
+      $('#ns-main').off('mouseup', fnbusUp);
     }
     if ($(e.target).attr('id') != 'ns-main-canvas') {
       //console.log('ns-main-canvas外');
@@ -3669,7 +2988,7 @@ $.when(
       if(!(NS.lanFlaglink)) {
         $(".sP_"+ NS.lanNode).removeClass("lanLink");
       }
-      $("#ns-main").off("mousemove", NS.fnLanDrag);
+      $("#ns-main").off("mousemove", fnLanDrag);
       $("#ns-main .ui-draggable").removeClass("lanFirst");
       $(".sP_"+ NS.lanNode).removeClass("sP_"+ NS.lanNode);
       $("#ns-main-canvas").removeClass("L_"+ NS.lanNode);
@@ -3684,7 +3003,7 @@ $.when(
   $('#ns-main').on('mousemove', function (e) {
     if ($('#ns-main-canvas').attr('class') == '' && $('#ns-main img').length > 0) {
       NS.mainCtx.clearRect(0, 0, NS.canvasWidth, NS.canvasHeight);
-      NS.fnNameDraw();
+      fnNameDraw();
     }
   });
 
@@ -3744,8 +3063,6 @@ $.when(
       //url: 'NewNetworkSimulator/php/collect_questions.php',
       data:{id : NS.urlparameter, timeStamp: e.timeStamp, outerHTML: e.target.outerHTML}
     });
-  });
-
   });
 
 });
