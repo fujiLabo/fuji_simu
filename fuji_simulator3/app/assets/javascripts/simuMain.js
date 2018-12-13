@@ -1,5 +1,6 @@
 //mainファイル
 
+
 //他のファイルが読み込まれてからこのファイルを読み込む
 $.when(
   $.ready,
@@ -734,32 +735,32 @@ $.when(
   //nsf-nav Fnction
 
   // 全要素の削除
-  NSF.fnAllReset = function() {
+  NS.fnAllReset = function() {
     // 変数のリセット
-    NSF.pcNode  = 0;
-    NSF.swNode  = 0;
-    NSF.svNode  = 0;
-    NSF.ruNode  = 0;
-    NSF.lanNode = 0;
+    NS.pcNode  = 0;
+    NS.swNode  = 0;
+    NS.svNode  = 0;
+    NS.ruNode  = 0;
+    NS.lanNode = 0;
     // コンソールとトポロジーの文字を削除
     $("#nsf-right dl").html("");
     $("#nsf-console").html("");
     // lanLinkがある時
     if($("#nsf-main .ui-draggable").hasClass("lanLink")) {
-      $("#nsf-main").off("mousedown", NSF.fnLanMoveDown);
-      $("#nsf-main").off("mouseup", NSF.fnLanMoveUp);
-      $("html").off("mouseup", NSF.fnLanMoveOutUp);
+      $("#nsf-main").off("mousedown", NS.fnLanMoveDown);
+      $("#nsf-main").off("mouseup", NS.fnLanMoveUp);
+      $("html").off("mouseup", NS.fnLanMoveOutUp);
     }
     // 画像と線の削除
     $("#nsf-main img").remove();
     $('.bus').remove();
     $('#nsf-main-canvas').removeClass();
     $('#nsf-main-canvas').attr('data-buslan', '');
-    NSF.mainCtx.clearRect(0, 0, NSF.canvasWidth, NSF.canvasHeight);
+    NS.mainCtx.clearRect(0, 0, NS.canvasWidth, NS.canvasHeight);
   }
 
   // パケット画像の変更
-  NSF.fnPacketChenge = function(set1, set2, set3) {
+  NS.fnPacketChenge = function(set1, set2, set3) {
     if($("#"+ set1 +"-packet").attr("src") === "/assets/"+ set1 +"_1.png") {
       $("#"+ set1 +"-packet").attr("src", "/assets/"+ set1 +"_2.png");
       if($("#"+ set2 +"-packet").attr("src") === "/assets/"+ set2 +"_2.png") {
@@ -775,7 +776,7 @@ $.when(
   }
 
   // パケットの追加
-  NSF.fnPacketAdd = function() {
+  NS.fnPacketAdd = function() {
     var elthis = $(this);
     // get-nodeを付加する処理
     if($("#get-packet").attr("src") === "/assets/get_2.png") {
@@ -785,11 +786,11 @@ $.when(
       else if(elthis.hasClass("send-node")) {
         elthis.removeClass("send-node");
         elthis.prev().remove();
-        NSF.fnSetBadge(this, "get-node");
+        NS.fnSetBadge(this, "get-node");
       }
       // get-node と send-nodeがないとき
       else {
-        NSF.fnSetBadge(this, "get-node");
+        NS.fnSetBadge(this, "get-node");
       }
     }
     // send-nodeを付加する処理
@@ -800,7 +801,7 @@ $.when(
         $("#nsf-main img").removeClass("send-node");
         elthis.removeClass("get-node");
         elthis.prev().remove();
-        NSF.fnSetBadge(this, "send-node");
+        NS.fnSetBadge(this, "send-node");
       }
       // send-nodeがあるとき
       else if(elthis.hasClass("send-node")) { }
@@ -808,7 +809,7 @@ $.when(
       else {
         $(".send-node").prev().remove();
         $("#nsf-main img").removeClass("send-node");
-        NSF.fnSetBadge(this, "send-node");
+        NS.fnSetBadge(this, "send-node");
       }
     }
     // nodeをリセットする処理
@@ -822,9 +823,9 @@ $.when(
   }
 
   // GlayLayerを表示 (New)
-  NSF.fnGlayOpen = function() {
+  NS.fnGlayOpen = function() {
     // glayLayerのフラグを true にする
-    NSF.bGlayFladg = true;
+    NS.bGlayFladg = true;
     // ID glayLayerの座標と大きさの指定
     $("#glayLayer").css({
       display: 'block',
@@ -838,7 +839,7 @@ $.when(
   }
 
   // 左矢印ボタンが押されたとき
-  NSF.fnGlayInfoLeft = function() {
+  NS.fnGlayInfoLeft = function() {
     $("#slideUl:not(:animated)")
     .css("margin-left", -1*$("#slideUl li").width())
     .prepend($("#slideUl li:last-child"))
@@ -848,7 +849,7 @@ $.when(
   }
 
   // 右矢印ボタンが押されたとき
-  NSF.fnGlayInfoRight = function() {
+  NS.fnGlayInfoRight = function() {
     $("#slideUl:not(:animated)").animate({
       "margin-left" : -1*$("#slideUl li").width()
     }, function(){
@@ -858,42 +859,42 @@ $.when(
   }
 
   // 問題のタイトルを押されたとき (Update)
-  NSF.fnGlayStudyTitleInfo = function() {
+  NS.fnGlayStudyTitleInfo = function() {
     $("#studyLeftTitle").text($(this).text());
   }
 
   // 閉じるボタンが押されたとき (Update)
-  NSF.fnAllGlayClose = function() {
+  NS.fnAllGlayClose = function() {
     // 変数のリセット
-    NSF.bGlayFladg = false;
+    NS.bGlayFladg = false;
     // イベントハンドラの削除
-    $("#infoLeft").off('click', NSF.fnGlayInfoLeft);
-    $("#infoRight").off('click', NSF.fnGlayInfoRight);
-    $("#glayClose").off('click', NSF.fnAllGlayClose);
-    $("#studyMenuButtonIn").off('click', NSF.fnGlayStudyInput);
-    $("#studyMenuButtonOut").off('click', NSF.fnGlayStudyOutput);
+    $("#infoLeft").off('click', NS.fnGlayInfoLeft);
+    $("#infoRight").off('click', NS.fnGlayInfoRight);
+    $("#glayClose").off('click', NS.fnAllGlayClose);
+    $("#studyMenuButtonIn").off('click', NS.fnGlayStudyInput);
+    $("#studyMenuButtonOut").off('click', NS.fnGlayStudyOutput);
     // GlayLayerを設定
     $("#glayLayer").css({'display':'none','height':0});
     $("#glayLayer").empty();
   }
 
-  NSF.fnQuestionSelectClose = function() {
+  NS.fnQuestionSelectClose = function() {
     // イベントハンドラの削除
-    //$("#questionClose").off('click', NSF.fnAllGlayClose);
+    //$("#questionClose").off('click', NS.fnAllGlayClose);
     // GlayLayerを設定
     $("#questionLayer").css({'display':'none','height':0});
     $("#questionLayer").empty();
-    // $("#check").on('click', NSF.IndicateNodeInfo);
-    // $("#study").on('click', NSF.fnstudy);
-    // $("#save").on('click', NSF.fnsave);
-    // $("#load").on('click', NSF.fnload);
-    // $("#quit").on('click', NSF.fnquit);
+    // $("#check").on('click', NS.IndicateNodeInfo);
+    // $("#study").on('click', NS.fnstudy);
+    // $("#save").on('click', NS.fnsave);
+    // $("#load").on('click', NS.fnload);
+    // $("#quit").on('click', NS.fnquit);
   }
 
   //lanボタンが押された時
-  NSF.changeLanMode = function () {
-    NSF.fnAllGlayClose();
-    NSF.fnQuestionSelectClose();
+  NS.changeLanMode = function () {
+    NS.fnAllGlayClose();
+    NS.fnQuestionSelectClose();
     var elHtml     = $("html");
     var elMain     = $("#nsf-main");
     var elMainDrag = $("#nsf-main .ui-draggable");
@@ -902,20 +903,20 @@ $.when(
       // 画像を ONに変更
       $('#lan').attr("src", "/assets/lanCable_2.png");
       // イベントハンドラーを付ける
-      elMain.on("mousedown", NSF.fnLanDown);
-      elMain.on("mouseup", NSF.fnLanUp);
-      elHtml.on("mouseup", NSF.fnLanOutUp);
-      // elMain.on("mousedown", NSF.fnBusDown);
-      // elMain.on("mouseup", NSF.fnBusUp);
-      // elHtml.on("mouseup", NSF.fnBusOutUp);
+      elMain.on("mousedown", NS.fnLanDown);
+      elMain.on("mouseup", NS.fnLanUp);
+      elHtml.on("mouseup", NS.fnLanOutUp);
+      // elMain.on("mousedown", NS.fnBusDown);
+      // elMain.on("mouseup", NS.fnBusUp);
+      // elHtml.on("mouseup", NS.fnBusOutUp);
       // lanLinkがある時
       if(elMainDrag.hasClass("lanLink")) {
-        elMain.off("mousedown", NSF.fnLanMoveDown);
-        elMain.off("mouseup", NSF.fnLanMoveUp);
-        elHtml.off("mouseup", NSF.fnLanMoveOutUp);
-      //   elMain.off("mousedown", NSF.fnBusMoveDown);
-      //   elMain.off("mouseup", NSF.fnBusMoveUp);
-      //   elHtml.off("mouseup", NSF.fnBusMoveOutUp);
+        elMain.off("mousedown", NS.fnLanMoveDown);
+        elMain.off("mouseup", NS.fnLanMoveUp);
+        elHtml.off("mouseup", NS.fnLanMoveOutUp);
+      //   elMain.off("mousedown", NS.fnBusMoveDown);
+      //   elMain.off("mouseup", NS.fnBusMoveUp);
+      //   elHtml.off("mouseup", NS.fnBusMoveOutUp);
       }
       // カーソルの変更
       elMain.css("cursor", "crosshair");
@@ -926,20 +927,20 @@ $.when(
       // 画像にマウスが乗った時の動作
       elMainDrag.mouseenter(function(){
         // フラグの設定
-        NSF.lanFlag = true;
+        NS.lanFlag = true;
         $(this).addClass("lanOn");
         $(this).draggable("disable");
       }).mouseleave(function(){
         // フラグの設定
-        NSF.lanFlag = false;
+        NS.lanFlag = false;
         $(this).removeClass("lanOn");
         $(this).draggable("enable");
       });
       //busをoffにする
       $('#bus').prop('checked',false);
-      $("#nsf-main").off("mousedown", NSF.fnBusDown);
-      $("#nsf-main").off("mouseup", NSF.fnBusUp);
-      $("html").off("mouseup", NSF.fnBusOutUp);
+      $("#nsf-main").off("mousedown", NS.fnBusDown);
+      $("#nsf-main").off("mouseup", NS.fnBusUp);
+      $("html").off("mouseup", NS.fnBusOutUp);
       $("input[name=busSwitch]").removeClass('busOn');
     }
     // ONのとき
@@ -947,31 +948,31 @@ $.when(
       // 画像を OFFに変更
       $('#lan').attr("src", "/assets/lanCable.png");
       // イベントハンドラーの削除
-      elMain.off("mousedown", NSF.fnLanDown);
-      elMain.off("mouseup", NSF.fnLanUp);
-      elHtml.off("mouseup", NSF.fnLanOutUp);
+      elMain.off("mousedown", NS.fnLanDown);
+      elMain.off("mouseup", NS.fnLanUp);
+      elHtml.off("mouseup", NS.fnLanOutUp);
       elMainDrag.off("mouseenter").off("mouseleave");
       // カーソルの変更
       elMain.css("cursor", "auto");
       elMainDrag.css("cursor", "pointer");
       // lanLinkがある時
       if(elMainDrag.hasClass("lanLink")) {
-        elMain.on("mousedown", NSF.fnLanMoveDown);
-        elMain.on("mouseup", NSF.fnLanMoveUp);
-        elHtml.on("mouseup", NSF.fnLanMoveOutUp);
+        elMain.on("mousedown", NS.fnLanMoveDown);
+        elMain.on("mouseup", NS.fnLanMoveUp);
+        elHtml.on("mouseup", NS.fnLanMoveOutUp);
       }
     }
   }
 
   //トポロジーを再構成
-  NSF.fnReconstructionTopology = function (Qdata) {
+  NS.fnReconstructionTopology = function (Qdata) {
 
 
     $('#nsf-main-canvas').attr('class', Qdata.lanInfo);
     $('#nsf-main-canvas').attr('data-buslan', Qdata.busInfo);
     // 座標を計算する（winsow.offsetはスクロールしたときの座標を加味している）
-    var positionX = NSF.mainCanvasX;	// 要素のX座標
-    var positionY = NSF.mainCanvasY;	// 要素のY座標
+    var positionX = NS.mainCanvasX;	// 要素のX座標
+    var positionY = NS.mainCanvasY;	// 要素のY座標
 
     //main-canvasにnode出力
     for(i = 0; i < Qdata.nodeInfo.length; i++){
@@ -981,7 +982,7 @@ $.when(
       var style_positionY = positionY + Qdata.nodeInfo[i].y;
 
       if (Qdata.nodeInfo[i].name.substr(0,2) === 'PC') {
-        NSF.pcNode++;
+        NS.pcNode++;
         $('#nsf-main').append(
           $('<img>').attr({
             src: "/assets/pc.png",
@@ -1009,7 +1010,7 @@ $.when(
 
       }
       else if (Qdata.nodeInfo[i].name.substr(0,6) === 'Router'){
-        NSF.ruNode++;
+        NS.ruNode++;
         $('#nsf-main').append(
           $('<img>').attr({
             src: "/assets/router.png",
@@ -1088,21 +1089,21 @@ $.when(
       // Qdata.nodeInfo[i].positionY = $('#nsf-main img:last-child')[0].style.top.slice(0, -2);
     }
 
-    NSF.fnDraw();
+    NS.fnDraw();
 
     //nsf-rightの情報を隠す
     $("#nsf-right dd:last").css("display","none");
 
     //イベントハンドラを付けるためにLanModeを切り替える（2回切り替えて元に戻している）（改良して）
-    NSF.changeLanMode();
-    NSF.changeLanMode();
+    NS.changeLanMode();
+    NS.changeLanMode();
   }
 
   //問題を選択
-  NSF.fnstudySelect = function () {
+  NS.fnstudySelect = function () {
 
     //タイトルを取得
-    NSF.question_id = $(this).attr('data-qid');
+    NS.question_id = $(this).attr('data-qid');
 
 
     $.ajax({
@@ -1110,7 +1111,7 @@ $.when(
       dataType: 'text',
       url: 'js/sample2.json',
       //url: 'NewNetworkSimulator/php/collect_questions.php',
-      data:{question_id : NSF.question_id, id : NSF.urlparameter}
+      data:{question_id : NS.question_id, id : NS.urlparameter}
     }).done(function(data) {
 
       //取得したJSONをオブジェクトに戻す
@@ -1120,34 +1121,34 @@ $.when(
       //問題番号を表示
       $("#question span").html(Qdata.id);
       // 要素の全削除
-      NSF.fnAllReset();
+      NS.fnAllReset();
       $("#nsf-console").append("<p>> 問題を取得しました </p>");
       //トポロジーを再現
-      NSF.fnReconstructionTopology(Qdata);
+      NS.fnReconstructionTopology(Qdata);
 
 
     }).fail(function(XMLHttpRequest, textStatus) {
       $("#nsf-console").append("<p>> エラーが発生しました</p>");
     }).always(function(){
-      NSF.fnQuestionSelectClose();
+      NS.fnQuestionSelectClose();
       // イベントハンドラの追加と削除
-      $("#questionClose").off('click', NSF.fnQuestionSelectClose);
-      $("#studySelect").off('click', NSF.fnstudySelect);
-      $(".qusetion-select-button").off('click', NSF.fnstudySelect);
-      // $("#check").on('click', NSF.IndicateNodeInfo);
-      // $("#study").on('click', NSF.fnstudy);
-      // $("#save").on('click', NSF.fnsave);
-      // $("#load").on('click', NSF.fnload);
-      // $("#quit").on('click', NSF.fnquit);
+      $("#questionClose").off('click', NS.fnQuestionSelectClose);
+      $("#studySelect").off('click', NS.fnstudySelect);
+      $(".qusetion-select-button").off('click', NS.fnstudySelect);
+      // $("#check").on('click', NS.IndicateNodeInfo);
+      // $("#study").on('click', NS.fnstudy);
+      // $("#save").on('click', NS.fnsave);
+      // $("#load").on('click', NS.fnload);
+      // $("#quit").on('click', NS.fnquit);
     });
   }
 
   //トポロジーをロード
-  NSF.fnloadSelect = function () {
+  NS.fnloadSelect = function () {
     //タイトル取得
     // var studyTitleValue = $("#studySelectTitle").val();
 
-    NSF.question_id = $(this).attr('data-qid');
+    NS.question_id = $(this).attr('data-qid');
 
     $.ajax({
       type: 'POST',
@@ -1155,7 +1156,7 @@ $.when(
       url: 'js/sample2.json',
       //moodleで動かす場合は上をコメントアウトして下を使う
       //url: 'NewNetworkSimulator/js/temporary_load.php',
-      data:{question_id : NSF.question_id, id : NSF.urlparameter}
+      data:{question_id : NS.question_id, id : NS.urlparameter}
     }).done(function(data) {
 
       //取得したJSONをオブジェクトに戻す
@@ -1165,22 +1166,22 @@ $.when(
       //問題番号を表示
       $("#question span").html(Qdata.id);
       // 要素の全削除
-      NSF.fnAllReset();
+      NS.fnAllReset();
       $("#nsf-console").append("<p>>トポロジーを読み込みました</p>");
       //トポロジーを再現
-      NSF.fnReconstructionTopology(Qdata);
+      NS.fnReconstructionTopology(Qdata);
 
     }).fail(function(XMLHttpRequest, textStatus) {
       $("#nsf-console").append("<p>> エラーが発生しました</p>");
-    }).always(function(){ NSF.fnQuestionSelectClose(); });
+    }).always(function(){ NS.fnQuestionSelectClose(); });
 
   }
 
   //モードを切り替える
-  NSF.fnchangeMode = function () {
+  NS.fnchangeMode = function () {
 
     //全削除
-    NSF.fnAllReset();
+    NS.fnAllReset();
 
     //自由描画モードのとき
     if ($(".change_mode").hasClass('draw')) {
@@ -1197,14 +1198,14 @@ $.when(
       "<div class='add_height_line' id='line'></div>");
 
       //イベントハンドラを付ける
-      $("#study").on('click', NSF.fnstudy);
-      $("#save").on('click', NSF.fnsave);
-      $("#load").on('click', NSF.fnload);
-      $("#quit").on('click', NSF.fnquit);
+      $("#study").on('click', NS.fnstudy);
+      $("#save").on('click', NS.fnsave);
+      $("#load").on('click', NS.fnload);
+      $("#quit").on('click', NS.fnquit);
 
       //dustのイベントハンドラを削除
       $("#dust").attr("src", "/assets/dust2.png");
-      $("#dust").off('click', NSF.fnAllReset);
+      $("#dust").off('click', NS.fnAllReset);
 
       //nsf-leftのイベントハンドラを削除
       // $('.machinery').draggable('destroy')
@@ -1227,7 +1228,7 @@ $.when(
       $("#question").remove();
       //dustにイベントハンドラを付ける
       $("#dust").attr("src", "/assets/dust.png");
-      $("#dust").on('click', NSF.fnAllReset);
+      $("#dust").on('click', NS.fnAllReset);
       // // machineryをドラッグ
       // $(".machinery").draggable({
       //   helper: 'clone',  // 要素を複製する
@@ -1240,28 +1241,28 @@ $.when(
       // });
       // // lanをクリック
       // $("#lan").click(function(){
-      //   NSF.changeLanMode();
+      //   NS.changeLanMode();
       // });
       // // LANのスター型とバス型をクリック
       // $('.tgl').prop('disabled', false);
 
 
-      NSF.fnQuestionSelectClose();
+      NS.fnQuestionSelectClose();
     }
   }
 
   //studyをクリック（問題一覧を表示）
-  NSF.fnstudy = function () {
+  NS.fnstudy = function () {
     studyTitleValue = 0;
     $.ajax({
       type: 'POST',
       dataType: 'text',
       url: 'js/ques.json',
       // url: 'NewNetworkSimulator/php/collect_questions_title.php',
-      data:{question_id :$('#question span').innerHTML, id : NSF.urlparameter}
+      data:{question_id :$('#question span').innerHTML, id : NS.urlparameter}
     }).done(function(data) {
 
-      NSF.fnQuestionSelectClose();
+      NS.fnQuestionSelectClose();
 
       //取得したJSONをオブジェクトに戻す
       Qdata = JSON.parse(data);
@@ -1300,20 +1301,20 @@ $.when(
       $("#nsf-console").append("<p>> エラーが発生しました</p>");
     }).always(function(){
       // イベントハンドラの追加と削除
-      $("#questionClose").on('click', NSF.fnQuestionSelectClose);
-      $("#studySelect").on('click', NSF.fnstudySelect);
-      $(".qusetion-select-button").on('click', NSF.fnstudySelect);
-      // $("#check").off('click', NSF.IndicateNodeInfo);
-      // $("#study").off('click', NSF.fnstudy);
-      // $("#save").off('click', NSF.fnsave);
-      // $("#load").off('click', NSF.fnload);
-      // $("#quit").off('click', NSF.fnquit);
+      $("#questionClose").on('click', NS.fnQuestionSelectClose);
+      $("#studySelect").on('click', NS.fnstudySelect);
+      $(".qusetion-select-button").on('click', NS.fnstudySelect);
+      // $("#check").off('click', NS.IndicateNodeInfo);
+      // $("#study").off('click', NS.fnstudy);
+      // $("#save").off('click', NS.fnsave);
+      // $("#load").off('click', NS.fnload);
+      // $("#quit").off('click', NS.fnquit);
     });
   }
 
   //ここから
   //saveをクリック 解読するならここからがオススメ
-  NSF.fnsave = function () {
+  NS.fnsave = function () {
     if ( typeof NSFCSA === "undefined" ) var NSFCSA = {};
 
       router = [];          //routerの構造体配列
@@ -1471,8 +1472,8 @@ $.when(
         bus[i] = new bus_const();
         bus[i].name = $(e).attr('alt');
         bus[i].class = $(e).attr('class')
-        bus[i].x = e.style.left.replace("px", "") - NSF.mainCanvasX;
-        bus[i].y = e.style.top.replace("px", "") - NSF.mainCanvasY;
+        bus[i].x = e.style.left.replace("px", "") - NS.mainCanvasX;
+        bus[i].y = e.style.top.replace("px", "") - NS.mainCanvasY;
         bus[i].width = e.style.width.replace("px", "");
         bus[i].height = e.style.height.replace("px", "");
       });
@@ -1481,8 +1482,8 @@ $.when(
       $("#nsf-main img").each(function(i, e) {
         for(j = 0, count = 0; j < router.length; j++){
           if (router[j].name === e.alt) {
-            router[j].x = e.style.left.replace("px", "") - NSF.mainCanvasX;
-            router[j].y = e.style.top.replace("px", "") - NSF.mainCanvasY;
+            router[j].x = e.style.left.replace("px", "") - NS.mainCanvasX;
+            router[j].y = e.style.top.replace("px", "") - NS.mainCanvasY;
 
             if ($(e).hasClass('RO_sp1')) {
               router[j].readonly[count] = 'RO_sp1';
@@ -1507,8 +1508,8 @@ $.when(
         }
         for(j = 0, count = 0; j < pc.length; j++){
           if (pc[j].name === e.alt) {
-            pc[j].x = e.style.left.replace("px", "") - NSF.mainCanvasX;
-            pc[j].y = e.style.top.replace("px", "") - NSF.mainCanvasY;
+            pc[j].x = e.style.left.replace("px", "") - NS.mainCanvasX;
+            pc[j].y = e.style.top.replace("px", "") - NS.mainCanvasY;
 
             //readonlyのセーブデータ
             if ($(e).hasClass('RO_sp1')) {
@@ -1592,7 +1593,7 @@ $.when(
         dataType: 'text',
         url: 'js/save_DB.php',
         // url: 'NewNetworkSimulator/php/save_DB.php',
-        data:{postJsonData : JsonsaveData, id : NSF.urlparameter, question_id : NSF.question_id}
+        data:{postJsonData : JsonsaveData, id : NS.urlparameter, question_id : NS.question_id}
       }).done(function(data) {
         $("#nsf-console").append("<p>>ノードの配置を保存しました  </p>");
       }).fail(function(XMLHttpRequest, textStatus) {
@@ -1602,17 +1603,17 @@ $.when(
   }
 
   //loadをクリック
-  NSF.fnload = function () {
+  NS.fnload = function () {
     $.ajax({
       type: 'POST',
       dataType: 'text',
       url: 'js/ques.json',
       // url: 'NewNetworkSimulator/php/temporary_load_title.php',
-      data:{id : NSF.urlparameter}
+      data:{id : NS.urlparameter}
     }).done(function(data) {
 
 
-      NSF.fnQuestionSelectClose();
+      NS.fnQuestionSelectClose();
 
       //取得したJSONをオブジェクトに戻す
       Qdata = JSON.parse(data);
@@ -1647,20 +1648,20 @@ $.when(
 
 
       // イベントハンドラの追加
-      $("#questionClose").on('click', NSF.fnQuestionSelectClose);
-      $("#studySelect").on('click', NSF.fnstudySelect);
-      $(".qusetion-load-button").on('click', NSF.fnloadSelect);
-      // $("#study").off('click', NSF.fnstudy);
-      // $("#save").off('click', NSF.fnsave);
-      // $("#load").off('click', NSF.fnload);
-      // $("#quit").off('click', NSF.fnquit);
+      $("#questionClose").on('click', NS.fnQuestionSelectClose);
+      $("#studySelect").on('click', NS.fnstudySelect);
+      $(".qusetion-load-button").on('click', NS.fnloadSelect);
+      // $("#study").off('click', NS.fnstudy);
+      // $("#save").off('click', NS.fnsave);
+      // $("#load").off('click', NS.fnload);
+      // $("#quit").off('click', NS.fnquit);
     });
   }
 
   //quitボタンをクリック
-  NSF.fnquit = function () {
+  NS.fnquit = function () {
 
-    NSF.fnchangeMode();
+    NS.fnchangeMode();
     $('#mode_draw').prop('checked', true);
     $('.change_mode').removeClass('question');
     $('.change_mode').addClass('draw');
@@ -1670,7 +1671,7 @@ $.when(
       dataType: 'text',
       url: 'js/quit.json',
       // url: 'NewNetworkSimulator/php/push_quit.php',
-      data:{id : NSF.urlparameter}
+      data:{id : NS.urlparameter}
     }).done(function(Qdata) {
 
       console.log(Qdata);
@@ -1708,7 +1709,7 @@ $.when(
       }
 
       // イベントハンドラの追加
-      $("#questionClose").on('click', NSF.fnQuestionSelectClose);
+      $("#questionClose").on('click', NS.fnQuestionSelectClose);
 
 
     }).fail(function(XMLHttpRequest, textStatus) {
@@ -1720,7 +1721,7 @@ $.when(
 
 
   //Nodeの情報を表示
-  NSF.IndicateNodeInfo = function () {
+  NS.IndicateNodeInfo = function () {
 
     var nodes = [];
 
@@ -1754,8 +1755,8 @@ $.when(
         }
         info_width = 170;
       }
-      nodeX = nodes[i].element.x + 35 - NSF.mainCanvasX;
-      nodeY = nodes[i].element.y + 35 - NSF.mainCanvasY;
+      nodeX = nodes[i].element.x + 35 - NS.mainCanvasX;
+      nodeY = nodes[i].element.y + 35 - NS.mainCanvasY;
       rightInfoX = $('#nsf-right dt:contains("' + nodes[i].element.alt + '") img')[0].offsetLeft;
       rightInfoY = $('#nsf-right dt:contains("' + nodes[i].element.alt + '") img')[0].offsetTop;
 
@@ -1776,26 +1777,26 @@ $.when(
   // nsf-main Fnction
 
   // 画像を追加
-  NSF.fnMainDrop = function(ui, obj) {
+  NS.fnMainDrop = function(ui, obj) {
     // 機種の判別
     if(ui.draggable.attr("src") === "/assets/pc.png") {
-      NSF.dropNodeInt = NSF.pcNode;
-      NSF.dropNodeName = "PC"+ NSF.pcNode;
-      NSF.dropContextName = "context-menu-PC";
-      NSF.pcNode++;
+      NS.dropNodeInt = NS.pcNode;
+      NS.dropNodeName = "PC"+ NS.pcNode;
+      NS.dropContextName = "context-menu-PC";
+      NS.pcNode++;
     }
     else if(ui.draggable.attr("src") === "/assets/router.png") {
-      NSF.dropNodeInt = NSF.ruNode;
-      NSF.dropNodeName = "Router"+ NSF.ruNode;
-      NSF.dropContextName = "context-menu-Router";
-      NSF.ruNode++;
+      NS.dropNodeInt = NS.ruNode;
+      NS.dropNodeName = "Router"+ NS.ruNode;
+      NS.dropContextName = "context-menu-Router";
+      NS.ruNode++;
     }
     // nsf-mainに画像を追加 (clssとstyleの設定の追加)
     $("#nsf-main").append(
       $("<img>").attr({
       src: ui.draggable.attr("src"),
-      alt: NSF.dropNodeName,
-      class: NSF.dropContextName,
+      alt: NS.dropNodeName,
+      class: NS.dropContextName,
       'data-ifnum': 0,
       'data-lan-if': '',
       'data-routingtablenum':0,
@@ -1825,7 +1826,7 @@ $.when(
       },
     });
     //context-menuに名前を追加
-    //$(obj[0].lastChild).data().name = NSF.dropNodeName;
+    //$(obj[0].lastChild).data().name = NS.dropNodeName;
     // LANが ONのとき画像を動かなくする
     if($("#lan").attr("src") === "/assets/lanCable_2.png") {
       var elMainImgLast = $("#nsf-main img:last-child");
@@ -1833,296 +1834,296 @@ $.when(
       elMainImgLast.mouseup(function(e) { e.preventDefault(); });
       elMainImgLast.mousedown(function(e) { e.preventDefault(); });
       elMainImgLast.mouseenter(function(){
-        NSF.lanFlag = true;
+        NS.lanFlag = true;
         $(this).addClass("lanOn");
         $(this).draggable("disable");
       }).mouseleave(function(){
-        NSF.lanFlag = false;
+        NS.lanFlag = false;
         $(this).removeClass("lanOn");
         $(this).draggable("enable");
       });
     }
     // nsf-rightにトポロジを追加
     if(ui.draggable.attr("src") === "/assets/pc.png") {
-      $("#nsf-right dl").append("<dt><img src= /assets/plus.jpg><span>"+ ui.draggable.attr("alt") + NSF.dropNodeInt +"</span></dt>" +
-      "<dd><p class='rightInfo-IPSM'>IP-0: <span id='rightInfo-IP" + NSF.dropNodeInt + "'></span> /<span id='rightInfo-SM" + NSF.dropNodeInt + "'></span></p></dd>");
+      $("#nsf-right dl").append("<dt><img src= /assets/plus.jpg><span>"+ ui.draggable.attr("alt") + NS.dropNodeInt +"</span></dt>" +
+      "<dd><p class='rightInfo-IPSM'>IP-0: <span id='rightInfo-IP" + NS.dropNodeInt + "'></span> /<span id='rightInfo-SM" + NS.dropNodeInt + "'></span></p></dd>");
 
-      $('#nsf-right dt:contains("'+ ui.draggable.attr("alt") + NSF.dropNodeInt +'") + dd')
-      .append('<p class="rightInfo-routingtable-IPSM"><span id="rightInfo-PCroutingtable-IP' + NSF.dropNodeInt + '_'  + '0' + '">DefaultGateway</span>/<span id="rightInfo-PCroutingtable-SM' + NSF.dropNodeInt + '_'  + '0' +'"></span>' +
-      '<br/>→<span id="rightInfo-PCroutingtable-NHA' + NSF.dropNodeInt + '_'  + '0' + '"></span>：IF<span id="rightInfo-PCroutingtable-IF' + NSF.dropNodeInt + '_'  + '0' + '"></span></p>');
+      $('#nsf-right dt:contains("'+ ui.draggable.attr("alt") + NS.dropNodeInt +'") + dd')
+      .append('<p class="rightInfo-routingtable-IPSM"><span id="rightInfo-PCroutingtable-IP' + NS.dropNodeInt + '_'  + '0' + '">DefaultGateway</span>/<span id="rightInfo-PCroutingtable-SM' + NS.dropNodeInt + '_'  + '0' +'"></span>' +
+      '<br/>→<span id="rightInfo-PCroutingtable-NHA' + NS.dropNodeInt + '_'  + '0' + '"></span>：IF<span id="rightInfo-PCroutingtable-IF' + NS.dropNodeInt + '_'  + '0' + '"></span></p>');
     }
     else if(ui.draggable.attr("src") === "/assets/router.png") {
-      $("#nsf-right dl").append("<dt><img src= /assets/plus.jpg><span>"+ ui.draggable.attr("alt") + NSF.dropNodeInt +"</span></dt><dd><div class='rightInfo-IPSM'></div></dd>");
+      $("#nsf-right dl").append("<dt><img src= /assets/plus.jpg><span>"+ ui.draggable.attr("alt") + NS.dropNodeInt +"</span></dt><dd><div class='rightInfo-IPSM'></div></dd>");
 
-      $('#nsf-right dt:contains("'+ ui.draggable.attr("alt") + NSF.dropNodeInt +'") + dd')
-      .append('<p class="rightInfo-routingtable-IPSM"><span id="rightInfo-routingtable-IP' + NSF.dropNodeInt + '_'  + '0' + '">DefaultGateway</span>/<span id="rightInfo-routingtable-SM' + NSF.dropNodeInt + '_'  + '0' +'"></span>' +
-      '<br/>→<span id="rightInfo-routingtable-NHA' + NSF.dropNodeInt + '_'  + '0' + '"></span>：IF<span id="rightInfo-routingtable-IF' + NSF.dropNodeInt + '_'  + '0' + '"></span></p>');
+      $('#nsf-right dt:contains("'+ ui.draggable.attr("alt") + NS.dropNodeInt +'") + dd')
+      .append('<p class="rightInfo-routingtable-IPSM"><span id="rightInfo-routingtable-IP' + NS.dropNodeInt + '_'  + '0' + '">DefaultGateway</span>/<span id="rightInfo-routingtable-SM' + NS.dropNodeInt + '_'  + '0' +'"></span>' +
+      '<br/>→<span id="rightInfo-routingtable-NHA' + NS.dropNodeInt + '_'  + '0' + '"></span>：IF<span id="rightInfo-routingtable-IF' + NS.dropNodeInt + '_'  + '0' + '"></span></p>');
     }
     // dd要素(IPとSM)を隠す
     $("#nsf-right dd:last").css("display","none");
-    NSF.fnNameDraw(ui.draggable.attr('alt') + NSF.dropNodeInt);
+    NS.fnNameDraw(ui.draggable.attr('alt') + NS.dropNodeInt);
   }
 
 
   // nsf-canvas Function
 
   // マウスのボタンが押されたときに処理を実行する関数
-  NSF.fnLanDown = function(e) {
+  NS.fnLanDown = function(e) {
     // imgにマウスが乗っているとき
-    if(NSF.lanFlag && $("#lan").attr("src") === "/assets/lanCable_2.png") {
+    if(NS.lanFlag && $("#lan").attr("src") === "/assets/lanCable_2.png") {
       // PCに線が引かれているとき
       if($(e.target).attr("src") === "/assets/pc.png" && $(e.target).hasClass("lanLink")) {
         $("#nsf-console").append("<p>> PCにLANは1本しか引けません。</p>");
       }
       else {
         // canvasの追加
-        NSF.addCanvas = $('<canvas width="' + NSF.canvasWidth + '" height="' + NSF.canvasHeight + '"></canvas>').prependTo('#nsf-main');
-        NSF.lanFlagPoint = true;
+        NS.addCanvas = $('<canvas width="' + NS.canvasWidth + '" height="' + NS.canvasHeight + '"></canvas>').prependTo('#nsf-main');
+        NS.lanFlagPoint = true;
         // lanLinkがある場合
         if($(this).children(".lanOn").hasClass("lanLink")) {
-          NSF.lanFlaglink = true;
+          NS.lanFlaglink = true;
         }
         // Classの追加
-        $(this).children(".lanOn").addClass("lanFirst lanLink sP_"+ NSF.lanNode);
-        //$('#nsf-main-canvas').addClass("L_"+ NSF.lanNode);
+        $(this).children(".lanOn").addClass("lanFirst lanLink sP_"+ NS.lanNode);
+        //$('#nsf-main-canvas').addClass("L_"+ NS.lanNode);
         // マウスを押した場所の座標
-        NSF.points = [{x:e.pageX - this.offsetLeft, y:e.pageY - this.offsetTop}];
+        NS.points = [{x:e.pageX - this.offsetLeft, y:e.pageY - this.offsetTop}];
         //busから線を引いた時のフラグ
-        if ($('.sP_' + NSF.lanNode).hasClass('bus')) {
-          NSF.busFlag = true;
+        if ($('.sP_' + NS.lanNode).hasClass('bus')) {
+          NS.busFlag = true;
         }
         // 関数 lanDragの呼び出し
-        $("#nsf-main").on("mousemove", NSF.fnLanDrag);
+        $("#nsf-main").on("mousemove", NS.fnLanDrag);
       }
     }
   }
 
-  NSF.fnBusDown = function (e) {
+  NS.fnBusDown = function (e) {
     if($('#lan').attr('src') === '/assets/lanCable.png' && $('.mouseover').length == 0 && $('.lanFirst').length == 0 && $('.bus-mouseover').length == 0) {
-      NSF.points = [];
-      NSF.addCanvas = $('<canvas width="' + NSF.canvasWidth + '" height="' + NSF.canvasHeight + '"></canvas>').prependTo('#nsf-main');
-      $("#nsf-main").on("mousemove", NSF.fnBusDrag);
-      $('#nsf-main').on('mouseup', NSF.fnBusUp);
-      $("html").on("mouseup", NSF.fnBusOutUp);
-      NSF.busDrawFrag = true;
+      NS.points = [];
+      NS.addCanvas = $('<canvas width="' + NS.canvasWidth + '" height="' + NS.canvasHeight + '"></canvas>').prependTo('#nsf-main');
+      $("#nsf-main").on("mousemove", NS.fnBusDrag);
+      $('#nsf-main').on('mouseup', NS.fnBusUp);
+      $("html").on("mouseup", NS.fnBusOutUp);
+      NS.busDrawFrag = true;
     }
   }
 
   // マウスが移動したときに処理を実行する関数
-  NSF.fnLanDrag = function(e) {
-    NSF.addCtx = NSF.addCanvas.get(0).getContext('2d');
-    NSF.points.push({x:e.pageX - this.offsetLeft, y:e.pageY - this.offsetTop});
-    NSF.addCtx.clearRect(0, 0, NSF.canvasWidth, NSF.canvasHeight);
-    NSF.addCtx.beginPath();
+  NS.fnLanDrag = function(e) {
+    NS.addCtx = NS.addCanvas.get(0).getContext('2d');
+    NS.points.push({x:e.pageX - this.offsetLeft, y:e.pageY - this.offsetTop});
+    NS.addCtx.clearRect(0, 0, NS.canvasWidth, NS.canvasHeight);
+    NS.addCtx.beginPath();
     // 線の色の変更
     if(!($(e.target).hasClass("lanFirst")) && $(e.target).hasClass("lanOn")) {
-      NSF.addCtx.strokeStyle = '#2fb9fe';
+      NS.addCtx.strokeStyle = '#2fb9fe';
     }
     else {
-      NSF.addCtx.strokeStyle = '#fb9003';
+      NS.addCtx.strokeStyle = '#fb9003';
     }
-    NSF.addCtx.lineWidth = NSF.lanWidth;
-    NSF.addCtx.moveTo(NSF.points[0].x, NSF.points[0].y);
-    NSF.addCtx.lineTo(NSF.points[NSF.points.length - 1].x, NSF.points[NSF.points.length - 1].y);
-    NSF.addCtx.stroke();
+    NS.addCtx.lineWidth = NS.lanWidth;
+    NS.addCtx.moveTo(NS.points[0].x, NS.points[0].y);
+    NS.addCtx.lineTo(NS.points[NS.points.length - 1].x, NS.points[NS.points.length - 1].y);
+    NS.addCtx.stroke();
   }
 
-  NSF.fnBusDrag = function (e) {
-    NSF.addCtx = NSF.addCanvas.get(0).getContext('2d');
-    NSF.points.push({x:e.pageX - this.offsetLeft, y:e.pageY - this.offsetTop});
-    NSF.addCtx.clearRect(0, 0, NSF.canvasWidth, NSF.canvasHeight);
-    NSF.addCtx.beginPath();
-    NSF.addCtx.strokeRect(NSF.points[0].x, NSF.points[0].y, NSF.points[NSF.points.length - 1].x - NSF.points[0].x, 10);
+  NS.fnBusDrag = function (e) {
+    NS.addCtx = NS.addCanvas.get(0).getContext('2d');
+    NS.points.push({x:e.pageX - this.offsetLeft, y:e.pageY - this.offsetTop});
+    NS.addCtx.clearRect(0, 0, NS.canvasWidth, NS.canvasHeight);
+    NS.addCtx.beginPath();
+    NS.addCtx.strokeRect(NS.points[0].x, NS.points[0].y, NS.points[NS.points.length - 1].x - NS.points[0].x, 10);
   }
 
   // マウスのボタンが離されたときに処理を実行する関数
-  NSF.fnLanUp = function(e) {
-    if(NSF.lanFlagPoint && $("#lan").attr("src") === "/assets/lanCable_2.png") {
-      NSF.lanFlagDelet = true;
+  NS.fnLanUp = function(e) {
+    if(NS.lanFlagPoint && $("#lan").attr("src") === "/assets/lanCable_2.png") {
+      NS.lanFlagDelet = true;
       // マウスを押してドラッグしなかったとき || 画像の上に載ってないとき || 最初の画像のとき
-      if(NSF.points.length === 1 || (NSF.lanFlag === false) || $(e.target).hasClass("lanFirst")) {
-          if(NSF.lanFlaglink === true) {
-            $(".sP_"+ NSF.lanNode).removeClass("sP_"+ NSF.lanNode);
+      if(NS.points.length === 1 || (NS.lanFlag === false) || $(e.target).hasClass("lanFirst")) {
+          if(NS.lanFlaglink === true) {
+            $(".sP_"+ NS.lanNode).removeClass("sP_"+ NS.lanNode);
           }
           else {
-            $(".sP_"+ NSF.lanNode).removeClass("lanLink sP_"+ NSF.lanNode);
+            $(".sP_"+ NS.lanNode).removeClass("lanLink sP_"+ NS.lanNode);
           }
-          $("#nsf-main-canvas").removeClass("L_"+ NSF.lanNode);
-          NSF.lanFlagDelet = false;
-          NSF.lanNode--;
+          $("#nsf-main-canvas").removeClass("L_"+ NS.lanNode);
+          NS.lanFlagDelet = false;
+          NS.lanNode--;
       }
-      else if (NSF.busFlag == true && $(e.target).hasClass('bus')) {
+      else if (NS.busFlag == true && $(e.target).hasClass('bus')) {
         $("#nsf-console").append("<p>> busとbusは繋げません</p>");
-        if(NSF.lanFlaglink === true) {
-          $(".sP_"+ NSF.lanNode).removeClass("sP_"+ NSF.lanNode);
+        if(NS.lanFlaglink === true) {
+          $(".sP_"+ NS.lanNode).removeClass("sP_"+ NS.lanNode);
         }
         else {
-          $(".sP_"+ NSF.lanNode).removeClass("lanLink sP_"+ NSF.lanNode);
+          $(".sP_"+ NS.lanNode).removeClass("lanLink sP_"+ NS.lanNode);
         }
-        $("#nsf-main-canvas").removeClass("L_"+ NSF.lanNode);
-        NSF.lanFlagDelet = false;
-        NSF.lanNode--;
+        $("#nsf-main-canvas").removeClass("L_"+ NS.lanNode);
+        NS.lanFlagDelet = false;
+        NS.lanNode--;
       }
       // PCにもう線が引かれているとき
       else if($(e.target).hasClass("lanLink") && $(e.target).attr("src") === "/assets/pc.png") {
-        if(NSF.lanFlaglink === true) {
-          $(".sP_"+ NSF.lanNode).removeClass("sP_"+ NSF.lanNode);
+        if(NS.lanFlaglink === true) {
+          $(".sP_"+ NS.lanNode).removeClass("sP_"+ NS.lanNode);
         }
         else {
-          $(".sP_"+ NSF.lanNode).removeClass("lanLink sP_"+ NSF.lanNode);
+          $(".sP_"+ NS.lanNode).removeClass("lanLink sP_"+ NS.lanNode);
         }
-        $("#nsf-main-canvas").removeClass("L_"+ NSF.lanNode);
+        $("#nsf-main-canvas").removeClass("L_"+ NS.lanNode);
         $("#nsf-console").append("<p>> PCにLANは1本しか引けません。</p>");
-        NSF.lanFlagDelet = false;
-        NSF.lanNode--;
+        NS.lanFlagDelet = false;
+        NS.lanNode--;
       }
       // 同じ場所に線を引かないようにする
       else {
-        for(var i = 0; i < NSF.lanNode; i++) {
+        for(var i = 0; i < NS.lanNode; i++) {
           if(($(".lanFirst").hasClass("sP_"+ i) && $(".lanOn").hasClass("eP_"+ i)) ||
              ($(".lanFirst").hasClass("eP_"+ i) && $(".lanOn").hasClass("sP_"+ i))) {
-              $(".sP_"+ NSF.lanNode).removeClass("sP_"+ NSF.lanNode);
-              $("#nsf-main-canvas").removeClass("L_"+ NSF.lanNode);
+              $(".sP_"+ NS.lanNode).removeClass("sP_"+ NS.lanNode);
+              $("#nsf-main-canvas").removeClass("L_"+ NS.lanNode);
               $("#nsf-console").append("<p>> 同じ所にLANは引けません。</p>");
-              NSF.lanFlagDelet = false;
-              NSF.lanNode--;
+              NS.lanFlagDelet = false;
+              NS.lanNode--;
               break;
           }
         }
       }
 
       // 画像の真ん中に線を持ってくる動作アンドモア
-      if(!($(e.target).hasClass("lanFirst")) && $(e.target).hasClass("lanOn") && NSF.lanFlagDelet) {
-        NSF.lanArrWidth[NSF.lanNode] = NSF.lanWidth;
-        $(".lanOn").addClass("lanLink eP_"+ NSF.lanNode);
+      if(!($(e.target).hasClass("lanFirst")) && $(e.target).hasClass("lanOn") && NS.lanFlagDelet) {
+        NS.lanArrWidth[NS.lanNode] = NS.lanWidth;
+        $(".lanOn").addClass("lanLink eP_"+ NS.lanNode);
 
-        // $('.sP_' + NSF.lanNode).addClass('Lan' + NSF.lanNode);
-        // $('.eP_' + NSF.lanNode).addClass('Lan' + NSF.lanNode);
+        // $('.sP_' + NS.lanNode).addClass('Lan' + NS.lanNode);
+        // $('.eP_' + NS.lanNode).addClass('Lan' + NS.lanNode);
 
-        $('#nsf-main-canvas').addClass("L_"+ NSF.lanNode);
-        spifnum =  parseInt($('.sP_' + NSF.lanNode).attr('data-ifnum'));
+        $('#nsf-main-canvas').addClass("L_"+ NS.lanNode);
+        spifnum =  parseInt($('.sP_' + NS.lanNode).attr('data-ifnum'));
         spifnum += 1;
-        epifnum =  parseInt($('.eP_' + NSF.lanNode).attr('data-ifnum'));
+        epifnum =  parseInt($('.eP_' + NS.lanNode).attr('data-ifnum'));
         epifnum += 1;
 
         //buslanの追加
-        if ($('.sP_' + NSF.lanNode).hasClass('bus') ||  $('.eP_' + NSF.lanNode).hasClass('bus')){
+        if ($('.sP_' + NS.lanNode).hasClass('bus') ||  $('.eP_' + NS.lanNode).hasClass('bus')){
           if ($('#nsf-main-canvas').attr('data-buslan') == undefined) {
-            $('#nsf-main-canvas').attr('data-buslan', 'B_' + NSF.lanNode);
+            $('#nsf-main-canvas').attr('data-buslan', 'B_' + NS.lanNode);
           }
           else {
             tmp = $('#nsf-main-canvas').attr('data-buslan');
-            tmp += ' ' + 'B_' + NSF.lanNode;
+            tmp += ' ' + 'B_' + NS.lanNode;
             $('#nsf-main-canvas').attr('data-buslan', tmp);
           }
         }
 
         //lanとifの結びつけ
-        if ($('.sP_' + NSF.lanNode).hasClass('bus') == false) {
-          if ($('.sP_' + NSF.lanNode).attr('data-lan-if') == '') {
-            tmp =  $('.sP_' + NSF.lanNode).attr('data-lan-if');
-            tmp += NSF.lanNode + '-' + $('.sP_' + NSF.lanNode).attr('data-ifnum');
-            $('.sP_' + NSF.lanNode).attr('data-lan-if', tmp);
+        if ($('.sP_' + NS.lanNode).hasClass('bus') == false) {
+          if ($('.sP_' + NS.lanNode).attr('data-lan-if') == '') {
+            tmp =  $('.sP_' + NS.lanNode).attr('data-lan-if');
+            tmp += NS.lanNode + '-' + $('.sP_' + NS.lanNode).attr('data-ifnum');
+            $('.sP_' + NS.lanNode).attr('data-lan-if', tmp);
           }
-          else if ($('.sP_' + NSF.lanNode).attr('data-lan-if') != '') {
-            tmp =  $('.sP_' + NSF.lanNode).attr('data-lan-if');
+          else if ($('.sP_' + NS.lanNode).attr('data-lan-if') != '') {
+            tmp =  $('.sP_' + NS.lanNode).attr('data-lan-if');
             tmp += ' ';
-            tmp += NSF.lanNode + '-' + $('.sP_' + NSF.lanNode).attr('data-ifnum');
-            $('.sP_' + NSF.lanNode).attr('data-lan-if', tmp);
+            tmp += NS.lanNode + '-' + $('.sP_' + NS.lanNode).attr('data-ifnum');
+            $('.sP_' + NS.lanNode).attr('data-lan-if', tmp);
           }
-          tmp = $('.sP_' + NSF.lanNode).attr('data-linknum');
+          tmp = $('.sP_' + NS.lanNode).attr('data-linknum');
           tmp = parseInt(tmp) + 1;
-          $('.sP_' + NSF.lanNode).attr('data-linknum', tmp);
+          $('.sP_' + NS.lanNode).attr('data-linknum', tmp);
 
         }
-        if ($('.eP_' + NSF.lanNode).hasClass('bus') == false) {
-          if ($('.eP_' + NSF.lanNode).attr('data-lan-if') == "") {
-            tmp =  $('.eP_' + NSF.lanNode).attr('data-lan-if');
-            tmp += NSF.lanNode + '-' + $('.eP_' + NSF.lanNode).attr('data-ifnum');
-            $('.eP_' + NSF.lanNode).attr('data-lan-if', tmp);
+        if ($('.eP_' + NS.lanNode).hasClass('bus') == false) {
+          if ($('.eP_' + NS.lanNode).attr('data-lan-if') == "") {
+            tmp =  $('.eP_' + NS.lanNode).attr('data-lan-if');
+            tmp += NS.lanNode + '-' + $('.eP_' + NS.lanNode).attr('data-ifnum');
+            $('.eP_' + NS.lanNode).attr('data-lan-if', tmp);
           }
-          else if ($('.eP_' + NSF.lanNode).attr('data-lan-if') != "") {
-            tmp =  $('.eP_' + NSF.lanNode).attr('data-lan-if');
+          else if ($('.eP_' + NS.lanNode).attr('data-lan-if') != "") {
+            tmp =  $('.eP_' + NS.lanNode).attr('data-lan-if');
             tmp += ' ';
-            tmp += NSF.lanNode + '-' + $('.eP_' + NSF.lanNode).attr('data-ifnum');
-            $('.eP_' + NSF.lanNode).attr('data-lan-if', tmp);
+            tmp += NS.lanNode + '-' + $('.eP_' + NS.lanNode).attr('data-ifnum');
+            $('.eP_' + NS.lanNode).attr('data-lan-if', tmp);
           }
-          tmp = $('.eP_' + NSF.lanNode).attr('data-linknum');
+          tmp = $('.eP_' + NS.lanNode).attr('data-linknum');
           tmp = parseInt(tmp) + 1;
-          $('.eP_' + NSF.lanNode).attr('data-linknum', tmp);
+          $('.eP_' + NS.lanNode).attr('data-linknum', tmp);
         }
 
 
         //rightinfoに追加
         //router->router
-        if ($('.sP_' + NSF.lanNode).attr('alt').substr(0, 6) === 'Router' && $('.eP_' + NSF.lanNode).attr('alt').substr(0, 6) === 'Router') {
+        if ($('.sP_' + NS.lanNode).attr('alt').substr(0, 6) === 'Router' && $('.eP_' + NS.lanNode).attr('alt').substr(0, 6) === 'Router') {
 
-          $('#nsf-right dl dt:contains("' + $('.sP_' + NSF.lanNode)[0].alt + '") + dd .rightInfo-IPSM:last')
-          .after('<p class="rightInfo-IPSM"><span id="' + $('.sP_' + NSF.lanNode).attr('data-ifnum') + '" class="num">IP-' + $('.sP_' + NSF.lanNode).attr('data-ifnum') + '</span>: <span id="rightInfo-IP' + $('.sP_' + NSF.lanNode)[0].alt.slice(6) + '_' + $('.sP_' + NSF.lanNode).attr('data-ifnum') + '"></span>/<span id="rightInfo-SM' +
-          $('.sP_' + NSF.lanNode)[0].alt.slice(6) + '_' + $('.sP_' + NSF.lanNode).attr('data-ifnum') + '"></span></p>');
-          $('.sP_' + NSF.lanNode).attr('data-ifnum',spifnum);
+          $('#nsf-right dl dt:contains("' + $('.sP_' + NS.lanNode)[0].alt + '") + dd .rightInfo-IPSM:last')
+          .after('<p class="rightInfo-IPSM"><span id="' + $('.sP_' + NS.lanNode).attr('data-ifnum') + '" class="num">IP-' + $('.sP_' + NS.lanNode).attr('data-ifnum') + '</span>: <span id="rightInfo-IP' + $('.sP_' + NS.lanNode)[0].alt.slice(6) + '_' + $('.sP_' + NS.lanNode).attr('data-ifnum') + '"></span>/<span id="rightInfo-SM' +
+          $('.sP_' + NS.lanNode)[0].alt.slice(6) + '_' + $('.sP_' + NS.lanNode).attr('data-ifnum') + '"></span></p>');
+          $('.sP_' + NS.lanNode).attr('data-ifnum',spifnum);
 
-          $('#nsf-right dl dt:contains("' + $('.eP_' + NSF.lanNode)[0].alt + '") + dd .rightInfo-IPSM:last')
-          .after('<p class="rightInfo-IPSM"><span id="' + $('.eP_' + NSF.lanNode).attr('data-ifnum') + '" class="num">IP-' + $('.eP_' + NSF.lanNode).attr('data-ifnum') + '</span>: <span id="rightInfo-IP' + $('.eP_' + NSF.lanNode)[0].alt.slice(6) + '_' + $('.eP_' + NSF.lanNode).attr('data-ifnum') + '"></span>/<span id="rightInfo-SM' +
-          $('.eP_' + NSF.lanNode)[0].alt.slice(6) + '_' + $('.eP_' + NSF.lanNode).attr('data-ifnum') + '"></span></p>');
-          $('.eP_' + NSF.lanNode).attr('data-ifnum', epifnum);
+          $('#nsf-right dl dt:contains("' + $('.eP_' + NS.lanNode)[0].alt + '") + dd .rightInfo-IPSM:last')
+          .after('<p class="rightInfo-IPSM"><span id="' + $('.eP_' + NS.lanNode).attr('data-ifnum') + '" class="num">IP-' + $('.eP_' + NS.lanNode).attr('data-ifnum') + '</span>: <span id="rightInfo-IP' + $('.eP_' + NS.lanNode)[0].alt.slice(6) + '_' + $('.eP_' + NS.lanNode).attr('data-ifnum') + '"></span>/<span id="rightInfo-SM' +
+          $('.eP_' + NS.lanNode)[0].alt.slice(6) + '_' + $('.eP_' + NS.lanNode).attr('data-ifnum') + '"></span></p>');
+          $('.eP_' + NS.lanNode).attr('data-ifnum', epifnum);
 
         }
 
         //pc,bus->router
-        if ($('.sP_' + NSF.lanNode).attr('alt').substr(0, 6) !== 'Router' && $('.eP_' + NSF.lanNode).attr('alt').substr(0, 6) === 'Router') {
+        if ($('.sP_' + NS.lanNode).attr('alt').substr(0, 6) !== 'Router' && $('.eP_' + NS.lanNode).attr('alt').substr(0, 6) === 'Router') {
 
-          $('#nsf-right dl dt:contains("' + $('.eP_' + NSF.lanNode)[0].alt + '") + dd .rightInfo-IPSM:last')
-          .after('<p class="rightInfo-IPSM"><span id="' + $('.eP_' + NSF.lanNode).attr('data-ifnum') + '" class="num">IP-' + $('.eP_' + NSF.lanNode).attr('data-ifnum') + '</span>: <span id="rightInfo-IP' + $('.eP_' + NSF.lanNode)[0].alt.slice(6) + '_' + $('.eP_' + NSF.lanNode).attr('data-ifnum') + '"></span>/<span id="rightInfo-SM' +
-          $('.eP_' + NSF.lanNode)[0].alt.slice(6) + '_' + $('.eP_' + NSF.lanNode).attr('data-ifnum') + '"></span></p>');
-          $('.eP_' + NSF.lanNode).attr('data-ifnum', epifnum);
+          $('#nsf-right dl dt:contains("' + $('.eP_' + NS.lanNode)[0].alt + '") + dd .rightInfo-IPSM:last')
+          .after('<p class="rightInfo-IPSM"><span id="' + $('.eP_' + NS.lanNode).attr('data-ifnum') + '" class="num">IP-' + $('.eP_' + NS.lanNode).attr('data-ifnum') + '</span>: <span id="rightInfo-IP' + $('.eP_' + NS.lanNode)[0].alt.slice(6) + '_' + $('.eP_' + NS.lanNode).attr('data-ifnum') + '"></span>/<span id="rightInfo-SM' +
+          $('.eP_' + NS.lanNode)[0].alt.slice(6) + '_' + $('.eP_' + NS.lanNode).attr('data-ifnum') + '"></span></p>');
+          $('.eP_' + NS.lanNode).attr('data-ifnum', epifnum);
 
         }
 
         //router->pc,bus
-        if ($('.sP_' + NSF.lanNode).attr('alt').substr(0, 6) === 'Router' && $('.eP_' + NSF.lanNode).attr('alt').substr(0, 6) !== 'Router') {
-          $('#nsf-right dl dt:contains("' + $('.sP_' + NSF.lanNode)[0].alt + '") + dd .rightInfo-IPSM:last')
-          .after('<p class="rightInfo-IPSM"><span id="' + $('.sP_' + NSF.lanNode).attr('data-ifnum') + '" class="num">IP-' + $('.sP_' + NSF.lanNode).attr('data-ifnum') + '</span>: <span id="rightInfo-IP' + $('.sP_' + NSF.lanNode)[0].alt.slice(6) + '_' + $('.sP_' + NSF.lanNode).attr('data-ifnum') + '"></span>/<span id="rightInfo-SM' +
-          $('.sP_' + NSF.lanNode)[0].alt.slice(6) + '_' + $('.sP_' + NSF.lanNode).attr('data-ifnum') + '"></span></p>');
-          $('.sP_' + NSF.lanNode).attr('data-ifnum',spifnum);
+        if ($('.sP_' + NS.lanNode).attr('alt').substr(0, 6) === 'Router' && $('.eP_' + NS.lanNode).attr('alt').substr(0, 6) !== 'Router') {
+          $('#nsf-right dl dt:contains("' + $('.sP_' + NS.lanNode)[0].alt + '") + dd .rightInfo-IPSM:last')
+          .after('<p class="rightInfo-IPSM"><span id="' + $('.sP_' + NS.lanNode).attr('data-ifnum') + '" class="num">IP-' + $('.sP_' + NS.lanNode).attr('data-ifnum') + '</span>: <span id="rightInfo-IP' + $('.sP_' + NS.lanNode)[0].alt.slice(6) + '_' + $('.sP_' + NS.lanNode).attr('data-ifnum') + '"></span>/<span id="rightInfo-SM' +
+          $('.sP_' + NS.lanNode)[0].alt.slice(6) + '_' + $('.sP_' + NS.lanNode).attr('data-ifnum') + '"></span></p>');
+          $('.sP_' + NS.lanNode).attr('data-ifnum',spifnum);
         }
 
         //描画
-        NSF.fnIfDraw();
-        NSF.fnLanDraw();
+        NS.fnIfDraw();
+        NS.fnLanDraw();
       }
 
       // 変数とフラグを設定
-      NSF.lanNode++;
-      NSF.points = [];
-      NSF.lanFlaglink = false;
-      NSF.lanFlagPoint = false;
-      NSF.busFlag = false;
-      NSF.addCanvas.remove();
+      NS.lanNode++;
+      NS.points = [];
+      NS.lanFlaglink = false;
+      NS.lanFlagPoint = false;
+      NS.busFlag = false;
+      NS.addCanvas.remove();
       // イベントハンドラの削除
-      $("#nsf-main").off("mousemove", NSF.lanDrag);
+      $("#nsf-main").off("mousemove", NS.lanDrag);
       $("#nsf-main .ui-draggable").removeClass("lanFirst");
     }
   }
 
-  NSF.fnBusUp = function (e) {
+  NS.fnBusUp = function (e) {
     if($('#lan').attr('src') === '/assets/lanCable.png' && $('.mouseover').length == 0) {
       //始点と終点の位置
-      if (NSF.points[NSF.points.length - 1].x - NSF.points[0].x > 0) {
-        x = NSF.points[0].x + NSF.mainCanvasX;
-        y = NSF.points[0].y + NSF.mainCanvasY;
-        width = NSF.points[NSF.points.length - 1].x - NSF.points[0].x;
+      if (NS.points[NS.points.length - 1].x - NS.points[0].x > 0) {
+        x = NS.points[0].x + NS.mainCanvasX;
+        y = NS.points[0].y + NS.mainCanvasY;
+        width = NS.points[NS.points.length - 1].x - NS.points[0].x;
       }
       else {
-        x = NSF.points[NSF.points.length - 1].x + NSF.mainCanvasX;
-        y = NSF.points[0].y + NSF.mainCanvasY;
-        width = NSF.points[0].x - NSF.points[NSF.points.length - 1].x;
+        x = NS.points[NS.points.length - 1].x + NS.mainCanvasX;
+        y = NS.points[0].y + NS.mainCanvasY;
+        width = NS.points[0].x - NS.points[NS.points.length - 1].x;
       }
 
       //divを追加
       $('#nsf-main').append(
         $('<div>').attr({
-          alt: 'bus' + NSF.busNode,
+          alt: 'bus' + NS.busNode,
           class: 'bus',
           'data-bus': '',
           style: 'position: absolute; top: ' + y + 'px; left: '+  x +'px; width:' + width + 'px; height:10px;',
@@ -2134,97 +2135,97 @@ $.when(
         scroll: false,
       });
 
-      $('.bus').on('drag', NSF.fnLanMoveDrag);
+      $('.bus').on('drag', NS.fnLanMoveDrag);
 
-      NSF.points = [];
-      NSF.busNode++;
-      NSF.addCanvas.remove();
-      NSF.busDrawFrag = false;
+      NS.points = [];
+      NS.busNode++;
+      NS.addCanvas.remove();
+      NS.busDrawFrag = false;
       // イベントハンドラの削除
-      $('#nsf-main').off('mousemove', NSF.fnBusDrag);
-      $('#nsf-main').off('mouseup', NSF.fnBusUp);
+      $('#nsf-main').off('mousemove', NS.fnBusDrag);
+      $('#nsf-main').off('mouseup', NS.fnBusUp);
     }
   }
 
   // 線を引いてる途中 nsf-main以外でマウスを放した時
-  NSF.fnLanOutUp = function(e) {
-    if(NSF.lanFlagPoint) {
-      NSF.addCanvas.remove();
-      if(!(NSF.lanFlaglink)) {
-        $(".sP_"+ NSF.lanNode).removeClass("lanLink");
+  NS.fnLanOutUp = function(e) {
+    if(NS.lanFlagPoint) {
+      NS.addCanvas.remove();
+      if(!(NS.lanFlaglink)) {
+        $(".sP_"+ NS.lanNode).removeClass("lanLink");
       }
-      $("#nsf-main").off("mousemove", NSF.fnLanDrag);
+      $("#nsf-main").off("mousemove", NS.fnLanDrag);
       $("#nsf-main .ui-draggable").removeClass("lanFirst");
-      $(".sP_"+ NSF.lanNode).removeClass("sP_"+ NSF.lanNode);
-      $("#nsf-main-canvas").removeClass("L_"+ NSF.lanNode);
+      $(".sP_"+ NS.lanNode).removeClass("sP_"+ NS.lanNode);
+      $("#nsf-main-canvas").removeClass("L_"+ NS.lanNode);
       // 変数とフラグをリセット
-      NSF.points = [];
-      NSF.lanFlaglink = false;
-      NSF.lanFlagPoint = false;
+      NS.points = [];
+      NS.lanFlaglink = false;
+      NS.lanFlagPoint = false;
     }
   }
 
-  NSF.fnBusOutUp = function(e) {
-    // NSF.addCanvas.remove();
-    // $("#nsf-main").off("mousemove", NSF.fnBusDrag);
+  NS.fnBusOutUp = function(e) {
+    // NS.addCanvas.remove();
+    // $("#nsf-main").off("mousemove", NS.fnBusDrag);
     // // 変数とフラグをリセット
-    // NSF.points = [];
+    // NS.points = [];
   }
 
   // マウスを押したとき (線を動かす動作)
-  NSF.fnLanMoveDown = function(e) {
+  NS.fnLanMoveDown = function(e) {
     // if($(e.target).hasClass("lanLink")) {
-    //   NSF.elLanMoveThis = $(this);
-    //   NSF.lanFlagMove = true;
-    //   NSF.lanArrClass = $("#nsf-main-canvas").attr("class").split(/\s?L_/);
-    //   NSF.elLanMoveThis.on("mousemove", NSF.fnLanMoveDrag);
+    //   NS.elLanMoveThis = $(this);
+    //   NS.lanFlagMove = true;
+    //   NS.lanArrClass = $("#nsf-main-canvas").attr("class").split(/\s?L_/);
+    //   NS.elLanMoveThis.on("mousemove", NS.fnLanMoveDrag);
     // }
-    NSF.elLanMoveThis = $(this);
-    NSF.lanFlagMove = true;
-    NSF.lanArrClass = $("#nsf-main-canvas").attr("class").split(/\s?L_/);
-    NSF.elLanMoveThis.on("mousemove", NSF.fnLanMoveDrag);
+    NS.elLanMoveThis = $(this);
+    NS.lanFlagMove = true;
+    NS.lanArrClass = $("#nsf-main-canvas").attr("class").split(/\s?L_/);
+    NS.elLanMoveThis.on("mousemove", NS.fnLanMoveDrag);
   }
 
   // ドラッグしている時 (線を動かす動作)
-  NSF.fnLanMoveDrag = function(e) {
-    NSF.mainCtx.clearRect(0, 0, NSF.canvasWidth, NSF.canvasHeight);
-    NSF.fnDraw();
+  NS.fnLanMoveDrag = function(e) {
+    NS.mainCtx.clearRect(0, 0, NS.canvasWidth, NS.canvasHeight);
+    NS.fnDraw();
   }
 
   // マウスを放した時 (線を動かす動作)
-  NSF.fnLanMoveUp = function(e) {
-    if(NSF.lanFlagMove === true) {
-      NSF.lanFlagMove = false;
-      NSF.elLanMoveThis.off("mousemove", NSF.fnLanMoveDrag);
+  NS.fnLanMoveUp = function(e) {
+    if(NS.lanFlagMove === true) {
+      NS.lanFlagMove = false;
+      NS.elLanMoveThis.off("mousemove", NS.fnLanMoveDrag);
     }
   }
 
   // main以外でマウスを放した時 (線を動かす動作)
-  // NSF.fnLanMoveOutUp = function(e) {
-  //   if(NSF.lanFlagMove === true) {
-  //     NSF.mainCtx.clearRect(0, 0, NSF.canvasWidth, NSF.canvasHeight);
-  //     for(var i = 1; i < NSF.lanArrClass.length; i++) {
-  //       //NSF.fnIfDraw(NSF.lanArrClass[i]);
-  //       NSF.fnLanDraw(NSF.lanArrClass[i]);
+  // NS.fnLanMoveOutUp = function(e) {
+  //   if(NS.lanFlagMove === true) {
+  //     NS.mainCtx.clearRect(0, 0, NS.canvasWidth, NS.canvasHeight);
+  //     for(var i = 1; i < NS.lanArrClass.length; i++) {
+  //       //NS.fnIfDraw(NS.lanArrClass[i]);
+  //       NS.fnLanDraw(NS.lanArrClass[i]);
   //      }
-  //     NSF.lanFlagMove = false;
-  //     NSF.elLanMoveThis.off("mousemove", NSF.fnLanMoveDrag);
+  //     NS.lanFlagMove = false;
+  //     NS.elLanMoveThis.off("mousemove", NS.fnLanMoveDrag);
   //   }
   // }
 
 
   //描画セット
-  NSF.fnDraw = function () {
-    NSF.fnIfDraw();
-    NSF.fnLanDraw();
-    NSF.fnNameDraw();
+  NS.fnDraw = function () {
+    NS.fnIfDraw();
+    NS.fnLanDraw();
+    NS.fnNameDraw();
   }
 
   // 線の描画関数 (バス型要改良)
-  NSF.fnLanDraw = function() {
+  NS.fnLanDraw = function() {
 
     if ($('#nsf-main-canvas').attr('class') != '') {
-      NSF.mainCtx.beginPath();
+      NS.mainCtx.beginPath();
       lanNum = $('#nsf-main-canvas').attr('class').split(' ');
       for(i=0; i < lanNum.length; i++){
         lanNum[i] = lanNum[i].slice(2);
@@ -2312,9 +2313,9 @@ $.when(
 
           //縦の線を描画
           for(j=0; j < nodes.length; j++){
-            NSF.mainCtx.moveTo(nodes[j].x - NSF.mainCanvasWidth, nodes[j].y - NSF.mainCanvasHeight);
-            NSF.mainCtx.lineTo(nodes[j].x - NSF.mainCanvasWidth, bus.y - NSF.mainCanvasY);
-            NSF.mainCtx.stroke();
+            NS.mainCtx.moveTo(nodes[j].x - NS.mainCanvasWidth, nodes[j].y - NS.mainCanvasHeight);
+            NS.mainCtx.lineTo(nodes[j].x - NS.mainCanvasWidth, bus.y - NS.mainCanvasY);
+            NS.mainCtx.stroke();
           }
 
           //divを変形させる
@@ -2335,19 +2336,19 @@ $.when(
 
       //node-to-nodeの描画
       for(i=0; i < lanNum.length; i++){
-        NSF.mainCtx.beginPath();
-        NSF.mainCtx.moveTo($(".sP_"+ lanNum[i])[0].offsetLeft - NSF.mainCanvasWidth, $(".sP_"+ lanNum[i])[0].offsetTop - NSF.mainCanvasHeight);
-        NSF.mainCtx.lineTo($(".eP_"+ lanNum[i])[0].offsetLeft - NSF.mainCanvasWidth, $(".eP_"+ lanNum[i])[0].offsetTop - NSF.mainCanvasHeight);
-        NSF.mainCtx.stroke();
+        NS.mainCtx.beginPath();
+        NS.mainCtx.moveTo($(".sP_"+ lanNum[i])[0].offsetLeft - NS.mainCanvasWidth, $(".sP_"+ lanNum[i])[0].offsetTop - NS.mainCanvasHeight);
+        NS.mainCtx.lineTo($(".eP_"+ lanNum[i])[0].offsetLeft - NS.mainCanvasWidth, $(".eP_"+ lanNum[i])[0].offsetTop - NS.mainCanvasHeight);
+        NS.mainCtx.stroke();
       }
     }
 
   }
 
   //ifをcanvasに描画
-  NSF.fnIfDraw = function () {
+  NS.fnIfDraw = function () {
 
-    NSF.mainCtx.beginPath();
+    NS.mainCtx.beginPath();
     ctx = document.getElementById('nsf-main-canvas').getContext('2d');
 
     lanClass =  $('#nsf-main-canvas').attr('class').split(/\s?L_/);
@@ -2367,21 +2368,21 @@ $.when(
             spIf = 'if' + spLanIf[i][1];
           }
         }
-        spX = $('.sP_' + lanNum)[0].style.left.slice(0, -2) - NSF.mainCanvasWidth;
-        spY = $('.sP_' + lanNum)[0].style.top.slice(0, -2) - NSF.mainCanvasHeight;
+        spX = $('.sP_' + lanNum)[0].style.left.slice(0, -2) - NS.mainCanvasWidth;
+        spY = $('.sP_' + lanNum)[0].style.top.slice(0, -2) - NS.mainCanvasHeight;
         spType = $('.sP_' + lanNum).attr('alt').substr(0, 6);
       }
       //sPがbus
       else {
         //busが上
         if ($('.eP_' + lanNum)[0].style.top.slice(0, -2) > $('.sP_' + lanNum)[0].style.top.slice(0, -2)) {
-          spX = $('.eP_' + lanNum)[0].style.left.slice(0, -2) - NSF.mainCanvasWidth + 25;
-          spY = $('.sP_' + lanNum)[0].style.top.slice(0, -2) - NSF.mainCanvasHeight;
+          spX = $('.eP_' + lanNum)[0].style.left.slice(0, -2) - NS.mainCanvasWidth + 25;
+          spY = $('.sP_' + lanNum)[0].style.top.slice(0, -2) - NS.mainCanvasHeight;
         }
         //busが下
         else {
-          spX = $('.eP_' + lanNum)[0].style.left.slice(0, -2) - NSF.mainCanvasWidth + 25;
-          spY = $('.sP_' + lanNum)[0].style.top.slice(0, -2) - NSF.mainCanvasHeight;
+          spX = $('.eP_' + lanNum)[0].style.left.slice(0, -2) - NS.mainCanvasWidth + 25;
+          spY = $('.sP_' + lanNum)[0].style.top.slice(0, -2) - NS.mainCanvasHeight;
         }
         spIf = ''
       }
@@ -2398,21 +2399,21 @@ $.when(
             epIf = 'if' + epLanIf[i][1];
           }
         }
-        epX = $('.eP_' + lanNum)[0].style.left.slice(0, -2) - NSF.mainCanvasWidth;
-        epY = $('.eP_' + lanNum)[0].style.top.slice(0, -2) - NSF.mainCanvasHeight;
+        epX = $('.eP_' + lanNum)[0].style.left.slice(0, -2) - NS.mainCanvasWidth;
+        epY = $('.eP_' + lanNum)[0].style.top.slice(0, -2) - NS.mainCanvasHeight;
         epType = $('.eP_' + lanNum).attr('alt').substr(0, 6);
       }
       //ePがbus
       else {
         //busが上
         if ($('.eP_' + lanNum)[0].style.top.slice(0, -2) < $('.sP_' + lanNum)[0].style.top.slice(0, -2)) {
-          epX = $('.sP_' + lanNum)[0].style.left.slice(0, -2) - NSF.mainCanvasWidth + 25;
-          epY = $('.eP_' + lanNum)[0].style.top.slice(0, -2) - NSF.mainCanvasHeight;
+          epX = $('.sP_' + lanNum)[0].style.left.slice(0, -2) - NS.mainCanvasWidth + 25;
+          epY = $('.eP_' + lanNum)[0].style.top.slice(0, -2) - NS.mainCanvasHeight;
         }
         //busが下
         else {
-          epX = $('.sP_' + lanNum)[0].style.left.slice(0, -2) - NSF.mainCanvasWidth + 25;
-          epY = $('.eP_' + lanNum)[0].style.top.slice(0, -2) - NSF.mainCanvasHeight;
+          epX = $('.sP_' + lanNum)[0].style.left.slice(0, -2) - NS.mainCanvasWidth + 25;
+          epY = $('.eP_' + lanNum)[0].style.top.slice(0, -2) - NS.mainCanvasHeight;
         }
         epIf = ''
       }
@@ -2469,21 +2470,21 @@ $.when(
 
 
   //ノードの名前を表示
-  NSF.fnNameDraw = function () {
-    NSF.mainCtx.beginPath();
+  NS.fnNameDraw = function () {
+    NS.mainCtx.beginPath();
     ctx = document.getElementById('nsf-main-canvas').getContext('2d');
     $('#nsf-main img').each(function (i, e) {
       if ($(e).attr('id') != 'questionClose') {
         if ($(e)[0].alt.slice(0, 2) == 'PC') {
           drawName = $(e)[0].alt;
-          x = $('#nsf-main img[alt="' + $(e)[0].alt + '"]')[0].x - NSF.mainCanvasWidth - 10;
-          y = $('#nsf-main img[alt="' + $(e)[0].alt + '"]')[0].y - NSF.mainCanvasHeight - 35;
+          x = $('#nsf-main img[alt="' + $(e)[0].alt + '"]')[0].x - NS.mainCanvasWidth - 10;
+          y = $('#nsf-main img[alt="' + $(e)[0].alt + '"]')[0].y - NS.mainCanvasHeight - 35;
           ctx.fillText(drawName, x, y, 200);
         }
         else if ($(e)[0].alt.slice(0, 2) == 'Ro'){
           drawName = 'Ro' + $(e)[0].alt.slice(6);
-          x = $('#nsf-main img[alt="' + $(e)[0].alt + '"]')[0].x - NSF.mainCanvasWidth - 10;
-          y = $('#nsf-main img[alt="' + $(e)[0].alt + '"]')[0].y - NSF.mainCanvasHeight - 20;
+          x = $('#nsf-main img[alt="' + $(e)[0].alt + '"]')[0].x - NS.mainCanvasWidth - 10;
+          y = $('#nsf-main img[alt="' + $(e)[0].alt + '"]')[0].y - NS.mainCanvasHeight - 20;
           ctx.fillText(drawName, x, y, 200);
         }
       }
@@ -2494,24 +2495,24 @@ $.when(
   // nsf-etc Fnction
 
   // contextMenuのcallback関数 (PC Router)
-  NSF.fnConfunc = function(key, opt) {
+  NS.fnConfunc = function(key, opt) {
     // 削除を押した時の動作
     if(key === "del") {
-      NSF.lanArrClass = $("#nsf-main-canvas").attr("class").split(/\s?L_/);
-      NSF.mainCtx.clearRect(0, 0, NSF.canvasWidth, NSF.canvasHeight);
-      for(var i = 1; i < NSF.lanArrClass.length; i++) {
-        if(this.hasClass("sP_"+ NSF.lanArrClass[i]))　{
-          $("#nsf-main img").removeClass("eP_"+ NSF.lanArrClass[i]);
-          $("#nsf-main-canvas").removeClass("L_"+ NSF.lanArrClass[i]);
-          $("#nsf-main img").removeClass("if_"+ NSF.lanArrClass[i]);
+      NS.lanArrClass = $("#nsf-main-canvas").attr("class").split(/\s?L_/);
+      NS.mainCtx.clearRect(0, 0, NS.canvasWidth, NS.canvasHeight);
+      for(var i = 1; i < NS.lanArrClass.length; i++) {
+        if(this.hasClass("sP_"+ NS.lanArrClass[i]))　{
+          $("#nsf-main img").removeClass("eP_"+ NS.lanArrClass[i]);
+          $("#nsf-main-canvas").removeClass("L_"+ NS.lanArrClass[i]);
+          $("#nsf-main img").removeClass("if_"+ NS.lanArrClass[i]);
         }
-        else if(this.hasClass("eP_"+ NSF.lanArrClass[i])) {
-          $("#nsf-main img").removeClass("sP_"+ NSF.lanArrClass[i]);
-          $("#nsf-main-canvas").removeClass("L_"+ NSF.lanArrClass[i]);
-          $("#nsf-main img").removeClass("if_"+ NSF.lanArrClass[i]);
+        else if(this.hasClass("eP_"+ NS.lanArrClass[i])) {
+          $("#nsf-main img").removeClass("sP_"+ NS.lanArrClass[i]);
+          $("#nsf-main-canvas").removeClass("L_"+ NS.lanArrClass[i]);
+          $("#nsf-main img").removeClass("if_"+ NS.lanArrClass[i]);
         }
         else {
-          NSF.fnLanDraw(NSF.lanArrClass[i]);
+          NS.fnLanDraw(NS.lanArrClass[i]);
         }
       }
       if($(this).hasClass("get-node") || $(this).hasClass("send-node")) {
@@ -2522,9 +2523,9 @@ $.when(
       $("#nsf-right dt:contains('"+ opt.$trigger[0].alt +"'), #nsf-right dt:contains('"+ opt.$trigger[0].alt +"') + dd").remove();
       // lanLinkがないとき
       if(!($("#nsf-main .ui-draggable").hasClass("lanLink"))) {
-        $("#nsf-main").off("mousedown", NSF.fnLanMoveDown);
-        $("#nsf-main").off("mouseup", NSF.fnLanMoveUp);
-        $("html").off("mouseup", NSF.fnLanMoveOutUp);
+        $("#nsf-main").off("mousedown", NS.fnLanMoveDown);
+        $("#nsf-main").off("mouseup", NS.fnLanMoveUp);
+        $("html").off("mouseup", NS.fnLanMoveOutUp);
       }
     }
   }
@@ -2542,10 +2543,10 @@ $.when(
     $('html').scrollLeft(0);
     var loadWidth        = $('#nsf-main-canvas')[0].getBoundingClientRect().left - 35;
     var loadHeight       = $('#nsf-main-canvas')[0].getBoundingClientRect().top - 35;
-    var calCanvasWidth   = loadWidth - NSF.mainCanvasWidth;
-    var calCanvasHeight  = loadHeight - NSF.mainCanvasHeight;
-    NSF.mainCanvasWidth  = loadWidth;
-    NSF.mainCanvasHeight = loadHeight;
+    var calCanvasWidth   = loadWidth - NS.mainCanvasWidth;
+    var calCanvasHeight  = loadHeight - NS.mainCanvasHeight;
+    NS.mainCanvasWidth  = loadWidth;
+    NS.mainCanvasHeight = loadHeight;
     $("#nsf-main img").each(function(i, val){
       $(val).offset({
         left:$(val).offset().left += calCanvasWidth,
@@ -2563,7 +2564,7 @@ $.when(
       'left': $("#nsf-container").offset().left,
     });
     // bGlayFlag
-    if(NSF.bGlayFladg) {
+    if(NS.bGlayFladg) {
       $("#glayLayer").css({
         'top':   $("#nsf-container").offset().top,
         'left':  $("#nsf-container").offset().left,
@@ -2606,7 +2607,7 @@ $.when(
   // nsf-nav
 
   // Dustをクリック
-  $("#dust").on('click', NSF.fnAllReset);
+  $("#dust").on('click', NS.fnAllReset);
 
   //startをクリック
   $("#connect-start").click(function(){
@@ -3088,7 +3089,7 @@ $.when(
             $("#nsf-main").append(
               $("<div>").attr({
                 class: "cssCircle",
-                style: "position: absolute; top: " + NSF.questionCanvasY + "px; left: "+ NSF.questionCanvasX + "px;" + NSF.canvasWidth + "; height:" + NSF.canvasHeight + ";"
+                style: "position: absolute; top: " + NS.questionCanvasY + "px; left: "+ NS.questionCanvasX + "px;" + NS.canvasWidth + "; height:" + NS.canvasHeight + ";"
               }));
             $('.cssCircle:last-child').append(
               $('<img>').attr({
@@ -3107,7 +3108,7 @@ $.when(
               dataType: 'text',
               // url: 'NewNetworkSimulator/php/push_start.php',
               url: 'js/result.json',
-              data: {postData : 1, id : NSF.urlparameter, question_id : $('#question span').innerHTML}
+              data: {postData : 1, id : NS.urlparameter, question_id : $('#question span').innerHTML}
             });
           }
           //間違いがある場合
@@ -3116,7 +3117,7 @@ $.when(
             $("#nsf-main").append(
               $("<div>").attr({
                 class: "cssCircle",
-                style: "position: absolute; top: " + NSF.questionCanvasY + "px; left: "+ NSF.questionCanvasX + "px;" + NSF.canvasWidth + "; height:" + NSF.canvasHeight + ";"
+                style: "position: absolute; top: " + NS.questionCanvasY + "px; left: "+ NS.questionCanvasX + "px;" + NS.canvasWidth + "; height:" + NS.canvasHeight + ";"
               }));
             $('.cssCircle:last-child').append(
               $('<img>').attr({
@@ -3134,7 +3135,7 @@ $.when(
               dataType: 'text',
               // url: 'NewNetworkSimulator/php/pust_start.php',
               url: 'js/result.json',
-              data: {postData : 0, id : NSF.urlparameter, question_id : $('#question span').innerHTML}
+              data: {postData : 0, id : NS.urlparameter, question_id : $('#question span').innerHTML}
             });
           }
 
@@ -3194,7 +3195,7 @@ $.when(
             $("#nsf-main").append(
               $("<div>").attr({
                 class: "cssCircle",
-                style: "position: absolute; top: " + NSF.questionCanvasY + "px; left: "+ NSF.questionCanvasX + "px;" + NSF.canvasWidth + "; height:" + NSF.canvasHeight + ";"
+                style: "position: absolute; top: " + NS.questionCanvasY + "px; left: "+ NS.questionCanvasX + "px;" + NS.canvasWidth + "; height:" + NS.canvasHeight + ";"
               }));
             $('.cssCircle:last-child').append(
               $('<img>').attr({
@@ -3214,7 +3215,7 @@ $.when(
             $("#nsf-main").append(
               $("<div>").attr({
                 class: "cssCircle",
-                style: "position: absolute; top: " + NSF.questionCanvasY + "px; left: "+ NSF.questionCanvasX + "px;" + NSF.canvasWidth + "; height:" + NSF.canvasHeight + ";"
+                style: "position: absolute; top: " + NS.questionCanvasY + "px; left: "+ NS.questionCanvasX + "px;" + NS.canvasWidth + "; height:" + NS.canvasHeight + ";"
               }));
             $('.cssCircle:last-child').append(
               $('<img>').attr({
@@ -3285,7 +3286,7 @@ $.when(
       //     $("#nsf-main").append(
       //       $("<div>").attr({
       //         class: "cssCircle",
-      //         style: "position: absolute; top: " + NSF.questionCanvasY + "px; left: "+ NSF.questionCanvasX + "px;" + NSF.canvasWidth + "; height:" + NSF.canvasHeight + ";"
+      //         style: "position: absolute; top: " + NS.questionCanvasY + "px; left: "+ NS.questionCanvasX + "px;" + NS.canvasWidth + "; height:" + NS.canvasHeight + ";"
       //       }));
       //     $('.cssCircle:last-child').append(
       //       $('<img>').attr({
@@ -3304,7 +3305,7 @@ $.when(
       //       dataType: 'text',
       //       // url: 'NewNetworkSimulator/php/push_start.php',
       //       url: 'js/result.json',
-      //       data: {postData : 1, id : NSF.urlparameter, question_id : $('#question span').innerHTML}
+      //       data: {postData : 1, id : NS.urlparameter, question_id : $('#question span').innerHTML}
       //     });
       //   }
       //   //間違いがある場合
@@ -3313,7 +3314,7 @@ $.when(
       //     $("#nsf-main").append(
       //       $("<div>").attr({
       //         class: "cssCircle",
-      //         style: "position: absolute; top: " + NSF.questionCanvasY + "px; left: "+ NSF.questionCanvasX + "px;" + NSF.canvasWidth + "; height:" + NSF.canvasHeight + ";"
+      //         style: "position: absolute; top: " + NS.questionCanvasY + "px; left: "+ NS.questionCanvasX + "px;" + NS.canvasWidth + "; height:" + NS.canvasHeight + ";"
       //       }));
       //     $('.cssCircle:last-child').append(
       //       $('<img>').attr({
@@ -3331,7 +3332,7 @@ $.when(
       //       dataType: 'text',
       //       // url: 'NewNetworkSimulator/php/pust_start.php',
       //       url: 'js/result.json',
-      //       data: {postData : 0, id : NSF.urlparameter, question_id : $('#question span').innerHTML}
+      //       data: {postData : 0, id : NS.urlparameter, question_id : $('#question span').innerHTML}
       //     });
       //   }
       //
@@ -3371,7 +3372,7 @@ $.when(
   //Modeをクリック
   $('.mode_draw').click(function () {
     if ($('.change_mode').hasClass('question')) {
-      NSF.fnchangeMode();
+      NS.fnchangeMode();
       $('.change_mode').removeClass('question');
       $('.change_mode').addClass('draw');
     }
@@ -3379,7 +3380,7 @@ $.when(
 
   $('.mode_question').click(function () {
     if ($('.change_mode').hasClass('draw')) {
-      NSF.fnchangeMode();
+      NS.fnchangeMode();
       $('.change_mode').removeClass('draw');
       $('.change_mode').addClass('question');
     }
@@ -3415,7 +3416,7 @@ $.when(
             $("#checkLayer").append('<canvas width="600" height="400" id="checkLayer-canvas"></canvas>');
             $("#nsf-right dd").show();
             $("#nsf-right dt img").attr("src", "/assets/minus.jpg");
-            NSF.IndicateNodeInfo();
+            NS.IndicateNodeInfo();
           }
         });
       }
@@ -3443,7 +3444,7 @@ $.when(
   // Helpをクリック (Update)
   $("#info").click(function(){
     // GlayLayerを表示
-    NSF.fnGlayOpen();
+    NS.fnGlayOpen();
     // 画像等の追加
     $("#glayLayer").append('<div id="slideGalley"><ul id="slideUl">'+
       '<li><img src="/assets/sample1.png"></li><li><img src="/assets/sample2.png"></li><li><img src="/assets/sample3.png"></li><li><img src="/assets/sample4.png"></li><li><img src="/assets/sample5.png"></li><li><img src="/assets/sample6.png"></li><li><img src="/assets/sample7.png"></li><li><img src="/assets/sample8.png"></li>'+
@@ -3452,9 +3453,9 @@ $.when(
     $("#glayLayer").append('<img src="/assets/left.png" id="infoLeft">');
     $("#glayLayer").append('<img src="/assets/right.png" id="infoRight">');
     // イベントハンドラの追加
-    $("#infoLeft").on('click', NSF.fnGlayInfoLeft);
-    $("#infoRight").on('click', NSF.fnGlayInfoRight);
-    $("#glayClose").on('click', NSF.fnAllGlayClose);
+    $("#infoLeft").on('click', NS.fnGlayInfoLeft);
+    $("#infoRight").on('click', NS.fnGlayInfoRight);
+    $("#glayClose").on('click', NS.fnAllGlayClose);
   });
 
   // Debugをクリック
@@ -3483,7 +3484,7 @@ $.when(
 
   // lanをクリック
   $("#lan").click(function(){
-    NSF.changeLanMode();
+    NS.changeLanMode();
   });
 
   //lanボタンをクリック（なぜか反応しない）
@@ -3495,32 +3496,32 @@ $.when(
   //
   //   if ($('input[name=lanSwitch]').hasClass('lanDrawOn')) {
   //     // イベントハンドラーの削除
-  //     elMain.off("mousedown", NSF.fnLanDown);
-  //     elMain.off("mouseup", NSF.fnLanUp);
-  //     elHtml.off("mouseup", NSF.fnLanOutUp);
+  //     elMain.off("mousedown", NS.fnLanDown);
+  //     elMain.off("mouseup", NS.fnLanUp);
+  //     elHtml.off("mouseup", NS.fnLanOutUp);
   //     elMainDrag.off("mouseenter").off("mouseleave");
   //     // カーソルの変更
   //     elMain.css("cursor", "auto");
   //     elMainDrag.css("cursor", "pointer");
   //     // lanLinkがある時
   //     if(elMainDrag.hasClass("lanLink")) {
-  //       elMain.on("mousedown", NSF.fnLanMoveDown);
-  //       elMain.on("mouseup", NSF.fnLanMoveUp);
-  //       elHtml.on("mouseup", NSF.fnLanMoveOutUp);
+  //       elMain.on("mousedown", NS.fnLanMoveDown);
+  //       elMain.on("mouseup", NS.fnLanMoveUp);
+  //       elHtml.on("mouseup", NS.fnLanMoveOutUp);
   //     }
   //
   //     $("input[name=busSwitch]").removeClass('lanDrawOn');
   //   }
   //   else {
   //     // イベントハンドラーを付ける
-  //     elMain.on("mousedown", NSF.fnLanDown);
-  //     elMain.on("mouseup", NSF.fnLanUp);
-  //     elHtml.on("mouseup", NSF.fnLanOutUp);
+  //     elMain.on("mousedown", NS.fnLanDown);
+  //     elMain.on("mouseup", NS.fnLanUp);
+  //     elHtml.on("mouseup", NS.fnLanOutUp);
   //     // lanLinkがある時
   //     if(elMainDrag.hasClass("lanLink")) {
-  //       elMain.off("mousedown", NSF.fnLanMoveDown);
-  //       elMain.off("mouseup", NSF.fnLanMoveUp);
-  //       elHtml.off("mouseup", NSF.fnLanMoveOutUp);
+  //       elMain.off("mousedown", NS.fnLanMoveDown);
+  //       elMain.off("mouseup", NS.fnLanMoveUp);
+  //       elHtml.off("mouseup", NS.fnLanMoveOutUp);
   //     }
   //     // カーソルの変更
   //     elMain.css("cursor", "crosshair");
@@ -3531,12 +3532,12 @@ $.when(
   //     // 画像にマウスが乗った時の動作
   //     elMainDrag.mouseenter(function(){
   //       // フラグの設定
-  //       NSF.lanFlag = true;
+  //       NS.lanFlag = true;
   //       $(this).addClass("lanOn");
   //       $(this).draggable("disable");
   //     }).mouseleave(function(){
   //       // フラグの設定
-  //       NSF.lanFlag = false;
+  //       NS.lanFlag = false;
   //       $(this).removeClass("lanOn");
   //       $(this).draggable("enable");
   //     });
@@ -3547,30 +3548,30 @@ $.when(
   // LANのスター型とバス型をクリック
   $('input[name=busSwitch]').click(function(){
 
-    //NSF.fnAllReset();
-    // NSF.lanArrClass = $("#nsf-main-canvas").attr("class").split(/\s?L_/);
-    // NSF.mainCtx.clearRect(0, 0, NSF.canvasWidth, NSF.canvasHeight);
-    // for(var i = 1; i < NSF.lanArrClass.length; i++) {
-    //   NSF.fnLanDraw();
-    //   //NSF.fnIfDraw(NSF.lanArrClass[i]);
+    //NS.fnAllReset();
+    // NS.lanArrClass = $("#nsf-main-canvas").attr("class").split(/\s?L_/);
+    // NS.mainCtx.clearRect(0, 0, NS.canvasWidth, NS.canvasHeight);
+    // for(var i = 1; i < NS.lanArrClass.length; i++) {
+    //   NS.fnLanDraw();
+    //   //NS.fnIfDraw(NS.lanArrClass[i]);
     // }
 
     //バスをoffにする
     if ($('input[name=busSwitch]').hasClass('busOn')) {
-      $("#nsf-main").off("mousedown", NSF.fnBusDown);
-      $("#nsf-main").off("mouseup", NSF.fnBusUp);
-      $("html").off("mouseup", NSF.fnBusOutUp);
+      $("#nsf-main").off("mousedown", NS.fnBusDown);
+      $("#nsf-main").off("mouseup", NS.fnBusUp);
+      $("html").off("mouseup", NS.fnBusOutUp);
       $("input[name=busSwitch]").removeClass('busOn');
     }
     //バスをonにする
     else {
       // イベントハンドラーを付ける
-      $("#nsf-main").on("mousedown", NSF.fnBusDown);
+      $("#nsf-main").on("mousedown", NS.fnBusDown);
       $("input[name=busSwitch]").addClass('busOn');
 
       //lanがonの時offに切り替え
       if ($('#lan').attr('src') == '/assets/lanCable_2.png') {
-        NSF.changeLanMode();
+        NS.changeLanMode();
       }
     }
   });
@@ -3585,14 +3586,14 @@ $.when(
     tolerance: 'fit',
     // ドロップされたとき
     drop: function(e, ui){
-      NSF.fnMainDrop(ui, $(this));
-      NSF.mainDropFlg = false;
+      NS.fnMainDrop(ui, $(this));
+      NS.mainDropFlg = false;
     },
     // ドロップを受け入れる Draggable 要素がドラッグを終了したとき
     deactivate: function(e, ui){
-      ui.draggable.draggable({ revert: NSF.mainDropFlg });
-      if(NSF.mainDropFlg === false) {
-        NSF.mainDropFlg = true;
+      ui.draggable.draggable({ revert: NS.mainDropFlg });
+      if(NS.mainDropFlg === false) {
+        NS.mainDropFlg = true;
       }
     }
   });
@@ -3635,7 +3636,7 @@ $.when(
 
   //バスのドラック後
   $("#nsf-main").on("mouseup", ".bus", function(e){
-    NSF.fnLanDraw();
+    NS.fnLanDraw();
   });
 
 
@@ -3647,43 +3648,43 @@ $.when(
   //描画中にnsf-main-canvasの外に出た時描画を中止する
   $('html').on('mouseover', function (e) {
     console.log('mouseover html: ');
-    if ($(e.target).attr('id') != 'nsf-main-canvas' && NSF.busDrawFrag == true && $(e.target).hasClass('ui-draggable') == false) {
-      NSF.points = [];
-      NSF.addCanvas.remove();
-      NSF.busDrawFrag = false;
+    if ($(e.target).attr('id') != 'nsf-main-canvas' && NS.busDrawFrag == true && $(e.target).hasClass('ui-draggable') == false) {
+      NS.points = [];
+      NS.addCanvas.remove();
+      NS.busDrawFrag = false;
       // イベントハンドラの削除
-      $('#nsf-main').off('mousemove', NSF.fnBusDrag);
-      $('#nsf-main').off('mouseup', NSF.fnbusUp);
+      $('#nsf-main').off('mousemove', NS.fnBusDrag);
+      $('#nsf-main').off('mouseup', NS.fnbusUp);
     }
     if ($(e.target).attr('id') != 'nsf-main-canvas') {
       //console.log('nsf-main-canvas外');
     }
-    if (NSF.lanFlagPoint === true) {
+    if (NS.lanFlagPoint === true) {
       console.log('lanPointがtrue');
     }
 
-    if ($(e.target).attr('id') != 'nsf-main-canvas' && NSF.lanFlagPoint == true && $(e.target).hasClass('ui-draggable') == false) {
+    if ($(e.target).attr('id') != 'nsf-main-canvas' && NS.lanFlagPoint == true && $(e.target).hasClass('ui-draggable') == false) {
       console.log('消したるで');
-      NSF.addCanvas.remove();
-      if(!(NSF.lanFlaglink)) {
-        $(".sP_"+ NSF.lanNode).removeClass("lanLink");
+      NS.addCanvas.remove();
+      if(!(NS.lanFlaglink)) {
+        $(".sP_"+ NS.lanNode).removeClass("lanLink");
       }
-      $("#nsf-main").off("mousemove", NSF.fnLanDrag);
+      $("#nsf-main").off("mousemove", NS.fnLanDrag);
       $("#nsf-main .ui-draggable").removeClass("lanFirst");
-      $(".sP_"+ NSF.lanNode).removeClass("sP_"+ NSF.lanNode);
-      $("#nsf-main-canvas").removeClass("L_"+ NSF.lanNode);
+      $(".sP_"+ NS.lanNode).removeClass("sP_"+ NS.lanNode);
+      $("#nsf-main-canvas").removeClass("L_"+ NS.lanNode);
       // 変数とフラグをリセット
-      NSF.points = [];
-      NSF.lanFlaglink = false;
-      NSF.lanFlagPoint = false;
+      NS.points = [];
+      NS.lanFlaglink = false;
+      NS.lanFlagPoint = false;
     }
   });
 
   //マウスを動かしたら再描画
   $('#nsf-main').on('mousemove', function (e) {
     if ($('#nsf-main-canvas').attr('class') == '' && $('#nsf-main img').length > 0) {
-      NSF.mainCtx.clearRect(0, 0, NSF.canvasWidth, NSF.canvasHeight);
-      NSF.fnNameDraw();
+      NS.mainCtx.clearRect(0, 0, NS.canvasWidth, NS.canvasHeight);
+      NS.fnNameDraw();
     }
   });
 
@@ -3741,7 +3742,7 @@ $.when(
       dataType: 'text',
       url: 'js/sample1.json',
       //url: 'NewNetworkSimulator/php/collect_questions.php',
-      data:{id : NSF.urlparameter, timeStamp: e.timeStamp, outerHTML: e.target.outerHTML}
+      data:{id : NS.urlparameter, timeStamp: e.timeStamp, outerHTML: e.target.outerHTML}
     });
   });
 
