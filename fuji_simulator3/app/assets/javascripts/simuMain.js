@@ -428,7 +428,7 @@ $.when(
     $.ajax({
       type: 'POST',
       dataType: 'text',
-      url: 'js/sample2.json',
+      url: '/assets/sample2.json',
       //url: 'NewNetworkSimulator/php/collect_questions.php',
       data:{question_id : NS.question_id, id : NS.urlparameter}
     }).done(function(data) {
@@ -472,9 +472,9 @@ $.when(
     $.ajax({
       type: 'POST',
       dataType: 'text',
-      url: 'js/sample2.json',
+      url: '/assets/sample2.json',
       //moodleで動かす場合は上をコメントアウトして下を使う
-      //url: 'NewNetworkSimulator/js/temporary_load.php',
+      //url: 'NewNetworkSimulator/fntemporary_load.php',
       data:{question_id : NS.question_id, id : NS.urlparameter}
     }).done(function(data) {
 
@@ -576,7 +576,7 @@ $.when(
     $.ajax({
       type: 'POST',
       dataType: 'text',
-      url: 'js/ques.json',
+      url: '/assets/ques.json',
       // url: 'NewNetworkSimulator/php/collect_questions_title.php',
       data:{question_id :$('#question span').innerHTML, id : NS.urlparameter}
     }).done(function(data) {
@@ -910,7 +910,7 @@ $.when(
       $.ajax({
         type: 'POST',
         dataType: 'text',
-        url: 'js/save_DB.php',
+        url: '/assets/save_DB.php',
         // url: 'NewNetworkSimulator/php/save_DB.php',
         data:{postJsonData : JsonsaveData, id : NS.urlparameter, question_id : NS.question_id}
       }).done(function(data) {
@@ -926,7 +926,7 @@ $.when(
     $.ajax({
       type: 'POST',
       dataType: 'text',
-      url: 'js/ques.json',
+      url: '/assets/ques.json',
       // url: 'NewNetworkSimulator/php/temporary_load_title.php',
       data:{id : NS.urlparameter}
     }).done(function(data) {
@@ -988,7 +988,7 @@ $.when(
     $.ajax({
       type: 'POST',
       dataType: 'text',
-      url: 'js/quit.json',
+      url: '/assets/quit.json',
       // url: 'NewNetworkSimulator/php/push_quit.php',
       data:{id : NS.urlparameter}
     }).done(function(Qdata) {
@@ -2386,7 +2386,7 @@ $.when(
           type: 'POST',
           dataType: 'text',
           // url: 'NewNetworkSimulator/php/post_networkdata.php',
-          url: 'js/result.json',
+          url: '/assets/result.json',
           data: {postJsonData : NSFCS.JSONpostData}
         }).done(function (data) {
           resultData = JSON.parse(data);
@@ -2426,7 +2426,7 @@ $.when(
               type: 'POST',
               dataType: 'text',
               // url: 'NewNetworkSimulator/php/push_start.php',
-              url: 'js/result.json',
+              url: '/assets/result.json',
               data: {postData : 1, id : NS.urlparameter, question_id : $('#question span').innerHTML}
             });
           }
@@ -2453,7 +2453,7 @@ $.when(
               type: 'POST',
               dataType: 'text',
               // url: 'NewNetworkSimulator/php/pust_start.php',
-              url: 'js/result.json',
+              url: '/assets/result.json',
               data: {postData : 0, id : NS.urlparameter, question_id : $('#question span').innerHTML}
             });
           }
@@ -2492,7 +2492,7 @@ $.when(
           type: 'POST',
           dataType: 'text',
           // url: 'NewNetworkSimulator/php/post_networkdata.php',
-          url: 'js/result.json',
+          url: '/assets/result.json',
           data: {postJsonData : NSFCS.JSONpostData}
         }).done(function (data) {
           resultData = JSON.parse(data);
@@ -2583,7 +2583,7 @@ $.when(
       //   type: 'POST',
       //   dataType: 'text',
       //   // url: 'NewNetworkSimulator/php/post_networkdata.php',
-      //   url: 'js/result.json',
+      //   url: '/assets/result.json',
       //   data: {postJsonData : NSFCS.JSONpostData}
       // }).done(function (data) {
       //   resultData = JSON.parse(data);
@@ -2623,7 +2623,7 @@ $.when(
       //       type: 'POST',
       //       dataType: 'text',
       //       // url: 'NewNetworkSimulator/php/push_start.php',
-      //       url: 'js/result.json',
+      //       url: '/assets/result.json',
       //       data: {postData : 1, id : NS.urlparameter, question_id : $('#question span').innerHTML}
       //     });
       //   }
@@ -2650,7 +2650,7 @@ $.when(
       //       type: 'POST',
       //       dataType: 'text',
       //       // url: 'NewNetworkSimulator/php/pust_start.php',
-      //       url: 'js/result.json',
+      //       url: '/assets/result.json',
       //       data: {postData : 0, id : NS.urlparameter, question_id : $('#question span').innerHTML}
       //     });
       //   }
@@ -3059,7 +3059,7 @@ $.when(
     $.ajax({
       type: 'POST',
       dataType: 'text',
-      url: 'js/sample1.json',
+      url: '/vendor/json/sample1.json',
       //url: 'NewNetworkSimulator/php/collect_questions.php',
       data:{id : NS.urlparameter, timeStamp: e.timeStamp, outerHTML: e.target.outerHTML}
     });

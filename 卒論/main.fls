@@ -107,6 +107,8 @@ INPUT source/goal.tex
 INPUT source/goal.tex
 INPUT source/thanks.tex
 INPUT source/thanks.tex
+INPUT main.bbl
+INPUT main.bbl
 INPUT main.aux
 INPUT ./main.out
 INPUT ./main.out
