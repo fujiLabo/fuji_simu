@@ -78,8 +78,10 @@
 %概要
 \fontsize{11pt}{28pt}\selectfont
 \input{source/abstract}
+
 \clearpage
 
+%目次
 \tableofcontents
 \clearpage
 
@@ -88,15 +90,33 @@
 \input{source/goal}
 \clearpage
 
+%関連研究
+\input{source/relation}
+\clearpage
+
+%LTIについて
+\input{source/lti}
+\clearpage
+
+%システムについて
+\input{source/system}
+\clearpage
+
+%まとめと課題
+\input{source/summary}
+\clearpage
+
 
 %謝辞
 \input{source/thanks}
 \clearpages
 
 %参考文献
-\bibliographystyle{junsrt}
-\nocite{*}
-\bibliography{../biblio}
+%key部分に文書中に参考文献として引用する際のラベル名を入れる
+\begin{thebibliography}{99}
+  \bibitem{key1} aaaaa
+  \bibitem{key2} aa
+\end{thebibliography}
 
 
 \end{document}

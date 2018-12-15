@@ -1,16 +1,9 @@
 # Fdb version 3
-["bibtex main()"] 1544892549 "main().aux" "main().bbl" "main()" 1544892551
-  "../biblio.bib" 0 -1 0 ""
-  "junsrt.bst" 0 -1 0 ""
-  "main().aux" 1544892550 744 15b57e5c636d2379d37570781be84e32 ""
-  (generated)
-  "main().bbl"
-  "main().blg"
-["dvipdf"] 1544892550 "main().dvi" "main().pdf" "main()" 1544892551
-  "main().dvi" 1544892550 7476 c12922384fc986498e8fac033ced7060 "latex"
+["dvipdf"] 1544895530 "main().dvi" "main().pdf" "main()" 1544895530
+  "main().dvi" 1544895530 9524 ba752482d10aaacd7737240ee7d7f23d "latex"
   (generated)
   "main().pdf"
-["latex"] 1544892549 "main().tex" "main().dvi" "main()" 1544892551
+["latex"] 1544895529 "main().tex" "main().dvi" "main()" 1544895530
   "/usr/local/texlive/2018/texmf-dist/fonts/map/fontname/texfonts.map" 1511824771 3332 103109f5612ad95229751940c61aada0 ""
   "/usr/local/texlive/2018/texmf-dist/fonts/tfm/public/ascmac/ascgrp.tfm" 1520635638 448 9a1f3a95c3a7e2681aa6eefcf410b7ac ""
   "/usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm" 1480098701 1328 c834bbb027764024c09d3d2bf908b5f0 ""
@@ -55,17 +48,20 @@
   "/usr/local/texlive/2018/texmf-dist/web2c/texmf.cnf" 1522066949 33362 cf75436e19743e94a92a6b1b9183c434 ""
   "/usr/local/texlive/2018/texmf-var/web2c/euptex/uplatex.fmt" 1543773687 4470727 b7f4572ee1ce76f6992df74be45da296 ""
   "/usr/local/texlive/2018/texmf.cnf" 1523934483 577 0b39adfd7c93507ff20c9c14c2f1a33f ""
-  "main().aux" 1544892550 744 15b57e5c636d2379d37570781be84e32 ""
-  "main().bbl" 0 -1 0 "bibtex main()"
-  "main().out" 1544892550 96 ac05b8303db27cdd62168f953ad9baea ""
-  "main().tex" 1544892549 2046 5222e0bc46b3ba189b01eabc276904a7 ""
-  "main().toc" 1544892550 47 390ca6176762b9b31dcc53e57ac0b974 ""
+  "main().aux" 1544895530 1196 b72ab1ff95f9e89effed84ccfa86e239 ""
+  "main().out" 1544895530 328 192870a5002ba8b5154bbf69d7fe2459 ""
+  "main().tex" 1544895529 2387 0320038179bbc68bc816600db34ca9fe ""
+  "main().toc" 1544895530 379 ee9ef0c9146a97f97e28a6fa33df07fc ""
   "source/abstract.tex" 1543946622 2048 cb92ff128200389ebc4f8bfe4073ff30 ""
-  "source/goal.tex" 1543946614 538 31d77c1b42dfaf38739c0ad12188d746 ""
+  "source/goal.tex" 1544894950 23 b584ceb520932c54ce80772785e742a0 ""
+  "source/lti.tex" 1544894968 30 76e9677cef4ba7550a37e3d41e0b15d6 ""
+  "source/relation.tex" 1544894971 23 a93656cf7c558823844ba400d9ad3fc8 ""
+  "source/summary.tex" 1544894963 29 135a83f6985a066cc0221d527234102a ""
+  "source/system.tex" 1544894989 23 1e7dd100b585abc08660b4b6d1a6ed9d ""
   "source/thanks.tex" 1543947044 379 1c920c2ab20c591227de9be75e3c6a81 ""
   (generated)
-  "main().toc"
-  "main().log"
-  "main().dvi"
   "main().out"
+  "main().dvi"
   "main().aux"
+  "main().log"
+  "main().toc"

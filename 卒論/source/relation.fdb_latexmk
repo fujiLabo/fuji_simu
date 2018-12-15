@@ -1,0 +1,14 @@
+# Fdb version 3
+["dvipdf"] 0 "relation.dvi" "relation.pdf" "relation" 0
+  "relation.dvi" 0 -1 0 "latex"
+  (generated)
+  "relation.pdf"
+["latex"] 1544894971 "relation.tex" "relation.dvi" "relation" 1544894972
+  "/usr/local/texlive/2018/texmf-dist/web2c/texmf.cnf" 1522066949 33362 cf75436e19743e94a92a6b1b9183c434 ""
+  "/usr/local/texlive/2018/texmf-var/web2c/euptex/uplatex.fmt" 1543773687 4470727 b7f4572ee1ce76f6992df74be45da296 ""
+  "/usr/local/texlive/2018/texmf.cnf" 1523934483 577 0b39adfd7c93507ff20c9c14c2f1a33f ""
+  "relation.aux" 1544893515 8 a94a2480d3289e625eea47cd1b285758 ""
+  "relation.tex" 1544894971 23 a93656cf7c558823844ba400d9ad3fc8 ""
+  (generated)
+  "relation.log"
+  "relation.dvi"

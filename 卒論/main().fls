@@ -105,6 +105,14 @@ INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm
 OUTPUT main().toc
 INPUT source/goal.tex
 INPUT source/goal.tex
+INPUT source/relation.tex
+INPUT source/relation.tex
+INPUT source/lti.tex
+INPUT source/lti.tex
+INPUT source/system.tex
+INPUT source/system.tex
+INPUT source/summary.tex
+INPUT source/summary.tex
 INPUT source/thanks.tex
 INPUT source/thanks.tex
 INPUT main().aux
