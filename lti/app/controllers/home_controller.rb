@@ -39,7 +39,7 @@ class HomeController < ApplicationController
     @File_read_Xml = f.read
 
     #Oauth_hash作成
-    #@Body_hash = CGI.escape(Base64.encode64(Digest::SHA1.digest(@File_read_Xml)).chomp)
+    @Body_hash = CGI.escape(Base64.encode64(Digest::SHA1.digest(@File_read_Xml)).chomp)
 
     #timestampを取得して格納
     @timestamp = Time.now.to_i.to_s
@@ -50,18 +50,26 @@ class HomeController < ApplicationController
     #@KEY = @Oauth_Consumer_key + "&"
     @KEY = "321&"
     #@KEY = "140beed4619fd0cdaff80e163a125eca&"
-    @REQUEST = CGI.escape("http://localhost:3000/home/create")
+    #@REQUEST = CGI.escape("http://localhost:3000/home/create")
+    @REQUEST = CGI.escape("http://133.14.14.230/mod/lti/service.php")
     @SourcedId = params[:lis_result_sourcedid]
     #@SourcedId = params[:lis_course_section_sourcedid]
     #x-frameでの表示をすべてに許可する
     response.headers['X-Frame-Options'] = 'ALLOWALL'
 
     #postで送られてきた値のシンボルを指定し@tempに代入
+###test###############
+    @aaa = params[:oauth_consumer_key] + params[:oauth_nonce] + params[:oauth_signature_method] +params[:oauth_timestamp] +params[:oauth_version]
+    puts "aaaa="
+    puts @aaa
+
+########################
+
     #@temp = params.permit!.to_hash
     @temp = params
 
     #Body_hashの追加
-    #@temp[:oauth_body_hash] = @Body_hash
+    @temp[:oauth_body_hash] = @Body_hash
     #戻り値が文字列だった
     @temp.delete(:action)
     @temp.delete(:controller)
@@ -121,7 +129,8 @@ class HomeController < ApplicationController
     #puts @string
     @Signature_base_string = @METHOD
     @Signature_base_string += "&" + @REQUEST
-    @Signature_base_string += "&" + CGI.escape(@string)
+    puts @Signature_base_string += "&" + CGI.escape(@string)
+    puts @key
 
     @Digest = OpenSSL::Digest::SHA1.new
     #puts @Signature_base_string
@@ -129,7 +138,7 @@ class HomeController < ApplicationController
 
     #signatureの作成および最後の入る\nをchopで消している
     @oauth_signature = Base64.encode64(OpenSSL::HMAC::digest(@Digest,@KEY,@Signature_base_string)).chop
-    puts Base64.encode64(OpenSSL::HMAC::digest(@Digest,@KEY,@Signature_base_string))
+    Base64.encode64(OpenSSL::HMAC::digest(@Digest,@KEY,@Signature_base_string))
     #puts OpenSSL::HMAC::digest(OpenSSL::Digest::SHA1.new,@KEY,@Signature_base_strin
     #puts @KEY
     #puts @timestamp
@@ -152,14 +161,15 @@ class HomeController < ApplicationController
   $uri_2 = URI.parse(@Return_url)
 
 
-puts $Oauth_strings = "OAuth realm" + "=" + "\"\"" + "," +
+  $Oauth_strings ="OAuth realm" + "=" + "\"\"" + "," +
                  "oauth_consumer_key" + "=" + "\"" + @Oauth_Consumer_key + "\"" + "," +
                  "oauth_signature_method" + "=" + "\"HMAC-SHA1\"" + "," +
                  "oauth_timestamp" + "=" + "\"" + @timestamp + "\"" + "," +
                  "oauth_nonce" + "=" + "\"" + @Nonce + "\"" + "," +
                  "oauth_version" + "=" + "\"" + "1.0" + "\"" "," +
-                 "oauth_signature" + "=" + "\"" + @oauth_signature + "\"" #+ "," +
-                 #{}"oauth_body_hash" + "=" + "\"" + @Body_hash + "\""
+                 "oauth_signature" + "=" + "\"" + @oauth_signature + "\"" + "," +
+                 "oauth_body_hash" + "=" + "\"" + @Body_hash + "\""
+
 
 =begin
                    header = {'Content-Type': 'application/xml',
@@ -206,8 +216,6 @@ request.body = doc.to_s
   end
   def grade
 #=begin
-
-    puts "aaaa"
     http = Net::HTTP.new($uri.host, $uri.port)
     http.use_ssl = false
     request = Net::HTTP::Post.new($uri.request_uri)
