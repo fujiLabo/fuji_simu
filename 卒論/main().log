@@ -1,4 +1,4 @@
-This is e-upTeX, Version 3.14159265-p3.8.0-u1.23-180226-2.6 (utf8.uptex) (TeX Live 2018) (preloaded format=uplatex 2018.12.3)  16 DEC 2018 02:38
+This is e-upTeX, Version 3.14159265-p3.8.0-u1.23-180226-2.6 (utf8.uptex) (TeX Live 2018) (preloaded format=uplatex 2018.12.3)  17 DEC 2018 02:22
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -275,30 +275,30 @@ Package: pxjahyper 2018/01/25 v0.3c
 LaTeX Info: Composite with undeclared \u in encoding PD1 on input line 828.
 LaTeX Info: Composite with undeclared \H in encoding PD1 on input line 837.
 )
-Package hyperref Info: Option `colorlinks' set `false' on input line 65.
+Package hyperref Info: Option `colorlinks' set `false' on input line 66.
  (./main().aux)
 \openout1 = `main().aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 70.
-LaTeX Font Info:    ... okay on input line 70.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 70.
-LaTeX Font Info:    ... okay on input line 70.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 70.
-LaTeX Font Info:    ... okay on input line 70.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 70.
-LaTeX Font Info:    ... okay on input line 70.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 70.
-LaTeX Font Info:    ... okay on input line 70.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 70.
-LaTeX Font Info:    ... okay on input line 70.
-LaTeX Font Info:    Checking defaults for JY2/mc/m/n on input line 70.
-LaTeX Font Info:    ... okay on input line 70.
-LaTeX Font Info:    Checking defaults for JT2/mc/m/n on input line 70.
-LaTeX Font Info:    ... okay on input line 70.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 70.
-LaTeX Font Info:    ... okay on input line 70.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 71.
+LaTeX Font Info:    ... okay on input line 71.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 71.
+LaTeX Font Info:    ... okay on input line 71.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 71.
+LaTeX Font Info:    ... okay on input line 71.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 71.
+LaTeX Font Info:    ... okay on input line 71.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 71.
+LaTeX Font Info:    ... okay on input line 71.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 71.
+LaTeX Font Info:    ... okay on input line 71.
+LaTeX Font Info:    Checking defaults for JY2/mc/m/n on input line 71.
+LaTeX Font Info:    ... okay on input line 71.
+LaTeX Font Info:    Checking defaults for JT2/mc/m/n on input line 71.
+LaTeX Font Info:    ... okay on input line 71.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 71.
+LaTeX Font Info:    ... okay on input line 71.
 \AtBeginShipoutBox=\box54
-Package hyperref Info: Link coloring OFF on input line 70.
+Package hyperref Info: Link coloring OFF on input line 71.
  (/usr/local/texlive/2018/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
  (/usr/local/texlive/2018/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
@@ -306,48 +306,48 @@ Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
 \c@section@level=\count114
 )
-LaTeX Info: Redefining \ref on input line 70.
-LaTeX Info: Redefining \pageref on input line 70.
-LaTeX Info: Redefining \nameref on input line 70.
+LaTeX Info: Redefining \ref on input line 71.
+LaTeX Info: Redefining \pageref on input line 71.
+LaTeX Info: Redefining \nameref on input line 71.
  (./main().out) (./main().out)
 \@outlinefile=\write3
 \openout3 = `main().out'.
 
 \c@lstlisting=\count115
 LaTeX Font Info:    Font shape `JT2/mc/m/n' will be
-(Font)              scaled to size 16.62714pt on input line 74.
+(Font)              scaled to size 16.62714pt on input line 75.
 LaTeX Font Info:    Font shape `JY2/mc/m/n' will be
-(Font)              scaled to size 16.62714pt on input line 74.
+(Font)              scaled to size 16.62714pt on input line 75.
 LaTeX Font Info:    Font shape `JT2/mc/m/n' will be
-(Font)              scaled to size 23.94002pt on input line 74.
+(Font)              scaled to size 23.94002pt on input line 75.
 LaTeX Font Info:    Font shape `JY2/mc/m/n' will be
-(Font)              scaled to size 23.94002pt on input line 74.
+(Font)              scaled to size 23.94002pt on input line 75.
 
 
-./main().tex:74: Package inputenc Error: Unicode character ^^K (U+B)
+./main().tex:75: Package inputenc Error: Unicode character ^^K (U+B)
 (inputenc)                not set up for use with LaTeX.
 
 See the inputenc package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.74 \thispagestyle
+l.75 \thispagestyle
                    {normal}
 You may provide a definition with
 \DeclareUnicodeCharacter 
 
 LaTeX Font Info:    Font shape `JT2/mc/m/n' will be
-(Font)              scaled to size 13.85594pt on input line 74.
+(Font)              scaled to size 13.85594pt on input line 75.
 LaTeX Font Info:    Font shape `JY2/mc/m/n' will be
-(Font)              scaled to size 13.85594pt on input line 74.
+(Font)              scaled to size 13.85594pt on input line 75.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <14.4> on input line 74.
+(Font)              <14.4> on input line 75.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 74.
-./main().tex:74: Undefined control sequence.
+(Font)              <7> on input line 75.
+./main().tex:75: Undefined control sequence.
 \@maketitle ...\vskip 0.5em \ifvoid \@abstractbox 
                                                   \else \centerline {\box \@...
-l.74 \thispagestyle
+l.75 \thispagestyle
                    {normal}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -355,19 +355,19 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-./main().tex:74: Missing number, treated as zero.
+./main().tex:75: Missing number, treated as zero.
 <to be read again> 
                    \relax 
-l.74 \thispagestyle
+l.75 \thispagestyle
                    {normal}
 A number should have been here; I inserted `0'.
 (If you can't figure out why I needed to see a number,
 look up `weird error' in the index to The TeXbook.)
 
 LaTeX Font Info:    Font shape `JT2/mc/m/n' will be
-(Font)              scaled to size 11.54663pt on input line 75.
+(Font)              scaled to size 11.54663pt on input line 76.
 LaTeX Font Info:    Font shape `JY2/mc/m/n' will be
-(Font)              scaled to size 11.54663pt on input line 75.
+(Font)              scaled to size 11.54663pt on input line 76.
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 17.0pt.
@@ -379,9 +379,9 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 
 ]
 LaTeX Font Info:    Font shape `JT2/mc/m/n' will be
-(Font)              scaled to size 10.58441pt on input line 79.
+(Font)              scaled to size 10.58441pt on input line 80.
 LaTeX Font Info:    Font shape `JY2/mc/m/n' will be
-(Font)              scaled to size 10.58441pt on input line 79.
+(Font)              scaled to size 10.58441pt on input line 80.
  (./source/abstract.tex
 LaTeX Font Info:    Font shape `JT2/mc/bx/n' in size <14.4> not available
 (Font)              Font shape `JT2/gt/m/n' tried instead on input line 1.
@@ -402,6 +402,26 @@ LaTeX Font Info:    Font shape `JY2/mc/bx/n' in size <11> not available
 (Font)              Font shape `JY2/gt/m/n' tried instead on input line 1.
 LaTeX Font Info:    Font shape `JY2/gt/m/n' will be
 (Font)              scaled to size 10.58441pt on input line 1.
+LaTeX Font Info:    Calculating math sizes for size <11> on input line 6.
+
+
+LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <5.5> not available
+(Font)              size <5> substituted on input line 6.
+
+
+LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <5.5> not available
+(Font)              size <5> substituted on input line 6.
+
+
+LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <5.5> not available
+(Font)              size <5> substituted on input line 6.
+
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <11> on input line 6.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7.69997> on input line 6.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5.5> on input line 6.
 )
 \tf@toc=\write4
 \openout4 = `main().toc'.
@@ -414,13 +434,30 @@ LaTeX Font Info:    Font shape `JY2/gt/m/n' will be
 
 ] (./source/lti.tex) [6
 
-] (./source/system.tex) [7
+] (./source/rails.tex
+LaTeX Font Info:    Font shape `JT2/mc/bx/n' in size <12> not available
+(Font)              Font shape `JT2/gt/m/n' tried instead on input line 1.
+LaTeX Font Info:    Font shape `JT2/gt/m/n' will be
+(Font)              scaled to size 11.54663pt on input line 1.
+LaTeX Font Info:    Font shape `JY2/mc/bx/n' in size <12> not available
+(Font)              Font shape `JY2/gt/m/n' tried instead on input line 1.
+LaTeX Font Info:    Font shape `JY2/gt/m/n' will be
+(Font)              scaled to size 11.54663pt on input line 1.
+) (./source/ui.tex
+File: simu.png Graphic file (type bmp)
+<simu.png>
 
-] (./source/summary.tex) [8
+Overfull \hbox (67.81938pt too wide) in paragraph at lines 6--7
+ [] 
+ []
+
+) (./source/function.tex) [7
+
+] [8] (./source/summary.tex) [9
 
 ] (./source/thanks.tex)
-./main().tex:112: Undefined control sequence.
-l.112 \clearpages
+./main().tex:119: Undefined control sequence.
+l.119 \clearpages
                  
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -428,25 +465,30 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 122.
-[9
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 129.
+[10
 
 ]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 122.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 129.
  (./main().aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 122.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 122.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 129.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 129.
 Package rerunfilecheck Info: File `main().out' has not changed.
-(rerunfilecheck)             Checksum: 192870A5002BA8B5154BBF69D7FE2459;328.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 122.
+(rerunfilecheck)             Checksum: 8139397FFBA674AEF52623EF0EE897A9;514.
+
+
+LaTeX Font Warning: Size substitutions with differences
+(Font)              up to 0.5pt have occurred.
+
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 129.
  ) 
 Here is how much of TeX's memory you used:
- 6541 strings out of 493270
- 94221 string characters out of 6145018
- 189693 words of memory out of 5000000
- 10443 multiletter control sequences out of 15000+600000
- 11110 words of font info for 56 fonts, out of 8000000 for 9000
+ 6580 strings out of 493270
+ 94740 string characters out of 6145018
+ 189970 words of memory out of 5000000
+ 10469 multiletter control sequences out of 15000+600000
+ 12945 words of font info for 62 fonts, out of 8000000 for 9000
  929 hyphenation exceptions out of 8191
  28i,10n,43p,1384b,356s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on main().dvi (9 pages, 9524 bytes).
+Output written on main().dvi (10 pages, 12656 bytes).

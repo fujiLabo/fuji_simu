@@ -102,6 +102,11 @@ INPUT main().toc
 INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/uptex-fonts/jis/upjisg-v.tfm
 INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/uptex-fonts/jis/upjisg-h.tfm
 INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm
+INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmr8.tfm
+INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmmi10.tfm
+INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmmi8.tfm
+INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmsy10.tfm
+INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmsy8.tfm
 OUTPUT main().toc
 INPUT source/goal.tex
 INPUT source/goal.tex
@@ -109,8 +114,15 @@ INPUT source/relation.tex
 INPUT source/relation.tex
 INPUT source/lti.tex
 INPUT source/lti.tex
-INPUT source/system.tex
-INPUT source/system.tex
+INPUT source/rails.tex
+INPUT source/rails.tex
+INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
+INPUT source/ui.tex
+INPUT source/ui.tex
+INPUT simu.png
+INPUT extractbb -B cropbox -O simu.png
+INPUT source/function.tex
+INPUT source/function.tex
 INPUT source/summary.tex
 INPUT source/summary.tex
 INPUT source/thanks.tex
