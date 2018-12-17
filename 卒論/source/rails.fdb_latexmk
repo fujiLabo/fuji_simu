@@ -1,14 +1,16 @@
 # Fdb version 3
-["dvipdf"] 0 "rails.dvi" "rails.pdf" "rails" 0
-  "rails.dvi" 0 -1 0 "latex"
+["dvipdf"] 1544990499 "rails.dvi" "rails.pdf" "rails" 1544990499
+  "rails.dvi" 1544990499 956 bf4aa169dc871c649801bf2e824fbe14 "latex"
   (generated)
   "rails.pdf"
-["latex"] 1544979623 "rails.tex" "rails.dvi" "rails" 1544979623
+["latex"] 1544990499 "rails.tex" "rails.dvi" "rails" 1544990499
+  "/usr/local/texlive/2018/texmf-dist/fonts/map/fontname/texfonts.map" 1511824771 3332 103109f5612ad95229751940c61aada0 ""
+  "/usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm" 1480098701 1328 c834bbb027764024c09d3d2bf908b5f0 ""
   "/usr/local/texlive/2018/texmf-dist/web2c/texmf.cnf" 1522066949 33362 cf75436e19743e94a92a6b1b9183c434 ""
   "/usr/local/texlive/2018/texmf-var/web2c/euptex/uplatex.fmt" 1543773687 4470727 b7f4572ee1ce76f6992df74be45da296 ""
   "/usr/local/texlive/2018/texmf.cnf" 1523934483 577 0b39adfd7c93507ff20c9c14c2f1a33f ""
   "rails.aux" 1544978349 8 a94a2480d3289e625eea47cd1b285758 ""
-  "rails.tex" 1544979623 292 6031978e1d4824e59370aaabae743f7c ""
+  "rails.tex" 1544990498 837 0f2c64a9aa03b96bf3b34fb293c38d2e ""
   (generated)
   "rails.dvi"
   "rails.log"

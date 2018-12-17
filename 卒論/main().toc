@@ -4,6 +4,6 @@
 \contentsline {section}{\numberline {3}LTI}{6}{section.3}
 \contentsline {section}{\numberline {4}システム概要}{7}{section.4}
 \contentsline {subsection}{\numberline {4.1}Ruby on Rails}{7}{subsection.4.1}
-\contentsline {subsection}{\numberline {4.2}UIについて}{7}{subsection.4.2}
-\contentsline {subsection}{\numberline {4.3}機能}{8}{subsection.4.3}
-\contentsline {section}{\numberline {5}まとめと課題}{9}{section.5}
+\contentsline {subsection}{\numberline {4.2}UIについて}{8}{subsection.4.2}
+\contentsline {subsection}{\numberline {4.3}機能}{9}{subsection.4.3}
+\contentsline {section}{\numberline {5}まとめと課題}{10}{section.5}

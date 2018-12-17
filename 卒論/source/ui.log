@@ -1,4 +1,4 @@
-This is e-upTeX, Version 3.14159265-p3.8.0-u1.23-180226-2.6 (utf8.uptex) (TeX Live 2018) (preloaded format=uplatex 2018.12.3)  17 DEC 2018 02:22
+This is e-upTeX, Version 3.14159265-p3.8.0-u1.23-180226-2.6 (utf8.uptex) (TeX Live 2018) (preloaded format=uplatex 2018.12.3)  17 DEC 2018 04:52
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -43,8 +43,8 @@ LaTeX Font Info:    Font shape `JY2/gt/m/n' will be
 ./ui.tex:2: Undefined control sequence.
 <write> ... Reference `fig:simu' on page \thepage 
                                                   \space undefined\on@line .^^J
-l.2 ...採用した。これを図\ref{fig:simu}
-                                                に示す
+l.2 ...た。これの概要を図\ref{fig:simu}
+                                                に示す。
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -281,6 +281,21 @@ Overfull \hbox (9.6222pt too wide) in paragraph at lines 1--3
 
 
 Overfull \hbox (9.6222pt too wide) in paragraph at lines 1--3
+\JY2/mc/m/n/10 の
+ []
+
+
+Overfull \hbox (9.6222pt too wide) in paragraph at lines 1--3
+\JY2/mc/m/n/10 概
+ []
+
+
+Overfull \hbox (9.6222pt too wide) in paragraph at lines 1--3
+\JY2/mc/m/n/10 要
+ []
+
+
+Overfull \hbox (9.6222pt too wide) in paragraph at lines 1--3
 \JY2/mc/m/n/10 を
  []
 
@@ -305,8 +320,8 @@ Overfull \hbox (9.6222pt too wide) in paragraph at lines 1--3
  []
 
 
-Overfull \hbox (9.6222pt too wide) in paragraph at lines 1--3
-\JY2/mc/m/n/10 す 
+Overfull \hbox (13.93329pt too wide) in paragraph at lines 1--3
+\JY2/mc/m/n/10 す 。 
  []
 
 
@@ -341,7 +356,7 @@ Overfull \hbox (45.8334pt too wide) in paragraph at lines 4--5
 
 ./ui.tex:6: Undefined control sequence.
 l.6     \includegraphics
-                        {simu.png}
+                        [clip,width=12.0cm,height=8.0cm]{img/simu.png}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -356,13 +371,13 @@ Type  H <return>  for immediate help.
  ...                                              
                                                   
 l.7     \caption
-                {ネットワークシミュレータ UI}
+                {ネットワークシミュレータ UI(差し替えます)}
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 
-Overfull \hbox (39.22232pt too wide) in paragraph at lines 6--9
- \OT1/cmr/m/n/10 simu.png 
+Overfull \hbox (210.61165pt too wide) in paragraph at lines 6--9
+ \OT1/cmr/m/n/10 [clip,width=12.0cm,height=8.0cm]img/simu.png 
  []
 
 
@@ -416,8 +431,33 @@ Overfull \hbox (9.6222pt too wide) in paragraph at lines 6--9
  []
 
 
-Overfull \hbox (11.11113pt too wide) in paragraph at lines 6--9
- \OT1/cmr/m/n/10 UI 
+Overfull \hbox (24.62222pt too wide) in paragraph at lines 6--9
+ \OT1/cmr/m/n/10 UI(\JY2/mc/m/n/10 差 
+ []
+
+
+Overfull \hbox (9.6222pt too wide) in paragraph at lines 6--9
+ \JY2/mc/m/n/10 し 
+ []
+
+
+Overfull \hbox (9.6222pt too wide) in paragraph at lines 6--9
+ \JY2/mc/m/n/10 替 
+ []
+
+
+Overfull \hbox (9.6222pt too wide) in paragraph at lines 6--9
+ \JY2/mc/m/n/10 え 
+ []
+
+
+Overfull \hbox (9.6222pt too wide) in paragraph at lines 6--9
+ \JY2/mc/m/n/10 ま 
+ []
+
+
+Overfull \hbox (13.5111pt too wide) in paragraph at lines 6--9
+ \JY2/mc/m/n/10 す\OT1/cmr/m/n/10 ) 
  []
 
 
@@ -433,6 +473,62 @@ Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
+./ui.tex:12: Undefined control sequence.
+<write> ... Reference `fig:simu' on page \thepage 
+                                                  \space undefined\on@line .^^J
+l.12 図\ref{fig:simu}
+                      のネットワークシミュレータは、実際に...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+LaTeX Warning: Reference `fig:simu' on page  undefined on input line 12.
+
+./ui.tex:12: Undefined control sequence.
+<write> ... Reference `fig:simu' on page \thepage 
+                                                  \space undefined\on@line .^^J
+l.12 ...いた。これにより図\ref{fig:simu}
+                                                 のネットワークシミュ
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+LaTeX Warning: Reference `fig:simu' on page  undefined on input line 12.
+
+./ui.tex:13: Undefined control sequence.
+<write> ... Reference `fig:simu' on page \thepage 
+                                                  \space undefined\on@line .^^J
+l.13 　図\ref{fig:simu}
+                         は5つの部分に分けられており、機器...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+LaTeX Warning: Reference `fig:simu' on page  undefined on input line 13.
+
+./ui.tex:13: Undefined control sequence.
+<write> ... Reference `fig:simu' on page \thepage 
+                                                  \space undefined\on@line .^^J
+l.13 ...っている。また、図\ref{fig:simu}
+                                                 では自由描画モードと
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+LaTeX Warning: Reference `fig:simu' on page  undefined on input line 13.
+
 )
 ! Emergency stop.
 <*> ui.tex
@@ -443,9 +539,9 @@ or  <return>  to continue without it.
 Here is how much of TeX's memory you used:
  10 strings out of 493270
  90 string characters out of 6145018
- 63519 words of memory out of 5000000
+ 64294 words of memory out of 5000000
  4049 multiletter control sequences out of 15000+600000
  6589 words of font info for 33 fonts, out of 8000000 for 9000
  929 hyphenation exceptions out of 8191
- 22i,1n,15p,194b,87s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 22i,1n,15p,1628b,87s stack positions out of 5000i,500n,10000p,200000b,80000s
 No pages of output.
