@@ -426,7 +426,7 @@ $.when(
 
 
     $.ajax({
-      type: 'POST',
+      type: 'GET',
       dataType: 'text',
       url: '/assets/sample2.json',
       //url: 'NewNetworkSimulator/php/collect_questions.php',

@@ -108,8 +108,8 @@ INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmmi8.tfm
 INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmsy10.tfm
 INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmsy8.tfm
 OUTPUT main().toc
-INPUT source/goal.tex
-INPUT source/goal.tex
+INPUT source/first.tex
+INPUT source/first.tex
 INPUT source/relation.tex
 INPUT source/relation.tex
 INPUT source/lti.tex
