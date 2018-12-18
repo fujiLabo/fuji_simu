@@ -1,4 +1,4 @@
-This is e-upTeX, Version 3.14159265-p3.8.0-u1.23-180226-2.6 (utf8.uptex) (TeX Live 2018) (preloaded format=uplatex 2018.12.3)  17 DEC 2018 05:02
+This is e-upTeX, Version 3.14159265-p3.8.0-u1.23-180226-2.6 (utf8.uptex) (TeX Live 2018) (preloaded format=uplatex 2018.12.13)  18 DEC 2018 18:00
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -497,7 +497,7 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 129.
  ) 
 Here is how much of TeX's memory you used:
  6584 strings out of 493270
- 94779 string characters out of 6145018
+ 94779 string characters out of 6145017
  191019 words of memory out of 5000000
  10471 multiletter control sequences out of 15000+600000
  12945 words of font info for 62 fonts, out of 8000000 for 9000
@@ -505,3 +505,6 @@ Here is how much of TeX's memory you used:
  28i,10n,43p,1653b,363s stack positions out of 5000i,500n,10000p,200000b,80000s
 
 Output written on main().dvi (11 pages, 17040 bytes).
+80000s
+
+Output written on main().dvi (11 pages, 13720 bytes).
