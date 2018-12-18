@@ -48,9 +48,10 @@ class HomeController < ApplicationController
     f = File.open("aa.xml", "r")
     @File_read_Xml = f.read
 =end
-  puts @File_read_Xml
+  puts "aaaaaaaaaaaa!!!"
+  puts $doc.to_s
     #Oauth_hash作成
-    @Body_hash = CGI.escape(Base64.encode64(Digest::SHA1.digest(element.to_s)).chomp)
+    @Body_hash = CGI.escape(Base64.encode64(Digest::SHA1.digest($doc.to_s)).chomp)
 
     #timestampを取得して格納
     @timestamp = Time.now.to_i.to_s
@@ -60,7 +61,7 @@ class HomeController < ApplicationController
     @Nonce = params[:oauth_nonce]
     @Oauth_Consumer_key = params[:oauth_consumer_key]
     #@KEY = @Oauth_Consumer_key + "&"
-    @KEY = "321&"
+    @KEY = "321"
     #@KEY = "140beed4619fd0cdaff80e163a125eca&"
     #@REQUEST = CGI.escape("http://localhost:3000/home/create")
     @REQUEST = CGI.escape("http://133.14.14.230/mod/lti/service.php")
@@ -163,14 +164,14 @@ class HomeController < ApplicationController
     #puts @string
     @Signature_base_string = @METHOD
     @Signature_base_string += "&" + @REQUEST
-    puts @Signature_base_string += "&" + CGI.escape(@string)
+    @Signature_base_string += "&" + CGI.escape(@string)
 
     @Digest = OpenSSL::Digest::SHA1.new
     #puts @Signature_base_string
     #puts Base64.encode64(OpenSSL::HMAC::digest(OpenSSL::Digest::SHA1.new,@KEY,@Signature_base_string))
 
     #signatureの作成および最後の入る\nをchopで消している
-    puts @oauth_signature = Base64.encode64(OpenSSL::HMAC::digest(@Digest,@KEY,@Signature_base_string)).chop
+    @oauth_signature = Base64.encode64(OpenSSL::HMAC::digest(@Digest,@KEY,@Signature_base_string)).chop
     Base64.encode64(OpenSSL::HMAC::digest(@Digest,@KEY,@Signature_base_string))
     #puts OpenSSL::HMAC::digest(OpenSSL::Digest::SHA1.new,@KEY,@Signature_base_strin
     #puts @KEY
@@ -194,7 +195,7 @@ class HomeController < ApplicationController
   $uri_2 = URI.parse(@Return_url)
 
 
-  puts $Oauth_strings ="OAuth realm" + "=" + "\"\"" + "," +
+  $Oauth_strings ="OAuth realm" + "=" + "\"\"" + "," +
                  "oauth_consumer_key" + "=" + "\"" + @Oauth_Consumer_key + "\"" + "," +
                  "oauth_signature_method" + "=" + "\"HMAC-SHA1\"" + "," +
                  "oauth_timestamp" + "=" + "\"" + @timestamp + "\"" + "," +
