@@ -1,14 +1,15 @@
 # Fdb version 3
-["dvipdf"] 0 "lti.dvi" "lti.pdf" "lti" 0
-  "lti.dvi" 0 -1 0 "latex"
+["dvipdf"] 1545295224 "lti.dvi" "lti.pdf" "lti" 1545295225
+  "lti.dvi" 1545295224 960 b427c71a5eae07b47d614a2b5a526741 "latex"
   (generated)
   "lti.pdf"
-["latex"] 1544894968 "lti.tex" "lti.dvi" "lti" 1544894968
+["latex"] 1545295224 "lti.tex" "lti.dvi" "lti" 1545295225
   "/usr/local/texlive/2018/texmf-dist/web2c/texmf.cnf" 1522066949 33362 cf75436e19743e94a92a6b1b9183c434 ""
-  "/usr/local/texlive/2018/texmf-var/web2c/euptex/uplatex.fmt" 1543773687 4470727 b7f4572ee1ce76f6992df74be45da296 ""
+  "/usr/local/texlive/2018/texmf-var/web2c/euptex/uplatex.fmt" 1544692265 4470728 cfcd4deda4fe05114388c5e1b815449e ""
   "/usr/local/texlive/2018/texmf.cnf" 1523934483 577 0b39adfd7c93507ff20c9c14c2f1a33f ""
-  "lti.aux" 1544893463 8 a94a2480d3289e625eea47cd1b285758 ""
-  "lti.tex" 1544894968 30 76e9677cef4ba7550a37e3d41e0b15d6 ""
+  "lti.aux" 1545287880 8 a94a2480d3289e625eea47cd1b285758 ""
+  "lti.tex" 1545295223 2028 d05268d32af93e6f3bbb8d0ad5257eb7 ""
   (generated)
   "lti.log"
+  "lti.aux"
   "lti.dvi"
