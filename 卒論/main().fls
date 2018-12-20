@@ -1,4 +1,4 @@
-PWD /Users/chachamaru/rails/fuji_simu/卒論
+PWD /Users/ryouta/fuji_simu/卒論
 INPUT /usr/local/texlive/2018/texmf.cnf
 INPUT /usr/local/texlive/2018/texmf-dist/web2c/texmf.cnf
 INPUT /usr/local/texlive/2018/texmf.cnf
@@ -99,6 +99,14 @@ INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/uptex-fonts/jis/upjisg-h.tfm
 INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
 INPUT main().toc
 INPUT main().toc
+INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/uptex-fonts/jis/upjisg-v.tfm
+INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/uptex-fonts/jis/upjisg-h.tfm
+INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm
+INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmr8.tfm
+INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmmi10.tfm
+INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmmi8.tfm
+INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmsy10.tfm
+INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmsy8.tfm
 OUTPUT main().toc
 INPUT source/first.tex
 INPUT source/first.tex
@@ -106,3 +114,26 @@ INPUT source/relation.tex
 INPUT source/relation.tex
 INPUT source/lti.tex
 INPUT source/lti.tex
+INPUT source/sono1.tex
+INPUT source/sono1.tex
+INPUT source/sono2.tex
+INPUT source/sono2.tex
+INPUT source/sono3.tex
+INPUT source/sono3.tex
+INPUT source/rails.tex
+INPUT source/rails.tex
+INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
+INPUT extractbb -B cropbox -O img/mvc.png
+INPUT source/ui.tex
+INPUT source/ui.tex
+INPUT img/simu.png
+INPUT extractbb -B cropbox -O img/simu.png
+INPUT source/function.tex
+INPUT source/function.tex
+INPUT source/summary.tex
+INPUT source/summary.tex
+INPUT source/thanks.tex
+INPUT source/thanks.tex
+INPUT main().aux
+INPUT ./main().out
+INPUT ./main().out
