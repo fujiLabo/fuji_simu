@@ -190,8 +190,8 @@ $.when(
     $("#infoLeft").off('click', fnGlayInfoLeft);
     $("#infoRight").off('click', fnGlayInfoRight);
     $("#glayClose").off('click', fnAllGlayClose);
-    $("#studyMenuButtonIn").off('click', fnGlayStudyInput);
-    $("#studyMenuButtonOut").off('click', fnGlayStudyOutput);
+    //$("#studyMenuButtonIn").off('click', fnGlayStudyInput);
+    //$("#studyMenuButtonOut").off('click', fnGlayStudyOutput);
     // GlayLayerを設定
     $("#glayLayer").css({'display':'none','height':0});
     $("#glayLayer").empty();
@@ -211,7 +211,7 @@ $.when(
   }
 
   //lanボタンが押された時
-  NS.changeLanMode = function () {
+  changeLanMode = function () {
     fnAllGlayClose();
     fnQuestionSelectClose();
     var elHtml     = $("html");
@@ -414,8 +414,8 @@ $.when(
     $("#ns-right dd:last").css("display","none");
 
     //イベントハンドラを付けるためにLanModeを切り替える（2回切り替えて元に戻している）（改良して）
-    NS.changeLanMode();
-    NS.changeLanMode();
+    changeLanMode();
+    changeLanMode();
   }
 
   //問題を選択
@@ -426,7 +426,7 @@ $.when(
 
 
     $.ajax({
-      type: 'GET',
+      type: 'POST',
       dataType: 'text',
       url: '/assets/sample2.json',
       //url: 'NewNetworkSimulator/php/collect_questions.php',
@@ -1932,7 +1932,7 @@ $.when(
   $("#connect-start").click(function(){
 
     //変数宣言
-    if ( typeof NSFCS === "undefined" ) var NSFCS = {};
+    if ( typeof NSFCS === "undefined" ) NSFCS = {};
 
       //コンストラクタのようなもの
       function router_const(){
@@ -2377,7 +2377,7 @@ $.when(
 
       JsonSendData = JSON.stringify(sendData, null, ' ');
       // JsonSendData = JSON.stringify(sendData);
-      console.log(JsonSendData);
+      console.log('JsonSendData: ' + JsonSendData);
 
 
       //questionモードのとき
@@ -2803,7 +2803,7 @@ $.when(
 
   // lanをクリック
   $("#lan").click(function(){
-    NS.changeLanMode();
+    changeLanMode();
   });
 
   //lanボタンをクリック（なぜか反応しない）
@@ -2890,7 +2890,7 @@ $.when(
 
       //lanがonの時offに切り替え
       if ($('#lan').attr('src') == '/assets/lanCable_2.png') {
-        NS.changeLanMode();
+        changeLanMode();
       }
     }
   });
@@ -3053,16 +3053,16 @@ $.when(
   });
 
 
-  //行動を保存する
-  $('html').on('click', function (e) {
-
-    $.ajax({
-      type: 'POST',
-      dataType: 'text',
-      url: '/vendor/json/sample1.json',
-      //url: 'NewNetworkSimulator/php/collect_questions.php',
-      data:{id : NS.urlparameter, timeStamp: e.timeStamp, outerHTML: e.target.outerHTML}
-    });
-  });
+  // //行動を保存する
+  // $('html').on('click', function (e) {
+  //
+  //   $.ajax({
+  //     type: 'POST',
+  //     dataType: 'text',
+  //     url: '/vendor/json/sample1.json',
+  //     //url: 'NewNetworkSimulator/php/collect_questions.php',
+  //     data:{id : NS.urlparameter, timeStamp: e.timeStamp, outerHTML: e.target.outerHTML}
+  //   });
+  // });
 
 });
