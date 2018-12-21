@@ -2386,6 +2386,7 @@ $.when(
           type: 'POST',
           dataType: 'text',
           // url: 'NewNetworkSimulator/php/post_networkdata.php',
+          //ここをnet_checkを入れたcontrollerにする
           url: '/assets/result.json',
           data: {postJsonData : NSFCS.JSONpostData}
         }).done(function (data) {
