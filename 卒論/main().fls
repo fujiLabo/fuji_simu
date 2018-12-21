@@ -114,6 +114,10 @@ INPUT source/relation.tex
 INPUT source/relation.tex
 INPUT source/lti.tex
 INPUT source/lti.tex
+INPUT img/外部ツール設定.png
+INPUT extractbb -B cropbox -O img/外部ツール設定.png
+INPUT img/LTI起動画面.png
+INPUT extractbb -B cropbox -O img/LTI起動画面.png
 INPUT source/sono1.tex
 INPUT source/sono1.tex
 INPUT source/sono2.tex

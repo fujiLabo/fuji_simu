@@ -1,15 +1,15 @@
 # Fdb version 3
-["dvipdf"] 1545295224 "lti.dvi" "lti.pdf" "lti" 1545295225
-  "lti.dvi" 1545295224 960 b427c71a5eae07b47d614a2b5a526741 "latex"
+["dvipdf"] 1545380236 "lti.dvi" "lti.pdf" "lti" 1545380237
+  "lti.dvi" 1545380236 960 3f0c3f39b5c6865e86222ad3f7b5f1f0 "latex"
   (generated)
   "lti.pdf"
-["latex"] 1545295224 "lti.tex" "lti.dvi" "lti" 1545295225
+["latex"] 1545380236 "lti.tex" "lti.dvi" "lti" 1545380237
   "/usr/local/texlive/2018/texmf-dist/web2c/texmf.cnf" 1522066949 33362 cf75436e19743e94a92a6b1b9183c434 ""
   "/usr/local/texlive/2018/texmf-var/web2c/euptex/uplatex.fmt" 1544692265 4470728 cfcd4deda4fe05114388c5e1b815449e ""
   "/usr/local/texlive/2018/texmf.cnf" 1523934483 577 0b39adfd7c93507ff20c9c14c2f1a33f ""
   "lti.aux" 1545287880 8 a94a2480d3289e625eea47cd1b285758 ""
-  "lti.tex" 1545295223 2028 d05268d32af93e6f3bbb8d0ad5257eb7 ""
+  "lti.tex" 1545380235 3240 2cf500743e2a8094815182012c4297c6 ""
   (generated)
-  "lti.log"
-  "lti.aux"
   "lti.dvi"
+  "lti.aux"
+  "lti.log"

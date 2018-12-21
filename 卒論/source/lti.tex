@@ -20,5 +20,37 @@ LTI化することにより、様々なLMSからログインすることなくLM
 
 LTIの利用方法
 
-LMS上でLTIに準拠したツール・プロバイダを使用するには、各LMS上で外部ツールの設定を変更する必要がある。
-例として、moodleでは
+LMS上でTool Provider(ツール・プロバイダ)を使用するには、各LMS上で外部ツールの設定を変更する必要がある。
+例として、moodleでは外部ツール設定より、ツール名、ツールURL、コンシューマキー、秘密鍵の設定をする必要がある。これらの設定を得て、moodleからTool Provider(ツール・プロパイダ)を利用することが可能となる。
+
+\begin{figure}[htbp]
+  \begin{center}
+    \includegraphics[clip,width=12.0cm,height=8.0cm]{img/外部ツール設定.png}
+    \caption{moodle 外部ツール設定画面}
+    \label{fig:moodle config}
+  \end{center}
+\end{figure}
+
+
+
+
+
+
+\begin{figure}[htbp]
+  \begin{center}
+    \includegraphics[clip,width=12.0cm,height=8.0cm]{img/LTI起動画面.png}
+    \caption{moodle 外部ツール起動}
+    \label{fig:moodle kidou}
+  \end{center}
+\end{figure}
+
+
+
+
+
+
+
+
+また、Tool Provider(ツール・プロバイダ),Tool Consumer(ツール・コンシューマ)との間ではOAuth 1.0とを使用して認証している。
+OAuth（オーオース）とは、SNSやWebサービス間で「アクセス権限の認可」を行うためのプロトコルである。
+これにより、外部ツールへアクセスする際、ユーザIDとパスワードによる認証を行わずに外部ツールへのアクセスを行うことを可能にしている。
