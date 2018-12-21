@@ -34,6 +34,10 @@ class HomeController < ApplicationController
   end
 
   def create
+    #x-frameでの表示をすべてに許可する
+    response.headers['X-Frame-Options'] = 'ALLOWALL'
+
+    
     @SourcedId = params[:lis_result_sourcedid]
     f = File.open("aa.xml", "r")
     @File_read_Xml = f.read
@@ -67,8 +71,6 @@ class HomeController < ApplicationController
     @REQUEST = CGI.escape("http://133.14.14.230/mod/lti/service.php")
 
     #@SourcedId = params[:lis_course_section_sourcedid]
-    #x-frameでの表示をすべてに許可する
-    response.headers['X-Frame-Options'] = 'ALLOWALL'
 
     #postで送られてきた値のシンボルを指定し@tempに代入
 
