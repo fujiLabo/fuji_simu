@@ -5,3 +5,6 @@ INPUT /usr/local/texlive/2018/texmf.cnf
 INPUT /usr/local/texlive/2018/texmf-var/web2c/euptex/uplatex.fmt
 INPUT function.tex
 OUTPUT function.log
+INPUT /usr/local/texlive/2018/texmf-dist/fonts/map/fontname/texfonts.map
+INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm
+OUTPUT function.dvi

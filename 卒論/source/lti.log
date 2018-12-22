@@ -1,4 +1,4 @@
-This is e-upTeX, Version 3.14159265-p3.8.0-u1.23-180226-2.6 (utf8.uptex) (TeX Live 2018) (preloaded format=uplatex 2018.12.13)  21 DEC 2018 18:19
+This is e-upTeX, Version 3.14159265-p3.8.0-u1.23-180226-2.6 (utf8.uptex) (TeX Live 2018) (preloaded format=uplatex 2018.12.3)  22 DEC 2018 01:38
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -4690,7 +4690,7 @@ l.50 ...ために先ほど述べたOAuth1.0を使
 (That makes 100 errors; please try again.) 
 Here is how much of TeX's memory you used:
  8 strings out of 493270
- 70 string characters out of 6145017
+ 70 string characters out of 6145018
  81188 words of memory out of 5000000
  4047 multiletter control sequences out of 15000+600000
  6281 words of font info for 32 fonts, out of 8000000 for 9000

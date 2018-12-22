@@ -1520,17 +1520,17 @@ $.when(
   }
 
   // main以外でマウスを放した時 (線を動かす動作)
-  // fnLanMoveOutUp = function(e) {
-  //   if(NS.lanFlagMove === true) {
-  //     NS.mainCtx.clearRect(0, 0, NS.canvasWidth, NS.canvasHeight);
-  //     for(var i = 1; i < NS.lanArrClass.length; i++) {
-  //       //fnIfDraw(NS.lanArrClass[i]);
-  //       fnLanDraw(NS.lanArrClass[i]);
-  //      }
-  //     NS.lanFlagMove = false;
-  //     NS.elLanMoveThis.off("mousemove", fnLanMoveDrag);
-  //   }
-  // }
+  fnLanMoveOutUp = function(e) {
+    if(NS.lanFlagMove === true) {
+      NS.mainCtx.clearRect(0, 0, NS.canvasWidth, NS.canvasHeight);
+      for(var i = 1; i < NS.lanArrClass.length; i++) {
+        //fnIfDraw(NS.lanArrClass[i]);
+        fnLanDraw(NS.lanArrClass[i]);
+       }
+      NS.lanFlagMove = false;
+      NS.elLanMoveThis.off("mousemove", fnLanMoveDrag);
+    }
+  }
 
 
   //描画セット
@@ -2386,7 +2386,7 @@ $.when(
           type: 'POST',
           dataType: 'text',
           // url: 'NewNetworkSimulator/php/post_networkdata.php',
-          //ここをnet_checkを入れたcontrollerにする
+          //ここをnet_checkを入れたControllerにする
           url: '/assets/result.json',
           data: {postJsonData : NSFCS.JSONpostData}
         }).done(function (data) {

@@ -1,13 +1,8 @@
 \contentsline {section}{概要}{2}{section*.1}
 \contentsline {section}{\numberline {1}はじめに}{4}{section.1}
-\contentsline {section}{\numberline {2}関連研究}{5}{section.2}
-\contentsline {section}{\numberline {3}LTI}{6}{section.3}
-\contentsline {section}{\numberline {4}LTI}{6}{section.4}
-\contentsline {section}{\numberline {5}まとめと課題}{8}{section.5}
-\contentsline {section}{\numberline {6}まとめと課題}{8}{section.6}
-\contentsline {section}{\numberline {7}まとめと課題}{8}{section.7}
-\contentsline {section}{\numberline {8}システム概要}{9}{section.8}
-\contentsline {subsection}{\numberline {8.1}Ruby on Rails}{9}{subsection.8.1}
-\contentsline {subsection}{\numberline {8.2}UIについて}{10}{subsection.8.2}
-\contentsline {subsection}{\numberline {8.3}機能}{11}{subsection.8.3}
-\contentsline {section}{\numberline {9}まとめと課題}{12}{section.9}
+\contentsline {section}{\numberline {2}LTI}{5}{section.2}
+\contentsline {section}{\numberline {3}システム概要}{5}{section.3}
+\contentsline {subsection}{\numberline {3.1}システム}{5}{subsection.3.1}
+\contentsline {subsection}{\numberline {3.2}Ruby on Rails}{7}{subsection.3.2}
+\contentsline {subsection}{\numberline {3.3}UIについて}{8}{subsection.3.3}
+\contentsline {section}{\numberline {4}まとめと課題}{11}{section.4}
