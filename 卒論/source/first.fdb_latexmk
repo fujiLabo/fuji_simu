@@ -3,12 +3,12 @@
   "first.dvi" 1545584211 912 5622d429e4ad0adf87ee775e94e46725 "latex"
   (generated)
   "first.pdf"
-["latex"] 1545588584 "first.tex" "first.dvi" "first" 1545588584
+["latex"] 1545591800 "first.tex" "first.dvi" "first" 1545591800
   "/usr/local/texlive/2018/texmf-dist/web2c/texmf.cnf" 1522066949 33362 cf75436e19743e94a92a6b1b9183c434 ""
   "/usr/local/texlive/2018/texmf-var/web2c/euptex/uplatex.fmt" 1543773687 4470727 b7f4572ee1ce76f6992df74be45da296 ""
   "/usr/local/texlive/2018/texmf.cnf" 1523934483 577 0b39adfd7c93507ff20c9c14c2f1a33f ""
   "first.aux" 1545018896 8 a94a2480d3289e625eea47cd1b285758 ""
-  "first.tex" 1545588584 2969 ad2be191b47664985445e181042964b0 ""
+  "first.tex" 1545591799 2969 b7c14dd0e726dda0995948d30795244c ""
   (generated)
   "first.log"
   "first.dvi"
