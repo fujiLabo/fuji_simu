@@ -3,12 +3,12 @@
   "summary.dvi" 0 -1 0 "latex"
   (generated)
   "summary.pdf"
-["latex"] 1545582825 "summary.tex" "summary.dvi" "summary" 1545582826
+["latex"] 1545591615 "summary.tex" "summary.dvi" "summary" 1545591616
   "/usr/local/texlive/2018/texmf-dist/web2c/texmf.cnf" 1522066949 33362 cf75436e19743e94a92a6b1b9183c434 ""
   "/usr/local/texlive/2018/texmf-var/web2c/euptex/uplatex.fmt" 1543773687 4470727 b7f4572ee1ce76f6992df74be45da296 ""
   "/usr/local/texlive/2018/texmf.cnf" 1523934483 577 0b39adfd7c93507ff20c9c14c2f1a33f ""
   "summary.aux" 1544894045 8 a94a2480d3289e625eea47cd1b285758 ""
-  "summary.tex" 1545582825 49 8d50aeb32ac7d4c9f01d668d68ddb722 ""
+  "summary.tex" 1545591615 2178 fefc9bdf188c6cf15f81dc4345707ada ""
   (generated)
   "summary.log"
   "summary.dvi"

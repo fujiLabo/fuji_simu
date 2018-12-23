@@ -1,4 +1,4 @@
-This is e-upTeX, Version 3.14159265-p3.8.0-u1.23-180226-2.6 (utf8.uptex) (TeX Live 2018) (preloaded format=uplatex 2018.12.3)  24 DEC 2018 03:09
+This is e-upTeX, Version 3.14159265-p3.8.0-u1.23-180226-2.6 (utf8.uptex) (TeX Live 2018) (preloaded format=uplatex 2018.12.3)  24 DEC 2018 04:00
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -453,7 +453,7 @@ File: img/simu.png Graphic file (type bmp)
 <img/simu.png>
 ) [9] [10] [11] (./source/summary.tex) [12
 
-] (./source/thanks.tex)
+] [13] (./source/thanks.tex)
 ./main().tex:120: Undefined control sequence.
 l.120 \clearpages
                  
@@ -464,7 +464,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 131.
-[13
+[14
 
 ]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 131.
@@ -489,4 +489,4 @@ Here is how much of TeX's memory you used:
  929 hyphenation exceptions out of 8191
  28i,10n,43p,1655b,361s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on main().dvi (13 pages, 26212 bytes).
+Output written on main().dvi (14 pages, 29648 bytes).
