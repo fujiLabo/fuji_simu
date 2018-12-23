@@ -113,6 +113,7 @@ INPUT source/first.tex
 INPUT source/function.tex
 INPUT source/function.tex
 INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
+INPUT img/virtualMachine.png
 INPUT extractbb -B cropbox -O img/virtualMachine.png
 INPUT img/beforeCons.png
 INPUT extractbb -B cropbox -O img/beforeCons.png
