@@ -110,6 +110,12 @@ INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmsy8.tfm
 OUTPUT main().toc
 INPUT source/first.tex
 INPUT source/first.tex
+INPUT source/lti.tex
+INPUT source/lti.tex
+INPUT img/moodleSet.png
+INPUT extractbb -B cropbox -O img/moodleSet.png
+INPUT img/LTIstart.png
+INPUT extractbb -B cropbox -O img/LTIstart.png
 INPUT source/function.tex
 INPUT source/function.tex
 INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
