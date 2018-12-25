@@ -1,4 +1,4 @@
-This is e-upTeX, Version 3.14159265-p3.8.0-u1.23-180226-2.6 (utf8.uptex) (TeX Live 2018) (preloaded format=uplatex 2018.12.13)  25 DEC 2018 18:05
+This is e-upTeX, Version 3.14159265-p3.8.0-u1.23-180226-2.6 (utf8.uptex) (TeX Live 2018) (preloaded format=uplatex 2018.12.13)  25 DEC 2018 18:41
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -456,363 +456,8 @@ LaTeX Font Info:    Font shape `JY2/mc/bx/n' in size <10.95> not available
 LaTeX Font Info:    Font shape `JY2/gt/m/n' will be
 (Font)              scaled to size 10.53629pt on input line 37.
 
-./source/lti.tex:38: Missing $ inserted.
-<inserted text> 
-                $
-l.38 「oauth_
-              consumer_secret」、「oauth_token_secret」をURLエンコ...
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-./source/lti.tex:38: Not two-byte family.
-l.38 「oauth_consumer_secret」
-                                、「oauth_token_secret」をURLエンコ...
-IGNORE.
-
-./source/lti.tex:38: Not two-byte family.
-l.38 「oauth_consumer_secret」、
-                                   「oauth_token_secret」をURLエンコ...
-IGNORE.
-
-./source/lti.tex:38: Not two-byte family.
-l.38 「oauth_consumer_secret」、「
-                                      oauth_token_secret」をURLエンコ...
-IGNORE.
-
-./source/lti.tex:38: Not two-byte family.
-l.38 ...sumer_secret」、「oauth_token_secret」
-                                                  をURLエンコードし...
-IGNORE.
-
-./source/lti.tex:38: Not two-byte family.
-l.38 ...er_secret」、「oauth_token_secret」を
-                                                  URLエンコードし、...
-IGNORE.
-
-./source/lti.tex:38: Not two-byte family.
-l.38 ...ret」、「oauth_token_secret」をURLエ
-                                                  ンコードし、＆で...
-IGNORE.
-
-./source/lti.tex:38: Not two-byte family.
-l.38 ...」、「oauth_token_secret」をURLエン
-                                                  コードし、＆で繋...
-IGNORE.
-
-./source/lti.tex:38: Not two-byte family.
-l.38 ...、「oauth_token_secret」をURLエンコ
-                                                  ードし、＆で繋げ...
-IGNORE.
-
-./source/lti.tex:38: Not two-byte family.
-l.38 ...「oauth_token_secret」をURLエンコー
-                                                  ドし、＆で繋げれ...
-IGNORE.
-
-./source/lti.tex:38: Not two-byte family.
-l.38 ...oauth_token_secret」をURLエンコード
-                                                  し、＆で繋げれば...
-IGNORE.
-
-./source/lti.tex:38: Not two-byte family.
-l.38 ...th_token_secret」をURLエンコードし
-                                                  、＆で繋げれば完...
-IGNORE.
-
-./source/lti.tex:38: Not two-byte family.
-l.38 ...token_secret」をURLエンコードし、
-                                                  ＆で繋げれば完成。\\
-IGNORE.
-
-./source/lti.tex:38: Not two-byte family.
-l.38 ...en_secret」をURLエンコードし、＆
-                                                  で繋げれば完成。\\
-IGNORE.
-
-./source/lti.tex:38: Not two-byte family.
-l.38 ...secret」をURLエンコードし、＆で
-                                                  繋げれば完成。\\
-IGNORE.
-
-./source/lti.tex:38: Not two-byte family.
-l.38 ...ret」をURLエンコードし、＆で繋
-                                                  げれば完成。\\
-IGNORE.
-
-./source/lti.tex:38: Not two-byte family.
-l.38 ...」をURLエンコードし、＆で繋げ
-                                                  れば完成。\\
-IGNORE.
-
-./source/lti.tex:38: Not two-byte family.
-l.38 ...をURLエンコードし、＆で繋げれ
-                                                  ば完成。\\
-IGNORE.
-
-./source/lti.tex:38: Not two-byte family.
-l.38 ...URLエンコードし、＆で繋げれば
-                                                  完成。\\
-IGNORE.
-
-./source/lti.tex:38: Not two-byte family.
-l.38 ...エンコードし、＆で繋げれば完
-                                                  成。\\
-IGNORE.
-
-./source/lti.tex:38: Not two-byte family.
-l.38 ...ンコードし、＆で繋げれば完成
-                                                  。\\
-IGNORE.
-
-./source/lti.tex:38: Not two-byte family.
-l.38 ...コードし、＆で繋げれば完成。
-                                                  \\
-IGNORE.
-
-./source/lti.tex:39: Not two-byte family.
-<recently read> 本
-                   
-l.39 本
-        研究では「oauth_consumer_secret」を設定し、「oauth_token...
-IGNORE.
-
-./source/lti.tex:39: Not two-byte family.
-l.39 本研
-           究では「oauth_consumer_secret」を設定し、「oauth_token...
-IGNORE.
-
-./source/lti.tex:39: Not two-byte family.
-l.39 本研究
-              では「oauth_consumer_secret」を設定し、「oauth_token...
-IGNORE.
-
-./source/lti.tex:39: Not two-byte family.
-l.39 本研究で
-                 は「oauth_consumer_secret」を設定し、「oauth_token...
-IGNORE.
-
-./source/lti.tex:39: Not two-byte family.
-l.39 本研究では
-                    「oauth_consumer_secret」を設定し、「oauth_token...
-IGNORE.
-
-./source/lti.tex:39: Not two-byte family.
-l.39 本研究では「
-                       oauth_consumer_secret」を設定し、「oauth_token...
-IGNORE.
-
-./source/lti.tex:39: Not two-byte family.
-l.39 本研究では「oauth_consumer_secret」
-                                               を設定し、「oauth_token...
-IGNORE.
-
-./source/lti.tex:39: Not two-byte family.
-l.39 本研究では「oauth_consumer_secret」を
-                                                  設定し、「oauth_token...
-IGNORE.
-
-./source/lti.tex:39: Not two-byte family.
-l.39 ...究では「oauth_consumer_secret」を設
-                                                  定し、「oauth_token_se...
-IGNORE.
-
-./source/lti.tex:39: Not two-byte family.
-l.39 ...では「oauth_consumer_secret」を設定
-                                                  し、「oauth_token_secre...
-IGNORE.
-
-./source/lti.tex:39: Not two-byte family.
-l.39 ...は「oauth_consumer_secret」を設定し
-                                                  、「oauth_token_secret...
-IGNORE.
-
-./source/lti.tex:39: Not two-byte family.
-l.39 ...「oauth_consumer_secret」を設定し、
-                                                  「oauth_token_secret」...
-IGNORE.
-
-./source/lti.tex:39: Not two-byte family.
-l.39 ...oauth_consumer_secret」を設定し、「
-                                                  oauth_token_secret」は...
-IGNORE.
-
-./source/lti.tex:39: Not two-byte family.
-l.39 ...」を設定し、「oauth_token_secret」
-                                                  は存在させなかっ...
-IGNORE.
-
-./source/lti.tex:39: Not two-byte family.
-l.39 ...を設定し、「oauth_token_secret」は
-                                                  存在させなかった...
-IGNORE.
-
-./source/lti.tex:39: Not two-byte family.
-l.39 ...設定し、「oauth_token_secret」は存
-                                                  在させなかった。...
-IGNORE.
-
-./source/lti.tex:39: Not two-byte family.
-l.39 ...定し、「oauth_token_secret」は存在
-                                                  させなかった。ま...
-IGNORE.
-
-./source/lti.tex:39: Not two-byte family.
-l.39 ...し、「oauth_token_secret」は存在さ
-                                                  せなかった。また...
-IGNORE.
-
-./source/lti.tex:39: Not two-byte family.
-l.39 ...、「oauth_token_secret」は存在させ
-                                                  なかった。また、...
-IGNORE.
-
-./source/lti.tex:39: Not two-byte family.
-l.39 ...「oauth_token_secret」は存在させな
-                                                  かった。また、各...
-IGNORE.
-
-./source/lti.tex:39: Not two-byte family.
-l.39 ...oauth_token_secret」は存在させなか
-                                                  った。また、各々...
-IGNORE.
-
-./source/lti.tex:39: Not two-byte family.
-l.39 ...th_token_secret」は存在させなかっ
-                                                  た。また、各々をCG...
-IGNORE.
-
-./source/lti.tex:39: Not two-byte family.
-l.39 ...token_secret」は存在させなかった
-                                                  。また、各々をCGI.e...
-IGNORE.
-
-./source/lti.tex:39: Not two-byte family.
-l.39 ...en_secret」は存在させなかった。
-                                                  また、各々をCGI.esca...
-IGNORE.
-
-./source/lti.tex:39: Not two-byte family.
-l.39 ...secret」は存在させなかった。ま
-                                                  た、各々をCGI.escape...
-IGNORE.
-
-./source/lti.tex:39: Not two-byte family.
-l.39 ...ret」は存在させなかった。また
-                                                  、各々をCGI.escapeに...
-IGNORE.
-
-./source/lti.tex:39: Not two-byte family.
-l.39 ...」は存在させなかった。また、
-                                                  各々をCGI.escapeによ...
-IGNORE.
-
-./source/lti.tex:39: Not two-byte family.
-l.39 ...は存在させなかった。また、各
-                                                  々をCGI.escapeによりU...
-IGNORE.
-
-./source/lti.tex:39: Not two-byte family.
-l.39 ...存在させなかった。また、各々
-                                                  をCGI.escapeによりURL...
-IGNORE.
-
-./source/lti.tex:39: Not two-byte family.
-l.39 ...在させなかった。また、各々を
-                                                  CGI.escapeによりURLエ...
-IGNORE.
-
-./source/lti.tex:39: Not two-byte family.
-l.39 ...った。また、各々をCGI.escapeに
-                                                よりURLエンコードし、
-IGNORE.
-
-./source/lti.tex:39: Not two-byte family.
-l.39 ...た。また、各々をCGI.escapeによ
-                                                りURLエンコードし、「
-IGNORE.
-
-./source/lti.tex:39: Not two-byte family.
-l.39 ...。また、各々をCGI.escapeにより
-                                                URLエンコードし、「oau
-IGNORE.
-
-./source/lti.tex:39: Not two-byte family.
-l.39 ...た、各々をCGI.escapeによりURLエ
-                                                ンコードし、「oauth_tok
-IGNORE.
-
-./source/lti.tex:39: Not two-byte family.
-l.39 ...、各々をCGI.escapeによりURLエン
-                                                コードし、「oauth_token_
-IGNORE.
-
-./source/lti.tex:39: Not two-byte family.
-l.39 ...各々をCGI.escapeによりURLエンコ
-                                                ードし、「oauth_token_sec
-IGNORE.
-
-./source/lti.tex:39: Not two-byte family.
-l.39 ...々をCGI.escapeによりURLエンコー
-                                                ドし、「oauth_token_secret
-IGNORE.
-
-./source/lti.tex:39: Not two-byte family.
-l.39 ...をCGI.escapeによりURLエンコード
-                                                し、「oauth_token_secret」
-IGNORE.
-
-./source/lti.tex:39: Not two-byte family.
-l.39 ...CGI.escapeによりURLエンコードし
-                                                、「oauth_token_secret」を
-IGNORE.
-
-./source/lti.tex:39: Not two-byte family.
-l.39 ...GI.escapeによりURLエンコードし、
-                                                  「oauth_token_secret」...
-IGNORE.
-
-./source/lti.tex:39: Not two-byte family.
-l.39 ...escapeによりURLエンコードし、「
-                                                  oauth_token_secret」を...
-IGNORE.
-
-./source/lti.tex:39: Not two-byte family.
-l.39 ...ンコードし、「oauth_token_secret」
-                                                  を空白とし、&のみ...
-IGNORE.
-
-./source/lti.tex:39: Not two-byte family.
-l.39 ...コードし、「oauth_token_secret」を
-                                                  空白とし、&のみを...
-IGNORE.
-
-./source/lti.tex:39: Not two-byte family.
-l.39 ...ードし、「oauth_token_secret」を空
-                                                  白とし、&のみを繋...
-IGNORE.
-
-./source/lti.tex:39: Not two-byte family.
-l.39 ...ドし、「oauth_token_secret」を空白
-                                                  とし、&のみを繋げ...
-IGNORE.
-
-./source/lti.tex:39: Not two-byte family.
-l.39 ...し、「oauth_token_secret」を空白と
-                                                  し、&のみを繋げてK...
-IGNORE.
-
-./source/lti.tex:39: Not two-byte family.
-l.39 ...、「oauth_token_secret」を空白とし
-                                                  、&のみを繋げてKey...
-IGNORE.
-
-./source/lti.tex:39: Not two-byte family.
-l.39 ...「oauth_token_secret」を空白とし、
-                                                  &のみを繋げてKeyを...
-IGNORE.
-
 ./source/lti.tex:39: Misplaced alignment tab character &.
-l.39 ...oauth_token_secret」を空白とし、&
+l.39 ...oauth token secret」を空白とし、&
                                                 のみを繋げてKeyを作成
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -821,96 +466,33 @@ up above has ended a previous alignment prematurely,
 you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
-./source/lti.tex:39: Not two-byte family.
-l.39 ...auth_token_secret」を空白とし、&の
-                                                  みを繋げてKeyを作...
-IGNORE.
-
-./source/lti.tex:39: Not two-byte family.
-l.39 ...h_token_secret」を空白とし、&のみ
-                                                  を繋げてKeyを作成...
-IGNORE.
-
-./source/lti.tex:39: Not two-byte family.
-l.39 ...oken_secret」を空白とし、&のみを
-                                                  繋げてKeyを作成し...
-IGNORE.
-
-./source/lti.tex:39: Not two-byte family.
-l.39 ...n_secret」を空白とし、&のみを繋
-                                                  げてKeyを作成した。
-IGNORE.
-
-./source/lti.tex:39: Not two-byte family.
-l.39 ...ecret」を空白とし、&のみを繋げ
-                                                  てKeyを作成した。
-IGNORE.
-
-./source/lti.tex:39: Not two-byte family.
-l.39 ...et」を空白とし、&のみを繋げて
-                                                  Keyを作成した。
-IGNORE.
-
-./source/lti.tex:39: Not two-byte family.
-l.39 ...空白とし、&のみを繋げてKeyを
-                                                作成した。
-IGNORE.
-
-./source/lti.tex:39: Not two-byte family.
-l.39 ...白とし、&のみを繋げてKeyを作
-                                                成した。
-IGNORE.
-
-./source/lti.tex:39: Not two-byte family.
-l.39 ...とし、&のみを繋げてKeyを作成
-                                                した。
-IGNORE.
-
-./source/lti.tex:39: Not two-byte family.
-l.39 ...し、&のみを繋げてKeyを作成し
-                                                た。
-IGNORE.
-
-./source/lti.tex:39: Not two-byte family.
-l.39 ...、&のみを繋げてKeyを作成した
-                                                。
-IGNORE.
-
-./source/lti.tex:39: Not two-byte family.
-l.39 ...&のみを繋げてKeyを作成した。
-                                                
-IGNORE.
-
-./source/lti.tex:40: Missing $ inserted.
-<inserted text> 
-                $
-l.40 \subsubsection
-                   {データの作成}
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-
-Overfull \hbox (398.40154pt too wide) in paragraph at lines 38--40
-[]\OT1/cmr/m/n/10.95 ^^@^^@^^@^^@^^@^^@\OML/cmm/m/it/10.95 oauth[]onsumer[]ecret\OT1/cmr/m/n/10.95 ^^@^^@^^@^^@^^@^^@^^@\OML/cmm/m/it/10.95 oauth[]oken[]ecret\OT1/cmr/m/n/10.95 ^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@\OML/cmm/m/it/10.95 CGI:escape\OT1/cmr/m/n/10.95 ^^@^^@^^@\OML/cmm/m/it/10.95 URL\OT1/cmr/m/n/10.95 ^^@^^@^^@^^@^^@^^@^^@^^@\OML/cmm/m/it/10.95 oauth[]oken[]ecret\OT1/cmr/m/n/10.95 ^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@\OML/cmm/m/it/10.95 Key\OT1/cmr/m/n/10.95 ^^@^^@^^@^^@^^@^^@$ 
- []
+./source/lti.tex:43: Misplaced alignment tab character &.
+l.43 ...エストURL、パラメータの順で&
+                                                で繋げることでデータ
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
 
 File: img/score.png Graphic file (type bmp)
 <img/score.png>
-) (./source/OAuth.tex) (./source/function.tex [10]
+) (./source/OAuth.tex [10]) (./source/function.tex [11]
 File: img/virtualMachine.png Graphic file (type bmp)
 <img/virtualMachine.png>
- [11]
+ [12]
 File: img/beforeCons.png Graphic file (type bmp)
 <img/beforeCons.png>
-) (./source/rails.tex [12]
+) (./source/rails.tex [13]
 File: img/mvc.png Graphic file (type bmp)
 <img/mvc.png>
-) (./source/ui.tex [13]
+) (./source/ui.tex
 File: img/simu.png Graphic file (type bmp)
 <img/simu.png>
-) [14] [15] [16] (./source/summary.tex) [17
+ [14]) [15] [16] [17] (./source/summary.tex) [18
 
-] [18] (./source/thanks.tex)
+] [19] (./source/thanks.tex)
 ./main().tex:121: Undefined control sequence.
 l.121 \clearpages
                  
@@ -921,7 +503,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 132.
-[19
+[20
 
 ]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 132.
@@ -929,7 +511,7 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 132.
 Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 132.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 132.
 Package rerunfilecheck Info: File `main().out' has not changed.
-(rerunfilecheck)             Checksum: DD5B6CF9624D4E1C33C5240098EB0308;1067.
+(rerunfilecheck)             Checksum: BB73F00AF9BDD9D3E073BE040D50C22C;1151.
 
 
 LaTeX Font Warning: Size substitutions with differences
@@ -938,12 +520,12 @@ LaTeX Font Warning: Size substitutions with differences
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 132.
  ) 
 Here is how much of TeX's memory you used:
- 6615 strings out of 493270
- 95332 string characters out of 6145017
- 192859 words of memory out of 5000000
- 10497 multiletter control sequences out of 15000+600000
+ 6616 strings out of 493270
+ 95350 string characters out of 6145017
+ 192939 words of memory out of 5000000
+ 10498 multiletter control sequences out of 15000+600000
  13232 words of font info for 64 fonts, out of 8000000 for 9000
  929 hyphenation exceptions out of 8191
- 28i,10n,43p,1655b,356s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 28i,10n,43p,1655b,363s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on main().dvi (19 pages, 44552 bytes).
+Output written on main().dvi (20 pages, 46084 bytes).

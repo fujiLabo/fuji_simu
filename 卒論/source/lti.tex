@@ -1,4 +1,3 @@
-\section{LTI}
 \label{tag:LTI}
 \subsection{LTIについて}
 LTI(Learning Tools IterOperability)とは、IMS Global Learning Consortium(以下、IMSと呼ぶ)が、異なるプラットフォーム間(異なるLMS上)における学習支援ツールの相互運用を可能とする技術に関する企画を策定し、標準化した規格のことである。LTIに準拠することの具体的なイメージとして、次のようなケースを想定することができる。先代の研究によりできたNSFをツール・プロバイダとし、異なるプラットフォーム間から利用するケース。(画像は後日作ってはります)\\
@@ -33,13 +32,15 @@ OAuth1.0実装にあたり、OAuth signatureを作成する関数をRubyで自�
 OAuth signatereの作成手順を以下に示す。\\
 1.「キー」を作成\\
 2.「データ」の作成\\
-3.「キー」と「データ」用いてsignatureを作成\\
+3.「キー」と「データ」用いてsignatureを作成aaa\\
 \subsubsection{キーの作成}
-「oauth_consumer_secret」、「oauth_token_secret」をURLエンコードし、＆で繋げれば完成。\\
-本研究では「oauth_consumer_secret」を設定し、「oauth_token_secret」は存在させなかった。また、各々をCGI.escapeによりURLエンコードし、「oauth_token_secret」を空白とし、&のみを繋げてKeyを作成した。
+「oauth\_consumer\_secret」、「oauth\_token\_secret」をURLエンコードし、＆で繋げれば完成。\\
+本研究では「oauth\_consumer\_secret」を設定し、「oauth\_token\_secret」は存在させなかった。また、各々をCGI.escapeによりURLエンコードし、「oauth token secret」を空白とし、&のみを繋げてKeyを作成した。
 \subsubsection{データの作成}
-1.パラメータをアルファベット順に並べ、キー=値...の形で並べた上で,URLエンコードする。
-2.
+1.パラメータをアルファベット順に並べ、キー=値...の形で並べた上で,URLエンコードする。\\
+2.リクエストメソッド、リクエストURLをCGI.escapeによりURLエンコードする。\\
+3.リクエストメソッド、リクエストURL、パラメータの順で&で繋げることでデータを作成した。\\
+\subsubsection{Oauth signatureの作成}
 \subsection{成績反映}
 成績反映の手順を以下に示す。\\
 ツール・コンシューマから送られてくる「SourcedId」取得し、XML内の「SourcedId」を書き変え、ツール・プロバイダでまとめた点数をXML内の「textString」に加えた上で送信する。(沼田と連携した画像を今後貼ります)\\
