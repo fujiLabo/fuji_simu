@@ -1,4 +1,4 @@
-This is e-upTeX, Version 3.14159265-p3.8.0-u1.23-180226-2.6 (utf8.uptex) (TeX Live 2018) (preloaded format=uplatex 2018.12.3)  25 DEC 2018 11:54
+This is e-upTeX, Version 3.14159265-p3.8.0-u1.23-180226-2.6 (utf8.uptex) (TeX Live 2018) (preloaded format=uplatex 2018.12.3)  25 DEC 2018 12:07
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -393,7 +393,36 @@ LaTeX Font Info:    Font shape `JY2/gt/m/n' will be
 (Font)              scaled to size 13.85594pt on input line 1.
 ) [2
 
-] [3] (./main().toc)
+] [3] (./main().toc
+LaTeX Font Info:    Font shape `JT2/mc/bx/n' in size <11> not available
+(Font)              Font shape `JT2/gt/m/n' tried instead on input line 1.
+LaTeX Font Info:    Font shape `JT2/gt/m/n' will be
+(Font)              scaled to size 10.58441pt on input line 1.
+LaTeX Font Info:    Font shape `JY2/mc/bx/n' in size <11> not available
+(Font)              Font shape `JY2/gt/m/n' tried instead on input line 1.
+LaTeX Font Info:    Font shape `JY2/gt/m/n' will be
+(Font)              scaled to size 10.58441pt on input line 1.
+LaTeX Font Info:    Calculating math sizes for size <11> on input line 5.
+
+
+LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <5.5> not available
+(Font)              size <5> substituted on input line 5.
+
+
+LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <5.5> not available
+(Font)              size <5> substituted on input line 5.
+
+
+LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <5.5> not available
+(Font)              size <5> substituted on input line 5.
+
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <11> on input line 5.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7.69997> on input line 5.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5.5> on input line 5.
+)
 \tf@toc=\write4
 \openout4 = `main().toc'.
 
@@ -402,32 +431,69 @@ LaTeX Font Info:    Font shape `JY2/gt/m/n' will be
 ] (./source/first.tex) [5
 
 ] [6] (./source/lti.tex
+LaTeX Font Info:    Font shape `JT2/mc/bx/n' in size <12> not available
+(Font)              Font shape `JT2/gt/m/n' tried instead on input line 3.
+LaTeX Font Info:    Font shape `JT2/gt/m/n' will be
+(Font)              scaled to size 11.54663pt on input line 3.
+LaTeX Font Info:    Font shape `JY2/mc/bx/n' in size <12> not available
+(Font)              Font shape `JY2/gt/m/n' tried instead on input line 3.
+LaTeX Font Info:    Font shape `JY2/gt/m/n' will be
+(Font)              scaled to size 11.54663pt on input line 3.
 File: img/moodleSet.png Graphic file (type bmp)
 <img/moodleSet.png>
+ [7
+
+]
 File: img/LTIstart.png Graphic file (type bmp)
 <img/LTIstart.png>
-)
+ [8]) (./source/OAuth.tex [9]) (./source/function.tex
+File: img/virtualMachine.png Graphic file (type bmp)
+<img/virtualMachine.png>
+ [10]
+File: img/beforeCons.png Graphic file (type bmp)
+<img/beforeCons.png>
+) (./source/rails.tex [11]
+File: img/mvc.png Graphic file (type bmp)
+<img/mvc.png>
+) (./source/ui.tex [12]
+File: img/simu.png Graphic file (type bmp)
+<img/simu.png>
+) [13] [14] [15] (./source/summary.tex) [16
 
-! LaTeX Error: File `source/OAuth.tex' not found.
+] [17] (./source/thanks.tex)
+./main().tex:121: Undefined control sequence.
+l.121 \clearpages
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
 
-Type X to quit or <RETURN> to proceed,
-or enter new name. (Default extension: tex)
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 132.
+[18
 
-Enter file name: 
-./main().tex:101: Emergency stop.
-<read *> 
-         
-l.101 \input{source/OAuth}
-                          ^^M
-*** (cannot \read from terminal in nonstop modes)
+]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 132.
+ (./main().aux)
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 132.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 132.
+Package rerunfilecheck Info: File `main().out' has not changed.
+(rerunfilecheck)             Checksum: F98A92CF91AF84F921C920CB7A140CE4;852.
 
- 
+
+LaTeX Font Warning: Size substitutions with differences
+(Font)              up to 0.5pt have occurred.
+
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 132.
+ ) 
 Here is how much of TeX's memory you used:
- 6531 strings out of 493270
- 94104 string characters out of 6145018
- 189412 words of memory out of 5000000
- 10440 multiletter control sequences out of 15000+600000
- 10515 words of font info for 53 fonts, out of 8000000 for 9000
+ 6606 strings out of 493270
+ 95184 string characters out of 6145018
+ 191625 words of memory out of 5000000
+ 10489 multiletter control sequences out of 15000+600000
+ 12945 words of font info for 62 fonts, out of 8000000 for 9000
  929 hyphenation exceptions out of 8191
- 28i,10n,43p,1258b,356s stack positions out of 5000i,500n,10000p,200000b,80000s
-Output written on main().dvi (6 pages, 11516 bytes).
+ 28i,10n,43p,1655b,356s stack positions out of 5000i,500n,10000p,200000b,80000s
+
+Output written on main().dvi (18 pages, 41368 bytes).
