@@ -29,14 +29,19 @@ moodleでは外部ツール設定より図\ref{fig:moodle config}参照、ツー
 \subsection{OAuth}
 OAuth(オーオース)とは、SNSやWebサービス間で「アクセス権限の認可」を行うためのプロトコルである。これにより、外部ツールへアクセスする際、ユーザIDとパスワードによる認証を行わずに外部ツールへのアクセスを行うことを可能にしている。また、OAuthには1.0と2.0が存在しているが、本研究ではLTI1.0の実装にあたりOAuth1.0を使用している。
 \subsection{OAuth1.0実装手順}
-OAuth1.0実装にあたり、OAuth signatureを作成する関数を自作した。\\
+OAuth1.0実装にあたり、OAuth signatureを作成する関数をRubyで自作した。\\
 OAuth signatereの作成手順を以下に示す。\\
 1.「キー」を作成\\
 2.「データ」の作成\\
 3.「キー」と「データ」用いてsignatureを作成\\
+\subsubsection{キーの作成}
+「oauth_consumer_secret」、「oauth_token_secret」をURLエンコードし、＆で繋げれば完成。\\
+本研究では「oauth_consumer_secret」を設定し、「oauth_token_secret」は存在させなかった。また、各々をCGI.escapeによりURLエンコードし、「oauth_token_secret」を空白とし、&のみを繋げてKeyを作成した。
+\subsubsection{データの作成}
+
 \subsection{成績反映}
 成績反映の手順を以下に示す。\\
-ツール・コンシューマから送られてくる「SourcedId」をXML内に書き加え、ツール・プロバイダでまとめた点数をXML内のtextStringに加えた上で送信する。(沼田と連携した画像を今後貼ります)\\
+ツール・コンシューマから送られてくる「SourcedId」取得し、XML内の「SourcedId」を書き変え、ツール・プロバイダでまとめた点数をXML内の「textString」に加えた上で送信する。(沼田と連携した画像を今後貼ります)\\
 \begin{figure}[htbp]
   \begin{center}
     \includegraphics[clip,width=12.0cm,height=8.0cm]{img/score.png}
