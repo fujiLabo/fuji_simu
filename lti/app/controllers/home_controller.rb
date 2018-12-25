@@ -257,7 +257,7 @@ request.body = doc.to_s
   def grade
 #=begin
     http = Net::HTTP.new($uri.host, $uri.port)
-    http.use_ssl = true
+    http.use_ssl = false
     request = Net::HTTP::Post.new($uri.request_uri)
     request["Content-Type"] = "application/xml"
     request["Authorization"] = $Oauth_strings
