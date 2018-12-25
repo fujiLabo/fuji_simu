@@ -1,15 +1,17 @@
 # Fdb version 3
-["dvipdf"] 1545690982 "lti.dvi" "lti.pdf" "lti" 1545690983
-  "lti.dvi" 1545690982 968 36dbc4ef19859da455c534a5ae46c6e0 "latex"
+["dvipdf"] 1545704314 "lti.dvi" "lti.pdf" "lti" 1545704315
+  "lti.dvi" 1545704314 968 f847071b90465c8fb12de338f0994c14 "latex"
   (generated)
   "lti.pdf"
-["latex"] 1545690982 "lti.tex" "lti.dvi" "lti" 1545690983
+["latex"] 1545704314 "lti.tex" "lti.dvi" "lti" 1545704315
+  "/usr/local/texlive/2018/texmf-dist/fonts/map/fontname/texfonts.map" 1511824771 3332 103109f5612ad95229751940c61aada0 ""
+  "/usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm" 1480098701 1328 c834bbb027764024c09d3d2bf908b5f0 ""
   "/usr/local/texlive/2018/texmf-dist/web2c/texmf.cnf" 1522066949 33362 cf75436e19743e94a92a6b1b9183c434 ""
   "/usr/local/texlive/2018/texmf-var/web2c/euptex/uplatex.fmt" 1544692265 4470728 cfcd4deda4fe05114388c5e1b815449e ""
   "/usr/local/texlive/2018/texmf.cnf" 1523934483 577 0b39adfd7c93507ff20c9c14c2f1a33f ""
   "lti.aux" 1545287880 8 a94a2480d3289e625eea47cd1b285758 ""
-  "lti.tex" 1545690981 1736 a4ba2d4dfe09109e20d344729c3ce44c ""
+  "lti.tex" 1545704314 3150 e1a55c0637b18e8747ab90b88c869876 ""
   (generated)
-  "lti.aux"
-  "lti.dvi"
   "lti.log"
+  "lti.dvi"
+  "lti.aux"

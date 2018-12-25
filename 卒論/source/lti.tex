@@ -8,6 +8,8 @@ Tool Provider(ツール・プロバイダ)とは、外部ツールや外部コ�
 Tool Consumer(ツール・コンシューマ)\\
 Tool Consumer(ツール・コンシューマ)とは、ツール・プロバイダを使用するLMSのことである。LTIに準拠したLMSは例として、Canvas,Moodle,Sakai,blackbordなどがある。本研究ではMoodle、Canvasを使用した。\\
 \subsection{LTI使用方法}
+LMS上でTool Provider(ツール・プロバイダ)を使用するには、各LMS上で外部ツールの設定を変更する必要がある。例として、moodleでの使用方法を説明する。\\
+moodleでは外部ツール設定より図\ref{fig:moodle config}参照、ツール名、ツールURL、コンシューマキー、秘密鍵の設定をする必要がある。これらの設定を得て、moodleからTool Provider(ツール・プロパイダ)を利用することが可能となる。\\
 \begin{figure}[htbp]
   \begin{center}
     \includegraphics[clip,width=12.0cm,height=8.0cm]{img/moodleSet.png}
@@ -23,3 +25,12 @@ Tool Consumer(ツール・コンシューマ)とは、ツール・プロバイ�
     \label{fig:moodle kidou}
   \end{center}
 \end{figure}
+また、ツール・プロバイダとツール・コンシューマとの間では、OAuthを用いて認証を行っている。\\
+\subsection{OAuth}
+OAuth(オーオース)とは、SNSやWebサービス間で「アクセス権限の認可」を行うためのプロトコルである。これにより、外部ツールへアクセスする際、ユーザIDとパスワードによる認証を行わずに外部ツールへのアクセスを行うことを可能にしている。また、OAuthには1.0と2.0が存在しているが、本研究ではLTI1.0の実装にあたりOAuth1.0を使用している。
+\subsection{OAuth1.0実装手順}
+OAuth1.0実装にあたり、OAuth signatureを作成する関数を自作した。\\
+OAuth signatereの作成手順を以下に示す。\\
+1.「キー」を作成\\
+2.「データ」の作成\\
+3.「キー」と「データ」用いてsignatureを作成\\

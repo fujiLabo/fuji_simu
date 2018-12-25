@@ -1,0 +1,14 @@
+# Fdb version 3
+["dvipdf"] 1545703693 "lit.back.dvi" "lit.back.pdf" "lit.back" 1545703694
+  "lit.back.dvi" 1545703692 956 6606528463f707a55ac24bf42462f2c6 "latex"
+  (generated)
+  "lit.back.pdf"
+["latex"] 1545703692 "lit.back.tex" "lit.back.dvi" "lit.back" 1545703694
+  "/usr/local/texlive/2018/texmf-dist/web2c/texmf.cnf" 1522066949 33362 cf75436e19743e94a92a6b1b9183c434 ""
+  "/usr/local/texlive/2018/texmf-var/web2c/euptex/uplatex.fmt" 1544692265 4470728 cfcd4deda4fe05114388c5e1b815449e ""
+  "/usr/local/texlive/2018/texmf.cnf" 1523934483 577 0b39adfd7c93507ff20c9c14c2f1a33f ""
+  "lit.back.aux" 1545703520 8 a94a2480d3289e625eea47cd1b285758 ""
+  "lit.back.tex" 1545703692 3981 b9ad12f0e5aa634c47faef7f7e0ee408 ""
+  (generated)
+  "lit.back.log"
+  "lit.back.dvi"

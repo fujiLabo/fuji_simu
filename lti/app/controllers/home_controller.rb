@@ -37,7 +37,7 @@ class HomeController < ApplicationController
     #x-frameでの表示をすべてに許可する
     response.headers['X-Frame-Options'] = 'ALLOWALL'
 
-    
+
     @SourcedId = params[:lis_result_sourcedid]
     f = File.open("aa.xml", "r")
     @File_read_Xml = f.read
