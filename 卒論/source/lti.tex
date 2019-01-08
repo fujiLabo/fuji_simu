@@ -28,22 +28,25 @@ moodleでは外部ツール設定より図\ref{fig:moodle config}参照、ツー
 \subsection{OAuth}
 OAuth(オーオース)とは、SNSやWebサービス間で「アクセス権限の認可」を行うためのプロトコルである。これにより、外部ツールへアクセスする際、ユーザIDとパスワードによる認証を行わずに外部ツールへのアクセスを行うことを可能にしている。また、OAuthには1.0と2.0が存在しているが、本研究ではLTI1.0の実装にあたりOAuth1.0を使用している。
 \subsection{OAuth1.0実装手順}
-OAuth1.0実装にあたり、OAuth signatureを作成する関数をRubyで自作した。\\
-OAuth signatereの作成手順を以下に示す。\\
+OAuth1.0実装にあたり、第三者による不正なログインを防ぐためのOAuth signature(署名)及びkey(暗号)の作成をする関数をRubyで自作した。\\
+OAuth signatere及びkeyの作成手順を以下に示す。\\
 1.「キー」を作成\\
 2.「データ」の作成\\
-3.「キー」と「データ」用いてsignatureを作成aaa\\
+3.「キー」と「データ」用いてsignatureを作成\\
 \subsubsection{キーの作成}
-「oauth\_consumer\_secret」、「oauth\_token\_secret」をURLエンコードし、＆で繋げれば完成。\\
+1.「oauth\_consumer\_secret」、「oauth\_token\_secret」をURLエンコードし、＆で繋げれば完成。\\
 本研究では「oauth\_consumer\_secret」を設定し、「oauth\_token\_secret」は存在させなかった。また、各々をCGI.escapeによりURLエンコードし、「oauth token secret」を空白とし、&のみを繋げてKeyを作成した。
 \subsubsection{データの作成}
 1.パラメータをアルファベット順に並べ、キー=値...の形で並べた上で,URLエンコードする。\\
 2.リクエストメソッド、リクエストURLをCGI.escapeによりURLエンコードする。\\
 3.リクエストメソッド、リクエストURL、パラメータの順で&で繋げることでデータを作成した。\\
 \subsubsection{Oauth signatureの作成}
+1.作成した「キー」と「データ」を用いてHMAC-SHA1方式でハッシュ値を生成する。この時バイナリデータでハッシュ値を生成する必要がある。\\
+2.生成したハッシュ値を、base64エンコードすることで作成。この手順で出てきた数値がOauth signatureとなる。\\
 \subsection{成績反映}
 成績反映の手順を以下に示す。\\
-ツール・コンシューマから送られてくる「SourcedId」取得し、XML内の「SourcedId」を書き変え、ツール・プロバイダでまとめた点数をXML内の「textString」に加えた上で送信する。(沼田と連携した画像を今後貼ります)\\
+ツール・コンシューマから成績を返すパラメータ「lis\_outcome\_service\_ur」を設定し、特定のユーザーを一意的に示す、「SourcedId」をパラメータ「lis\_result\_sourcedid」から取得し、XML内の「SourcedId」を書き変え、ツール・プロバイダでまとめた点数をXML内の「textString」に加えた上で送信する。(沼田と連携した画像を今後貼ります)\\
+\newpage
 \begin{figure}[htbp]
   \begin{center}
     \includegraphics[clip,width=12.0cm,height=8.0cm]{img/score.png}
