@@ -2384,11 +2384,15 @@ $.when(
       if ($('.question').length > 0) {
         $.ajax({
           type: 'POST',
+          //type: 'GET',
           dataType: 'text',
           // url: 'NewNetworkSimulator/php/post_networkdata.php',
           //ここをnet_checkを入れたControllerにする
-          url: '/assets/result.json',
-          data: {postJsonData : NSFCS.JSONpostData}
+          //url: '/assets/result.js',
+          url: '/net_check',
+          //data: {postJsonData : NSFCS.JSONpostData}
+          data: {postJsonData : JsonSendData}
+          //data: {text : NSFCS.JSONpostData},
         }).done(function (data) {
           resultData = JSON.parse(data);
           console.log(resultData);
@@ -2396,6 +2400,7 @@ $.when(
 
           //間違いがない=true, 間違いがある=false
           correctFlag = true;
+          console.log('correctFlag: ' + correctFlag);
 
           //間違いがあるかないか
           for(i=0; i < resultData.length; i++){
@@ -2422,14 +2427,15 @@ $.when(
                   })
                 })
               });
-            //正誤をデータベースに送信
-            $.ajax({
-              type: 'POST',
-              dataType: 'text',
-              // url: 'NewNetworkSimulator/php/push_start.php',
-              url: '/assets/result.json',
-              data: {postData : 1, id : NS.urlparameter, question_id : $('#question span').innerHTML}
-            });
+            // //正誤をデータベースに送信
+            // $.ajax({
+            //   type: 'POST',
+            //   dataType: 'text',
+            //   // url: 'NewNetworkSimulator/php/push_start.php',
+            //   //url: '/assets/result.json',
+            //   url: '/net_check',
+            //   data: {postData : 1, id : NS.urlparameter, question_id : $('#question span').innerHTML}
+            // });
           }
           //間違いがある場合
           else {
@@ -2450,13 +2456,14 @@ $.when(
                   })
                 })
               });
-            $.ajax({
-              type: 'POST',
-              dataType: 'text',
-              // url: 'NewNetworkSimulator/php/pust_start.php',
-              url: '/assets/result.json',
-              data: {postData : 0, id : NS.urlparameter, question_id : $('#question span').innerHTML}
-            });
+            // $.ajax({
+            //   type: 'POST',
+            //   dataType: 'text',
+            //   // url: 'NewNetworkSimulator/php/pust_start.php',
+            //   //url: '/assets/result.json',
+            //   url: '/net_check',
+            //   data: {postData : 0, id : NS.urlparameter, question_id : $('#question span').innerHTML}
+            // });
           }
 
 
@@ -2491,10 +2498,15 @@ $.when(
       else {
         $.ajax({
           type: 'POST',
+          //type: 'GET',
           dataType: 'text',
           // url: 'NewNetworkSimulator/php/post_networkdata.php',
-          url: '/assets/result.json',
-          data: {postJsonData : NSFCS.JSONpostData}
+          //url: '/assets/result.json',
+          url: '/net_check',
+          //contentType: 'application/text',
+          //data: {postJsonData : NSFCS.JSONpostData}
+          data: {postJsonData : JsonSendData}
+          //data: {text : NSFCS.JSONpostData},
         }).done(function (data) {
           resultData = JSON.parse(data);
           console.log(resultData);

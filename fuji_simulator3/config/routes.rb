@@ -5,5 +5,7 @@ Rails.application.routes.draw do
   get '/temp' => 'home#temp'
   post '/home/create' => 'home#create'
 
+  post 'net_check' => 'home#net_check'
+
   #post '/vendor/json'
 end
