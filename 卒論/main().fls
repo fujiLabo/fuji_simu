@@ -141,6 +141,7 @@ INPUT source/summary.tex
 INPUT source/summary.tex
 INPUT source/thanks.tex
 INPUT source/thanks.tex
+INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmtt10.tfm
 INPUT main().aux
 INPUT ./main().out
 INPUT ./main().out
