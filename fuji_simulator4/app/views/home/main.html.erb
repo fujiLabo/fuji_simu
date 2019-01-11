@@ -1,0 +1,80 @@
+<h1>mainのページ</h1>
+
+<div id="nsf-all">
+  <div id="nsf-container">
+    <div id="nsf-nav">
+      <div class="change_mode draw tip tip_mode">
+        <input type="radio" name="s2" id="mode_draw" checked="" autocomplete="off">
+        <label for="mode_draw" class="mode_draw">自由描画</label>
+        <input type="radio" name="s2" id="mode_question" autocomplete="off">
+        <label for="mode_question" class="mode_question">問題演習</label>
+        <span>
+          モードを選択します
+        </span>
+      </div>
+      <div class="height_line"></div>
+      <div class="tip tip_start">
+        <img src="/assets/start.png" id="connect-start" title="実行">
+        <span>
+          ネットワークの判定をします
+        </span>
+      </div>
+      <div class="height_line"></div>
+      <div class="tip tip_check">
+        <img src="/assets/check.png" id="check" title="情報を確認">
+        <span>
+          ノードごとの情報を確認します
+        </span>
+      </div>
+      <div class="height_line"></div>
+      <div class="tip tip_dust">
+        <img src="/assets/dust.png" id="dust" title="全削除">
+        <span>
+          全てのノードを削除します
+        </span>
+      </div>
+      <div class="height_line"></div>
+      <!-- <img src="/assets/info.png" id="info" title="ヘルプ"> -->
+      <!-- <div class="height_line"></div>
+      <img src="/assets/cui.png" id="cui" title="Debug"> -->
+    </div>
+    <div id="nsf-left">
+      <img src="/assets/pc.png" alt="PC" class="machinery">
+      <div class="width_line"></div>
+      <img src="/assets/router.png" alt="Router" class="machinery">
+      <div class="width_line"></div>
+      <img src="/assets/lanCable.png" id="lan" title="LANを繋げる">
+      <div class="width_line"></div>
+      <div id="nsf-left-switch">
+        <li class='tg-list-item'>
+          <!-- <h4>Draw</h4>
+          <input class='tgl tgl-light' id='lan' type='checkbox' name="lanSwitch" autocomplete="off">
+          <label class='tgl-btn' for='lan'></label> -->
+          <h4>Bus</h4>
+          <input class='tgl tgl-light' id='bus' type='checkbox' name="busSwitch" autocomplete="off">
+          <label class='tgl-btn' for='bus'></label>
+        </li>
+      </div>
+    </div>
+    <div id="nsf-main">
+      <canvas width="600" height="400" id="nsf-main-canvas" class=""></canvas>
+      <div id="checkLayer"></div>
+      <div id="questionLayer"></div>
+    </div>
+    <div id="nsf-right-info">
+      <p>トポロジーの概要
+        <img src="/assets/close.png" id="r-close" title="詳細を閉じる">
+        <img src="/assets/open.png" id="r-open" title="詳細を開く">
+      </p>
+    </div>
+    <div id="nsf-right"><dl></dl></div>
+    <div id="nsf-console-info"><p>コンソール</p></div>
+    <div id="nsf-console"></div>
+  </div>
+  <div id="glayLayer"></div>
+</div>
+<menu id="contextMenuTemplate" type="context" style="display:none;" >
+  <menuitem></menuitem>
+</menu>
+</body>
+</html>
