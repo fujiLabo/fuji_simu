@@ -1,0 +1,14 @@
+# Fdb version 3
+["dvipdf"] 0 "goal.dvi" "goal.pdf" "goal" 0
+  "goal.dvi" 0 -1 0 "latex"
+  (generated)
+  "goal.pdf"
+["latex"] 1544894950 "goal.tex" "goal.dvi" "goal" 1544894951
+  "/usr/local/texlive/2018/texmf-dist/web2c/texmf.cnf" 1522066949 33362 cf75436e19743e94a92a6b1b9183c434 ""
+  "/usr/local/texlive/2018/texmf-var/web2c/euptex/uplatex.fmt" 1543773687 4470727 b7f4572ee1ce76f6992df74be45da296 ""
+  "/usr/local/texlive/2018/texmf.cnf" 1523934483 577 0b39adfd7c93507ff20c9c14c2f1a33f ""
+  "goal.aux" 1544893851 8 a94a2480d3289e625eea47cd1b285758 ""
+  "goal.tex" 1544894950 23 b584ceb520932c54ce80772785e742a0 ""
+  (generated)
+  "goal.log"
+  "goal.dvi"
