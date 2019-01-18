@@ -1,16 +1,16 @@
 # Fdb version 3
-["dvipdf"] 1547779927 "function.dvi" "function.pdf" "function" 1547779928
-  "function.dvi" 1547779927 912 662f6621a1d8140c6c2ae5f25734491b "latex"
+["dvipdf"] 1547799377 "function.dvi" "function.pdf" "function" 1547799378
+  "function.dvi" 1547799377 912 c1552ca31c4158dba09e43e744b83288 "latex"
   (generated)
   "function.pdf"
-["latex"] 1547779926 "function.tex" "function.dvi" "function" 1547779928
+["latex"] 1547799377 "function.tex" "function.dvi" "function" 1547799378
   "/usr/local/texlive/2018/texmf-dist/fonts/map/fontname/texfonts.map" 1511824771 3332 103109f5612ad95229751940c61aada0 ""
   "/usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm" 1480098701 1328 c834bbb027764024c09d3d2bf908b5f0 ""
   "/usr/local/texlive/2018/texmf-dist/web2c/texmf.cnf" 1522066949 33362 cf75436e19743e94a92a6b1b9183c434 ""
   "/usr/local/texlive/2018/texmf-var/web2c/euptex/uplatex.fmt" 1543773687 4470727 b7f4572ee1ce76f6992df74be45da296 ""
   "/usr/local/texlive/2018/texmf.cnf" 1523934483 577 0b39adfd7c93507ff20c9c14c2f1a33f ""
   "function.aux" 1544978418 8 a94a2480d3289e625eea47cd1b285758 ""
-  "function.tex" 1547779925 2930 cd0148c7bbe0c86d05de5e77ec8e42e7 ""
+  "function.tex" 1547799377 2888 29ab9b3e87a4cd704f520cdfc54a3f6f ""
   (generated)
-  "function.dvi"
   "function.log"
+  "function.dvi"

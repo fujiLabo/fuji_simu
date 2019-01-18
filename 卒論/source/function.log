@@ -1,4 +1,4 @@
-This is e-upTeX, Version 3.14159265-p3.8.0-u1.23-180226-2.6 (utf8.uptex) (TeX Live 2018) (preloaded format=uplatex 2018.12.3)  18 JAN 2019 11:52
+This is e-upTeX, Version 3.14159265-p3.8.0-u1.23-180226-2.6 (utf8.uptex) (TeX Live 2018) (preloaded format=uplatex 2018.12.3)  18 JAN 2019 17:16
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -801,27 +801,32 @@ Overfull \hbox (9.6222pt too wide) in paragraph at lines 1--4
 
 
 Overfull \hbox (9.6222pt too wide) in paragraph at lines 1--4
-\JY2/mc/m/n/10 シ
+\JY2/mc/m/n/10 自
  []
 
 
 Overfull \hbox (9.6222pt too wide) in paragraph at lines 1--4
-\JY2/mc/m/n/10 ミ
+\JY2/mc/m/n/10 己
  []
 
 
 Overfull \hbox (9.6222pt too wide) in paragraph at lines 1--4
-\JY2/mc/m/n/10 ュ
- []
-
-
-Overfull \hbox (18.74438pt too wide) in paragraph at lines 1--4
-\JY2/mc/m/n/10 レ ー
+\JY2/mc/m/n/10 学
  []
 
 
 Overfull \hbox (9.6222pt too wide) in paragraph at lines 1--4
-\JY2/mc/m/n/10 タ
+\JY2/mc/m/n/10 習
+ []
+
+
+Overfull \hbox (9.6222pt too wide) in paragraph at lines 1--4
+\JY2/mc/m/n/10 機
+ []
+
+
+Overfull \hbox (9.6222pt too wide) in paragraph at lines 1--4
+\JY2/mc/m/n/10 能
  []
 
 
@@ -886,27 +891,32 @@ Overfull \hbox (9.6222pt too wide) in paragraph at lines 1--4
 
 
 Overfull \hbox (9.6222pt too wide) in paragraph at lines 1--4
-\JY2/mc/m/n/10 シ
+\JY2/mc/m/n/10 自
  []
 
 
 Overfull \hbox (9.6222pt too wide) in paragraph at lines 1--4
-\JY2/mc/m/n/10 ミ
+\JY2/mc/m/n/10 己
  []
 
 
 Overfull \hbox (9.6222pt too wide) in paragraph at lines 1--4
-\JY2/mc/m/n/10 ュ
- []
-
-
-Overfull \hbox (18.74438pt too wide) in paragraph at lines 1--4
-\JY2/mc/m/n/10 レ ー
+\JY2/mc/m/n/10 学
  []
 
 
 Overfull \hbox (9.6222pt too wide) in paragraph at lines 1--4
-\JY2/mc/m/n/10 タ
+\JY2/mc/m/n/10 習
+ []
+
+
+Overfull \hbox (9.6222pt too wide) in paragraph at lines 1--4
+\JY2/mc/m/n/10 機
+ []
+
+
+Overfull \hbox (9.6222pt too wide) in paragraph at lines 1--4
+\JY2/mc/m/n/10 能
  []
 
 
@@ -1071,27 +1081,32 @@ Overfull \hbox (9.6222pt too wide) in paragraph at lines 1--4
 
 
 Overfull \hbox (9.6222pt too wide) in paragraph at lines 1--4
-\JY2/mc/m/n/10 シ
+\JY2/mc/m/n/10 自
  []
 
 
 Overfull \hbox (9.6222pt too wide) in paragraph at lines 1--4
-\JY2/mc/m/n/10 ミ
+\JY2/mc/m/n/10 己
  []
 
 
 Overfull \hbox (9.6222pt too wide) in paragraph at lines 1--4
-\JY2/mc/m/n/10 ュ
- []
-
-
-Overfull \hbox (18.74438pt too wide) in paragraph at lines 1--4
-\JY2/mc/m/n/10 レ ー
+\JY2/mc/m/n/10 学
  []
 
 
 Overfull \hbox (9.6222pt too wide) in paragraph at lines 1--4
-\JY2/mc/m/n/10 タ
+\JY2/mc/m/n/10 習
+ []
+
+
+Overfull \hbox (9.6222pt too wide) in paragraph at lines 1--4
+\JY2/mc/m/n/10 機
+ []
+
+
+Overfull \hbox (9.6222pt too wide) in paragraph at lines 1--4
+\JY2/mc/m/n/10 能
  []
 
 
@@ -1520,7 +1535,7 @@ LaTeX Warning: Reference `fig:beforeCons' on page  undefined on input line 18.
 Here is how much of TeX's memory you used:
  12 strings out of 493270
  152 string characters out of 6145018
- 68491 words of memory out of 5000000
+ 68462 words of memory out of 5000000
  4050 multiletter control sequences out of 15000+600000
  6589 words of font info for 33 fonts, out of 8000000 for 9000
  929 hyphenation exceptions out of 8191
