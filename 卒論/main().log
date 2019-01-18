@@ -1,4 +1,4 @@
-This is e-upTeX, Version 3.14159265-p3.8.0-u1.23-180226-2.6 (utf8.uptex) (TeX Live 2018) (preloaded format=uplatex 2018.12.13)  25 DEC 2018 22:39
+This is e-upTeX, Version 3.14159265-p3.8.0-u1.23-180226-2.6 (utf8.uptex) (TeX Live 2018) (preloaded format=uplatex 2018.12.3)  18 JAN 2019 12:19
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -483,19 +483,22 @@ File: img/score.png Graphic file (type bmp)
 File: img/virtualMachine.png Graphic file (type bmp)
 <img/virtualMachine.png>
  [12]
-File: img/beforeCons.png Graphic file (type bmp)
-<img/beforeCons.png>
-) (./source/rails.tex [13] [14]
+
+LaTeX Warning: Reference `fig:beforeCons' on page 13 undefined on input line 18.
+
+) (./source/rails.tex [13]
 File: img/mvc.png Graphic file (type bmp)
 <img/mvc.png>
-) (./source/ui.tex [15]
+) (./source/ui.tex [14]
 File: img/simu.png Graphic file (type bmp)
 <img/simu.png>
-) [16] [17] (./source/summary.tex) [18
+) [15] [16] [17] (./source/experiment.tex) [18
 
-] [19] (./source/thanks.tex)
-./main().tex:121: Undefined control sequence.
-l.121 \clearpages
+] (./source/summary.tex) [19
+
+] [20] (./source/thanks.tex)
+./main().tex:125: Undefined control sequence.
+l.125 \clearpages
                  
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -504,34 +507,37 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-Overfull \hbox (58.0821pt too wide) in paragraph at lines 129--130
+Overfull \hbox (69.03212pt too wide) in paragraph at lines 137--138
 [] \JY2/mc/m/n/11 「\OT1/cmr/m/n/10.95 IMS Glo-val HP\JY2/mc/m/n/11 」 、 \OT1/cmtt/m/n/10.95 <https://www.imsglobal.org/specs/ltiomv1p0/specification>\JY2/mc/m/n/11 、
  []
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 134.
-[20
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 142.
+[21
 
 ]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 134.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 142.
  (./main().aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 134.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 134.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 142.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 142.
 Package rerunfilecheck Info: File `main().out' has not changed.
-(rerunfilecheck)             Checksum: 83F004B5FFB39F2706EF35AFCD27B11D;1112.
+(rerunfilecheck)             Checksum: 91671A35284F361EA0505B4B7BDC081D;1160.
 
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 0.5pt have occurred.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 134.
+
+LaTeX Warning: There were undefined references.
+
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 142.
  ) 
 Here is how much of TeX's memory you used:
- 6621 strings out of 493270
- 95400 string characters out of 6145017
- 192935 words of memory out of 5000000
- 10502 multiletter control sequences out of 15000+600000
+ 6625 strings out of 493270
+ 95433 string characters out of 6145018
+ 193058 words of memory out of 5000000
+ 10504 multiletter control sequences out of 15000+600000
  13400 words of font info for 65 fonts, out of 8000000 for 9000
  929 hyphenation exceptions out of 8191
  28i,10n,43p,1655b,363s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on main().dvi (20 pages, 47224 bytes).
+Output written on main().dvi (21 pages, 48544 bytes).

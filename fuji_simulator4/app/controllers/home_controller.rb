@@ -24,6 +24,7 @@ class HomeController < ApplicationController
     printf hash
 
     #File.open("/NewNetworkSimulator/study/test.json") do |file|
+    #File.open("test.json") do |file|
       #hash = JSON.load(file)
       seg = hash["total_seg_num"]
       total = hash["total_node_num"]
@@ -110,4 +111,5 @@ class HomeController < ApplicationController
       end
      system('rm test.json')
     end
+
 end

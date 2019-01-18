@@ -1647,6 +1647,7 @@ NS.fnsave = function () {
       dataType: 'text',
       // url: 'js/save_DB.php',
       url: 'NewNetworkSimulator/php/temporary_save.php',
+      //url: '/net_check',
       data:{postJsonData : JsonsaveData, id : NS.urlparameter, question_id : NS.question_id}
     }).done(function(data) {
       $("#ns-console").append("<p>>ノードの配置を保存しました  </p>");
@@ -3880,9 +3881,10 @@ $("#connect-start").click(function(){
     $.ajax({
       type: 'POST',
       dataType: 'text',
-      url: 'NewNetworkSimulator/php/post_networkdata.php',
+      //url: 'NewNetworkSimulator/php/post_networkdata.php',
+      url: '/net_check',
       // url: 'js/result.json',
-      data: {postJsonData : JsonSendData, id : NS.urlparameter, question_id : NS.question_id}
+      data: {postJsonData : JsonSendData, id : NS.urlparameter, question_id : NS.question_id},
     }).done(function (data) {
       // console.log(data);
       resultData = JSON.parse(data);
