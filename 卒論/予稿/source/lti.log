@@ -1,4 +1,4 @@
-This is e-upTeX, Version 3.14159265-p3.8.0-u1.23-180226-2.6 (utf8.uptex) (TeX Live 2018) (preloaded format=uplatex 2018.12.13)  18 JAN 2019 22:24
+This is e-upTeX, Version 3.14159265-p3.8.0-u1.23-180226-2.6 (utf8.uptex) (TeX Live 2018) (preloaded format=uplatex 2018.12.13)  18 JAN 2019 23:36
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -265,7 +265,7 @@ Overfull \hbox (9.6222pt too wide) in paragraph at lines 1--4
 
 
 Overfull \hbox (10.55559pt too wide) in paragraph at lines 1--4
-\OT1/cmr/m/n/10 [3]
+\OT1/cmr/m/n/10 [5]
  []
 
 
@@ -1703,7 +1703,7 @@ Overfull \hbox (45.8334pt too wide) in paragraph at lines 10--11
 
 ./lti.tex:12: Undefined control sequence.
 l.12     \includegraphics
-                         [scale=0.3]{img/LTIstart.png}
+                         [scale=0.2]{img/LTIstart.png}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -1724,7 +1724,7 @@ If that doesn't work, type  X <return>  to quit.
 
 
 Overfull \hbox (123.61139pt too wide) in paragraph at lines 12--15
- \OT1/cmr/m/n/10 [scale=0.3]img/LTIstart.png 
+ \OT1/cmr/m/n/10 [scale=0.2]img/LTIstart.png 
  []
 
 
@@ -1780,8 +1780,8 @@ Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-./lti.tex:19: Undefined control sequence.
-l.19 \subsection
+./lti.tex:20: Undefined control sequence.
+l.20 \subsection
                 {OAuth}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1789,8 +1789,8 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-./lti.tex:21: Undefined control sequence.
-l.21 \subsection
+./lti.tex:22: Undefined control sequence.
+l.22 \subsection
                 {LTI1.0におけるOAuth1.0実装手順}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1798,10 +1798,10 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-./lti.tex:27: Undefined control sequence.
+./lti.tex:28: Undefined control sequence.
 <recently read> \subsubsection 
                                
-l.27 \subsubsection
+l.28 \subsubsection
                    {キーの作成}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1809,8 +1809,8 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-./lti.tex:30: Undefined control sequence.
-l.30 \subsubsection
+./lti.tex:31: Undefined control sequence.
+l.31 \subsubsection
                    {文字列の作成}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1818,10 +1818,10 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-./lti.tex:34: Undefined control sequence.
+./lti.tex:35: Undefined control sequence.
 <recently read> \subsubsection 
                                
-l.34 \subsubsection
+l.35 \subsubsection
                    {署名の作成}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1829,10 +1829,10 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-./lti.tex:37: Undefined control sequence.
+./lti.tex:38: Undefined control sequence.
 <recently read> \subsection 
                             
-l.37 \subsection
+l.38 \subsection
                 {成績反映}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1850,9 +1850,9 @@ and I'll forget about whatever was undefined.
 Here is how much of TeX's memory you used:
  9 strings out of 493270
  83 string characters out of 6145017
- 70116 words of memory out of 5000000
+ 70072 words of memory out of 5000000
  4048 multiletter control sequences out of 15000+600000
  6281 words of font info for 32 fonts, out of 8000000 for 9000
  929 hyphenation exceptions out of 8191
- 18i,4n,8p,419b,119s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 18i,4n,8p,413b,119s stack positions out of 5000i,500n,10000p,200000b,80000s
 Output written on lti.dvi (1 page, 944 bytes).

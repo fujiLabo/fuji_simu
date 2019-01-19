@@ -128,6 +128,8 @@ INPUT source/experiment.tex
 INPUT source/experiment.tex
 INPUT img/moodleSet.png
 INPUT extractbb -B cropbox -O img/moodleSet.png
+INPUT img/score.png
+INPUT extractbb -B cropbox -O img/score.png
 INPUT source/summary.tex
 INPUT source/summary.tex
 INPUT yokou.aux

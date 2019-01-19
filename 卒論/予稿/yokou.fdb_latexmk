@@ -1,16 +1,16 @@
 # Fdb version 3
-["bibtex yokou"] 1547818205 "yokou.aux" "yokou.bbl" "yokou" 1547818216
+["bibtex yokou"] 1547822167 "yokou.aux" "yokou.bbl" "yokou" 1547822172
   "../biblio.bib" 0 -1 0 ""
   "junsrt.bst" 0 -1 0 ""
-  "yokou.aux" 1547818210 3686 ffc365385073e61790be0038e33ecef2 ""
+  "yokou.aux" 1547822169 3907 6e532a68af75e67659d79c9f94c9548d ""
   (generated)
-  "yokou.bbl"
   "yokou.blg"
-["dvipdf"] 1547818212 "yokou.dvi" "yokou.pdf" "yokou" 1547818216
-  "yokou.dvi" 1547818210 37240 d14461726f2d6213c8e3f036892e3074 "latex"
+  "yokou.bbl"
+["dvipdf"] 1547822170 "yokou.dvi" "yokou.pdf" "yokou" 1547822172
+  "yokou.dvi" 1547822169 37044 a7c11da37dcb4ced72cff6ae5060dc30 "latex"
   (generated)
   "yokou.pdf"
-["latex"] 1547818205 "yokou.tex" "yokou.dvi" "yokou" 1547818216
+["latex"] 1547822167 "yokou.tex" "yokou.dvi" "yokou" 1547822172
   "/usr/local/texlive/2018/texmf-dist/fonts/map/fontname/texfonts.map" 1511824771 3332 103109f5612ad95229751940c61aada0 ""
   "/usr/local/texlive/2018/texmf-dist/fonts/tfm/public/ascmac/ascgrp.tfm" 1520635638 448 9a1f3a95c3a7e2681aa6eefcf410b7ac ""
   "/usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmbx9.tfm" 1480098701 1328 5442e22a7072966dbaf88ca900acf3f0 ""
@@ -59,26 +59,28 @@
   "extractbb -B cropbox -O img/LTIstart.png" 0 -1 0 ""
   "extractbb -B cropbox -O img/moodleSet.png" 0 -1 0 ""
   "extractbb -B cropbox -O img/mvc.png" 0 -1 0 ""
+  "extractbb -B cropbox -O img/score.png" 0 -1 0 ""
   "extractbb -B cropbox -O img/simu.png" 0 -1 0 ""
   "extractbb -B cropbox -O img/virtualMachine.png" 0 -1 0 ""
   "img/LTIstart.png" 1547804125 154338 1f548f2dcc96f2b2e9d2e5f0018549f8 ""
   "img/moodleSet.png" 1545666142 154481 f00b896ad9e196f575f5f13a4b98d7d0 ""
   "img/mvc.png" 1545666142 51470 ce8c063c411acb21c41ee2a140d96737 ""
+  "img/score.png" 1545707035 212985 11e60dc92ebe6a3392fff631acf25489 ""
   "img/simu.png" 1545123152 59476 12fe90edbaa929870d8c21d430f12d45 ""
   "img/virtualMachine.png" 1545666142 51470 ce8c063c411acb21c41ee2a140d96737 ""
-  "source/experiment.tex" 1547808796 1275 378abae0bc45b3e3431dbeb31931f59a ""
+  "source/experiment.tex" 1547821360 1469 ae7fc7509d41c04566b394645a11a65f ""
   "source/first.tex" 1547799632 4930 bb236c053d627b6da089a6ea8f9f147b ""
-  "source/function.tex" 1547818108 2917 3aa3bedc25b8c1cd93c1af245026b1a6 ""
-  "source/lti.tex" 1547817877 4013 dc3e4451f15bd7ee16c638e7ac68c7bd ""
-  "source/rails.tex" 1545666142 1545 213195769b899c78ea47764b05c19eae ""
+  "source/function.tex" 1547820120 2896 42f7c9013591eff10779e2c4c1ca6dbe ""
+  "source/lti.tex" 1547822162 3963 bccd752b30ac398fb9ee8133b32237f0 ""
+  "source/rails.tex" 1547820826 1522 7a14d4e741589b1a46356339b1377416 ""
   "source/summary.tex" 1545666142 2178 fefc9bdf188c6cf15f81dc4345707ada ""
-  "source/ui.tex" 1547817113 3609 3f7dfb474c9ec391f7384608d48fdf81 ""
-  "yokou.aux" 1547818210 3686 ffc365385073e61790be0038e33ecef2 ""
+  "source/ui.tex" 1547819607 3609 3f7dfb474c9ec391f7384608d48fdf81 ""
+  "yokou.aux" 1547822169 3907 6e532a68af75e67659d79c9f94c9548d ""
   "yokou.bbl" 0 -1 0 "bibtex yokou"
-  "yokou.out" 1547818210 761 6b47d65a1a0f40a3a0e2e45277e6ea22 ""
-  "yokou.tex" 1547818196 3800 16cf959272a0abf20d7a76e4fcc63ae0 ""
+  "yokou.out" 1547822169 809 e1a771bbd355f25648c386102dbbd0f5 ""
+  "yokou.tex" 1547822167 3820 b1599256ab4d96911fd24627981b85e6 ""
   (generated)
-  "yokou.log"
   "yokou.aux"
-  "yokou.out"
   "yokou.dvi"
+  "yokou.out"
+  "yokou.log"
