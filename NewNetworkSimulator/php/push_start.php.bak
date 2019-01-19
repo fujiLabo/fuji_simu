@@ -1,0 +1,62 @@
+<?php
+/*
+ * 実行ボタンを押したときに採点結果を一時保存データベースに保存するプログラム
+ */
+
+require_once(dirname(dirname(dirname(dirname(dirname(__FILE__))))).'/config.php');
+
+//接続先のアドレス
+$address = 'localhost';
+//MySQLのユーザー名
+$user = 'root';
+//MySQLのpass
+$pass = 'Td;Rk;Fk;';
+//データベース名
+$database = 'moodle';
+//テーブル名
+$table = 'mdl_networksimmod_grades';
+
+
+//jsからjsonデータを受け取る
+$JsonPostData = $_POST['postJsonData'];
+
+//rubyで立てたサーバーのportを指定
+$url = 'http://localhost:8080';
+
+// HTTPヘッダの内容
+$headers = array(
+    'Content-Type: application/x-www-form-urlencoded'
+);
+
+$options = array('http' => array(
+    'ignore_errors' => true,
+    'method' => 'POST',
+    'content' => $JsonPostData,
+    'header' => implode("\r\n", $headers)
+));
+
+$options = stream_context_create($options);
+$contents = file_get_contents($url, false, $options);
+echo $contents;
+
+$json = json_decode($contents);
+
+$grade = 1;
+foreach($json as $element) {
+	if ($element[count($element) - 1] == 1)
+		continue;
+	$grade = -1;
+	break;
+}
+
+$networksimmod = $_POST['id'];
+$qid = $_POST['question_id'];
+$userid = $USER->id;
+
+$conn = mysqli_connect($address, $user, $pass, $database);
+
+// レコードがなかったらINSERT、あったらUPDATEする
+$sql_result = mysqli_query($conn, "INSERT INTO $table (networksimmod, qid, userid, grade) VALUES ($networksimmod, $qid, $userid, $grade) ON DUPLICATE KEY UPDATE grade = $grade");
+
+mysqli_close($conn);
+?>

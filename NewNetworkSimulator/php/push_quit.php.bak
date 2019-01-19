@@ -1,0 +1,31 @@
+<?php
+/*
+ * Moodleの成績データベースにネットワークシミュレータの成績を反映させるプログラム
+ */
+
+require_once(dirname(dirname(dirname(dirname(dirname(__FILE__))))).'/config.php');
+
+include('check_guest.php');
+
+$userid = $USER->id;
+$itemid = optional_param('id', 0, PARAM_INT);
+$data = $DB->get_records_sql("SELECT * FROM {grade_grades}
+							 WHERE (userid LIKE $userid)
+							 AND (itemid LIKE $itemid)");
+$obj = array_shift($data);
+
+$calc = $DB->get_records_sql("SELECT * FROM {networksimmod_grades}
+							 WHERE (userid LIKE $USER->id)
+							 AND (networksimmod LIKE $itemid)");
+$total = 0;
+$result = array();
+foreach ($calc as $element) {
+	$total += $element->grade * $element->point;
+}
+
+$update = new stdClass();
+$update->id = $obj->id;
+$update->finalgrade = $total;
+$update->timemodified = time();
+$DB->update_record('grade_grades', $update, false);
+?>
