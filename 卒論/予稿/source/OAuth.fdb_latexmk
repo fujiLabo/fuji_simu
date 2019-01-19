@@ -1,0 +1,14 @@
+# Fdb version 3
+["dvipdf"] 0 "OAuth.dvi" "OAuth.pdf" "OAuth" 0
+  "OAuth.dvi" 0 -1 0 "latex"
+  (generated)
+  "OAuth.pdf"
+["latex"] 1545688195 "OAuth.tex" "OAuth.dvi" "OAuth" 1545688195
+  "/usr/local/texlive/2018/texmf-dist/web2c/texmf.cnf" 1522066949 33362 cf75436e19743e94a92a6b1b9183c434 ""
+  "/usr/local/texlive/2018/texmf-var/web2c/euptex/uplatex.fmt" 1544692265 4470728 cfcd4deda4fe05114388c5e1b815449e ""
+  "/usr/local/texlive/2018/texmf.cnf" 1523934483 577 0b39adfd7c93507ff20c9c14c2f1a33f ""
+  "OAuth.aux" 1545688194 8 a94a2480d3289e625eea47cd1b285758 ""
+  "OAuth.tex" 1545688195 0 d41d8cd98f00b204e9800998ecf8427e ""
+  (generated)
+  "OAuth.log"
+  "OAuth.dvi"
