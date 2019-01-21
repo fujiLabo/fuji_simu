@@ -1,14 +1,14 @@
 # Fdb version 3
-["dvipdf"] 1547797205 "first.dvi" "first.pdf" "first" 1547797207
-  "first.dvi" 1547797205 6412 c4b11692a3a0d18fc9dece8a1628ec37 "latex"
+["dvipdf"] 1548037604 "first.dvi" "first.pdf" "first" 1548037605
+  "first.dvi" 1548037603 6392 cd1e5f4650b2b9b7855b09a7fe229078 "latex"
   (generated)
   "first.pdf"
-["latex"] 1547799147 "first.tex" "first.dvi" "first" 1547799148
+["latex"] 1548037603 "first.tex" "first.dvi" "first" 1548037605
   "/usr/local/texlive/2018/texmf-dist/web2c/texmf.cnf" 1522066949 33362 cf75436e19743e94a92a6b1b9183c434 ""
-  "/usr/local/texlive/2018/texmf-var/web2c/euptex/uplatex.fmt" 1543773687 4470727 b7f4572ee1ce76f6992df74be45da296 ""
+  "/usr/local/texlive/2018/texmf-var/web2c/euptex/uplatex.fmt" 1544692265 4470728 cfcd4deda4fe05114388c5e1b815449e ""
   "/usr/local/texlive/2018/texmf.cnf" 1523934483 577 0b39adfd7c93507ff20c9c14c2f1a33f ""
-  "first.aux" 1545018896 8 a94a2480d3289e625eea47cd1b285758 ""
-  "first.tex" 1547799147 4930 bb236c053d627b6da089a6ea8f9f147b ""
+  "first.aux" 1545123719 8 a94a2480d3289e625eea47cd1b285758 ""
+  "first.tex" 1548037603 4925 a31bd4615af3d267209f38b09e4d582f ""
   (generated)
   "first.dvi"
   "first.log"
