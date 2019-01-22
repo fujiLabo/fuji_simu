@@ -1,16 +1,16 @@
 # Fdb version 3
-["bibtex yokou"] 1548040969 "yokou.aux" "yokou.bbl" "yokou" 1548040972
+["bibtex yokou"] 1548049885 "yokou.aux" "yokou.bbl" "yokou" 1548049888
   "../biblio.bib" 0 -1 0 ""
   "junsrt.bst" 0 -1 0 ""
-  "yokou.aux" 1548040970 2108 aeb1aacef317fa0070da41289fd7cd5f ""
+  "yokou.aux" 1548049886 2108 aeb1aacef317fa0070da41289fd7cd5f ""
   (generated)
-  "yokou.bbl"
   "yokou.blg"
-["dvipdf"] 1548040971 "yokou.dvi" "yokou.pdf" "yokou" 1548040972
-  "yokou.dvi" 1548040970 27380 3e2a1d4184d8f845e03bff57320b8855 "latex"
+  "yokou.bbl"
+["dvipdf"] 1548049887 "yokou.dvi" "yokou.pdf" "yokou" 1548049888
+  "yokou.dvi" 1548049886 27452 2bd7de5561e481aa781c2e47e0048c34 "latex"
   (generated)
   "yokou.pdf"
-["latex"] 1548040969 "yokou.tex" "yokou.dvi" "yokou" 1548040972
+["latex"] 1548049885 "yokou.tex" "yokou.dvi" "yokou" 1548049888
   "/usr/local/texlive/2018/texmf-dist/fonts/map/fontname/texfonts.map" 1511824771 3332 103109f5612ad95229751940c61aada0 ""
   "/usr/local/texlive/2018/texmf-dist/fonts/tfm/public/ascmac/ascgrp.tfm" 1520635638 448 9a1f3a95c3a7e2681aa6eefcf410b7ac ""
   "/usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmr10.tfm" 1480098701 1296 45809c5a464d5f32c8f98ba97c1bb47f ""
@@ -65,12 +65,12 @@
   "source/lti.tex" 1548040872 3842 e7042d1625158ed8fb24b25d7fc115e0 ""
   "source/summary.tex" 1548038365 2222 b15581c466bb465cc871f2b53f8a3aba ""
   "source/ui.tex" 1548039026 3590 f58f76e7e383304d9c44dc3a4cd5d7e0 ""
-  "yokou.aux" 1548040970 2108 aeb1aacef317fa0070da41289fd7cd5f ""
+  "yokou.aux" 1548049886 2108 aeb1aacef317fa0070da41289fd7cd5f ""
   "yokou.bbl" 0 -1 0 "bibtex yokou"
-  "yokou.out" 1548040970 407 4d68f3a812cffb1be414c0b283b0e543 ""
-  "yokou.tex" 1548040968 3755 2d7811a5615d23251b59ebc2b435bb5a ""
+  "yokou.out" 1548049886 407 4d68f3a812cffb1be414c0b283b0e543 ""
+  "yokou.tex" 1548049885 3817 300c851328721de3b72be924b07948ef ""
   (generated)
   "yokou.out"
-  "yokou.dvi"
   "yokou.log"
+  "yokou.dvi"
   "yokou.aux"
