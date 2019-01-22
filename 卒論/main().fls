@@ -1,4 +1,4 @@
-PWD /Users/ryouta/fuji_simu/卒論
+PWD /Users/chachamaru/rails/fuji_simu/卒論
 INPUT /usr/local/texlive/2018/texmf.cnf
 INPUT /usr/local/texlive/2018/texmf-dist/web2c/texmf.cnf
 INPUT /usr/local/texlive/2018/texmf.cnf
@@ -123,8 +123,8 @@ INPUT source/OAuth.tex
 INPUT source/OAuth.tex
 INPUT source/function.tex
 INPUT source/function.tex
-INPUT img/virtualMachine.png
-INPUT extractbb -B cropbox -O img/virtualMachine.png
+INPUT img/system.png
+INPUT extractbb -B cropbox -O img/system.png
 INPUT source/rails.tex
 INPUT source/rails.tex
 INPUT img/mvc.png

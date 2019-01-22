@@ -1,16 +1,44 @@
 # Fdb version 3
+<<<<<<< HEAD
 ["bibtex yokou"] 1548049885 "yokou.aux" "yokou.bbl" "yokou" 1548049888
   "../biblio.bib" 0 -1 0 ""
   "junsrt.bst" 0 -1 0 ""
   "yokou.aux" 1548049886 2108 aeb1aacef317fa0070da41289fd7cd5f ""
   (generated)
+=======
+<<<<<<< HEAD
+["bibtex yokou"] 1547886473 "yokou.aux" "yokou.bbl" "yokou" 1547886477
+  "../biblio.bib" 0 -1 0 ""
+  "junsrt.bst" 0 -1 0 ""
+  "yokou.aux" 1547886475 3907 3cd1037973bd5d230179c46c6c470c96 ""
+=======
+["bibtex yokou"] 1548040969 "yokou.aux" "yokou.bbl" "yokou" 1548040972
+  "../biblio.bib" 0 -1 0 ""
+  "junsrt.bst" 0 -1 0 ""
+  "yokou.aux" 1548040970 2108 aeb1aacef317fa0070da41289fd7cd5f ""
+>>>>>>> b0a5f8ed5b0bdaa73bb45a3d6e7d61b6214c2dda
+  (generated)
+  "yokou.bbl"
+<<<<<<< HEAD
+["dvipdf"] 1547886475 "yokou.dvi" "yokou.pdf" "yokou" 1547886477
+  "yokou.dvi" 1547886475 37224 f2a643778859f016d2edfea0d875723d "latex"
+  (generated)
+  "yokou.pdf"
+["latex"] 1547886473 "yokou.tex" "yokou.dvi" "yokou" 1547886477
+=======
+>>>>>>> eeb0e641719f1bce0347f6092ec28cdfaaea3fa7
   "yokou.blg"
   "yokou.bbl"
 ["dvipdf"] 1548049887 "yokou.dvi" "yokou.pdf" "yokou" 1548049888
   "yokou.dvi" 1548049886 27452 2bd7de5561e481aa781c2e47e0048c34 "latex"
   (generated)
   "yokou.pdf"
+<<<<<<< HEAD
 ["latex"] 1548049885 "yokou.tex" "yokou.dvi" "yokou" 1548049888
+=======
+["latex"] 1548040969 "yokou.tex" "yokou.dvi" "yokou" 1548040972
+>>>>>>> b0a5f8ed5b0bdaa73bb45a3d6e7d61b6214c2dda
+>>>>>>> eeb0e641719f1bce0347f6092ec28cdfaaea3fa7
   "/usr/local/texlive/2018/texmf-dist/fonts/map/fontname/texfonts.map" 1511824771 3332 103109f5612ad95229751940c61aada0 ""
   "/usr/local/texlive/2018/texmf-dist/fonts/tfm/public/ascmac/ascgrp.tfm" 1520635638 448 9a1f3a95c3a7e2681aa6eefcf410b7ac ""
   "/usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmr10.tfm" 1480098701 1296 45809c5a464d5f32c8f98ba97c1bb47f ""
@@ -53,10 +81,35 @@
   "/usr/local/texlive/2018/texmf-dist/tex/platex/jsclasses/jslogo.sty" 1487977266 6061 1242b5308ecb0db77c71c1ff6c687ace ""
   "/usr/local/texlive/2018/texmf-dist/tex/platex/pxjahyper/pxjahyper.sty" 1516917105 31631 abff11275484123b5318dc1e37f7cd96 ""
   "/usr/local/texlive/2018/texmf-dist/web2c/texmf.cnf" 1522066949 33362 cf75436e19743e94a92a6b1b9183c434 ""
-  "/usr/local/texlive/2018/texmf-var/web2c/euptex/uplatex.fmt" 1544692265 4470728 cfcd4deda4fe05114388c5e1b815449e ""
+  "/usr/local/texlive/2018/texmf-var/web2c/euptex/uplatex.fmt" 1543773687 4470727 b7f4572ee1ce76f6992df74be45da296 ""
   "/usr/local/texlive/2018/texmf.cnf" 1523934483 577 0b39adfd7c93507ff20c9c14c2f1a33f ""
   "extractbb -B cropbox -O img/score.png" 0 -1 0 ""
   "extractbb -B cropbox -O img/simu.png" 0 -1 0 ""
+<<<<<<< HEAD
+  "extractbb -B cropbox -O img/virtualMachine.png" 0 -1 0 ""
+  "img/LTIstart.png" 1547857285 154338 1f548f2dcc96f2b2e9d2e5f0018549f8 ""
+  "img/moodleSet.png" 1547857285 154481 f00b896ad9e196f575f5f13a4b98d7d0 ""
+  "img/mvc.png" 1547857285 51470 ce8c063c411acb21c41ee2a140d96737 ""
+  "img/score.png" 1547857285 212985 11e60dc92ebe6a3392fff631acf25489 ""
+  "img/simu.png" 1547857285 59476 12fe90edbaa929870d8c21d430f12d45 ""
+  "img/virtualMachine.png" 1547857285 51470 ce8c063c411acb21c41ee2a140d96737 ""
+  "source/experiment.tex" 1547873497 1469 ae7fc7509d41c04566b394645a11a65f ""
+  "source/first.tex" 1547857285 4930 bb236c053d627b6da089a6ea8f9f147b ""
+  "source/function.tex" 1547873497 2896 42f7c9013591eff10779e2c4c1ca6dbe ""
+  "source/lti.tex" 1547873497 3963 bccd752b30ac398fb9ee8133b32237f0 ""
+  "source/rails.tex" 1547873497 1522 7a14d4e741589b1a46356339b1377416 ""
+  "source/summary.tex" 1547857285 2178 fefc9bdf188c6cf15f81dc4345707ada ""
+  "source/ui.tex" 1547857285 3609 3f7dfb474c9ec391f7384608d48fdf81 ""
+  "yokou.aux" 1547886475 3907 3cd1037973bd5d230179c46c6c470c96 ""
+  "yokou.bbl" 0 -1 0 "bibtex yokou"
+  "yokou.out" 1547886475 809 e1a771bbd355f25648c386102dbbd0f5 ""
+  "yokou.tex" 1547886473 3823 d70bf669f73882f592105beebb7c0b6f ""
+  (generated)
+  "yokou.log"
+  "yokou.out"
+  "yokou.aux"
+  "yokou.dvi"
+=======
   "img/score.png" 1545707035 212985 11e60dc92ebe6a3392fff631acf25489 ""
   "img/simu.png" 1545123152 59476 12fe90edbaa929870d8c21d430f12d45 ""
   "source/experiment.tex" 1548040962 1453 ed45cb18e8ecb6f81ec1f79363dcb716 ""
@@ -74,3 +127,4 @@
   "yokou.log"
   "yokou.dvi"
   "yokou.aux"
+>>>>>>> b0a5f8ed5b0bdaa73bb45a3d6e7d61b6214c2dda
