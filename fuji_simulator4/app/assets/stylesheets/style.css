@@ -16,21 +16,21 @@ body {
 /*  background: #eee;*/
 }
 
-#ns-all {
+#nsf-all {
   width: 900px;
 }
-#ns-container, #glayLayer {
+#nsf-container, #glayLayer {
   font-family: "Hiragino Kaku Gothic ProN","メイリオ", sans-serif;
 }
 
-/*ns-nav*/
-#ns-nav {
+/*nsf-nav*/
+#nsf-nav {
   margin: 0 0 2px;
   padding: 2px;
   width: 894px;
   height: 42px;
 }
-#ns-nav img {
+#nsf-nav img {
   padding: 1px 3px;
   width: 40px;
   height: 40px;
@@ -236,31 +236,31 @@ div.tip_quit:hover span {
 
 
 
-#ns-left, #ns-main, #ns-right, #ns-console, #ns-nav {
+#nsf-left, #nsf-main, #nsf-right, #nsf-console, #nsf-nav {
   float: left;
   border: 1px solid #999;
   background: #FFF;
 }
-#ns-container:after, #studyMenuForm:after {
+#nsf-container:after, #studyMenuForm:after {
   content: "";
   display: block;
   clear: both;
 }
 
-/* ns-left decoration */
-#ns-left {
+/* nsf-left decoration */
+#nsf-left {
   margin-right: 3px;
   padding: 5px 5px;
   width: 82px;
   height: 549px;
 }
-#ns-left .machinery {
+#nsf-left .machinery {
   margin: 0 6px;
 }
-/*#ns-left-switch input, #ns-left-switch-2 input {
+/*#nsf-left-switch input, #nsf-left-switch-2 input {
   display: none;
 }
-#ns-left-switch label, #ns-left-switch-2 label {
+#nsf-left-switch label, #nsf-left-switch-2 label {
   display: block;
   float: left;
   cursor: pointer;
@@ -270,42 +270,42 @@ div.tip_quit:hover span {
   text-align: center;
   line-height: 1;
 }
-#ns-left-switch label:first-of-type, #ns-left-switch-2 label:first-of-type {
+#nsf-left-switch label:first-of-type, #nsf-left-switch-2 label:first-of-type {
   border-radius: 3px 0 0 3px;
 }
-#ns-left-switch label:last-of-type, #ns-left-switch-2 label:last-of-type {
+#nsf-left-switch label:last-of-type, #nsf-left-switch-2 label:last-of-type {
   border-radius: 0 3px 3px 0;
 }
-#ns-left-switch input[type="radio"]:checked + .switchlan-1, #ns-left-switch-2 input[type="radio"]:checked + .switchlan-2 {
+#nsf-left-switch input[type="radio"]:checked + .switchlan-1, #nsf-left-switch-2 input[type="radio"]:checked + .switchlan-2 {
   background-color: #a1b91d;
   color: #fff;
 }
-#ns-left-switch label {
+#nsf-left-switch label {
   width: 39px;
   margin-bottom: 2px;
   font-size: 10px;
 }
-#ns-left-switch-2 #labelCenter {
+#nsf-left-switch-2 #labelCenter {
   width: 26px;
   margin: 0;
   font-size: 8px;
 }
-#ns-left-switch-2 label:not(#labelCenter) {
+#nsf-left-switch-2 label:not(#labelCenter) {
   width: 25px;
   margin: 0;
   font-size: 8px;
 }*/
 
-/* ns-main decoration */
-#ns-main {
+/* nsf-main decoration */
+#nsf-main {
   width: 600px;
   height: 400px;
 }
-#ns-main .lanOn {
+#nsf-main .lanOn {
   opacity: 0.6;
   /* user-select: none; */
 }
-#ns-main .get-node2, #ns-main .send-node2 {
+#nsf-main .get-node2, #nsf-main .send-node2 {
   position: absolute;
   z-index: 2;
 }
@@ -317,61 +317,61 @@ div.tip_quit:hover span {
   border-bottom: double 6px #87CEFA;
 }
 
-/* ns-right decoration */
-#ns-right {
+/* nsf-right decoration */
+#nsf-right {
   margin: 0 0 0 2px;
   width: 197px;
   height: 379px;
   font-size: 13px;
   overflow: scroll;
 }
-#ns-right dl {
+#nsf-right dl {
   margin: 0;
 }
-#ns-right dt {
+#nsf-right dt {
   height: 15px;
 }
-#ns-right dt img {
+#nsf-right dt img {
   margin: 0 4px 0 2px;
 }
-#ns-right img:hover {
+#nsf-right img:hover {
   opacity: 0.4;
 }
-#ns-right dd {
+#nsf-right dd {
   margin: 0 0 0 18px;
 }
-#ns-right p {
+#nsf-right p {
   margin: 0;
 }
 
-/* ns-console decoration */
-#ns-console {
+/* nsf-console decoration */
+#nsf-console {
   margin: 0;
   padding: 2px;
   width: 797px;
   height: 130px;
   overflow: scroll;
 }
-#ns-console p {
+#nsf-console p {
   margin: 0;
   padding: 0;
   font-size: 12px;
 }
 
-/* ns-right-info & ns-console-info decorations */
-#ns-right-info, #ns-console-info {
+/* nsf-right-info & nsf-console-info decorations */
+#nsf-right-info, #nsf-console-info {
   float: left;
   margin: 0;
 }
-#ns-right-info {
+#nsf-right-info {
   margin: 0 0 0 2px;
   width: 199px;
 }
-#ns-console-info {
+#nsf-console-info {
   margin: 2px 0 0 0;
   width: 803px;
 }
-#ns-right-info p, #ns-console-info p {
+#nsf-right-info p, #nsf-console-info p {
   margin: 0;
   padding: 1px 1px 1px 4px;
   border: 1px solid #999;
@@ -379,7 +379,7 @@ div.tip_quit:hover span {
   height: 17px;
   font-size: 12px;
 }
-#ns-right-info p img {
+#nsf-right-info p img {
   float: right;
   margin: 0;
   padding: 1px;
@@ -642,7 +642,7 @@ canvas {
 .ui-draggable {
   cursor: pointer;
 }
-#ns-nav img:hover, #lan:hover, #ns-right-info img:hover{
+#nsf-nav img:hover, #lan:hover, #nsf-right-info img:hover{
   margin: -1px;
   border: 1px solid #666;
   border-radius: 5px;

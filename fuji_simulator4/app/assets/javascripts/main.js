@@ -79,7 +79,7 @@ function fncontextmenu(element) {
 
       //ルーティングテーブル作成
       $('#contextMenuTemplate form .context-RoutingTable tr').append('<th><label>RoutingTable</label></th>');
-      $('#contextMenuTemplate form .context-RoutingTable tr').append('<img src="NewNetworkSimulator/img/plus.jpg" class="' + nodeName + '" onClick="return addRoutingTable(this)">');
+      $('#contextMenuTemplate form .context-RoutingTable tr').append('<img src="/assets/plus.jpg" class="' + nodeName + '" onClick="return addRoutingTable(this)">');
       $('#contextMenuTemplate form .context-RoutingTable tr:last-child').after('<tr align="center"></tr>')
       $('#contextMenuTemplate form .context-RoutingTable tr:last-child').append('<th><label class="routingtable-IPSM">宛先ルート</label></th>');
       $('#contextMenuTemplate form .context-RoutingTable tr:last-child').append('<th><label class="routingtable-NHA">NHA</label></th>');
@@ -167,7 +167,7 @@ function fncontextmenu(element) {
 
       //ルーティングテーブル作成
       $('#contextMenuTemplate form .context-RoutingTable tr').append('<th><label>RoutingTable</label></th>');
-      $('#contextMenuTemplate form .context-RoutingTable tr').append('<img src="NewNetworkSimulator/img/plus.jpg" class="' + nodeName + '" onClick="return addRoutingTable(this)">');
+      $('#contextMenuTemplate form .context-RoutingTable tr').append('<img src="/assets/plus.jpg" class="' + nodeName + '" onClick="return addRoutingTable(this)">');
       $('#contextMenuTemplate form .context-RoutingTable tr:last-child').after('<tr align="center"></tr>')
       $('#contextMenuTemplate form .context-RoutingTable tr:last-child').append('<th><label class="routingtable-IPSM">宛先ルート</label></th>');
       $('#contextMenuTemplate form .context-RoutingTable tr:last-child').append('<th><label class="routingtable-NHA">NHA</label></th>');
@@ -358,7 +358,7 @@ function createRoutingTable(nodeNum, iNum) {
 
   if (iNum != 0) {
     $('#contextMenuTemplate .context-RoutingTable tr:last-child')
-    .append('<img src="NewNetworkSimulator/img/minus.jpg" id="minus' + nodeNum + '_' + iNum + '" class="Router' + nodeNum + '" onClick="return delRoutingTable(this)">');
+    .append('<img src="/assets/minus.jpg" id="minus' + nodeNum + '_' + iNum + '" class="Router' + nodeNum + '" onClick="return delRoutingTable(this)">');
   }
 
 
@@ -399,7 +399,7 @@ function addRoutingTable(plus) {
   $('ul form .context-RoutingTable tr:last-child')
   .append('<td>if<input id="routingtable-IF' + element.alt.slice(6) + '_' + num + '" type="text" size="1" onKeyUp="return fCopy(this);"></td>');
   $('ul form .context-RoutingTable tr:last-child')
-  .append('<img src="NewNetworkSimulator/img/minus.jpg" id="minus' + element.alt.slice(6) + '_' + num + '" class="' + element.alt + '" onClick="return delRoutingTable(this)">');
+  .append('<img src="/assets/minus.jpg" id="minus' + element.alt.slice(6) + '_' + num + '" class="' + element.alt + '" onClick="return delRoutingTable(this)">');
 
   //rightinfoに追加
   $('#nsf-right dt:contains("'+ element.alt +'") + dd')
@@ -650,7 +650,7 @@ function packetAnimation(e) {
                     }));
                   $('.cssCircle:last-child').append(
                     $('<img>').attr({
-                      src: 'NewNetworkSimulator/img/circle.png'
+                      src: '/assets/circle.png'
                     }));
                 }
               }
@@ -693,7 +693,7 @@ function packetAnimation(e) {
 
               $('.cssCross').append(
                 $('<img>').attr({
-                  src: 'NewNetworkSimulator/img/cross.png'
+                  src: '/assets/cross.png'
                 }));
 
               $('.cssCross').fadeOut(300,function(){
@@ -820,17 +820,17 @@ NSF.fnAllReset = function() {
 
 // パケット画像の変更
 NSF.fnPacketChenge = function(set1, set2, set3) {
-  if($("#"+ set1 +"-packet").attr("src") === "NewNetworkSimulator/img/"+ set1 +"_1.png") {
-    $("#"+ set1 +"-packet").attr("src", "NewNetworkSimulator/img/"+ set1 +"_2.png");
-    if($("#"+ set2 +"-packet").attr("src") === "NewNetworkSimulator/img/"+ set2 +"_2.png") {
-      $("#"+ set2 +"-packet").attr("src", "NewNetworkSimulator/img/"+ set2 +"_1.png");
+  if($("#"+ set1 +"-packet").attr("src") === "/assets/"+ set1 +"_1.png") {
+    $("#"+ set1 +"-packet").attr("src", "/assets/"+ set1 +"_2.png");
+    if($("#"+ set2 +"-packet").attr("src") === "/assets/"+ set2 +"_2.png") {
+      $("#"+ set2 +"-packet").attr("src", "/assets/"+ set2 +"_1.png");
     }
-    else if($("#"+ set3 +"-packet").attr("src") === "NewNetworkSimulator/img/"+ set3 +"_2.png") {
-      $("#"+ set3 +"-packet").attr("src", "NewNetworkSimulator/img/"+ set3 +"_1.png");
+    else if($("#"+ set3 +"-packet").attr("src") === "/assets/"+ set3 +"_2.png") {
+      $("#"+ set3 +"-packet").attr("src", "/assets/"+ set3 +"_1.png");
     }
   }
   else {
-    $("#"+ set1 +"-packet").attr("src", "NewNetworkSimulator/img/"+ set1 +"_1.png");
+    $("#"+ set1 +"-packet").attr("src", "/assets/"+ set1 +"_1.png");
   }
 }
 
@@ -838,7 +838,7 @@ NSF.fnPacketChenge = function(set1, set2, set3) {
 NSF.fnPacketAdd = function() {
   var elthis = $(this);
   // get-nodeを付加する処理
-  if($("#get-packet").attr("src") === "NewNetworkSimulator/img/get_2.png") {
+  if($("#get-packet").attr("src") === "/assets/get_2.png") {
     // get-nodeがあるとき
     if(elthis.hasClass("get-node")) { }
     // send-nodeがあるとき
@@ -853,7 +853,7 @@ NSF.fnPacketAdd = function() {
     }
   }
   // send-nodeを付加する処理
-  else if($("#send-packet").attr("src") === "NewNetworkSimulator/img/send_2.png") {
+  else if($("#send-packet").attr("src") === "/assets/send_2.png") {
     // get-nodeがあるとき
     if(elthis.hasClass("get-node")) {
       $(".send-node").prev().remove();
@@ -872,7 +872,7 @@ NSF.fnPacketAdd = function() {
     }
   }
   // nodeをリセットする処理
-  else if($("#reset-packet").attr("src") === "NewNetworkSimulator/img/reset_2.png") {
+  else if($("#reset-packet").attr("src") === "/assets/reset_2.png") {
     if(elthis.hasClass("get-node") || elthis.hasClass("send-node")) {
       elthis.prev().remove();
       elthis.removeClass("get-node");
@@ -958,9 +958,9 @@ NSF.changeLanMode = function () {
   var elMain     = $("#nsf-main");
   var elMainDrag = $("#nsf-main .ui-draggable");
   // OFFのとき
-  if($('#lan').attr("src") === "NewNetworkSimulator/img/lanCable.png") {
+  if($('#lan').attr("src") === "/assets/lanCable.png") {
     // 画像を ONに変更
-    $('#lan').attr("src", "NewNetworkSimulator/img/lanCable_2.png");
+    $('#lan').attr("src", "/assets/lanCable_2.png");
     // イベントハンドラーを付ける
     elMain.on("mousedown", NSF.fnLanDown);
     elMain.on("mouseup", NSF.fnLanUp);
@@ -1003,9 +1003,9 @@ NSF.changeLanMode = function () {
     $("input[name=busSwitch]").removeClass('busOn');
   }
   // ONのとき
-  else if($('#lan').attr("src") === "NewNetworkSimulator/img/lanCable_2.png") {
+  else if($('#lan').attr("src") === "/assets/lanCable_2.png") {
     // 画像を OFFに変更
-    $('#lan').attr("src", "NewNetworkSimulator/img/lanCable.png");
+    $('#lan').attr("src", "/assets/lanCable.png");
     // イベントハンドラーの削除
     elMain.off("mousedown", NSF.fnLanDown);
     elMain.off("mouseup", NSF.fnLanUp);
@@ -1044,7 +1044,7 @@ NSF.fnReconstructionTopology = function (Qdata) {
       NSF.pcNode++;
       $('#nsf-main').append(
         $('<img>').attr({
-          src: "NewNetworkSimulator/img/pc.png",
+          src: "/assets/pc.png",
           alt: Qdata.nodeInfo[i].name,
           class: Qdata.nodeInfo[i].class,
           style: 'position: absolute; top: ' + style_positionY + 'px; left: ' + style_positionX + 'px;',
@@ -1055,7 +1055,7 @@ NSF.fnReconstructionTopology = function (Qdata) {
           'oncontextmenu': 'return fncontextmenu(this)'
         }));
 
-      $('#nsf-right dl').append('<dt><img src= NewNetworkSimulator/img/plus.jpg> <span>' + Qdata.nodeInfo[i].name + '</span></dt>' +
+      $('#nsf-right dl').append('<dt><img src= /assets/plus.jpg> <span>' + Qdata.nodeInfo[i].name + '</span></dt>' +
       '<dd><p class="rightInfo-IPSM">IP-0: <span id="rightInfo-IP' + Qdata.nodeInfo[i].name.slice(2) + '">' + Qdata.nodeInfo[i].ip + '</span> /<span id="rightInfo-SM' + Qdata.nodeInfo[i].name.slice(2) + '">' + Qdata.nodeInfo[i].sm + '</span></p>' +
       '<p class="rightInfo-routingtable-IPSM"><span id="rightInfo-PCroutingtable-IP' + Qdata.nodeInfo[i].name.slice(2) + '_0">' + Qdata.nodeInfo[i].routingtable[0].ip + '</span>/' +
       '<span id="rightInfo-PCroutingtable-SM' + Qdata.nodeInfo[i].name.slice(2) + '_0">' + Qdata.nodeInfo[i].routingtable[0].sm + '</span><br>→' +
@@ -1072,7 +1072,7 @@ NSF.fnReconstructionTopology = function (Qdata) {
       NSF.ruNode++;
       $('#nsf-main').append(
         $('<img>').attr({
-          src: "NewNetworkSimulator/img/router.png",
+          src: "/assets/router.png",
           alt: Qdata.nodeInfo[i].name,
           class: Qdata.nodeInfo[i].class,
           style: 'position: absolute; top: ' + style_positionY + 'px; left: ' + style_positionX + 'px;',
@@ -1083,7 +1083,7 @@ NSF.fnReconstructionTopology = function (Qdata) {
           'oncontextmenu': 'return fncontextmenu(this)'
         }));
 
-      $('#nsf-right dl').append('<dt style=""><img src="NewNetworkSimulator/img/plus.jpg"><span>' + Qdata.nodeInfo[i].name + '</span></dt><dd></dd>');
+      $('#nsf-right dl').append('<dt style=""><img src="/assets/plus.jpg"><span>' + Qdata.nodeInfo[i].name + '</span></dt><dd></dd>');
 
 
       $('#nsf-right dl dd:last-child').append('<div class="rightInfo-IPSM"></div>');
@@ -1245,13 +1245,13 @@ NSF.fnchangeMode = function () {
 
     //nsf-navに追加
     $("#nsf-nav :nth-of-type(8)")
-    .after("<div class='tip tip_study add_nav'><img src='NewNetworkSimulator/img/study.png' id='study' title='練習問題'><span>問題を表示します</span></div>" +
+    .after("<div class='tip tip_study add_nav'><img src='/assets/study.png' id='study' title='練習問題'><span>問題を表示します</span></div>" +
     "<div class='add_height_line' id='add_line'></div>" +
-    "<div class='tip tip_save add_nav'><img src='NewNetworkSimulator/img/save.png' id='save' title='セーブ'><span>現在のネットワーク構成を保存します</span></div>" +
+    "<div class='tip tip_save add_nav'><img src='/assets/save.png' id='save' title='セーブ'><span>現在のネットワーク構成を保存します</span></div>" +
     "<div class='add_height_line' id='add_line'></div>" +
-    "<div class='tip tip_load add_nav'><img src='NewNetworkSimulator/img/load.png' id='load' title='ロード'><span>セーブした問題のネットワーク構成を復元します</span></div>" +
+    "<div class='tip tip_load add_nav'><img src='/assets/load.png' id='load' title='ロード'><span>セーブした問題のネットワーク構成を復元します</span></div>" +
     "<div class='add_height_line add_nav' id='add_line'></div>" +
-    "<div class='tip tip_quit add_nav'><img src='NewNetworkSimulator/img/quit.png' id='quit' title='終了'><span>問題演習を終了します</span></div>" +
+    "<div class='tip tip_quit add_nav'><img src='/assets/quit.png' id='quit' title='終了'><span>問題演習を終了します</span></div>" +
     "<div class='add_height_line' id='line'></div>");
 
     //イベントハンドラを付ける
@@ -1261,7 +1261,7 @@ NSF.fnchangeMode = function () {
     $("#quit").on('click', NSF.fnquit);
 
     //dustのイベントハンドラを削除
-    $("#dust").attr("src", "NewNetworkSimulator/img/dust2.png");
+    $("#dust").attr("src", "/assets/dust2.png");
     $("#dust").off('click', NSF.fnAllReset);
 
     //nsf-leftのイベントハンドラを削除
@@ -1283,7 +1283,7 @@ NSF.fnchangeMode = function () {
     $(".add_height_line").remove();
     $("#question").remove();
     //dustにイベントハンドラを付ける
-    $("#dust").attr("src", "NewNetworkSimulator/img/dust.png");
+    $("#dust").attr("src", "/assets/dust.png");
     $("#dust").on('click', NSF.fnAllReset);
     // // machineryをドラッグ
     // $(".machinery").draggable({
@@ -1338,7 +1338,7 @@ NSF.fnstudy = function () {
         width:  $("#nsf-main").width(),
       },500);
 
-    $("#questionLayer").append('<img src="NewNetworkSimulator/img/batu.png" id="questionClose">'+
+    $("#questionLayer").append('<img src="/assets/batu.png" id="questionClose">'+
         '<div id="glayStudyMenu">'+
         '<div id="studyMenuOutput">'+
         '</div>'+
@@ -1684,7 +1684,7 @@ NSF.fnload = function () {
       width:  $("#nsf-main").width(),
     },500);
 
-    $("#questionLayer").append('<img src="NewNetworkSimulator/img/batu.png" id="questionClose">'+
+    $("#questionLayer").append('<img src="/assets/batu.png" id="questionClose">'+
         '<div id="glayStudyMenu">'+
         '<div id="studyMenuOutput">'+
         '</div>'+
@@ -1746,7 +1746,7 @@ NSF.fnquit = function () {
       width:  $("#nsf-main").width(),
     },500);
 
-    $("#questionLayer").append('<img src="NewNetworkSimulator/img/batu.png" id="questionClose">'+
+    $("#questionLayer").append('<img src="/assets/batu.png" id="questionClose">'+
         '<div id="glayStudyMenu">'+
         '<div id="studyMenuOutput">'+
         '</div>'+
@@ -1831,13 +1831,13 @@ NSF.IndicateNodeInfo = function () {
 // 画像を追加
 NSF.fnMainDrop = function(ui, obj) {
   // 機種の判別
-  if(ui.draggable.attr("src") === "NewNetworkSimulator/img/pc.png") {
+  if(ui.draggable.attr("src") === "/assets/pc.png") {
     NSF.dropNodeInt = NSF.pcNode;
     NSF.dropNodeName = "PC"+ NSF.pcNode;
     NSF.dropContextName = "context-menu-PC";
     NSF.pcNode++;
   }
-  else if(ui.draggable.attr("src") === "NewNetworkSimulator/img/router.png") {
+  else if(ui.draggable.attr("src") === "/assets/router.png") {
     NSF.dropNodeInt = NSF.ruNode;
     NSF.dropNodeName = "Router"+ NSF.ruNode;
     NSF.dropContextName = "context-menu-Router";
@@ -1880,7 +1880,7 @@ NSF.fnMainDrop = function(ui, obj) {
   //context-menuに名前を追加
   //$(obj[0].lastChild).data().name = NSF.dropNodeName;
   // LANが ONのとき画像を動かなくする
-  if($("#lan").attr("src") === "NewNetworkSimulator/img/lanCable_2.png") {
+  if($("#lan").attr("src") === "/assets/lanCable_2.png") {
     var elMainImgLast = $("#nsf-main img:last-child");
     elMainImgLast.css("cursor", "crosshair");
     elMainImgLast.mouseup(function(e) { e.preventDefault(); });
@@ -1896,16 +1896,16 @@ NSF.fnMainDrop = function(ui, obj) {
     });
   }
   // nsf-rightにトポロジを追加
-  if(ui.draggable.attr("src") === "NewNetworkSimulator/img/pc.png") {
-    $("#nsf-right dl").append("<dt><img src= NewNetworkSimulator/img/plus.jpg><span>"+ ui.draggable.attr("alt") + NSF.dropNodeInt +"</span></dt>" +
+  if(ui.draggable.attr("src") === "/assets/pc.png") {
+    $("#nsf-right dl").append("<dt><img src= /assets/plus.jpg><span>"+ ui.draggable.attr("alt") + NSF.dropNodeInt +"</span></dt>" +
     "<dd><p class='rightInfo-IPSM'>IP-0: <span id='rightInfo-IP" + NSF.dropNodeInt + "'></span> /<span id='rightInfo-SM" + NSF.dropNodeInt + "'></span></p></dd>");
 
     $('#nsf-right dt:contains("'+ ui.draggable.attr("alt") + NSF.dropNodeInt +'") + dd')
     .append('<p class="rightInfo-routingtable-IPSM"><span id="rightInfo-PCroutingtable-IP' + NSF.dropNodeInt + '_'  + '0' + '">DefaultGateway</span>/<span id="rightInfo-PCroutingtable-SM' + NSF.dropNodeInt + '_'  + '0' +'"></span>' +
     '<br/>→<span id="rightInfo-PCroutingtable-NHA' + NSF.dropNodeInt + '_'  + '0' + '"></span>：IF<span id="rightInfo-PCroutingtable-IF' + NSF.dropNodeInt + '_'  + '0' + '"></span></p>');
   }
-  else if(ui.draggable.attr("src") === "NewNetworkSimulator/img/router.png") {
-    $("#nsf-right dl").append("<dt><img src= NewNetworkSimulator/img/plus.jpg><span>"+ ui.draggable.attr("alt") + NSF.dropNodeInt +"</span></dt><dd><div class='rightInfo-IPSM'></div></dd>");
+  else if(ui.draggable.attr("src") === "/assets/router.png") {
+    $("#nsf-right dl").append("<dt><img src= /assets/plus.jpg><span>"+ ui.draggable.attr("alt") + NSF.dropNodeInt +"</span></dt><dd><div class='rightInfo-IPSM'></div></dd>");
 
     $('#nsf-right dt:contains("'+ ui.draggable.attr("alt") + NSF.dropNodeInt +'") + dd')
     .append('<p class="rightInfo-routingtable-IPSM"><span id="rightInfo-routingtable-IP' + NSF.dropNodeInt + '_'  + '0' + '">DefaultGateway</span>/<span id="rightInfo-routingtable-SM' + NSF.dropNodeInt + '_'  + '0' +'"></span>' +
@@ -1922,9 +1922,9 @@ NSF.fnMainDrop = function(ui, obj) {
 // マウスのボタンが押されたときに処理を実行する関数
 NSF.fnLanDown = function(e) {
   // imgにマウスが乗っているとき
-  if(NSF.lanFlag && $("#lan").attr("src") === "NewNetworkSimulator/img/lanCable_2.png") {
+  if(NSF.lanFlag && $("#lan").attr("src") === "/assets/lanCable_2.png") {
     // PCに線が引かれているとき
-    if($(e.target).attr("src") === "NewNetworkSimulator/img/pc.png" && $(e.target).hasClass("lanLink")) {
+    if($(e.target).attr("src") === "/assets/pc.png" && $(e.target).hasClass("lanLink")) {
       $("#nsf-console").append("<p>> PCにLANは1本しか引けません。</p>");
     }
     else {
@@ -1951,7 +1951,7 @@ NSF.fnLanDown = function(e) {
 }
 
 NSF.fnBusDown = function (e) {
-  if($('#lan').attr('src') === 'NewNetworkSimulator/img/lanCable.png' && $('.mouseover').length == 0 && $('.lanFirst').length == 0 && $('.bus-mouseover').length == 0) {
+  if($('#lan').attr('src') === '/assets/lanCable.png' && $('.mouseover').length == 0 && $('.lanFirst').length == 0 && $('.bus-mouseover').length == 0) {
     NSF.points = [];
     NSF.addCanvas = $('<canvas width="' + NSF.canvasWidth + '" height="' + NSF.canvasHeight + '"></canvas>').prependTo('#nsf-main');
     $("#nsf-main").on("mousemove", NSF.fnBusDrag);
@@ -1990,7 +1990,7 @@ NSF.fnBusDrag = function (e) {
 
 // マウスのボタンが離されたときに処理を実行する関数
 NSF.fnLanUp = function(e) {
-  if(NSF.lanFlagPoint && $("#lan").attr("src") === "NewNetworkSimulator/img/lanCable_2.png") {
+  if(NSF.lanFlagPoint && $("#lan").attr("src") === "/assets/lanCable_2.png") {
     NSF.lanFlagDelet = true;
     // マウスを押してドラッグしなかったとき || 画像の上に載ってないとき || 最初の画像のとき
     if(NSF.points.length === 1 || (NSF.lanFlag === false) || $(e.target).hasClass("lanFirst")) {
@@ -2017,7 +2017,7 @@ NSF.fnLanUp = function(e) {
       NSF.lanNode--;
     }
     // PCにもう線が引かれているとき
-    else if($(e.target).hasClass("lanLink") && $(e.target).attr("src") === "NewNetworkSimulator/img/pc.png") {
+    else if($(e.target).hasClass("lanLink") && $(e.target).attr("src") === "/assets/pc.png") {
       if(NSF.lanFlaglink === true) {
         $(".sP_"+ NSF.lanNode).removeClass("sP_"+ NSF.lanNode);
       }
@@ -2160,7 +2160,7 @@ NSF.fnLanUp = function(e) {
 }
 
 NSF.fnBusUp = function (e) {
-  if($('#lan').attr('src') === 'NewNetworkSimulator/img/lanCable.png' && $('.mouseover').length == 0) {
+  if($('#lan').attr('src') === '/assets/lanCable.png' && $('.mouseover').length == 0) {
     //始点と終点の位置
     if (NSF.points[NSF.points.length - 1].x - NSF.points[0].x > 0) {
       x = NSF.points[0].x + NSF.mainCanvasX;
@@ -3413,13 +3413,13 @@ $('#questionLayer').css({
   'width':  $("#nsf-main").width()
 });
 
-//読み込み時のアニメーション
-$().introtzikas({
-  line: '#fff', //ラインの色
-  speedwidth: 1000, //幅の移動完了スピード
-  speedheight: 1000, //高さの移動完了スピード
-  bg: '#333' //背景色
-});
+// //読み込み時のアニメーション
+// $().introtzikas({
+//   line: '#fff', //ラインの色
+//   speedwidth: 1000, //幅の移動完了スピード
+//   speedheight: 1000, //高さの移動完了スピード
+//   bg: '#333' //背景色
+// });
 
 
 
@@ -3908,7 +3908,7 @@ $("#connect-start").click(function(){
           }));
         $('.cssCircle:last-child').append(
           $('<img>').attr({
-            src: 'NewNetworkSimulator/img/big_circle.png'
+            src: '/assets/big_circle.png'
           }));
           $('.cssCircle').fadeOut(300,function(){
             $(this).fadeIn(400, function () {
@@ -3938,7 +3938,7 @@ $("#connect-start").click(function(){
           }));
         $('.cssCircle:last-child').append(
           $('<img>').attr({
-            src: 'NewNetworkSimulator/img/big_cross.png'
+            src: '/assets/big_cross.png'
           }));
           $('.cssCircle').fadeOut(300,function(){
             $(this).fadeIn(400, function () {
@@ -4021,7 +4021,7 @@ $("#connect-start").click(function(){
     //       }));
     //     $('.cssCircle:last-child').append(
     //       $('<img>').attr({
-    //         src: 'NewNetworkSimulator/img/big_circle.png'
+    //         src: '/assets/big_circle.png'
     //       }));
     //       $('.cssCircle').fadeOut(300,function(){
     //         $(this).fadeIn(400, function () {
@@ -4049,7 +4049,7 @@ $("#connect-start").click(function(){
     //       }));
     //     $('.cssCircle:last-child').append(
     //       $('<img>').attr({
-    //         src: 'NewNetworkSimulator/img/big_cross.png'
+    //         src: '/assets/big_cross.png'
     //       }));
     //       $('.cssCircle').fadeOut(300,function(){
     //         $(this).fadeIn(400, function () {
@@ -4123,16 +4123,16 @@ $("#check").on(({
   mousedown:function () {
 
     //onのとき
-    if ($('#check').attr('src') == 'NewNetworkSimulator/img/check_2.png') {
+    if ($('#check').attr('src') == '/assets/check_2.png') {
       //画像をoffに変更
-      $('#check').attr('src', 'NewNetworkSimulator/img/check.png');
+      $('#check').attr('src', '/assets/check.png');
       //checkLayerを閉じる
       $("#checkLayer").css({'display':'none','height':0});
       $("#checkLayer").empty();
     }
     else {
       //画像を変更
-      $("#check").attr("src", "NewNetworkSimulator/img/check_2.png");
+      $("#check").attr("src", "/assets/check_2.png");
       //checkLayerを表示
       $("#checkLayer").css({
         display: 'block',
@@ -4147,7 +4147,7 @@ $("#check").on(({
         complete:function () {
           $("#checkLayer").append('<canvas width="600" height="400" id="checkLayer-canvas"></canvas>');
           $("#nsf-right dd").show();
-          $("#nsf-right dt img").attr("src", "NewNetworkSimulator/img/minus.jpg");
+          $("#nsf-right dt img").attr("src", "/assets/minus.jpg");
           NSF.IndicateNodeInfo();
         }
       });
@@ -4157,7 +4157,7 @@ $("#check").on(({
 
   // mouseup:function () {
   //   //画像を変更
-  //   $("#check").attr("src", "NewNetworkSimulator/img/check.png");
+  //   $("#check").attr("src", "/assets/check.png");
   //   //checkLayerを閉じる
   //   $("#checkLayer").css({'display':'none','height':0});
   //   $("#checkLayer").empty();
@@ -4165,7 +4165,7 @@ $("#check").on(({
 
   // mouseleave:function () {
   //   //画像を変更
-  //   $("#check").attr("src", "NewNetworkSimulator/img/check.png");
+  //   $("#check").attr("src", "/assets/check.png");
   //   //checkLayerを閉じる
   //   $("#checkLayer").css({'display':'none','height':0});
   //   $("#checkLayer").empty();
@@ -4179,11 +4179,11 @@ $("#info").click(function(){
   NSF.fnGlayOpen();
   // 画像等の追加
   $("#glayLayer").append('<div id="slideGalley"><ul id="slideUl">'+
-    '<li><img src="NewNetworkSimulator/img/sample1.png"></li><li><img src="NewNetworkSimulator/img/sample2.png"></li><li><img src="NewNetworkSimulator/img/sample3.png"></li><li><img src="NewNetworkSimulator/img/sample4.png"></li><li><img src="NewNetworkSimulator/img/sample5.png"></li><li><img src="NewNetworkSimulator/img/sample6.png"></li><li><img src="NewNetworkSimulator/img/sample7.png"></li><li><img src="NewNetworkSimulator/img/sample8.png"></li>'+
+    '<li><img src="/assets/sample1.png"></li><li><img src="/assets/sample2.png"></li><li><img src="/assets/sample3.png"></li><li><img src="/assets/sample4.png"></li><li><img src="/assets/sample5.png"></li><li><img src="/assets/sample6.png"></li><li><img src="/assets/sample7.png"></li><li><img src="/assets/sample8.png"></li>'+
     '</ul></div>');
-  $("#glayLayer").append('<img src="NewNetworkSimulator/img/batu.png" id="glayClose">');
-  $("#glayLayer").append('<img src="NewNetworkSimulator/img/left.png" id="infoLeft">');
-  $("#glayLayer").append('<img src="NewNetworkSimulator/img/right.png" id="infoRight">');
+  $("#glayLayer").append('<img src="/assets/batu.png" id="glayClose">');
+  $("#glayLayer").append('<img src="/assets/left.png" id="infoLeft">');
+  $("#glayLayer").append('<img src="/assets/right.png" id="infoRight">');
   // イベントハンドラの追加
   $("#infoLeft").on('click', NSF.fnGlayInfoLeft);
   $("#infoRight").on('click', NSF.fnGlayInfoRight);
@@ -4303,7 +4303,7 @@ $('input[name=busSwitch]').click(function(){
     $("input[name=busSwitch]").addClass('busOn');
 
     //lanがonの時offに切り替え
-    if ($('#lan').attr('src') == 'NewNetworkSimulator/img/lanCable_2.png') {
+    if ($('#lan').attr('src') == '/assets/lanCable_2.png') {
       NSF.changeLanMode();
     }
   }
@@ -4347,7 +4347,7 @@ $("#nsf-main").on("mouseover", "img", function(e){
 
 //busの上にある時
 $("#nsf-main").on("mouseover", ".bus", function(e){
-  //if ($('#lan').attr('src') === 'NewNetworkSimulator/img/lanCable.png') {
+  //if ($('#lan').attr('src') === '/assets/lanCable.png') {
     $(e.target).addClass('bus-mouseover');
     $(e.target).draggable();
   //}
@@ -4433,45 +4433,45 @@ $("#questionClose").on('click', NSF.fnQuestionSelectClose);
 // nsf-rightのimgをクリック
 $("#nsf-right").on("click", "img", function(){
   var elthis = $(this);
-  if(elthis.attr("src") === "NewNetworkSimulator/img/plus.jpg") {
-    elthis.attr("src", "NewNetworkSimulator/img/minus.jpg");
+  if(elthis.attr("src") === "/assets/plus.jpg") {
+    elthis.attr("src", "/assets/minus.jpg");
     elthis.parent("dt").next().show();
   }
-  else if(elthis.attr("src") === "NewNetworkSimulator/img/minus.jpg") {
-    elthis.attr("src", "NewNetworkSimulator/img/plus.jpg");
+  else if(elthis.attr("src") === "/assets/minus.jpg") {
+    elthis.attr("src", "/assets/plus.jpg");
     elthis.parent("dt").next().hide();
   }
 });
 
 // nsf-right-infoのimgをクリック
 $("#nsf-right-info img").on("click", function(){
-  if($(this).attr("src") === "NewNetworkSimulator/img/open.png") {
+  if($(this).attr("src") === "/assets/open.png") {
     $("#nsf-right dd").show();
-    $("#nsf-right dt img").attr("src", "NewNetworkSimulator/img/minus.jpg");
+    $("#nsf-right dt img").attr("src", "/assets/minus.jpg");
   }
-  if($(this).attr("src") === "NewNetworkSimulator/img/close.png") {
+  if($(this).attr("src") === "/assets/close.png") {
     $("#nsf-right dd").hide();
-    $("#nsf-right dt img").attr("src", "NewNetworkSimulator/img/plus.jpg");
+    $("#nsf-right dt img").attr("src", "/assets/plus.jpg");
   }
 });
 
-//行動を保存する
-$('html').on('click', function (e) {
-  sendData = new Object();
-  sendData.outerHTML =  e.target.outerHTML;
-  sendData.timeStamp =  e.timeStamp;
-
-  postJsonData = JSON.stringify(sendData);
-  // console.log(postJsonData);
-  $.ajax({
-    type: 'POST',
-    dataType: 'text',
-    //url: 'js/sample1.json',
-    url: 'NewNetworkSimulator/php/save_operation.php',
-    data:{id : NSF.urlparameter, postJsonData: postJsonData}
-  }).done(function (data) {
-    // console.log(data);
-  });
-});
+// //行動を保存する
+// $('html').on('click', function (e) {
+//   sendData = new Object();
+//   sendData.outerHTML =  e.target.outerHTML;
+//   sendData.timeStamp =  e.timeStamp;
+//
+//   postJsonData = JSON.stringify(sendData);
+//   // console.log(postJsonData);
+//   $.ajax({
+//     type: 'POST',
+//     dataType: 'text',
+//     //url: 'js/sample1.json',
+//     url: 'NewNetworkSimulator/php/save_operation.php',
+//     data:{id : NSF.urlparameter, postJsonData: postJsonData}
+//   }).done(function (data) {
+//     // console.log(data);
+//   });
+// });
 
 });
