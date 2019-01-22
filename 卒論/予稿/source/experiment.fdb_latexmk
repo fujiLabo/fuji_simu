@@ -1,16 +1,16 @@
 # Fdb version 3
-["dvipdf"] 1547821363 "experiment.dvi" "experiment.pdf" "experiment" 1547821367
-  "experiment.dvi" 1547821363 912 6c7c267f9978e8e5c5c54cbd00b4d32e "latex"
+["dvipdf"] 1548040963 "experiment.dvi" "experiment.pdf" "experiment" 1548040964
+  "experiment.dvi" 1548040963 912 af198b32e8bfa01e09c94b46b97d036f "latex"
   (generated)
   "experiment.pdf"
-["latex"] 1547821361 "experiment.tex" "experiment.dvi" "experiment" 1547821367
+["latex"] 1548040963 "experiment.tex" "experiment.dvi" "experiment" 1548040964
   "/usr/local/texlive/2018/texmf-dist/fonts/map/fontname/texfonts.map" 1511824771 3332 103109f5612ad95229751940c61aada0 ""
   "/usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm" 1480098701 1328 c834bbb027764024c09d3d2bf908b5f0 ""
   "/usr/local/texlive/2018/texmf-dist/web2c/texmf.cnf" 1522066949 33362 cf75436e19743e94a92a6b1b9183c434 ""
   "/usr/local/texlive/2018/texmf-var/web2c/euptex/uplatex.fmt" 1544692265 4470728 cfcd4deda4fe05114388c5e1b815449e ""
   "/usr/local/texlive/2018/texmf.cnf" 1523934483 577 0b39adfd7c93507ff20c9c14c2f1a33f ""
   "experiment.aux" 1547799632 8 a94a2480d3289e625eea47cd1b285758 ""
-  "experiment.tex" 1547821360 1469 ae7fc7509d41c04566b394645a11a65f ""
+  "experiment.tex" 1548040962 1453 ed45cb18e8ecb6f81ec1f79363dcb716 ""
   (generated)
   "experiment.log"
   "experiment.dvi"
