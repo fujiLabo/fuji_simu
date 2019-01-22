@@ -123,8 +123,8 @@ INPUT source/OAuth.tex
 INPUT source/OAuth.tex
 INPUT source/function.tex
 INPUT source/function.tex
-INPUT img/virtualMachine.png
-INPUT extractbb -B cropbox -O img/virtualMachine.png
+INPUT img/system.png
+INPUT extractbb -B cropbox -O img/system.png
 INPUT source/rails.tex
 INPUT source/rails.tex
 INPUT img/mvc.png

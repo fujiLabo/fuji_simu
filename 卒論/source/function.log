@@ -1,4 +1,4 @@
-This is e-upTeX, Version 3.14159265-p3.8.0-u1.23-180226-2.6 (utf8.uptex) (TeX Live 2018) (preloaded format=uplatex 2018.12.3)  18 JAN 2019 17:16
+This is e-upTeX, Version 3.14159265-p3.8.0-u1.23-180226-2.6 (utf8.uptex) (TeX Live 2018) (preloaded format=uplatex 2018.12.3)  22 JAN 2019 13:00
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1434,7 +1434,7 @@ Overfull \hbox (45.8334pt too wide) in paragraph at lines 5--6
 
 ./function.tex:7: Undefined control sequence.
 l.7     \includegraphics
-                        [clip,width=12.0cm,height=8.0cm]{img/virtualMachine....
+                        [clip,width=12.0cm,height=8.0cm]{img/system.png}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -1449,28 +1449,53 @@ Type  H <return>  for immediate help.
  ...                                              
                                                   
 l.8     \caption
-                {仮想マシンの構成}
+                {本研究で提案するシステムの構成}
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 
-Overfull \hbox (256.13954pt too wide) in paragraph at lines 7--10
- \OT1/cmr/m/n/10 [clip,width=12.0cm,height=8.0cm]img/virtualMachine.png 
+Overfull \hbox (220.11166pt too wide) in paragraph at lines 7--10
+ \OT1/cmr/m/n/10 [clip,width=12.0cm,height=8.0cm]img/system.png 
  []
 
 
 Overfull \hbox (9.6222pt too wide) in paragraph at lines 7--10
- \JY2/mc/m/n/10 仮 
+ \JY2/mc/m/n/10 本 
  []
 
 
 Overfull \hbox (9.6222pt too wide) in paragraph at lines 7--10
- \JY2/mc/m/n/10 想 
+ \JY2/mc/m/n/10 研 
  []
 
 
 Overfull \hbox (9.6222pt too wide) in paragraph at lines 7--10
- \JY2/mc/m/n/10 マ 
+ \JY2/mc/m/n/10 究 
+ []
+
+
+Overfull \hbox (9.6222pt too wide) in paragraph at lines 7--10
+ \JY2/mc/m/n/10 で 
+ []
+
+
+Overfull \hbox (9.6222pt too wide) in paragraph at lines 7--10
+ \JY2/mc/m/n/10 提 
+ []
+
+
+Overfull \hbox (9.6222pt too wide) in paragraph at lines 7--10
+ \JY2/mc/m/n/10 案 
+ []
+
+
+Overfull \hbox (9.6222pt too wide) in paragraph at lines 7--10
+ \JY2/mc/m/n/10 す 
+ []
+
+
+Overfull \hbox (9.6222pt too wide) in paragraph at lines 7--10
+ \JY2/mc/m/n/10 る 
  []
 
 
@@ -1480,7 +1505,17 @@ Overfull \hbox (9.6222pt too wide) in paragraph at lines 7--10
 
 
 Overfull \hbox (9.6222pt too wide) in paragraph at lines 7--10
- \JY2/mc/m/n/10 ン 
+ \JY2/mc/m/n/10 ス 
+ []
+
+
+Overfull \hbox (9.6222pt too wide) in paragraph at lines 7--10
+ \JY2/mc/m/n/10 テ 
+ []
+
+
+Overfull \hbox (9.6222pt too wide) in paragraph at lines 7--10
+ \JY2/mc/m/n/10 ム 
  []
 
 
@@ -1511,20 +1546,6 @@ Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-./function.tex:18: Undefined control sequence.
-<write> ...ence `fig:beforeCons' on page \thepage 
-                                                  \space undefined\on@line .^^J
-l.18 ...中村(2018)らの図\ref{fig:beforeCons}
-                                                 で構成されたシステム
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-
-LaTeX Warning: Reference `fig:beforeCons' on page  undefined on input line 18.
-
 )
 ! Emergency stop.
 <*> function.tex
@@ -1533,10 +1554,10 @@ LaTeX Warning: Reference `fig:beforeCons' on page  undefined on input line 18.
 
  
 Here is how much of TeX's memory you used:
- 12 strings out of 493270
- 152 string characters out of 6145018
- 68462 words of memory out of 5000000
- 4050 multiletter control sequences out of 15000+600000
+ 11 strings out of 493270
+ 136 string characters out of 6145018
+ 68355 words of memory out of 5000000
+ 4049 multiletter control sequences out of 15000+600000
  6589 words of font info for 33 fonts, out of 8000000 for 9000
  929 hyphenation exceptions out of 8191
  22i,4n,15p,901b,103s stack positions out of 5000i,500n,10000p,200000b,80000s
