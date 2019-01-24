@@ -1,16 +1,16 @@
 # Fdb version 3
-["dvipdf"] 1548129611 "function.dvi" "function.pdf" "function" 1548129612
-  "function.dvi" 1548129611 912 349388005d1c6a992e1785848a6ff413 "latex"
+["dvipdf"] 1548315325 "function.dvi" "function.pdf" "function" 1548315327
+  "function.dvi" 1548315325 912 5ca666f3896a147088ce6640d01098be "latex"
   (generated)
   "function.pdf"
-["latex"] 1548129611 "function.tex" "function.dvi" "function" 1548129612
+["latex"] 1548315325 "function.tex" "function.dvi" "function" 1548315327
   "/usr/local/texlive/2018/texmf-dist/fonts/map/fontname/texfonts.map" 1511824771 3332 103109f5612ad95229751940c61aada0 ""
   "/usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm" 1480098701 1328 c834bbb027764024c09d3d2bf908b5f0 ""
   "/usr/local/texlive/2018/texmf-dist/web2c/texmf.cnf" 1522066949 33362 cf75436e19743e94a92a6b1b9183c434 ""
-  "/usr/local/texlive/2018/texmf-var/web2c/euptex/uplatex.fmt" 1543773687 4470727 b7f4572ee1ce76f6992df74be45da296 ""
+  "/usr/local/texlive/2018/texmf-var/web2c/euptex/uplatex.fmt" 1544692265 4470728 cfcd4deda4fe05114388c5e1b815449e ""
   "/usr/local/texlive/2018/texmf.cnf" 1523934483 577 0b39adfd7c93507ff20c9c14c2f1a33f ""
-  "function.aux" 1544978418 8 a94a2480d3289e625eea47cd1b285758 ""
-  "function.tex" 1548129611 2836 f50d46b2464c527ec051d96db3ddb952 ""
+  "function.aux" 1545013492 8 a94a2480d3289e625eea47cd1b285758 ""
+  "function.tex" 1548315327 2831 de75c1370b42b5531a0e6aedada77fa0 ""
   (generated)
-  "function.log"
   "function.dvi"
+  "function.log"

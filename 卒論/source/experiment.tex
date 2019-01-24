@@ -6,11 +6,33 @@ LMS上でTool Provider(ツール・プロバイダ)を使用するには、各LM
 moodleでは外部ツール設定より図\ref{fig:moodle config}参照、ツール名、ツールURL、コンシューマキー、秘密鍵の設定をする必要がある。これらの設定を得て、moodleからTool Provider(ツール・プロパイダ)を利用することが可能となる。\\
 \begin{figure}[htbp]
   \begin{center}
-    \includegraphics[clip,width=12.0cm,height=8.0cm]{img/moodleSet.png}
+    \resizebox{\textwidth}{!}{\includegraphics{img/moodleSet.png}}
     \caption{moodle 外部ツール設定画面}
     \label{fig:moodle config}
   \end{center}
 \end{figure}
 
+\subsection{成績反映に使うデータ}
+実際に送信するXLMを図\ref{fig:XML}に示し、使用する値についての解説をする。\\
+ユーザーを識別するための番号は<sourcedId>タグを使用。ツールコンシューマからユーザーIDが送信されるので、<sourcedId>タグ内に書き換えて、送信する。
+成績データに関しては<textString>タグを使用。0.0~1.0までの範囲で得点を操作でき、1.0で100点となる。成績反映に関してはこの二つのデータを使用することで成績を反映させた。
+
+\begin{figure}[htbp]
+  \begin{center}
+    \resizebox{8cm}{!}{\includegraphics{img/XML.png}}
+    \caption{実際に送るXML}
+    \label{fig:XML}
+  \end{center}
+\end{figure}
+
 \subsection{成績反映}
-Moodleにおいて、実際に成績反映できるかどうかの実験を行った結果をいかにしめす。
+MoodleとCanvasにおいて、実際に成績反映の実験を行った結果を以下に示す。
+
+
+\begin{figure}[htbp]
+  \begin{center}
+    \resizebox{\textwidth}{!}{\includegraphics{img/score.png}}
+    \caption{moodle 成績反映}
+    \label{fig:moodle score}
+  \end{center}
+\end{figure}

@@ -1,4 +1,4 @@
-PWD /Users/chachamaru/rails/fuji_simu/卒論
+PWD /Users/ryouta/fuji_simu/卒論
 INPUT /usr/local/texlive/2018/texmf.cnf
 INPUT /usr/local/texlive/2018/texmf-dist/web2c/texmf.cnf
 INPUT /usr/local/texlive/2018/texmf.cnf
@@ -117,8 +117,6 @@ INPUT extractbb -B cropbox -O img/LTIstart.png
 INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
 INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/uptex-fonts/jis/upjisg-v.tfm
 INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/uptex-fonts/jis/upjisg-h.tfm
-INPUT img/score.png
-INPUT extractbb -B cropbox -O img/score.png
 INPUT source/OAuth.tex
 INPUT source/OAuth.tex
 INPUT source/function.tex
@@ -137,6 +135,10 @@ INPUT source/experiment.tex
 INPUT source/experiment.tex
 INPUT img/moodleSet.png
 INPUT extractbb -B cropbox -O img/moodleSet.png
+INPUT img/XML.png
+INPUT extractbb -B cropbox -O img/XML.png
+INPUT img/score.png
+INPUT extractbb -B cropbox -O img/score.png
 INPUT source/summary.tex
 INPUT source/summary.tex
 INPUT source/thanks.tex
