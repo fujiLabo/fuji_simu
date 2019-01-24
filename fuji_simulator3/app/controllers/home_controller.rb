@@ -17,6 +17,6 @@ class HomeController < ApplicationController
   def net_check
     response.headers['X-Frame-Options'] = 'ALLOWALL'
 
-    #hash = params.require(:postJsonData)
+    hash = params.require(:postJsonData)
   end
 end

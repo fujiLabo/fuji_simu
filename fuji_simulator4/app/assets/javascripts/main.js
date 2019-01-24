@@ -3875,14 +3875,18 @@ $("#connect-start").click(function(){
     //console.log(sendData);
 
     JsonSendData = JSON.stringify(sendData, null, ' ');
-    //console.log(JsonSendData);
+    console.log(JsonSendData);
 
     $.ajax({
       type: 'POST',
       dataType: 'text',
-      url: 'NewNetworkSimulator/php/post_networkdata.php',
+      //ここを先代のinput.rbとkakinaosi.rbをうまいこと組み込んだcontrollerにする
+      //url: 'NewNetworkSimulator/php/post_networkdata.php',
+      url: '/check',
       // url: 'js/result.json',
+      ContentType: 'application/x-www-form-urlencoded',
       data: {postJsonData : JsonSendData, id : NSF.urlparameter, question_id : NSF.question_id}
+      //data: {postJsonData : JsonSendData}
     }).done(function (data) {
       // console.log(data);
       resultData = JSON.parse(data);
