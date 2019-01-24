@@ -5,5 +5,5 @@ Rails.application.routes.draw do
   get '/temp' => 'home#temp'
   post '/main' => 'home#main'
 
-  post 'check' => 'home#check'
+  post 'net_check' => 'home#net_check'
 end
