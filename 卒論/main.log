@@ -3,8 +3,8 @@ entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**main().tex
-(./main().tex
+**main.tex
+(./main.tex
 pLaTeX2e <2018-04-01u02>+1 (based on LaTeX2e <2018-04-01> patch level 2)
 Babel <3.18> and hyphenation patterns for 84 language(s) loaded.
 (/usr/local/texlive/2018/texmf-dist/tex/platex/base/jarticle.cls
@@ -276,8 +276,8 @@ LaTeX Info: Composite with undeclared \u in encoding PD1 on input line 828.
 LaTeX Info: Composite with undeclared \H in encoding PD1 on input line 837.
 )
 Package hyperref Info: Option `colorlinks' set `false' on input line 66.
- (./main().aux)
-\openout1 = `main().aux'.
+ (./main.aux)
+\openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 68.
 LaTeX Font Info:    ... okay on input line 68.
@@ -309,13 +309,9 @@ Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 LaTeX Info: Redefining \ref on input line 68.
 LaTeX Info: Redefining \pageref on input line 68.
 LaTeX Info: Redefining \nameref on input line 68.
- (./main().out) (./main().out)
+ (./main.out) (./main.out)
 \@outlinefile=\write3
-\openout3 = `main().out'.
-
-
-
-Package hyperref Warning: Rerun to get /PageLabels entry.
+\openout3 = `main.out'.
 
 \c@lstlisting=\count115
 LaTeX Font Info:    Font shape `JT2/mc/m/n' will be
@@ -327,7 +323,8 @@ LaTeX Font Info:    Font shape `JT2/mc/m/n' will be
 LaTeX Font Info:    Font shape `JY2/mc/m/n' will be
 (Font)              scaled to size 23.94002pt on input line 72.
 
-./main().tex:72: Package inputenc Error: Unicode character ^^K (U+B)
+
+./main.tex:72: Package inputenc Error: Unicode character ^^K (U+B)
 (inputenc)                not set up for use with LaTeX.
 
 See the inputenc package documentation for explanation.
@@ -347,7 +344,7 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <14.4> on input line 72.
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <7> on input line 72.
-./main().tex:72: Undefined control sequence.
+./main.tex:72: Undefined control sequence.
 \@maketitle ...\vskip 0.5em \ifvoid \@abstractbox 
                                                   \else \centerline {\box \@...
 l.72 \thispagestyle
@@ -358,7 +355,7 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-./main().tex:72: Missing number, treated as zero.
+./main.tex:72: Missing number, treated as zero.
 <to be read again> 
                    \relax 
 l.72 \thispagestyle
@@ -396,18 +393,44 @@ LaTeX Font Info:    Font shape `JY2/gt/m/n' will be
 (Font)              scaled to size 13.85594pt on input line 1.
 ) [2
 
-]
+] (./main.toc
+LaTeX Font Info:    Font shape `JT2/mc/bx/n' in size <11> not available
+(Font)              Font shape `JT2/gt/m/n' tried instead on input line 1.
+LaTeX Font Info:    Font shape `JT2/gt/m/n' will be
+(Font)              scaled to size 10.58441pt on input line 1.
+LaTeX Font Info:    Font shape `JY2/mc/bx/n' in size <11> not available
+(Font)              Font shape `JY2/gt/m/n' tried instead on input line 1.
+LaTeX Font Info:    Font shape `JY2/gt/m/n' will be
+(Font)              scaled to size 10.58441pt on input line 1.
+LaTeX Font Info:    Calculating math sizes for size <11> on input line 4.
 
-Package hyperref Warning: old toc file detected, not used; run LaTeX again.
 
+LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <5.5> not available
+(Font)              size <5> substituted on input line 4.
+
+
+LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <5.5> not available
+(Font)              size <5> substituted on input line 4.
+
+
+LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <5.5> not available
+(Font)              size <5> substituted on input line 4.
+
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <11> on input line 4.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7.69997> on input line 4.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5.5> on input line 4.
+)
 \tf@toc=\write4
-\openout4 = `main().toc'.
+\openout4 = `main.toc'.
 
-[3
+ [3
 
-] (./source/first.tex) [4
+] [4] (./source/first.tex) [5
 
-] [5] [6] (./source/lti.tex
+] [6] [7] (./source/lti.tex
 File: img/LTIstart.png Graphic file (type bmp)
 <img/LTIstart.png>
 LaTeX Font Info:    Font shape `JT2/mc/bx/n' in size <12> not available
@@ -418,7 +441,7 @@ LaTeX Font Info:    Font shape `JY2/mc/bx/n' in size <12> not available
 (Font)              Font shape `JY2/gt/m/n' tried instead on input line 19.
 LaTeX Font Info:    Font shape `JY2/gt/m/n' will be
 (Font)              scaled to size 11.54663pt on input line 19.
- [7
+ [8
 
 ]
 LaTeX Font Info:    Font shape `JT2/mc/bx/n' in size <10.95> not available
@@ -429,63 +452,29 @@ LaTeX Font Info:    Font shape `JY2/mc/bx/n' in size <10.95> not available
 (Font)              Font shape `JY2/gt/m/n' tried instead on input line 27.
 LaTeX Font Info:    Font shape `JY2/gt/m/n' will be
 (Font)              scaled to size 10.53629pt on input line 27.
- [8] [9] [10]
+ [9] [10] [11]
 File: img/score.png Graphic file (type bmp)
 <img/score.png>
-) (./source/OAuth.tex) [11] (./source/function.tex
-LaTeX Font Info:    Font shape `JT2/mc/bx/n' in size <11> not available
-(Font)              Font shape `JT2/gt/m/n' tried instead on input line 3.
-LaTeX Font Info:    Font shape `JT2/gt/m/n' will be
-(Font)              scaled to size 10.58441pt on input line 3.
-LaTeX Font Info:    Font shape `JY2/mc/bx/n' in size <11> not available
-(Font)              Font shape `JY2/gt/m/n' tried instead on input line 3.
-LaTeX Font Info:    Font shape `JY2/gt/m/n' will be
-(Font)              scaled to size 10.58441pt on input line 3.
-
-
-LaTeX Warning: Reference `fig:virtualMachine' on page 12 undefined on input line 3.
-
+) (./source/OAuth.tex) [12] (./source/function.tex
 File: img/system2.png Graphic file (type bmp)
 <img/system2.png>
-) (./source/rails.tex [12
+) (./source/rails.tex [13
 
-]
-
-LaTeX Warning: Reference `fig:MVC' on page 13 undefined on input line 4.
-
-[13]
+] [14]
 File: img/mvc.png Graphic file (type bmp)
 <img/mvc.png>
-) (./source/ui.tex [14]
-
-LaTeX Warning: Reference `fig:simu' on page 15 undefined on input line 3.
-
+) (./source/ui.tex [15]
 File: img/simu2.png Graphic file (type bmp)
 <img/simu2.png>
-
-LaTeX Warning: Reference `fig:simu' on page 15 undefined on input line 13.
-
-
-LaTeX Warning: Reference `fig:simu' on page 15 undefined on input line 13.
-
-
-LaTeX Warning: Reference `fig:simu' on page 15 undefined on input line 14.
-
-
-LaTeX Warning: Reference `fig:simu' on page 15 undefined on input line 14.
-
-) (./source/operation.tex [15] [16]) [17] (./source/experiment.tex
-
-LaTeX Warning: Reference `fig:moodle config' on page 18 undefined on input line 6.
-
+) (./source/operation.tex [16] [17]) [18] (./source/experiment.tex
 File: img/moodleSet.png Graphic file (type bmp)
 <img/moodleSet.png>
-) [18
+) [19
 
-] [19] (./source/summary.tex) [20
+] [20] (./source/summary.tex) [21
 
-] [21] (./source/thanks.tex)
-./main().tex:127: Undefined control sequence.
+] [22] (./source/thanks.tex)
+./main.tex:127: Undefined control sequence.
 l.127 \clearpages
                  
 The control sequence at the end of the top line
@@ -500,56 +489,34 @@ Overfull \hbox (69.03212pt too wide) in paragraph at lines 140--141
  []
 
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 145.
-[22
+[23
 
 ]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 145.
- (./main().aux
-./main().aux:65: Extra }, or forgotten \endgroup.
-l.65 }
-      }
-I've deleted a group-closing symbol because it seems to be
-spurious, as in `$x}$'. But perhaps the } is legitimate and
-you forgot something else, as in `\hbox{$x}'. In such cases
-the way to recover is to insert both the forgotten and the
-deleted material, e.g., by typing `I$}'.
-
-./main().aux:65: Extra }, or forgotten \endgroup.
-l.65 }}
-       
-I've deleted a group-closing symbol because it seems to be
-spurious, as in `$x}$'. But perhaps the } is legitimate and
-you forgot something else, as in `\hbox{$x}'. In such cases
-the way to recover is to insert both the forgotten and the
-deleted material, e.g., by typing `I$}'.
-
-)
+ (./main.aux)
 Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 145.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 145.
+Package rerunfilecheck Info: File `main.out' has not changed.
+(rerunfilecheck)             Checksum: 7AD35DB36500DFC5407F18979A0FB44B;1201.
 
 
-Package rerunfilecheck Warning: File `main().out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `main().out':
-(rerunfilecheck)             Before: D41D8CD98F00B204E9800998ECF8427E;0
-(rerunfilecheck)             After:  7AD35DB36500DFC5407F18979A0FB44B;1201.
-
-LaTeX Warning: There were undefined references.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+LaTeX Font Warning: Size substitutions with differences
+(Font)              up to 0.5pt have occurred.
 
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 145.
  ) 
 Here is how much of TeX's memory you used:
- 6602 strings out of 493270
- 95121 string characters out of 6145018
- 192240 words of memory out of 5000000
- 10483 multiletter control sequences out of 15000+600000
- 11872 words of font info for 60 fonts, out of 8000000 for 9000
+ 6630 strings out of 493270
+ 95462 string characters out of 6145018
+ 194145 words of memory out of 5000000
+ 10506 multiletter control sequences out of 15000+600000
+ 13400 words of font info for 65 fonts, out of 8000000 for 9000
  929 hyphenation exceptions out of 8191
- 28i,10n,43p,1443b,356s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 28i,10n,43p,1441b,356s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on main().dvi (22 pages, 43804 bytes).
+Output written on main.dvi (23 pages, 52000 bytes).
+1872 words of font info for 60 fonts, out of 8000000 for 9000
+ 929 hyphenation exceptions out of 8191
+ 28i,10n,43p,1441b,356s stack positions out of 5000i,500n,10000p,200000b,80000s
+
+Output written on main.dvi (22 pages, 43804 bytes).
