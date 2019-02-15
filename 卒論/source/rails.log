@@ -1,4 +1,4 @@
-This is e-upTeX, Version 3.14159265-p3.8.0-u1.23-180226-2.6 (utf8.uptex) (TeX Live 2018) (preloaded format=uplatex 2018.12.3)  23 DEC 2018 03:35
+This is e-upTeX, Version 3.14159265-p3.8.0-u1.23-180226-2.6 (utf8.uptex) (TeX Live 2018) (preloaded format=uplatex 2018.12.3)  15 FEB 2019 18:56
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -917,37 +917,24 @@ and I'll forget about whatever was undefined.
 \newlabel{tag:rails}{{}{}}
 ]
 
-./rails.tex:7: LaTeX Error: Environment figure undefined.
+./rails.tex:6: LaTeX Error: Missing \begin{document}.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.7 \begin{figure}
-                  [htbp]
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-./rails.tex:7: LaTeX Error: Missing \begin{document}.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.7 \begin{figure}[
-                   htbp]
+l.6 b
+     egin{figure}[htbp]
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 
-Overfull \hbox (45.8334pt too wide) in paragraph at lines 7--8
-[]\OT1/cmr/m/n/10 [htbp] 
+Overfull \hbox (93.91685pt too wide) in paragraph at lines 6--7
+[]\OT1/cmr/m/n/10 beginfigure[htbp] 
  []
 
-./rails.tex:9: Undefined control sequence.
-l.9     \includegraphics
+./rails.tex:8: Undefined control sequence.
+l.8     \includegraphics
                         [clip,width=12.0cm,height=8.0cm]{img/mvc.png}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -956,69 +943,76 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-./rails.tex:10: LaTeX Error: \caption outside float.
+./rails.tex:9: LaTeX Error: \caption outside float.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.10     \caption
-                 {MVCアーキテクチャ}
+l.9     \caption
+                {MVCアーキテクチャ}
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 
-Overfull \hbox (207.7783pt too wide) in paragraph at lines 9--12
+Overfull \hbox (207.7783pt too wide) in paragraph at lines 8--11
  \OT1/cmr/m/n/10 [clip,width=12.0cm,height=8.0cm]img/mvc.png 
  []
 
 
-Overfull \hbox (23.61115pt too wide) in paragraph at lines 9--12
+Overfull \hbox (23.61115pt too wide) in paragraph at lines 8--11
  \OT1/cmr/m/n/10 MVC 
  []
 
 
-Overfull \hbox (18.74438pt too wide) in paragraph at lines 9--12
+Overfull \hbox (18.74438pt too wide) in paragraph at lines 8--11
  \JY2/mc/m/n/10 ア ー 
  []
 
 
-Overfull \hbox (9.6222pt too wide) in paragraph at lines 9--12
+Overfull \hbox (9.6222pt too wide) in paragraph at lines 8--11
  \JY2/mc/m/n/10 キ 
  []
 
 
-Overfull \hbox (9.6222pt too wide) in paragraph at lines 9--12
+Overfull \hbox (9.6222pt too wide) in paragraph at lines 8--11
  \JY2/mc/m/n/10 テ 
  []
 
 
-Overfull \hbox (9.6222pt too wide) in paragraph at lines 9--12
+Overfull \hbox (9.6222pt too wide) in paragraph at lines 8--11
  \JY2/mc/m/n/10 ク 
  []
 
 
-Overfull \hbox (9.6222pt too wide) in paragraph at lines 9--12
+Overfull \hbox (9.6222pt too wide) in paragraph at lines 8--11
  \JY2/mc/m/n/10 チ 
  []
 
 
-Overfull \hbox (9.6222pt too wide) in paragraph at lines 9--12
+Overfull \hbox (9.6222pt too wide) in paragraph at lines 8--11
  \JY2/mc/m/n/10 ャ[] 
  []
 
 
-./rails.tex:13: LaTeX Error: \begin{document} ended by \end{figure}.
+./rails.tex:12: LaTeX Error: \begin{document} ended by \end{figure}.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.13 \end{figure}
+l.12 \end{figure}
                  
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
+
+./rails.tex:12: Extra \endgroup.
+<recently read> \endgroup 
+                          
+l.12 \end{figure}
+                 
+Things are pretty mixed up, but I think the worst is over.
 
 )
 ! Emergency stop.

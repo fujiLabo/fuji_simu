@@ -1,16 +1,16 @@
 # Fdb version 3
-["bibtex main"] 1543806880 "main.aux" "main.bbl" "main" 1543806886
+["bibtex main"] 1550224583 "main.aux" "main.bbl" "main" 1550224583
   "../biblio.bib" 0 -1 0 ""
   "junsrt.bst" 0 -1 0 ""
-  "main.aux" 1543806885 5641 7569975b0ab81d9d7ff1d676a94a4e4a ""
+  "main.aux" 1550223926 5641 7569975b0ab81d9d7ff1d676a94a4e4a ""
   (generated)
-  "main.bbl"
   "main.blg"
-["dvipdf"] 1543806885 "main.dvi" "main.pdf" "main" 1543806886
-  "main.dvi" 1543806885 72744 468e7cae8e6979114f82fd85da19dcea "latex"
+  "main.bbl"
+["dvipdf"] 1550223927 "main.dvi" "main.pdf" "main" 1550224583
+  "main.dvi" 1550223926 72744 7d957a141da0347e9c15f660207be3f2 "latex"
   (generated)
   "main.pdf"
-["latex"] 1543806883 "main.tex" "main.dvi" "main" 1543806886
+["latex"] 1550223924 "main.tex" "main.dvi" "main" 1550224583
   "/usr/local/texlive/2018/texmf-dist/fonts/map/fontname/texfonts.map" 1511824771 3332 103109f5612ad95229751940c61aada0 ""
   "/usr/local/texlive/2018/texmf-dist/fonts/tfm/public/ascmac/ascgrp.tfm" 1520635638 448 9a1f3a95c3a7e2681aa6eefcf410b7ac ""
   "/usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm" 1480098701 1328 c834bbb027764024c09d3d2bf908b5f0 ""
@@ -84,13 +84,13 @@
   "img/top.png" 0 -1 0 ""
   "img/whitebase01.png" 0 -1 0 ""
   "img/whitebase02.png" 0 -1 0 ""
-  "main.aux" 1543806885 5641 7569975b0ab81d9d7ff1d676a94a4e4a ""
+  "main.aux" 1550223926 5641 7569975b0ab81d9d7ff1d676a94a4e4a ""
   "main.bbl" 0 -1 0 "bibtex main"
-  "main.out" 1543806885 849 2b99547576cb4c4d96841d0b45a9e954 ""
-  "main.tex" 1543806878 2802 1a69b32d0848f00d9188361d633ee046 ""
-  "main.toc" 1543806885 1415 dae4599ee32cf0216be9617628013c0d ""
+  "main.out" 1550223926 849 2b99547576cb4c4d96841d0b45a9e954 ""
+  "main.tex" 1550224583 2802 1a69b32d0848f00d9188361d633ee046 ""
+  "main.toc" 1550223926 1415 dae4599ee32cf0216be9617628013c0d ""
   "source/WHIteBasE.tex" 1485528880 2497 cbe26364001e02c77e69e52cf08a1f74 ""
-  "source/abstract.tex" 1487912712 1216 07dff4e0d15be05041488fc86f002554 ""
+  "source/abstract.tex" 1543807681 1217 0291fea4b4bac4dd29a50d7e2ce66db3 ""
   "source/app.tex" 1543772669 11175 b384f19c91b6b15b1b7a44abf0f74b7d ""
   "source/database.tex" 1543772681 4150 72a5087980d118619bb2a4bcf6d7d588 ""
   "source/eval.tex" 1485528880 2904 55ed852482e56428f0bdc618a987c845 ""
@@ -102,8 +102,8 @@
   "source/thanks.tex" 1485528880 541 c9f222204b76ed9846a100bb129988f7 ""
   "source/web.tex" 1485528880 2621 f124b8559026fb799a74ec7f1cb172ed ""
   (generated)
-  "main.toc"
   "main.aux"
   "main.dvi"
-  "main.log"
+  "main.toc"
   "main.out"
+  "main.log"
