@@ -1,10 +1,10 @@
-PWD /Users/ryouta/fuji_simu/卒論
+PWD /Users/chachamaru/rails/fuji_simu/卒論
 INPUT /usr/local/texlive/2018/texmf.cnf
 INPUT /usr/local/texlive/2018/texmf-dist/web2c/texmf.cnf
 INPUT /usr/local/texlive/2018/texmf.cnf
 INPUT /usr/local/texlive/2018/texmf-var/web2c/euptex/uplatex.fmt
-INPUT main().tex
-OUTPUT main().log
+INPUT main.tex
+OUTPUT main.log
 INPUT /usr/local/texlive/2018/texmf-dist/tex/platex/base/jarticle.cls
 INPUT /usr/local/texlive/2018/texmf-dist/tex/platex/base/jarticle.cls
 INPUT /usr/local/texlive/2018/texmf-dist/tex/platex/base/jsize11.clo
@@ -63,20 +63,20 @@ INPUT /usr/local/texlive/2018/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
 INPUT /usr/local/texlive/2018/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
 INPUT /usr/local/texlive/2018/texmf-dist/tex/platex/pxjahyper/pxjahyper.sty
 INPUT /usr/local/texlive/2018/texmf-dist/tex/platex/pxjahyper/pxjahyper.sty
-INPUT main().aux
-INPUT main().aux
-OUTPUT main().aux
+INPUT main.aux
+INPUT main.aux
+OUTPUT main.aux
 INPUT /usr/local/texlive/2018/texmf-dist/tex/latex/hyperref/nameref.sty
 INPUT /usr/local/texlive/2018/texmf-dist/tex/latex/hyperref/nameref.sty
 INPUT /usr/local/texlive/2018/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 INPUT /usr/local/texlive/2018/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
-INPUT main().out
-INPUT main().out
-INPUT main().out
-INPUT main().out
-INPUT ./main().out
-INPUT ./main().out
-OUTPUT main().out
+INPUT main.out
+INPUT main.out
+INPUT main.out
+INPUT main.out
+INPUT ./main.out
+INPUT ./main.out
+OUTPUT main.out
 INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/uptex-fonts/jis/upjisr-v.tfm
 INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/uptex-fonts/jis/upjisr-h.tfm
 INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmr17.tfm
@@ -88,8 +88,7 @@ INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/uptex-fonts/jis/upjisr-h.tfm
 INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmr12.tfm
 INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmmi12.tfm
 INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmsy10.tfm
-INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmr12.tfm
-OUTPUT main().dvi
+OUTPUT main.dvi
 INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/uptex-fonts/jis/upjisr-v.tfm
 INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/uptex-fonts/jis/upjisr-h.tfm
 INPUT source/abstract.tex
@@ -97,6 +96,7 @@ INPUT source/abstract.tex
 INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/uptex-fonts/jis/upjisg-v.tfm
 INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/uptex-fonts/jis/upjisg-h.tfm
 INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
+<<<<<<< HEAD:卒論/main().fls
 INPUT main().toc
 INPUT main().toc
 INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/uptex-fonts/jis/upjisg-v.tfm
@@ -108,15 +108,26 @@ INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmmi8.tfm
 INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmsy10.tfm
 INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmsy8.tfm
 OUTPUT main().toc
+=======
+INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmr12.tfm
+INPUT main.toc
+OUTPUT main.toc
+>>>>>>> 154eb30b72f4b4d89a4ae8eedc39c8663e896d8a:卒論/main.fls
 INPUT source/first.tex
 INPUT source/first.tex
 INPUT source/lti.tex
 INPUT source/lti.tex
-INPUT img/LTIgaiyou.png
-INPUT extractbb -B cropbox -O img/LTIgaiyou.png
+INPUT img/LTIstart.png
+INPUT extractbb -B cropbox -O img/LTIstart.png
 INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
 INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/uptex-fonts/jis/upjisg-v.tfm
 INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/uptex-fonts/jis/upjisg-h.tfm
+<<<<<<< HEAD:卒論/main().fls
+=======
+INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm
+INPUT img/score.png
+INPUT extractbb -B cropbox -O img/score.png
+>>>>>>> 154eb30b72f4b4d89a4ae8eedc39c8663e896d8a:卒論/main.fls
 INPUT source/OAuth.tex
 INPUT source/OAuth.tex
 INPUT source/function.tex
@@ -141,19 +152,11 @@ INPUT source/experiment.tex
 INPUT source/experiment.tex
 INPUT img/moodleSet.png
 INPUT extractbb -B cropbox -O img/moodleSet.png
-INPUT img/LTIstart.png
-INPUT extractbb -B cropbox -O img/LTIstart.png
-INPUT img/Canvas.png
-INPUT extractbb -B cropbox -O img/Canvas.png
-INPUT img/XML.png
-INPUT extractbb -B cropbox -O img/XML.png
-INPUT img/score.png
-INPUT extractbb -B cropbox -O img/score.png
 INPUT source/summary.tex
 INPUT source/summary.tex
 INPUT source/thanks.tex
 INPUT source/thanks.tex
 INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmtt10.tfm
-INPUT main().aux
-INPUT ./main().out
-INPUT ./main().out
+INPUT main.aux
+INPUT ./main.out
+INPUT ./main.out
