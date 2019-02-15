@@ -1,19 +1,21 @@
 \label{tag:LTI}
 LTI(Learning Tools IterOperability)とは、異なるプラットフォーム間における学習支援ツールの相互運用を可能にするための規格[3]であり、ツール間の通信プロトコルはHTTP上でのメッセージ交換として実装されている。\\
-%LTIに準拠することの具体的なイメージとして、次のケースを想定することができる（後日詳しい図を入れる）
+LTIに準拠することの具体的なイメージとして、次のケースを想定することができる
+
+\begin{figure}[htbp]
+  \begin{center}
+    \resizebox{\textwidth}{!}{\includegraphics{img/LTIgaiyou.png}}
+    %\includegraphics[clip,width=12.0cm,height=8.0cm]{img/LTIstart.png}
+    \caption{LTI具体的なイメージ}
+    \label{fig:LTI gaiyou}
+  \end{center}
+\end{figure}
 
 LTIでは、ユーザ情報や課題の進行状況を直接管理するLMSをツールコンシューマと呼ぶ。
 標準機能としてLTIに対応しているLMSとして、Canvas, Moodle, Sakai, Blackboardなどがある。
 一方、個別の具体的な問題や教材を提供するプラットフォームをツールプロバイダと呼ぶ。LTIに準拠したツールプロバイダを実装すれば、LTIに対応した複数のLMSからツールを実行することが可能となる。
 これはツールをプラグインとして実装するのに比べてソフトウェア開発効率の面で極めて有利である。\\
-\begin{figure}[htbp]
-  \begin{center}
-    \resizebox{\textwidth}{!}{\includegraphics{img/LTIstart.png}}
-    %\includegraphics[clip,width=12.0cm,height=8.0cm]{img/LTIstart.png}
-    \caption{moodle 外部ツール起動}
-    \label{fig:moodle kidou}
-  \end{center}
-\end{figure}
+
 ユーザーとツールコンシューマ間では、ユーザーIDとPWを用いて認証を行う。しかし、ユーザーがツールコンシューマでツールプロバイダを使用する際は、IDとPWを再度入力せずに使用することができ、ユーザーからはLMSの機能の一部かのようにして見える。
 これがLTIの利点であり、この認証を省くためにOAuthと呼ばれるプロトコルが使われている。
 \subsection{OAuth}

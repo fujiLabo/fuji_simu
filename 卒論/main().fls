@@ -112,8 +112,8 @@ INPUT source/first.tex
 INPUT source/first.tex
 INPUT source/lti.tex
 INPUT source/lti.tex
-INPUT img/LTIstart.png
-INPUT extractbb -B cropbox -O img/LTIstart.png
+INPUT img/LTIgaiyou.png
+INPUT extractbb -B cropbox -O img/LTIgaiyou.png
 INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
 INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/uptex-fonts/jis/upjisg-v.tfm
 INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/uptex-fonts/jis/upjisg-h.tfm
@@ -135,6 +135,10 @@ INPUT source/experiment.tex
 INPUT source/experiment.tex
 INPUT img/moodleSet.png
 INPUT extractbb -B cropbox -O img/moodleSet.png
+INPUT img/LTIstart.png
+INPUT extractbb -B cropbox -O img/LTIstart.png
+INPUT img/Canvas.png
+INPUT extractbb -B cropbox -O img/Canvas.png
 INPUT img/XML.png
 INPUT extractbb -B cropbox -O img/XML.png
 INPUT img/score.png

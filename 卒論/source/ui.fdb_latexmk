@@ -3,14 +3,14 @@
   "ui.dvi" 1547797249 1036 19e809a10ee85b45f869066d6f059824 "latex"
   (generated)
   "ui.pdf"
-["latex"] 1548144586 "ui.tex" "ui.dvi" "ui" 1548144587
+["latex"] 1548318581 "ui.tex" "ui.dvi" "ui" 1548318581
   "/usr/local/texlive/2018/texmf-dist/fonts/map/fontname/texfonts.map" 1511824771 3332 103109f5612ad95229751940c61aada0 ""
   "/usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm" 1480098701 1328 c834bbb027764024c09d3d2bf908b5f0 ""
   "/usr/local/texlive/2018/texmf-dist/web2c/texmf.cnf" 1522066949 33362 cf75436e19743e94a92a6b1b9183c434 ""
   "/usr/local/texlive/2018/texmf-var/web2c/euptex/uplatex.fmt" 1544692265 4470728 cfcd4deda4fe05114388c5e1b815449e ""
   "/usr/local/texlive/2018/texmf.cnf" 1523934483 577 0b39adfd7c93507ff20c9c14c2f1a33f ""
   "ui.aux" 1545013492 8 a94a2480d3289e625eea47cd1b285758 ""
-  "ui.tex" 1548144586 3625 016637aeb664cab7b86b9e52930d59ce ""
+  "ui.tex" 1548318581 3605 ac5ce4a9e747ffb610990211f56d57fc ""
   (generated)
   "ui.log"
   "ui.dvi"

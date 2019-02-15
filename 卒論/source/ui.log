@@ -1,4 +1,4 @@
-This is e-upTeX, Version 3.14159265-p3.8.0-u1.23-180226-2.6 (utf8.uptex) (TeX Live 2018) (preloaded format=uplatex 2018.12.13)  22 JAN 2019 17:09
+This is e-upTeX, Version 3.14159265-p3.8.0-u1.23-180226-2.6 (utf8.uptex) (TeX Live 2018) (preloaded format=uplatex 2018.12.13)  24 JAN 2019 17:29
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -406,7 +406,7 @@ Type  H <return>  for immediate help.
  ...                                              
                                                   
 l.8     \caption
-                {ネットワーク自己学習機能 UI(差し替えます)}
+                {ネットワーク自己学習機能 UI}
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
@@ -471,33 +471,8 @@ Overfull \hbox (9.6222pt too wide) in paragraph at lines 7--10
  []
 
 
-Overfull \hbox (24.62222pt too wide) in paragraph at lines 7--10
- \OT1/cmr/m/n/10 UI(\JY2/mc/m/n/10 差 
- []
-
-
-Overfull \hbox (9.6222pt too wide) in paragraph at lines 7--10
- \JY2/mc/m/n/10 し 
- []
-
-
-Overfull \hbox (9.6222pt too wide) in paragraph at lines 7--10
- \JY2/mc/m/n/10 替 
- []
-
-
-Overfull \hbox (9.6222pt too wide) in paragraph at lines 7--10
- \JY2/mc/m/n/10 え 
- []
-
-
-Overfull \hbox (9.6222pt too wide) in paragraph at lines 7--10
- \JY2/mc/m/n/10 ま 
- []
-
-
-Overfull \hbox (13.5111pt too wide) in paragraph at lines 7--10
- \JY2/mc/m/n/10 す\OT1/cmr/m/n/10 ) 
+Overfull \hbox (11.11113pt too wide) in paragraph at lines 7--10
+ \OT1/cmr/m/n/10 UI 
  []
 
 
@@ -579,7 +554,7 @@ LaTeX Warning: Reference `fig:simu' on page  undefined on input line 14.
 Here is how much of TeX's memory you used:
  10 strings out of 493270
  90 string characters out of 6145017
- 66050 words of memory out of 5000000
+ 66036 words of memory out of 5000000
  4049 multiletter control sequences out of 15000+600000
  6589 words of font info for 33 fonts, out of 8000000 for 9000
  929 hyphenation exceptions out of 8191
