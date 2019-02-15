@@ -5,14 +5,6 @@ LTIでは、ユーザ情報や課題の進行状況を直接管理するLMSを�
 標準機能としてLTIに対応しているLMSとして、Canvas, Moodle, Sakai, Blackboardなどがある。
 一方、個別の具体的な問題や教材を提供するプラットフォームをツールプロバイダと呼ぶ。LTIに準拠したツールプロバイダを実装すれば、LTIに対応した複数のLMSからツールを実行することが可能となる。
 これはツールをプラグインとして実装するのに比べてソフトウェア開発効率の面で極めて有利である。
-%
-%\begin{figure}[htbp]
-%  \begin{center}
-%    \includegraphics[scale=0.2]{img/LTIstart.png}
-%    \caption{moodle 外部ツール起動}
-%    \label{fig:moodle kidou}
-%  \end{center}
-%\end{figure}
 
 ユーザとツールコンシューマ間では、ユーザーIDとPWを用いて認証を行う。しかし、ユーザーがツールコンシューマでツールプロバイダを使用する際は、IDとPWを再度入力せずに使用することができる。\\
 これがLTIの利点であり、この認証を省くためにOAuthと呼ばれるプロトコルが使われている。
