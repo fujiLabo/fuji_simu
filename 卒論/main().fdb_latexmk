@@ -1,22 +1,26 @@
 # Fdb version 3
+<<<<<<< HEAD
 ["dvipdf"] 1548320400 "main().dvi" "main().pdf" "main()" 1548320403
   "main().dvi" 1548320400 55488 6c16d76ac99bdb4575a9961be70ef32d "latex"
   (generated)
   "main().pdf"
 ["latex"] 1548320398 "main().tex" "main().dvi" "main()" 1548320403
+=======
+["dvipdf"] 1550220630 "main().dvi" "main().pdf" "main()" 1550220633
+  "main().dvi" 1550220630 52000 b107dfaa9f998681957e4ced3570132f "latex"
+  (generated)
+  "main().pdf"
+["latex"] 1550220629 "main().tex" "main().dvi" "main()" 1550220633
+>>>>>>> 6d284f53d92d1a80e4e5f32f3ddeb35efb4fff39
   "/usr/local/texlive/2018/texmf-dist/fonts/map/fontname/texfonts.map" 1511824771 3332 103109f5612ad95229751940c61aada0 ""
   "/usr/local/texlive/2018/texmf-dist/fonts/tfm/public/ascmac/ascgrp.tfm" 1520635638 448 9a1f3a95c3a7e2681aa6eefcf410b7ac ""
   "/usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm" 1480098701 1328 c834bbb027764024c09d3d2bf908b5f0 ""
   "/usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm" 1480098701 1324 c910af8c371558dc20f2d7822f66fe64 ""
-  "/usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmmi10.tfm" 1480098701 1528 abec98dbc43e172678c11b3b9031252a ""
   "/usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmmi12.tfm" 1480098701 1524 4414a8315f39513458b80dfc63bff03a ""
-  "/usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmmi8.tfm" 1480098701 1520 eccf95517727cb11801f4f1aee3a21b4 ""
   "/usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmr10.tfm" 1480098701 1296 45809c5a464d5f32c8f98ba97c1bb47f ""
   "/usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmr12.tfm" 1480098701 1288 655e228510b4c2a1abe905c368440826 ""
   "/usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmr17.tfm" 1480098701 1292 296a67155bdbfc32aa9c636f21e91433 ""
-  "/usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmr8.tfm" 1480098701 1292 21c1c5bfeaebccffdb478fd231a0997d ""
   "/usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmsy10.tfm" 1480098701 1124 6c73e740cf17375f03eec0ee63599741 ""
-  "/usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmsy8.tfm" 1480098701 1120 8b7d695260f3cff42e636090a8002094 ""
   "/usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmtt10.tfm" 1480098701 768 1321e9409b4137d6fb428ac9dc956269 ""
   "/usr/local/texlive/2018/texmf-dist/fonts/tfm/uptex-fonts/jis/upjisg-h.tfm" 1522271273 812 52bd92aa20c58a398601cda6dd62c8d1 ""
   "/usr/local/texlive/2018/texmf-dist/fonts/tfm/uptex-fonts/jis/upjisg-v.tfm" 1522271273 536 5f2475e9deb198c23894800d3c5eed00 ""
@@ -60,6 +64,7 @@
   "extractbb -B cropbox -O img/moodleSet.png" 0 -1 0 ""
   "extractbb -B cropbox -O img/mvc.png" 0 -1 0 ""
   "extractbb -B cropbox -O img/score.png" 0 -1 0 ""
+<<<<<<< HEAD
   "extractbb -B cropbox -O img/simu.png" 0 -1 0 ""
   "extractbb -B cropbox -O img/system.png" 0 -1 0 ""
   "img/Canvas.png" 1548317090 207469 f3308bd5502ca9b0946e57a83372ac68 ""
@@ -91,3 +96,34 @@
   "main().dvi"
   "main().out"
   "main().log"
+=======
+  "extractbb -B cropbox -O img/simu2.png" 0 -1 0 ""
+  "extractbb -B cropbox -O img/system2.png" 0 -1 0 ""
+  "img/LTIstart.png" 1548139996 154338 1f548f2dcc96f2b2e9d2e5f0018549f8 ""
+  "img/moodleSet.png" 1545668403 154481 f00b896ad9e196f575f5f13a4b98d7d0 ""
+  "img/mvc.png" 1548139996 103322 e6c4b0935cda54618f38c5bc9964edf5 ""
+  "img/score.png" 1545730755 212985 11e60dc92ebe6a3392fff631acf25489 ""
+  "img/simu2.png" 1550217349 76477 ef11d8ec2bfc0f1438a17bf46b8f454e ""
+  "img/system2.png" 1550220172 94567 11046ecce0ec4d6be467864cd5b8da02 ""
+  "main().aux" 1550220630 4252 de51db627574cdd8fcd91d67f4ff1653 ""
+  "main().out" 1550220630 1201 7ad35db36500dfc5407f18979a0fb44b ""
+  "main().tex" 1550220624 3662 fbe4e0b5855aa503b3702600d2f1d28f ""
+  "main().toc" 1550220630 1453 a47389251de5dd47ef047a1c861a588c ""
+  "source/OAuth.tex" 1545707170 0 d41d8cd98f00b204e9800998ecf8427e ""
+  "source/abstract.tex" 1548139996 1945 0ed6ebb58dcf9fcd63d0762a29caa041 ""
+  "source/experiment.tex" 1548139996 1275 378abae0bc45b3e3431dbeb31931f59a ""
+  "source/first.tex" 1547799147 4930 bb236c053d627b6da089a6ea8f9f147b ""
+  "source/function.tex" 1550220239 2837 a6382d357f388642369715bff9176121 ""
+  "source/lti.tex" 1548139996 4227 dd3f16446bea35062a803e25d1c99f5d ""
+  "source/operation.tex" 1550219450 51 8f3708594df17918b5c591a0217eb866 ""
+  "source/rails.tex" 1548127286 1545 213195769b899c78ea47764b05c19eae ""
+  "source/summary.tex" 1545591615 2178 fefc9bdf188c6cf15f81dc4345707ada ""
+  "source/thanks.tex" 1545504322 379 1c920c2ab20c591227de9be75e3c6a81 ""
+  "source/ui.tex" 1550219387 3611 554d1c752a86a2a6bfda53cfb1180320 ""
+  (generated)
+  "main().dvi"
+  "main().log"
+  "main().out"
+  "main().toc"
+  "main().aux"
+>>>>>>> 6d284f53d92d1a80e4e5f32f3ddeb35efb4fff39
