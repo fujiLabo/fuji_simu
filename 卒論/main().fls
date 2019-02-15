@@ -131,8 +131,8 @@ INPUT img/mvc.png
 INPUT extractbb -B cropbox -O img/mvc.png
 INPUT source/ui.tex
 INPUT source/ui.tex
-INPUT img/simu.png
-INPUT extractbb -B cropbox -O img/simu.png
+INPUT img/simu2.png
+INPUT extractbb -B cropbox -O img/simu2.png
 INPUT source/experiment.tex
 INPUT source/experiment.tex
 INPUT img/moodleSet.png
