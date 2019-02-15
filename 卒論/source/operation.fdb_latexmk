@@ -1,0 +1,14 @@
+# Fdb version 3
+["dvipdf"] 0 "operation.dvi" "operation.pdf" "operation" 0
+  "operation.dvi" 0 -1 0 "latex"
+  (generated)
+  "operation.pdf"
+["latex"] 1550219450 "operation.tex" "operation.dvi" "operation" 1550219450
+  "/usr/local/texlive/2018/texmf-dist/web2c/texmf.cnf" 1522066949 33362 cf75436e19743e94a92a6b1b9183c434 ""
+  "/usr/local/texlive/2018/texmf-var/web2c/euptex/uplatex.fmt" 1543773687 4470727 b7f4572ee1ce76f6992df74be45da296 ""
+  "/usr/local/texlive/2018/texmf.cnf" 1523934483 577 0b39adfd7c93507ff20c9c14c2f1a33f ""
+  "operation.aux" 1550219450 8 a94a2480d3289e625eea47cd1b285758 ""
+  "operation.tex" 1550219450 51 8f3708594df17918b5c591a0217eb866 ""
+  (generated)
+  "operation.dvi"
+  "operation.log"

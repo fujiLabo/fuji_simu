@@ -1,0 +1,14 @@
+# Fdb version 3
+["dvipdf"] 1550219627 "bib.dvi" "bib.pdf" "bib" 1550219681
+  "bib.dvi" 1550219627 900 fe2b2cd58470db94798de750901514cf "latex"
+  (generated)
+  "bib.pdf"
+["latex"] 1550220373 "bib.tex" "bib.dvi" "bib" 1550220373
+  "/usr/local/texlive/2018/texmf-dist/web2c/texmf.cnf" 1522066949 33362 cf75436e19743e94a92a6b1b9183c434 ""
+  "/usr/local/texlive/2018/texmf-var/web2c/euptex/uplatex.fmt" 1543773687 4470727 b7f4572ee1ce76f6992df74be45da296 ""
+  "/usr/local/texlive/2018/texmf.cnf" 1523934483 577 0b39adfd7c93507ff20c9c14c2f1a33f ""
+  "bib.aux" 1550219603 8 a94a2480d3289e625eea47cd1b285758 ""
+  "bib.tex" 1550220372 1 68b329da9893e34099c7d8ad5cb9c940 ""
+  (generated)
+  "bib.dvi"
+  "bib.log"
