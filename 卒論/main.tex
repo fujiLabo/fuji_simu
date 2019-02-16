@@ -70,8 +70,9 @@
 \pagestyle{normal}
 % タイトル
 \maketitle
-\thispagestyle{normal}
+\thispagestyle{empty}
 \clearpage
+\addtocounter{page}{-1}
 
 
 %概要
@@ -85,6 +86,8 @@
 \clearpage
 
 %本文ここから
+
+\addtocounter{page}{-3}
 %はじめに
 \input{source/first}
 \clearpage

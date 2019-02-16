@@ -88,7 +88,6 @@ INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/uptex-fonts/jis/upjisr-h.tfm
 INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmr12.tfm
 INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmmi12.tfm
 INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmsy10.tfm
-INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmr12.tfm
 OUTPUT main.dvi
 INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/uptex-fonts/jis/upjisr-v.tfm
 INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/uptex-fonts/jis/upjisr-h.tfm
@@ -97,6 +96,7 @@ INPUT source/abstract.tex
 INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/uptex-fonts/jis/upjisg-v.tfm
 INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/uptex-fonts/jis/upjisg-h.tfm
 INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
+INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmr12.tfm
 INPUT main.toc
 INPUT main.toc
 INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/uptex-fonts/jis/upjisg-v.tfm
