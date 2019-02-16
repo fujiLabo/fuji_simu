@@ -1,0 +1,145 @@
+%本論
+
+\documentclass[11pt, a4paper]{jarticle}
+\usepackage[dvipdfmx]{graphicx}
+\usepackage[divpdfm]{graphicx}
+\usepackage[dvipdfmx]{hyperref}
+\usepackage{ascmac}
+\usepackage{listings}
+\usepackage{fancyhdr}
+\usepackage{pxjahyper}
+
+%余白設定
+\setlength{\textwidth}{455pt}
+\setlength{\hoffset}{5truemm}
+\addtolength{\textwidth}{-25truemm}
+
+%行間の倍率
+\renewcommand{\baselinestretch}{1.0}
+
+%maketitleの編集
+\makeatletter
+  \def\@maketitle{%
+    \clearpage\null
+    \begin{center}%
+      \vskip 10.0em
+      \let\footnote\thanks
+      {\LARGE \@title \par}%
+      \vskip 4.0em
+      {\Large
+        \lineskip 0.5em
+        \begin{tabular}[t]{c}%
+          \@author
+        \end{tabular}\par}%
+      \vskip 3.0em
+      {\Large \@date}%
+    \end{center}%
+    \par\vskip 0.5em
+    \ifvoid\@abstractbox\else\centerline{\box\@abstractbox}\vskip1.5em\fi
+  }
+\makeatother
+
+% ヘッダ情報
+\fancypagestyle{normal}{%
+    \lhead{}
+    \chead{\large 2018年度 情報システムデザイン学系卒業論文}
+    \rhead{}
+    \lfoot{}
+    \cfoot{\thepage}
+    \rfoot{}
+    \renewcommand{\headrulewidth}{0.5pt}
+}
+
+% タイトル情報
+\title{\LARGE 論文番号 fm2018-06\\ \Huge LTIに準拠したネットワーク\\自己学習機能の提案と実装}
+\author{15RD093 菅原 良太, 15RD150 沼田 悠貴\\ \\指導: 藤本 衡 准教授}
+\date{提出日: 2019年1月25日}
+\hypersetup{
+  pdfauthor={15RD093 菅原 良太, unko15RD150 沼田 悠貴},
+  pdftitle={LTIに準拠したネットワーク学習支援ソフトの開発},
+  pdfkeywords={},
+  pdfsubject={},
+  pdfcreator={},
+  pdflang={Japanese},
+  pdfborder={0 0 0},
+  colorlinks=false,
+}
+
+\begin{document}
+\pagestyle{normal}
+%タイトル
+\maketitle
+\thispagestyle{normal}
+\clearpage
+
+
+%概要
+\fontsize{11pt}{28pt}\selectfont
+\input{source/abstract}
+
+\clearpage
+
+%目次
+\tableofcontents
+\clearpage
+
+%本文ここから
+%はじめに
+\input{source/first}
+\clearpage
+
+%関連研究(いらんかも)
+%\input{source/relation}
+%\clearpage
+
+%LTIについて
+\section{LTI}
+\input{source/lti}
+%\input{source/sono1}
+%\input{source/sono2}
+%\input{source/sono3}
+\input{source/OAuth}
+\clearpage
+
+%システムについて
+\section{システム概要}
+%機能について
+\input{source/function}
+%Ruby on Rails について
+\input{source/rails}
+%UIについて
+\input{source/ui}
+%操作手順について
+\input{source/operation}
+\clearpage
+
+\section{実装実験}
+\input{source/experiment}
+\clearpage
+
+%まとめと課題
+\input{source/summary}
+\clearpage
+
+
+%謝辞
+\input{source/thanks}
+\clearpages
+
+
+%参考文献
+%key部分に文書中に参考文献として引用する際のラベル名を入れる
+\addcontentsline{toc}{section}{参考文献}
+\begin{thebibliography}{9999}
+  \bibitem{sendai} 魚本裕太,大須賀旭,中村優, "応答性を向上した
+IP ネットワーク個人学習システム", 2018.
+  \bibitem{kitazawa} 北澤友基, 井口信和, “クラウド環境を利用した IP ネットワーク構築演習支援システムの開発”, 情報処理学会第 74 回全国大会公演論文集, pp.891-892
+  \bibitem{moodle} ”Moodle - Open-source learning platform”, \texttt{<https://moodle.org/>},参照2018-12-22
+  \bibitem{canvas} “Canvas”, \texttt{<https://www.canvaslms.com/>},参照2018-12-22
+  \bibitem{key2} 村上幸生, "Basic LTI に準拠した 学習支援ツールの開発とその評価", 2012
+  \bibitem{lti} 「IMS Gloval HP」、\texttt{<https://www.imsglobal.org/specs/ltiomv1p0/specification>}、参照2018-12-22
+  \bibitem{ltiw}ウィキペディア OAuth、\texttt{<https://ja.wikipedia.org/wiki/OAuth>}、参照2018-12-22
+\end{thebibliography}
+
+
+\end{document}
