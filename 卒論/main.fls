@@ -98,6 +98,15 @@ INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/uptex-fonts/jis/upjisg-v.tfm
 INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/uptex-fonts/jis/upjisg-h.tfm
 INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
 INPUT main.toc
+INPUT main.toc
+INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/uptex-fonts/jis/upjisg-v.tfm
+INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/uptex-fonts/jis/upjisg-h.tfm
+INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm
+INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmr8.tfm
+INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmmi10.tfm
+INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmmi8.tfm
+INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmsy10.tfm
+INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmsy8.tfm
 OUTPUT main.toc
 INPUT source/first.tex
 INPUT source/first.tex
@@ -108,13 +117,10 @@ INPUT extractbb -B cropbox -O img/LTIgaiyou.png
 INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
 INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/uptex-fonts/jis/upjisg-v.tfm
 INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/uptex-fonts/jis/upjisg-h.tfm
-INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm
 INPUT source/OAuth.tex
 INPUT source/OAuth.tex
 INPUT source/function.tex
 INPUT source/function.tex
-INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/uptex-fonts/jis/upjisg-v.tfm
-INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/uptex-fonts/jis/upjisg-h.tfm
 INPUT img/system2.png
 INPUT extractbb -B cropbox -O img/system2.png
 INPUT source/rails.tex
@@ -125,3 +131,29 @@ INPUT source/ui.tex
 INPUT source/ui.tex
 INPUT img/simu2.png
 INPUT extractbb -B cropbox -O img/simu2.png
+INPUT img/operation01.png
+INPUT extractbb -B cropbox -O img/operation01.png
+INPUT img/operation02.png
+INPUT extractbb -B cropbox -O img/operation02.png
+INPUT img/operation03.png
+INPUT extractbb -B cropbox -O img/operation03.png
+INPUT source/experiment.tex
+INPUT source/experiment.tex
+INPUT img/moodleSet.png
+INPUT extractbb -B cropbox -O img/moodleSet.png
+INPUT img/LTIstart.png
+INPUT extractbb -B cropbox -O img/LTIstart.png
+INPUT img/Canvas.png
+INPUT extractbb -B cropbox -O img/Canvas.png
+INPUT img/XML.png
+INPUT extractbb -B cropbox -O img/XML.png
+INPUT img/score.png
+INPUT extractbb -B cropbox -O img/score.png
+INPUT source/summary.tex
+INPUT source/summary.tex
+INPUT source/thanks.tex
+INPUT source/thanks.tex
+INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmtt10.tfm
+INPUT main.aux
+INPUT ./main.out
+INPUT ./main.out

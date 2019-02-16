@@ -1,16 +1,16 @@
 # Fdb version 3
-["bibtex main"] 1550224583 "main.aux" "main.bbl" "main" 1550224583
+["bibtex main"] 1550324335 "main.aux" "main.bbl" "main" 1550324335
   "../biblio.bib" 0 -1 0 ""
   "junsrt.bst" 0 -1 0 ""
   "main.aux" 1550223926 5641 7569975b0ab81d9d7ff1d676a94a4e4a ""
   (generated)
   "main.blg"
   "main.bbl"
-["dvipdf"] 1550223927 "main.dvi" "main.pdf" "main" 1550224583
+["dvipdf"] 1550223927 "main.dvi" "main.pdf" "main" 1550324335
   "main.dvi" 1550223926 72744 7d957a141da0347e9c15f660207be3f2 "latex"
   (generated)
   "main.pdf"
-["latex"] 1550223924 "main.tex" "main.dvi" "main" 1550224583
+["latex"] 1550223924 "main.tex" "main.dvi" "main" 1550324335
   "/usr/local/texlive/2018/texmf-dist/fonts/map/fontname/texfonts.map" 1511824771 3332 103109f5612ad95229751940c61aada0 ""
   "/usr/local/texlive/2018/texmf-dist/fonts/tfm/public/ascmac/ascgrp.tfm" 1520635638 448 9a1f3a95c3a7e2681aa6eefcf410b7ac ""
   "/usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm" 1480098701 1328 c834bbb027764024c09d3d2bf908b5f0 ""
@@ -87,7 +87,7 @@
   "main.aux" 1550223926 5641 7569975b0ab81d9d7ff1d676a94a4e4a ""
   "main.bbl" 0 -1 0 "bibtex main"
   "main.out" 1550223926 849 2b99547576cb4c4d96841d0b45a9e954 ""
-  "main.tex" 1550224583 2802 1a69b32d0848f00d9188361d633ee046 ""
+  "main.tex" 1550324334 2802 1a69b32d0848f00d9188361d633ee046 ""
   "main.toc" 1550223926 1415 dae4599ee32cf0216be9617628013c0d ""
   "source/WHIteBasE.tex" 1485528880 2497 cbe26364001e02c77e69e52cf08a1f74 ""
   "source/abstract.tex" 1543807681 1217 0291fea4b4bac4dd29a50d7e2ce66db3 ""
@@ -103,7 +103,7 @@
   "source/web.tex" 1485528880 2621 f124b8559026fb799a74ec7f1cb172ed ""
   (generated)
   "main.aux"
-  "main.dvi"
   "main.toc"
-  "main.out"
+  "main.dvi"
   "main.log"
+  "main.out"

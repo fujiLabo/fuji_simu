@@ -7,3 +7,4 @@ INPUT ui.tex
 OUTPUT ui.log
 INPUT /usr/local/texlive/2018/texmf-dist/fonts/map/fontname/texfonts.map
 INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm
+OUTPUT ui.dvi
