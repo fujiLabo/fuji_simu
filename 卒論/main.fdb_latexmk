@@ -1,9 +1,9 @@
 # Fdb version 3
-["dvipdf"] 1550325627 "main.dvi" "main.pdf" "main" 1550325630
-  "main.dvi" 1550325627 59096 906f567c550d65be7dac4717c1017c9a "latex"
+["dvipdf"] 1550807615 "main.dvi" "main.pdf" "main" 1550807618
+  "main.dvi" 1550807615 59316 80dae011ad5e474cae6648769f4c0f5c "latex"
   (generated)
   "main.pdf"
-["latex"] 1550325625 "main.tex" "main.dvi" "main" 1550325630
+["latex"] 1550807613 "main.tex" "main.dvi" "main" 1550807618
   "/usr/local/texlive/2018/texmf-dist/fonts/map/fontname/texfonts.map" 1511824771 3332 103109f5612ad95229751940c61aada0 ""
   "/usr/local/texlive/2018/texmf-dist/fonts/tfm/public/ascmac/ascgrp.tfm" 1520635638 448 9a1f3a95c3a7e2681aa6eefcf410b7ac ""
   "/usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm" 1480098701 1328 c834bbb027764024c09d3d2bf908b5f0 ""
@@ -77,14 +77,14 @@
   "img/score.png" 1545730755 212985 11e60dc92ebe6a3392fff631acf25489 ""
   "img/simu2.png" 1550217349 76477 ef11d8ec2bfc0f1438a17bf46b8f454e ""
   "img/system2.png" 1550220172 94567 11046ecce0ec4d6be467864cd5b8da02 ""
-  "main.aux" 1550325627 5540 24a308b46195fb7d4a825f79bdebeb5d ""
-  "main.out" 1550325627 1271 ef68ad8153b56f1605116d563136f353 ""
-  "main.tex" 1550325622 3681 c4f33cf19982f36c38f1833d1be05695 ""
-  "main.toc" 1550325627 1532 92d676581e4b8726fd134157477e5cdb ""
+  "main.aux" 1550807615 5578 3336956de50e01b71ac0ccd252908286 ""
+  "main.out" 1550807615 1271 ef68ad8153b56f1605116d563136f353 ""
+  "main.tex" 1550807610 3681 c4f33cf19982f36c38f1833d1be05695 ""
+  "main.toc" 1550807615 1532 92d676581e4b8726fd134157477e5cdb ""
   "source/OAuth.tex" 1545707170 0 d41d8cd98f00b204e9800998ecf8427e ""
   "source/abstract.tex" 1548139996 1945 0ed6ebb58dcf9fcd63d0762a29caa041 ""
   "source/experiment.tex" 1550222306 2898 c1e43362bba71e107c1fb9f56a4210c8 ""
-  "source/first.tex" 1547799147 4930 bb236c053d627b6da089a6ea8f9f147b ""
+  "source/first.tex" 1550807598 4952 8bb2bd1410b49fd564602eb563a72452 ""
   "source/function.tex" 1550225727 2837 a6382d357f388642369715bff9176121 ""
   "source/lti.tex" 1550222306 4337 5811814ded3dcee5df5741f91d83526b ""
   "source/rails.tex" 1550225133 1545 04186407af3ff5d46650df3f45e12bff ""
@@ -92,8 +92,8 @@
   "source/thanks.tex" 1545504322 379 1c920c2ab20c591227de9be75e3c6a81 ""
   "source/ui.tex" 1550324771 5539 9204a6016aea74bc63d01fe1d08e3215 ""
   (generated)
-  "main.aux"
   "main.dvi"
-  "main.log"
+  "main.aux"
   "main.toc"
+  "main.log"
   "main.out"
